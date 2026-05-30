@@ -18,7 +18,7 @@ export async function fetchPosts(): Promise<Post[]> {
   }
 
   try {
-    const res = await fetch(url, { cache: 'no-store' })
+    const res = await fetch(url, { next: { revalidate: 3600 } })
     if (!res.ok) throw new Error('スプレッドシートの取得に失敗しました')
     const text = await res.text()
 
