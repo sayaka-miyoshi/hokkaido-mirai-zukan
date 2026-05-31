@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumb from '@/components/Breadcrumb'
 import DataFetchAlert from '@/components/DataFetchAlert'
+import PostImage from '@/components/PostImage'
+import RecruitmentBadge from '@/components/RecruitmentBadge'
 import SiteHeader from '@/components/SiteHeader'
 import { createPageMetadata } from '@/lib/metadata'
 import {
@@ -15,6 +16,7 @@ import {
 } from '@/lib/queries'
 import { getAreaSlug } from '@/lib/slugs'
 import { getGenreBadgeClass } from '@/lib/genres'
+import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
 export const dynamic = 'force-dynamic'
@@ -74,24 +76,24 @@ export default async function PostPage({ params }: PageProps) {
               {post.genre}
             </span>
             <h1 className="text-2xl font-bold leading-tight">{post.title}</h1>
+            {post.recruitmentInfo.trim() && (
+              <div className="mt-3">
+                <RecruitmentBadge
+                  text={post.recruitmentInfo}
+                  className="text-xs px-3 py-1.5 rounded-full"
+                />
+              </div>
+            )}
             <p className="text-sm text-gray-500 mt-2">{post.date}</p>
           </header>
 
-          <div className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-6">
-            {post.imageUrl ? (
-              <Image
-                src={post.imageUrl}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-                unoptimized
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-300 text-6xl">
-                📸
-              </div>
-            )}
+          <div className="relative w-full aspect-video bg-hokkaido-ice rounded-2xl overflow-hidden mb-6">
+            <PostImage
+              src={post.imageUrl}
+              alt={post.title}
+              priority
+              sizes="(max-width: 768px) 100vw, 672px"
+            />
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-6">{post.description}</p>
@@ -168,7 +170,7 @@ export default async function PostPage({ params }: PageProps) {
         </article>
       </main>
       <footer className="text-center py-8 text-xs text-gray-400">
-        <p>© 2026 @insta.sayakans | 北海道未来図鑑</p>
+        <p>© 2026 {INSTAGRAM_HANDLE} | {SITE_NAME}</p>
       </footer>
     </div>
   )

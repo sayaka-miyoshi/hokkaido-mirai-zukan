@@ -1,28 +1,25 @@
 import Link from 'next/link'
+import { INSTAGRAM_URL, SITE_NAME, INSTAGRAM_HANDLE } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
 export default function SiteHeader() {
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
-      <div className="max-w-5xl mx-auto px-4 py-4 flex items-center gap-3">
-        <Link href={urls.home()} className="flex items-center gap-3">
-          <div className="instagram-gradient p-0.5 rounded-xl">
-            <div className="bg-white rounded-[10px] p-1.5">
-              <span className="text-2xl">🏫</span>
-            </div>
-          </div>
-          <div>
-            <h1 className="text-lg font-bold leading-tight">北海道未来図鑑</h1>
-            <p className="text-xs text-gray-400">@insta.sayakans</p>
+    <header className="sticky top-0 z-10 bg-hokkaido-hero text-white shadow-md">
+      <div className="max-w-lg mx-auto px-4 py-3 flex items-center gap-3">
+        <Link href={urls.home()} className="flex items-center gap-2 min-w-0">
+          <span className="text-xl shrink-0" aria-hidden="true">🗻</span>
+          <div className="min-w-0">
+            <p className="font-bold text-sm leading-tight truncate">{SITE_NAME}</p>
+            <p className="text-[10px] text-white/70">{INSTAGRAM_HANDLE}</p>
           </div>
         </Link>
         <a
-          href="https://www.instagram.com/insta.sayakans/"
+          href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-auto instagram-gradient text-white text-xs font-bold px-4 py-2 rounded-full"
+          className="ml-auto shrink-0 text-[11px] font-bold bg-white/15 hover:bg-white/25 px-3 py-1.5 rounded-full transition-colors"
         >
-          Instagramを見る
+          Instagram
         </a>
       </div>
     </header>

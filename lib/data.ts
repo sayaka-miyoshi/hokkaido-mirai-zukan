@@ -1,5 +1,5 @@
 import type { Post } from '@/types/post'
-import { POST_CSV_COLUMNS, POST_CSV_HEADERS } from '@/types/post'
+import { POST_CSV_FIELD_MAP, POST_CSV_HEADERS } from '@/types/post'
 import type { CsvColumnMap } from '@/lib/csv'
 
 export { POST_CSV_HEADERS }
@@ -8,68 +8,23 @@ function cell(row: string[], index: number): string {
   return row[index]?.trim() ?? ''
 }
 
-/** CSV行を Post に変換（列名マップ使用・列順不同OK） */
+/** CSV行を Post に変換（列名マップで取得・列順不同OK） */
 export function rowToPostByHeader(row: string[], map: CsvColumnMap, id = ''): Post {
-  return {
-    id,
-    title: cell(row, map['投稿タイトル']),
-    genre: cell(row, map['ジャンル']),
-    area: cell(row, map['エリア']),
-    schoolName: cell(row, map['学校名']),
-    clubName: cell(row, map['部活名']),
-    companyName: cell(row, map['企業名']),
-    videoCategory: cell(row, map['動画カテゴリ']),
-    careerCategory: cell(row, map['進路カテゴリ']),
-    recruitmentInfo: cell(row, map['募集情報']),
-    instagramUrl: cell(row, map['InstagramURL']),
-    imageUrl: cell(row, map['画像URL']),
-    description: cell(row, map['説明文']),
-    date: cell(row, map['投稿日']),
-    slug: cell(row, map['slug']),
+  const fields = { id } as Pick<Post, 'id'> & Omit<Post, 'id'>
+
+  for (const columnName of POST_CSV_HEADERS) {
+    const field = POST_CSV_FIELD_MAP[columnName]
+    fields[field] = cell(row, map[columnName])
   }
+
+  return fields as Post
 }
 
-/** CSV行（固定列順）をPostオブジェクトに変換（idは fetchPosts 側で付与） */
-export function rowToPost(row: string[], id = ''): Post {
-  const col = POST_CSV_COLUMNS
-  return {
-    id,
-    title: row[col.title] ?? '',
-    genre: row[col.genre] ?? '',
-    area: row[col.area] ?? '',
-    schoolName: row[col.schoolName] ?? '',
-    clubName: row[col.clubName] ?? '',
-    companyName: row[col.companyName] ?? '',
-    videoCategory: row[col.videoCategory] ?? '',
-    careerCategory: row[col.careerCategory] ?? '',
-    recruitmentInfo: row[col.recruitmentInfo] ?? '',
-    instagramUrl: row[col.instagramUrl] ?? '',
-    imageUrl: row[col.imageUrl] ?? '',
-    description: row[col.description] ?? '',
-    date: row[col.date] ?? '',
-    slug: row[col.slug] ?? '',
-  }
-}
-
-/** PostオブジェクトをCSV行に変換（スプレッドシート書き出し用） */
+/** PostオブジェクトをCSV行に変換（スプレッドシート書き出し用・列名順） */
 export function postToRow(post: Post): string[] {
-  return POST_CSV_HEADERS.map((header) => {
-    switch (header) {
-      case '投稿タイトル': return post.title
-      case 'ジャンル': return post.genre
-      case 'エリア': return post.area
-      case '学校名': return post.schoolName
-      case '部活名': return post.clubName
-      case '企業名': return post.companyName
-      case '動画カテゴリ': return post.videoCategory
-      case '進路カテゴリ': return post.careerCategory
-      case '募集情報': return post.recruitmentInfo
-      case 'InstagramURL': return post.instagramUrl
-      case '画像URL': return post.imageUrl
-      case '説明文': return post.description
-      case '投稿日': return post.date
-      case 'slug': return post.slug
-    }
+  return POST_CSV_HEADERS.map((columnName) => {
+    const field = POST_CSV_FIELD_MAP[columnName]
+    return post[field]
   })
 }
 

@@ -32,7 +32,7 @@ export interface Post {
   slug: string
 }
 
-/** Googleスプレッドシート1行目のヘッダー（列順固定） */
+/** スプレッドシート1行目の列名（順序は自由・追加列も可） */
 export const POST_CSV_HEADERS = [
   '投稿タイトル',
   'ジャンル',
@@ -50,23 +50,25 @@ export const POST_CSV_HEADERS = [
   'slug',
 ] as const
 
-/** CSV列インデックス（0始まり） */
-export const POST_CSV_COLUMNS = {
-  title: 0,
-  genre: 1,
-  area: 2,
-  schoolName: 3,
-  clubName: 4,
-  companyName: 5,
-  videoCategory: 6,
-  careerCategory: 7,
-  recruitmentInfo: 8,
-  instagramUrl: 9,
-  imageUrl: 10,
-  description: 11,
-  date: 12,
-  slug: 13,
-} as const
+export type PostCsvColumnName = (typeof POST_CSV_HEADERS)[number]
+
+/** 列名 → Postフィールド（CSV取得のキー定義） */
+export const POST_CSV_FIELD_MAP: Record<PostCsvColumnName, keyof Omit<Post, 'id'>> = {
+  '投稿タイトル': 'title',
+  'ジャンル': 'genre',
+  'エリア': 'area',
+  '学校名': 'schoolName',
+  '部活名': 'clubName',
+  '企業名': 'companyName',
+  '動画カテゴリ': 'videoCategory',
+  '進路カテゴリ': 'careerCategory',
+  '募集情報': 'recruitmentInfo',
+  'InstagramURL': 'instagramUrl',
+  '画像URL': 'imageUrl',
+  '説明文': 'description',
+  '投稿日': 'date',
+  'slug': 'slug',
+}
 
 /** キーワード検索対象フィールド */
 export const POST_SEARCH_FIELDS: (keyof Post)[] = [

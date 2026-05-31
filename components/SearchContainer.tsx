@@ -1,14 +1,20 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, type ReactNode } from 'react'
 import { POST_SEARCH_FIELDS } from '@/types/post'
 import type { Post } from '@/types/post'
 import type { DataSource } from '@/types/fetch-result'
-import { GENRES, GENRE_FILTER_STYLES } from '@/lib/genres'
+import { parsePostDate } from '@/lib/dates'
+import {
+  CATEGORY_FILTERS,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  POPULAR_AREAS,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from '@/lib/site'
 import DataFetchAlert from './DataFetchAlert'
 import PostCard from './PostCard'
-
-const AREAS = ['すべて', '札幌', '函館', '旭川', '釧路', '帯広', '北見', '小樽', '苫小牧', 'その他']
 
 type SearchContainerProps = {
   posts: Post[]
@@ -16,143 +22,309 @@ type SearchContainerProps = {
   dataError?: string
 }
 
+function SectionTitle({ icon, label, accent }: { icon: string; label: string; accent: string }) {
+  return (
+    <h2 className="text-sm font-bold text-hokkaido-deep mb-3 flex items-center gap-2">
+      <span className={`w-1 h-5 rounded-full ${accent}`} aria-hidden="true" />
+      <span aria-hidden="true">{icon}</span>
+      {label}
+    </h2>
+  )
+}
+
+function FilterChip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean
+  onClick: () => void
+  children: ReactNode
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-bold border transition-all active:scale-95
+        ${active
+          ? 'bg-hokkaido-deep text-white border-hokkaido-deep'
+          : 'bg-white text-gray-600 border-gray-200 hover:border-hokkaido-sky'
+        }`}
+    >
+      {children}
+    </button>
+  )
+}
+
 export default function SearchContainer({ posts, dataSource, dataError }: SearchContainerProps) {
   const [keyword, setKeyword] = useState('')
-  const [selectedArea, setSelectedArea] = useState('すべて')
-  const [selectedGenre, setSelectedGenre] = useState('すべて')
+  const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
+  const [selectedVideoCategory, setSelectedVideoCategory] = useState<string | null>(null)
+  const [selectedCareerCategory, setSelectedCareerCategory] = useState<string | null>(null)
+  const [selectedArea, setSelectedArea] = useState<string | null>(null)
+
+  const videoCategories = useMemo(
+    () => [...new Set(posts.map((p) => p.videoCategory).filter(Boolean))].sort(),
+    [posts],
+  )
+
+  const careerCategories = useMemo(
+    () => [...new Set(posts.map((p) => p.careerCategory).filter(Boolean))].sort(),
+    [posts],
+  )
+
+  const recruitmentCount = useMemo(
+    () => posts.filter((p) => p.recruitmentInfo.trim()).length,
+    [posts],
+  )
 
   const filtered = useMemo(() => {
-    return posts.filter((post) => {
-      const matchesKeyword =
-        keyword === '' ||
-        POST_SEARCH_FIELDS.some((field) => post[field].includes(keyword))
-      const matchesArea = selectedArea === 'すべて' || post.area === selectedArea
-      const matchesGenre = selectedGenre === 'すべて' || post.genre === selectedGenre
-      return matchesKeyword && matchesArea && matchesGenre
-    })
-  }, [posts, keyword, selectedArea, selectedGenre])
+    return posts
+      .filter((post) => {
+        const matchesKeyword =
+          keyword === '' ||
+          POST_SEARCH_FIELDS.some((field) => post[field].includes(keyword))
+        const matchesGenre = !selectedGenre || post.genre === selectedGenre
+        const matchesVideo =
+          !selectedVideoCategory || post.videoCategory === selectedVideoCategory
+        const matchesCareer =
+          !selectedCareerCategory || post.careerCategory === selectedCareerCategory
+        const matchesArea = !selectedArea || post.area === selectedArea
+        return matchesKeyword && matchesGenre && matchesVideo && matchesCareer && matchesArea
+      })
+      .sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
+  }, [posts, keyword, selectedGenre, selectedVideoCategory, selectedCareerCategory, selectedArea])
+
+  const hasActiveFilter =
+    keyword !== '' ||
+    selectedGenre ||
+    selectedVideoCategory ||
+    selectedCareerCategory ||
+    selectedArea
+
+  const clearFilters = () => {
+    setKeyword('')
+    setSelectedGenre(null)
+    setSelectedVideoCategory(null)
+    setSelectedCareerCategory(null)
+    setSelectedArea(null)
+  }
 
   return (
-    <div className="min-h-screen">
-      {/* ヘッダー */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center gap-3">
-          <div className="instagram-gradient p-0.5 rounded-xl">
-            <div className="bg-white rounded-[10px] p-1.5">
-              <span className="text-2xl">🏫</span>
+    <div className="min-h-screen flex flex-col bg-hokkaido-page">
+      {/* ヒーロー + 大きな検索バー */}
+      <header className="relative bg-hokkaido-hero text-white hokkaido-snow-pattern shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-hokkaido-deep/20 pointer-events-none" />
+        <div className="relative max-w-lg mx-auto px-4 pt-6 pb-8">
+          <div className="flex items-start justify-between gap-3 mb-5">
+            <div>
+              <p className="text-[11px] font-medium text-white/75 mb-1 tracking-wide">
+                ❄️ HOKKAIDO NAVI
+              </p>
+              <h1 className="text-xl font-bold leading-snug">{SITE_NAME}</h1>
+              <p className="text-xs text-white/80 mt-1.5 leading-relaxed">{SITE_TAGLINE}</p>
             </div>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 mt-1 text-[11px] font-bold bg-white/20 hover:bg-white/30 px-3 py-2 rounded-full backdrop-blur-sm transition-colors border border-white/20"
+            >
+              {INSTAGRAM_HANDLE}
+            </a>
           </div>
-          <div>
-            <h1 className="text-lg font-bold leading-tight">北海道未来図鑑</h1>
-            <p className="text-xs text-gray-400">@insta.sayakans</p>
+
+          {/* 大きな検索バー */}
+          <div className="relative">
+            <span
+              className="absolute left-5 top-1/2 -translate-y-1/2 text-xl text-gray-400"
+              aria-hidden="true"
+            >
+              🔍
+            </span>
+            <input
+              type="search"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              placeholder="学校名・部活名・企業名で検索..."
+              className="w-full pl-14 pr-12 py-4 rounded-2xl border-0 bg-white text-gray-800 shadow-xl text-base font-medium placeholder:text-gray-400 placeholder:font-normal focus:outline-none focus:ring-4 focus:ring-white/40"
+              aria-label="キーワード検索"
+            />
+            {keyword && (
+              <button
+                type="button"
+                onClick={() => setKeyword('')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200"
+                aria-label="検索をクリア"
+              >
+                ✕
+              </button>
+            )}
           </div>
-          <a
-            href="https://www.instagram.com/insta.sayakans/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-auto instagram-gradient text-white text-xs font-bold px-4 py-2 rounded-full"
-          >
-            Instagramを見る
-          </a>
+
+          {recruitmentCount > 0 && (
+            <p className="mt-3 text-center text-[11px] text-white/90">
+              📣 募集情報あり <span className="font-bold">{recruitmentCount}件</span>
+            </p>
+          )}
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-6">
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-6 space-y-7">
         <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
 
-        {/* キャッチコピー */}
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold">北海道未来図鑑</h2>
-          <p className="text-gray-500 text-sm mt-1">学校名・企業名・地域・競技名などで検索できます</p>
-        </div>
-
-        {/* 検索バー */}
-        <div className="relative mb-4">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
-          <input
-            type="text"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            placeholder="学校名・企業名・地域・競技名などで検索..."
-            className="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-200 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-300 text-sm"
-          />
-          {keyword && (
-            <button
-              onClick={() => setKeyword('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-            >
-              ✕
-            </button>
-          )}
-        </div>
-
-        {/* ジャンル絞り込み */}
-        <div className="mb-3">
-          <p className="text-xs font-bold text-gray-500 mb-2">ジャンル</p>
-          <div className="flex gap-2 flex-wrap">
-            {GENRES.map((genre) => {
-              const style = GENRE_FILTER_STYLES[genre]
+        {/* カテゴリボタン */}
+        <section aria-label="カテゴリ">
+          <SectionTitle icon="🏷️" label="カテゴリ" accent="bg-hokkaido-sky" />
+          <div className="grid grid-cols-3 gap-2.5">
+            {CATEGORY_FILTERS.map(({ emoji, label, genre }) => {
+              const active = selectedGenre === genre
               return (
                 <button
                   key={genre}
-                  onClick={() => setSelectedGenre(genre)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-bold border transition-all
-                    ${selectedGenre === genre
-                      ? style.active
-                      : `bg-white text-gray-600 border-gray-200 ${style.hover}`
+                  type="button"
+                  onClick={() => setSelectedGenre(active ? null : genre)}
+                  className={`flex flex-col items-center justify-center gap-2 min-h-[5.5rem] py-3 px-2 rounded-2xl border-2 font-bold text-sm transition-all active:scale-95
+                    ${active
+                      ? 'bg-hokkaido-deep text-white border-hokkaido-deep shadow-lg scale-[1.02]'
+                      : 'bg-white text-gray-700 border-white shadow-md hover:border-hokkaido-sky hover:shadow-lg'
                     }`}
                 >
-                  {genre}
+                  <span className="text-3xl leading-none" aria-hidden="true">{emoji}</span>
+                  <span>{label}</span>
                 </button>
               )
             })}
           </div>
-        </div>
+        </section>
 
-        {/* エリア絞り込み */}
-        <div className="mb-6">
-          <p className="text-xs font-bold text-gray-500 mb-2">エリア</p>
-          <div className="flex gap-2 flex-wrap">
-            {AREAS.map((area) => (
-              <button
-                key={area}
-                onClick={() => setSelectedArea(area)}
-                className={`px-4 py-1.5 rounded-full text-sm font-bold border transition-all
-                  ${selectedArea === area
-                    ? 'bg-purple-500 text-white border-purple-500'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-purple-300'
-                  }`}
-              >
-                {area}
-              </button>
-            ))}
+        {/* 人気エリア */}
+        <section aria-label="人気エリア">
+          <SectionTitle icon="📍" label="人気エリア" accent="bg-hokkaido-forest" />
+          <div className="grid grid-cols-2 gap-2.5">
+            {POPULAR_AREAS.map((area) => {
+              const active = selectedArea === area
+              const count = posts.filter((p) => p.area === area).length
+              return (
+                <button
+                  key={area}
+                  type="button"
+                  onClick={() => setSelectedArea(active ? null : area)}
+                  className={`flex items-center justify-between py-3.5 px-4 rounded-2xl font-bold text-sm border-2 transition-all active:scale-95
+                    ${active
+                      ? 'bg-hokkaido-lake text-white border-hokkaido-lake shadow-lg'
+                      : 'bg-white text-gray-700 border-white shadow-md hover:border-hokkaido-sky'
+                    }`}
+                >
+                  <span>{area}</span>
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${active ? 'bg-white/20' : 'bg-hokkaido-ice text-hokkaido-deep'}`}>
+                    {count}
+                  </span>
+                </button>
+              )
+            })}
           </div>
-        </div>
+        </section>
 
-        {/* 件数表示 */}
-        <p className="text-sm text-gray-500 mb-4">
-          全{posts.length}件中 {filtered.length}件を表示
-        </p>
-
-        {/* 投稿カード一覧 */}
-        {filtered.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {filtered.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 text-gray-400">
-            <p className="text-4xl mb-3">🔍</p>
-            <p className="font-bold">該当する投稿が見つかりませんでした</p>
-            <p className="text-sm mt-1">キーワードやエリアを変えてみてください</p>
-          </div>
+        {/* 詳細フィルター（折りたたみ） */}
+        {(videoCategories.length > 0 || careerCategories.length > 0) && (
+          <details className="group rounded-2xl bg-white/80 border border-hokkaido-ice shadow-sm overflow-hidden">
+            <summary className="px-4 py-3 text-xs font-bold text-hokkaido-deep cursor-pointer list-none flex items-center justify-between">
+              <span>🔎 もっと絞り込む</span>
+              <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div className="px-4 pb-4 space-y-4 border-t border-hokkaido-ice">
+              {videoCategories.length > 0 && (
+                <div>
+                  <p className="text-[10px] font-bold text-gray-500 mb-2">動画カテゴリ</p>
+                  <div className="flex gap-1.5 flex-wrap">
+                    {videoCategories.map((category) => (
+                      <FilterChip
+                        key={category}
+                        active={selectedVideoCategory === category}
+                        onClick={() =>
+                          setSelectedVideoCategory(
+                            selectedVideoCategory === category ? null : category,
+                          )
+                        }
+                      >
+                        {category}
+                      </FilterChip>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {careerCategories.length > 0 && (
+                <div>
+                  <p className="text-[10px] font-bold text-gray-500 mb-2">進路カテゴリ</p>
+                  <div className="flex gap-1.5 flex-wrap">
+                    {careerCategories.map((category) => (
+                      <FilterChip
+                        key={category}
+                        active={selectedCareerCategory === category}
+                        onClick={() =>
+                          setSelectedCareerCategory(
+                            selectedCareerCategory === category ? null : category,
+                          )
+                        }
+                      >
+                        {category}
+                      </FilterChip>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </details>
         )}
+
+        {/* 最新投稿 */}
+        <section aria-label="最新投稿">
+          <div className="flex items-center justify-between mb-1">
+            <SectionTitle icon="✨" label="最新投稿" accent="bg-hokkaido-lavender" />
+            {hasActiveFilter && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="text-xs text-hokkaido-sky font-bold hover:underline -mt-3"
+              >
+                クリア
+              </button>
+            )}
+          </div>
+
+          <p className="text-xs text-gray-500 mb-4">
+            全{posts.length}件中 <span className="font-bold text-hokkaido-deep">{filtered.length}件</span>を表示
+          </p>
+
+          {filtered.length > 0 ? (
+            <div className="grid grid-cols-2 gap-3">
+              {filtered.map((post) => (
+                <PostCard key={post.id} post={post} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 rounded-2xl bg-white border border-hokkaido-ice shadow-sm">
+              <p className="text-4xl mb-3" aria-hidden="true">🔍</p>
+              <p className="font-bold text-gray-600">該当する投稿が見つかりませんでした</p>
+              <p className="text-sm text-gray-400 mt-2">キーワードや条件を変えてみてください</p>
+              {hasActiveFilter && (
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="mt-4 text-sm font-bold text-hokkaido-sky hover:underline"
+                >
+                  すべて表示する
+                </button>
+              )}
+            </div>
+          )}
+        </section>
       </main>
 
-      {/* フッター */}
-      <footer className="text-center py-8 text-xs text-gray-400">
-        <p>© 2026 @insta.sayakans | 北海道未来図鑑</p>
+      <footer className="py-6 text-center text-xs text-gray-400 border-t border-hokkaido-ice bg-white/60">
+        <p>© 2026 {INSTAGRAM_HANDLE}</p>
+        <p className="mt-0.5">{SITE_NAME}</p>
       </footer>
     </div>
   )

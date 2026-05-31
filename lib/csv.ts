@@ -1,20 +1,30 @@
 import Papa from 'papaparse'
 import { rowToPostByHeader } from '@/lib/data'
-import { POST_CSV_HEADERS } from '@/types/post'
+import { POST_CSV_HEADERS, type PostCsvColumnName } from '@/types/post'
 import type { Post } from '@/types/post'
 
-export type CsvColumnMap = Record<(typeof POST_CSV_HEADERS)[number], number>
+/** 列名 → CSV行内 index */
+export type CsvColumnMap = Record<PostCsvColumnName, number>
 
 function normalizeHeader(header: string): string {
   return header.trim().replace(/^\uFEFF/, '')
 }
 
-/** 1行目のヘッダーから列名→インデックスのマップを生成 */
+/** 1行目のヘッダーから列名→インデックスのマップを生成（列順・追加列に非依存） */
 export function buildColumnMap(headers: string[]): { map: CsvColumnMap } | { error: string } {
   const normalized = headers.map(normalizeHeader)
 
   if (normalized.length === 0 || normalized.every((h) => !h)) {
     return { error: 'CSVにヘッダー行（1行目）がありません。' }
+  }
+
+  const seen = new Set<string>()
+  for (const name of normalized) {
+    if (!name) continue
+    if (seen.has(name)) {
+      return { error: `列名「${name}」が重複しています。1行目の列名は一意にしてください。` }
+    }
+    seen.add(name)
   }
 
   const missing = POST_CSV_HEADERS.filter((name) => !normalized.includes(name))
@@ -35,7 +45,7 @@ function isEmptyRow(row: string[]): boolean {
   return row.every((cell) => !cell?.trim())
 }
 
-/** CSVテキストを Post 配列に変換（列の順序は自由、列名で照合） */
+/** CSVテキストを Post 配列に変換（列名キーで取得・順序自由） */
 export function parsePostsCsv(text: string): { posts: Post[] } | { error: string; detail?: string } {
   const result = Papa.parse<string[]>(text, { skipEmptyLines: true })
 

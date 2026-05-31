@@ -1,23 +1,23 @@
 import type { Metadata } from 'next'
-
-const SITE_NAME = '北海道未来図鑑'
+import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 
 type PageMetadataParams = {
   title: string
-  description: string
+  description?: string
   path: string
 }
 
 /** 各ページの SEO メタデータ生成 */
 export function createPageMetadata({ title, description, path }: PageMetadataParams): Metadata {
   const fullTitle = `${title} | ${SITE_NAME}`
+  const desc = description ?? SITE_TAGLINE
 
   return {
     title: fullTitle,
-    description,
+    description: desc,
     openGraph: {
       title: fullTitle,
-      description,
+      description: desc,
       type: 'website',
       locale: 'ja_JP',
       siteName: SITE_NAME,
@@ -25,7 +25,7 @@ export function createPageMetadata({ title, description, path }: PageMetadataPar
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
-      description,
+      description: desc,
     },
     alternates: {
       canonical: path,

@@ -8,6 +8,7 @@ export const AREA_SLUG_MAP: Record<string, string> = {
   '北見': 'kitami',
   '小樽': 'otaru',
   '苫小牧': 'tomakomai',
+  '北海道江別市': 'ebetsu',
   'その他': 'other',
 }
 
@@ -15,6 +16,7 @@ export const AREA_NAME_BY_SLUG: Record<string, string> = Object.fromEntries(
   Object.entries(AREA_SLUG_MAP).map(([name, slug]) => [slug, name]),
 )
 
+/** エリア名からURLスラッグを生成（未登録エリアはそのまま返す） */
 export function getAreaSlug(area: string): string {
   return AREA_SLUG_MAP[area] ?? area
 }
@@ -23,6 +25,11 @@ export function getAreaName(slug: string): string | undefined {
   return AREA_NAME_BY_SLUG[slug]
 }
 
-export function isValidAreaSlug(slug: string): boolean {
+/** 投稿データからエリア名を逆引き */
+export function findAreaNameBySlug(slug: string, areas: string[]): string | undefined {
+  return areas.find((area) => getAreaSlug(area) === slug)
+}
+
+export function isKnownAreaSlug(slug: string): boolean {
   return slug in AREA_NAME_BY_SLUG
 }

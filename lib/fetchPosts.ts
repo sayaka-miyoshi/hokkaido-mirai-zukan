@@ -1,6 +1,7 @@
 import { cache } from 'react'
 import { DUMMY_POSTS } from '@/lib/data'
 import { normalizeSheetCsvUrl, parsePostsCsv } from '@/lib/csv'
+import { enrichPostsImages } from '@/lib/enrich-images'
 import type { FetchPostsResult } from '@/types/fetch-result'
 import type { Post } from '@/types/post'
 
@@ -16,7 +17,7 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
 
   if (!rawUrl) {
     return {
-      posts: DUMMY_POSTS,
+      posts: await enrichPostsImages(DUMMY_POSTS),
       source: 'dummy',
     }
   }
@@ -61,7 +62,7 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
     }
 
     return {
-      posts: parsed.posts,
+      posts: await enrichPostsImages(parsed.posts),
       source: 'sheet',
     }
   } catch (error) {

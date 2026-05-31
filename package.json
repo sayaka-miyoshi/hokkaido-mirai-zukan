@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:csv": "node scripts/test-csv.mjs"
+    "test:csv": "node scripts/test-csv.mjs",
+    "verify": "node scripts/verify-app.mjs"
   },
   "dependencies": {
     "next": "^16.2.6",

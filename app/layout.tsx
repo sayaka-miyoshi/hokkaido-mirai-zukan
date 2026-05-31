@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '北海道未来図鑑',
-  description: '北海道の学校・部活・企業訪問に関するInstagram投稿を検索できるサイトです。@insta.sayakans',
+  title: SITE_NAME,
+  description: SITE_TAGLINE,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body className="bg-hokkaido-page min-h-screen">{children}</body>
     </html>
   )
 }

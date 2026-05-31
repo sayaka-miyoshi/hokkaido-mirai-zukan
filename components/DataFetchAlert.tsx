@@ -53,7 +53,7 @@ export default function DataFetchAlert({ source, totalCount = 0, error }: DataFe
           </li>
           <li>スプレッドシートが「ウェブに公開」されているか（列追加後は再公開が必要な場合があります）</li>
           <li>
-            1行目に次の列名がすべて含まれているか（順序は問いません）:
+            1行目に次の列名がすべて含まれているか（順序は自由・追加列も可）:
             <br />
             <span className="text-[11px] leading-relaxed">{POST_CSV_HEADERS.join(' / ')}</span>
           </li>

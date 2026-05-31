@@ -3,6 +3,7 @@ import type { DataSource } from '@/types/fetch-result'
 import SiteHeader from './SiteHeader'
 import Breadcrumb from './Breadcrumb'
 import DataFetchAlert from './DataFetchAlert'
+import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
 type EntityPageLayoutProps = {
@@ -50,8 +51,8 @@ export default function EntityPageLayout({
         </header>
         {children}
       </main>
-      <footer className="text-center py-8 text-xs text-gray-400">
-        <p>© 2026 @insta.sayakans | 北海道未来図鑑</p>
+      <footer className="text-center py-8 text-xs text-gray-400 border-t border-hokkaido-ice">
+        <p>© 2026 {INSTAGRAM_HANDLE} | {SITE_NAME}</p>
       </footer>
     </div>
   )
