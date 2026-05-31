@@ -3,12 +3,64 @@ import { findAreaNameBySlug, getAreaName, getAreaSlug, isKnownAreaSlug } from '@
 import type { FetchPostsResult } from '@/types/fetch-result'
 import type { Post } from '@/types/post'
 
-/** 学校ページ用スラッグ（ジャンル「学校」の行のみ） */
+/** 複数 slug の共通プレフィックスから学校スラッグを推定 */
+function longestCommonSlugPrefix(slugs: string[]): string | undefined {
+  const valid = slugs.filter(Boolean)
+  if (valid.length === 0) return undefined
+
+  if (valid.length === 1) {
+    const parts = valid[0].split('-')
+    if (parts.length >= 3) return parts.slice(0, -1).join('-')
+    return valid[0]
+  }
+
+  const split = valid.map((s) => s.split('-'))
+  const minLen = Math.min(...split.map((p) => p.length))
+  let i = 0
+  while (i < minLen && split.every((p) => p[i] === split[0][i])) i++
+  if (i === 0) return undefined
+  return split[0].slice(0, i).join('-')
+}
+
+/** 学校ページ用スラッグ（学校紹介行優先、なければ部活等の slug から推定） */
 function resolveSchoolSlug(posts: Post[], schoolName: string): string | undefined {
   const schoolPost = posts.find(
     (p) => p.schoolName === schoolName && p.genre === '学校' && p.slug,
   )
-  return schoolPost?.slug
+  if (schoolPost?.slug) return schoolPost.slug
+
+  const relatedSlugs = [
+    ...new Set(
+      posts
+        .filter((p) => p.schoolName === schoolName && p.slug)
+        .map((p) => p.slug),
+    ),
+  ]
+  return longestCommonSlugPrefix(relatedSlugs)
+}
+
+function getRelatedClubsForSchool(
+  posts: Post[],
+  schoolName: string,
+): { name: string; slug: string }[] {
+  const clubNames = [
+    ...new Set(
+      posts
+        .filter((p) => p.schoolName === schoolName && p.clubName.trim())
+        .map((p) => p.clubName),
+    ),
+  ]
+
+  return clubNames.flatMap((name) => {
+    const slug = resolveClubSlug(posts, name)
+    return slug ? [{ name, slug }] : []
+  })
+}
+
+export type SchoolPageResult = {
+  name: string
+  posts: Post[]
+  clubs: { name: string; slug: string }[]
 }
 
 /** 部活ページ用スラッグ（ジャンル「部活」優先、部活名+slug 行も対象） */
@@ -58,7 +110,7 @@ export async function getPostsByAreaSlug(
 
 export async function getPostsBySchoolSlug(
   slug: string,
-): Promise<{ name: string; posts: Post[] } | undefined> {
+): Promise<SchoolPageResult | undefined> {
   const posts = await getAllPosts()
   const schoolNames = [...new Set(posts.map((p) => p.schoolName).filter(Boolean))]
   const schoolName = schoolNames.find((name) => resolveSchoolSlug(posts, name) === slug)
@@ -66,6 +118,7 @@ export async function getPostsBySchoolSlug(
   return {
     name: schoolName,
     posts: posts.filter((post) => post.schoolName === schoolName),
+    clubs: getRelatedClubsForSchool(posts, schoolName),
   }
 }
 

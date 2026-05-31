@@ -47,8 +47,29 @@ function parsePosts(text) {
     }))
 }
 
+function longestCommonSlugPrefix(slugs) {
+  const valid = slugs.filter(Boolean)
+  if (valid.length === 0) return undefined
+  if (valid.length === 1) {
+    const parts = valid[0].split('-')
+    if (parts.length >= 3) return parts.slice(0, -1).join('-')
+    return valid[0]
+  }
+  const split = valid.map((s) => s.split('-'))
+  const minLen = Math.min(...split.map((p) => p.length))
+  let i = 0
+  while (i < minLen && split.every((p) => p[i] === split[0][i])) i++
+  if (i === 0) return undefined
+  return split[0].slice(0, i).join('-')
+}
+
 function resolveSchoolSlug(posts, schoolName) {
-  return posts.find((p) => p.schoolName === schoolName && p.genre === '学校' && p.slug)?.slug
+  const schoolPost = posts.find((p) => p.schoolName === schoolName && p.genre === '学校' && p.slug)
+  if (schoolPost?.slug) return schoolPost.slug
+  const relatedSlugs = [...new Set(
+    posts.filter((p) => p.schoolName === schoolName && p.slug).map((p) => p.slug),
+  )]
+  return longestCommonSlugPrefix(relatedSlugs)
 }
 
 function resolveClubSlug(posts, clubName) {
@@ -126,7 +147,15 @@ const companies = [...new Set(posts.map((p) => p.companyName).filter(Boolean))]
 
 for (const name of schools) {
   const slug = resolveSchoolSlug(posts, name)
-  console.log(slug ? `✅ /school/${slug} → ${name}` : `⚠️  /school/* なし → ${name}（ジャンル「学校」の行なし）`)
+  const clubCount = posts.filter((p) => p.schoolName === name && p.clubName).length
+  if (slug) {
+    console.log(`✅ /school/${slug} → ${name}`)
+  } else if (clubCount > 0) {
+    console.log(`❌ /school/* なし → ${name}（部活投稿 ${clubCount} 件あり・slug推定失敗）`)
+    failed++
+  } else {
+    console.log(`⚠️  /school/* なし → ${name}（学校名・部活名なし）`)
+  }
 }
 for (const name of clubs) {
   const slug = resolveClubSlug(posts, name)
