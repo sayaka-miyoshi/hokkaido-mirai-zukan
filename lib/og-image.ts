@@ -1,13 +1,23 @@
+import {
+  getImageUrlCandidates,
+  isInstagramPageUrl,
+  isLikelyDirectImageUrl,
+  normalizeImageUrl,
+} from '@/lib/image-url'
+
 /** 画像URL未取得時のデフォルト画像 */
 export const DEFAULT_POST_IMAGE = '/images/default-post.svg'
 
 const FETCH_TIMEOUT_MS = 8000
+const VERIFY_TIMEOUT_MS = 5000
 
 const OG_IMAGE_PATTERNS = [
   /property=["']og:image(?::secure_url)?["'][^>]*content=["']([^"']+)["']/i,
   /content=["']([^"']+)["'][^>]*property=["']og:image(?::secure_url)?["']/i,
   /name=["']twitter:image(?::src)?["'][^>]*content=["']([^"']+)["']/i,
   /"display_url"\s*:\s*"([^"]+)"/,
+  /"thumbnail_src"\s*:\s*"([^"]+)"/,
+  /"og_image_url"\s*:\s*"([^"]+)"/,
 ]
 
 function decodeHtmlEntities(value: string): string {
@@ -70,12 +80,76 @@ export async function fetchOgImageUrl(pageUrl: string): Promise<string | null> {
   }
 }
 
+/** 画像URLが取得可能か簡易チェック */
+export async function verifyImageUrl(url: string): Promise<boolean> {
+  if (url === DEFAULT_POST_IMAGE || url.startsWith('/')) return true
+
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), VERIFY_TIMEOUT_MS)
+
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      signal: controller.signal,
+      headers: {
+        Range: 'bytes=0-1023',
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      },
+      next: { revalidate: 3600 },
+    })
+
+    if (!res.ok && res.status !== 206) return false
+
+    const contentType = res.headers.get('content-type') ?? ''
+    if (contentType.startsWith('image/')) return true
+    if (contentType.includes('octet-stream')) return true
+
+    return isLikelyDirectImageUrl(url)
+  } catch {
+    return false
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+async function resolveDirectImageUrl(rawUrl: string): Promise<string | null> {
+  const candidates = getImageUrlCandidates(rawUrl)
+
+  for (const candidate of candidates) {
+    if (isInstagramPageUrl(candidate)) {
+      const og = await fetchOgImageUrl(candidate)
+      if (og) return og
+      continue
+    }
+
+    const normalized = normalizeImageUrl(candidate)
+    if (!normalized) continue
+
+    if (
+      normalized.includes('drive.google.com/uc') ||
+      normalized.includes('drive.google.com/thumbnail') ||
+      isLikelyDirectImageUrl(normalized) ||
+      normalized.startsWith('/')
+    ) {
+      return normalized
+    }
+
+    if (await verifyImageUrl(normalized)) return normalized
+  }
+
+  return null
+}
+
 /** 投稿の表示用画像URLを解決（画像URL → Instagram OG → デフォルト） */
 export async function resolvePostImageUrl(
   imageUrl: string,
   instagramUrl: string,
 ): Promise<string> {
-  if (imageUrl.trim()) return imageUrl.trim()
+  if (imageUrl.trim()) {
+    const resolved = await resolveDirectImageUrl(imageUrl)
+    if (resolved) return resolved
+  }
 
   if (instagramUrl.trim()) {
     const ogImage = await fetchOgImageUrl(instagramUrl.trim())

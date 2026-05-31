@@ -87,7 +87,7 @@ export default async function PostPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-2">{post.date}</p>
           </header>
 
-          <div className="relative w-full aspect-video bg-hokkaido-ice rounded-2xl overflow-hidden mb-6">
+          <div className="relative w-full aspect-video min-h-[180px] bg-hokkaido-ice rounded-2xl overflow-hidden mb-6">
             <PostImage
               src={post.imageUrl}
               alt={post.title}

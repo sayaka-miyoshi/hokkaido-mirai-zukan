@@ -13,6 +13,6 @@
   <path d="M0 320 L120 180 L200 260 L280 140 L400 280 L400 500 L0 500 Z" fill="url(#mountain)" opacity="0.85"/>
   <path d="M0 360 L160 240 L240 300 L360 200 L400 320 L400 500 L0 500 Z" fill="#1A4D7C" opacity="0.6"/>
   <ellipse cx="200" cy="420" rx="140" ry="30" fill="white" opacity="0.5"/>
-  <text x="200" y="400" text-anchor="middle" font-family="sans-serif" font-size="48">=û</text>
-  <text x="200" y="455" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">wS</text>
+  <text x="200" y="400" text-anchor="middle" font-family="sans-serif" font-size="48">&#127755;</text>
+  <text x="200" y="455" text-anchor="middle" font-family="sans-serif" font-size="14" fill="white" font-weight="bold">???</text>
 </svg>
