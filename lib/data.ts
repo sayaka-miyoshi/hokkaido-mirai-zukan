@@ -1,12 +1,39 @@
 import type { Post } from '@/types/post'
 import { POST_CSV_COLUMNS, POST_CSV_HEADERS } from '@/types/post'
+import type { CsvColumnMap } from '@/lib/csv'
 
 export { POST_CSV_HEADERS }
 
-/** CSV行（ヘッダー除く）をPostオブジェクトに変換 */
-export function rowToPost(row: string[]): Post {
+function cell(row: string[], index: number): string {
+  return row[index]?.trim() ?? ''
+}
+
+/** CSV行を Post に変換（列名マップ使用・列順不同OK） */
+export function rowToPostByHeader(row: string[], map: CsvColumnMap, id = ''): Post {
+  return {
+    id,
+    title: cell(row, map['投稿タイトル']),
+    genre: cell(row, map['ジャンル']),
+    area: cell(row, map['エリア']),
+    schoolName: cell(row, map['学校名']),
+    clubName: cell(row, map['部活名']),
+    companyName: cell(row, map['企業名']),
+    videoCategory: cell(row, map['動画カテゴリ']),
+    careerCategory: cell(row, map['進路カテゴリ']),
+    recruitmentInfo: cell(row, map['募集情報']),
+    instagramUrl: cell(row, map['InstagramURL']),
+    imageUrl: cell(row, map['画像URL']),
+    description: cell(row, map['説明文']),
+    date: cell(row, map['投稿日']),
+    slug: cell(row, map['slug']),
+  }
+}
+
+/** CSV行（固定列順）をPostオブジェクトに変換（idは fetchPosts 側で付与） */
+export function rowToPost(row: string[], id = ''): Post {
   const col = POST_CSV_COLUMNS
   return {
+    id,
     title: row[col.title] ?? '',
     genre: row[col.genre] ?? '',
     area: row[col.area] ?? '',
@@ -20,6 +47,7 @@ export function rowToPost(row: string[]): Post {
     imageUrl: row[col.imageUrl] ?? '',
     description: row[col.description] ?? '',
     date: row[col.date] ?? '',
+    slug: row[col.slug] ?? '',
   }
 }
 
@@ -40,6 +68,7 @@ export function postToRow(post: Post): string[] {
       case '画像URL': return post.imageUrl
       case '説明文': return post.description
       case '投稿日': return post.date
+      case 'slug': return post.slug
     }
   })
 }
@@ -47,6 +76,7 @@ export function postToRow(post: Post): string[] {
 /** 開発・CSV未設定時のダミーデータ（20件） */
 export const DUMMY_POSTS: Post[] = [
   {
+    id: '1',
     title: '札幌南高校 吹奏楽部の日常',
     genre: '部活',
     area: '札幌',
@@ -60,8 +90,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/sapporo01/400/400',
     description: 'コンクールに向けて練習に励む吹奏楽部の姿を紹介します。',
     date: '2026/01/15',
+    slug: 'brass-band',
   },
   {
+    id: '2',
     title: '旭川永嶺高校 サッカー部 全国大会出場',
     genre: '部活',
     area: '旭川',
@@ -75,8 +107,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/asahikawa02/400/400',
     description: '北海道大会優勝！全国大会出場を果たしたサッカー部の活躍。',
     date: '2026/01/20',
+    slug: 'soccer',
   },
   {
+    id: '3',
     title: '函館ラ・サール高校 探究学習の取り組み',
     genre: '学校',
     area: '函館',
@@ -90,8 +124,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/hakodate03/400/400',
     description: '地域課題に取り組む探究学習プログラムをご紹介。',
     date: '2026/02/01',
+    slug: 'hakodate-lasalle',
   },
   {
+    id: '4',
     title: 'キリンビール 函館工場見学',
     genre: '企業訪問',
     area: '函館',
@@ -105,8 +141,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/kirin04/400/400',
     description: 'ビール醸造の工程と品質管理の現場を見学しました。',
     date: '2026/02/05',
+    slug: 'kirin-beer',
   },
   {
+    id: '5',
     title: '釧路鶴野高校 バスケットボール部',
     genre: '部活',
     area: '釧路',
@@ -120,8 +158,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/kushiro05/400/400',
     description: '朝練から始まるバスケ部の一日に密着。',
     date: '2026/02/10',
+    slug: 'basketball',
   },
   {
+    id: '6',
     title: '帯広柏葉高校 農業科の実習風景',
     genre: '学校',
     area: '帯広',
@@ -135,8 +175,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/obihiro06/400/400',
     description: '十勝の大地で学ぶ農業科の実習と研究活動。',
     date: '2026/02/15',
+    slug: 'obihiro-hakuyo',
   },
   {
+    id: '7',
     title: '日本ハム 帯広工場 見学レポート',
     genre: '企業訪問',
     area: '帯広',
@@ -150,8 +192,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/nipponham07/400/400',
     description: 'ハム・ソーセージ製造ラインと品質検査の現場。',
     date: '2026/02/20',
+    slug: 'nippon-ham',
   },
   {
+    id: '8',
     title: '北見藤高校 科学部 ロケットプロジェクト',
     genre: '部活',
     area: '北見',
@@ -165,8 +209,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/kitami08/400/400',
     description: '自作ロケットの設計から打ち上げまでの挑戦記。',
     date: '2026/03/01',
+    slug: 'science-club',
   },
   {
+    id: '9',
     title: '小樽商科大学附属高校 国際交流',
     genre: '学校',
     area: '小樽',
@@ -180,8 +226,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/otaru09/400/400',
     description: '海外姉妹校とのオンライン交流プログラム。',
     date: '2026/03/05',
+    slug: 'otaru-shodai',
   },
   {
+    id: '10',
     title: '苫小牧東高校 柔道部 インターハイ出場',
     genre: '部活',
     area: '苫小牧',
@@ -195,8 +243,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/tomakomai10/400/400',
     description: 'インターハイ出場を目指す柔道部の厳しい稽古風景。',
     date: '2026/03/10',
+    slug: 'judo',
   },
   {
+    id: '11',
     title: '北海道電力 苫小牧火力発電所',
     genre: '企業訪問',
     area: '苫小牧',
@@ -210,8 +260,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/hepco11/400/400',
     description: '地域の電力を支える火力発電所の見学記。',
     date: '2026/03/15',
+    slug: 'hepco',
   },
   {
+    id: '12',
     title: '札幌北高校 美術部 卒業制作展',
     genre: '部活',
     area: '札幌',
@@ -225,8 +277,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/sapporokita12/400/400',
     description: '卒業制作展に出品された作品の数々を紹介。',
     date: '2026/03/20',
+    slug: 'art-club',
   },
   {
+    id: '13',
     title: '札幌大学附属高校 進路支援プログラム',
     genre: '学校',
     area: '札幌',
@@ -240,8 +294,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/sapporodai13/400/400',
     description: '大学進学に向けた個別面談とキャリア教育。',
     date: '2026/03/25',
+    slug: 'sapporo-university',
   },
   {
+    id: '14',
     title: 'ソフトバンク 札幌オフィス見学',
     genre: '企業訪問',
     area: '札幌',
@@ -255,8 +311,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/softbank14/400/400',
     description: '5GやAIの最新技術を体験できるオフィスツアー。',
     date: '2026/04/01',
+    slug: 'softbank',
   },
   {
+    id: '15',
     title: '旭川龍谷高校 バレーボール部',
     genre: '部活',
     area: '旭川',
@@ -270,8 +328,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/asahikawaryu15/400/400',
     description: 'チームワークを大切にするバレー部の練習風景。',
     date: '2026/04/05',
+    slug: 'volleyball',
   },
   {
+    id: '16',
     title: '旭川医療大学 看護学科見学',
     genre: '企業訪問',
     area: '旭川',
@@ -285,8 +345,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/asahikawa-med16/400/400',
     description: 'シミュレーション室での看護実習体験。',
     date: '2026/04/10',
+    slug: 'asahikawa-med',
   },
   {
+    id: '17',
     title: '釧路江南高校 茶道部 文化祭',
     genre: '部活',
     area: '釧路',
@@ -300,8 +362,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/kushiro17/400/400',
     description: '文化祭でお茶席を開催した茶道部の様子。',
     date: '2026/04/15',
+    slug: 'sado-club',
   },
   {
+    id: '18',
     title: '帯広三条高校 馬術部 十勝の草原',
     genre: '部活',
     area: '帯広',
@@ -315,8 +379,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/obihiro18/400/400',
     description: '十勝の大自然で馬と向き合う馬術部の活動。',
     date: '2026/04/20',
+    slug: 'equestrian',
   },
   {
+    id: '19',
     title: 'ロイズ 北見チョコレート工場',
     genre: '企業訪問',
     area: '北見',
@@ -330,8 +396,10 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/royce19/400/400',
     description: 'チョコレート製造工程と品質管理の見学ツアー。',
     date: '2026/04/25',
+    slug: 'royce',
   },
   {
+    id: '20',
     title: '小樽潮陵高校 合唱部 全国コンクール',
     genre: '部活',
     area: '小樽',
@@ -345,5 +413,6 @@ export const DUMMY_POSTS: Post[] = [
     imageUrl: 'https://picsum.photos/seed/otarucho20/400/400',
     description: '全国コンクール出場を目指す合唱部のハーモニー。',
     date: '2026/05/01',
+    slug: 'chorus',
   },
 ]

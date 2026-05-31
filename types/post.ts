@@ -1,5 +1,7 @@
 /** 投稿データ（GoogleスプレッドシートCSVと1:1対応） */
 export interface Post {
+  /** 投稿ID（/post/[id] 用。CSV未設定時は取得順で付与） */
+  id: string
   /** 投稿タイトル */
   title: string
   /** ジャンル */
@@ -26,6 +28,8 @@ export interface Post {
   description: string
   /** 投稿日 */
   date: string
+  /** URL用スラッグ（学校・部活・企業ページ生成に利用） */
+  slug: string
 }
 
 /** Googleスプレッドシート1行目のヘッダー（列順固定） */
@@ -43,6 +47,7 @@ export const POST_CSV_HEADERS = [
   '画像URL',
   '説明文',
   '投稿日',
+  'slug',
 ] as const
 
 /** CSV列インデックス（0始まり） */
@@ -60,6 +65,7 @@ export const POST_CSV_COLUMNS = {
   imageUrl: 10,
   description: 11,
   date: 12,
+  slug: 13,
 } as const
 
 /** キーワード検索対象フィールド */

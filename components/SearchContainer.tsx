@@ -3,12 +3,20 @@
 import { useState, useMemo } from 'react'
 import { POST_SEARCH_FIELDS } from '@/types/post'
 import type { Post } from '@/types/post'
+import type { DataSource } from '@/types/fetch-result'
 import { GENRES, GENRE_FILTER_STYLES } from '@/lib/genres'
+import DataFetchAlert from './DataFetchAlert'
 import PostCard from './PostCard'
 
 const AREAS = ['すべて', '札幌', '函館', '旭川', '釧路', '帯広', '北見', '小樽', '苫小牧', 'その他']
 
-export default function SearchContainer({ posts }: { posts: Post[] }) {
+type SearchContainerProps = {
+  posts: Post[]
+  dataSource: DataSource
+  dataError?: string
+}
+
+export default function SearchContainer({ posts, dataSource, dataError }: SearchContainerProps) {
   const [keyword, setKeyword] = useState('')
   const [selectedArea, setSelectedArea] = useState('すべて')
   const [selectedGenre, setSelectedGenre] = useState('すべて')
@@ -50,6 +58,8 @@ export default function SearchContainer({ posts }: { posts: Post[] }) {
       </header>
 
       <main className="max-w-5xl mx-auto px-4 py-6">
+        <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
+
         {/* キャッチコピー */}
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold">北海道未来図鑑</h2>
@@ -121,14 +131,14 @@ export default function SearchContainer({ posts }: { posts: Post[] }) {
 
         {/* 件数表示 */}
         <p className="text-sm text-gray-500 mb-4">
-          {filtered.length}件見つかりました
+          全{posts.length}件中 {filtered.length}件を表示
         </p>
 
         {/* 投稿カード一覧 */}
         {filtered.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {filtered.map((post, i) => (
-              <PostCard key={i} post={post} />
+            {filtered.map((post) => (
+              <PostCard key={post.id} post={post} />
             ))}
           </div>
         ) : (
