@@ -1,20 +1,14 @@
 import Papa from 'papaparse'
+import { DUMMY_POSTS, rowToPost } from '@/lib/data'
+import type { Post } from '@/types/post'
 
-export interface Post {
-  title: string
-  genre: string
-  area: string
-  instagramUrl: string
-  imageUrl: string
-  date: string
-  description: string
-}
+export type { Post }
 
 export async function fetchPosts(): Promise<Post[]> {
   const url = process.env.NEXT_PUBLIC_SHEET_CSV_URL
   if (!url) {
-    console.warn('NEXT_PUBLIC_SHEET_CSV_URL が設定されていません')
-    return []
+    console.warn('NEXT_PUBLIC_SHEET_CSV_URL が設定されていません。ダミーデータを使用します。')
+    return DUMMY_POSTS
   }
 
   try {
@@ -25,17 +19,9 @@ export async function fetchPosts(): Promise<Post[]> {
     const result = Papa.parse<string[]>(text, { skipEmptyLines: true })
     const rows = result.data.slice(1) // 1行目はヘッダーなのでスキップ
 
-    return rows.map((row) => ({
-      title:        row[0] ?? '',
-      genre:        row[1] ?? '',
-      area:         row[2] ?? '',
-      instagramUrl: row[3] ?? '',
-      imageUrl:     row[4] ?? '',
-      date:         row[5] ?? '',
-      description:  row[6] ?? '',
-    }))
+    return rows.map(rowToPost)
   } catch (error) {
     console.error('データの取得エラー:', error)
-    return []
+    return DUMMY_POSTS
   }
 }

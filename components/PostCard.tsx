@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Post } from '@/lib/fetchPosts'
+import type { Post } from '@/types/post'
 import { getGenreBadgeClass } from '@/lib/genres'
 
 export default function PostCard({ post }: { post: Post }) {

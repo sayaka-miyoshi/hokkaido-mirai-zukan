@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Post } from '@/lib/fetchPosts'
+import { POST_SEARCH_FIELDS } from '@/types/post'
+import type { Post } from '@/types/post'
 import { GENRES, GENRE_FILTER_STYLES } from '@/lib/genres'
 import PostCard from './PostCard'
 
@@ -16,9 +17,7 @@ export default function SearchContainer({ posts }: { posts: Post[] }) {
     return posts.filter((post) => {
       const matchesKeyword =
         keyword === '' ||
-        post.title.includes(keyword) ||
-        post.description.includes(keyword) ||
-        post.area.includes(keyword)
+        POST_SEARCH_FIELDS.some((field) => post[field].includes(keyword))
       const matchesArea = selectedArea === 'すべて' || post.area === selectedArea
       const matchesGenre = selectedGenre === 'すべて' || post.genre === selectedGenre
       return matchesKeyword && matchesArea && matchesGenre
