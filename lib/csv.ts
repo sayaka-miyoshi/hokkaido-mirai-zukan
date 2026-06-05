@@ -1,17 +1,27 @@
 import Papa from 'papaparse'
 import { rowToPostByHeader } from '@/lib/data'
-import { POST_CSV_HEADERS, type PostCsvColumnName } from '@/types/post'
+import {
+  POST_OPTIONAL_CSV_HEADERS,
+  POST_REQUIRED_CSV_HEADERS,
+  type PostRequiredCsvColumnName,
+  type PostOptionalCsvColumnName,
+} from '@/types/post'
 import type { Post } from '@/types/post'
 
-/** 列名 → CSV行内 index */
-export type CsvColumnMap = Record<PostCsvColumnName, number>
+/** 必須列 → CSV行内 index */
+export type CsvColumnMap = Record<PostRequiredCsvColumnName, number>
+
+/** 任意列 → CSV行内 index（列が無い場合は undefined） */
+export type CsvOptionalColumnMap = Partial<Record<PostOptionalCsvColumnName, number>>
 
 function normalizeHeader(header: string): string {
   return header.trim().replace(/^\uFEFF/, '')
 }
 
 /** 1行目のヘッダーから列名→インデックスのマップを生成（列順・追加列に非依存） */
-export function buildColumnMap(headers: string[]): { map: CsvColumnMap } | { error: string } {
+export function buildColumnMap(
+  headers: string[],
+): { map: CsvColumnMap; optionalMap: CsvOptionalColumnMap } | { error: string } {
   const normalized = headers.map(normalizeHeader)
 
   if (normalized.length === 0 || normalized.every((h) => !h)) {
@@ -27,18 +37,38 @@ export function buildColumnMap(headers: string[]): { map: CsvColumnMap } | { err
     seen.add(name)
   }
 
-  const missing = POST_CSV_HEADERS.filter((name) => !normalized.includes(name))
+  const missing = POST_REQUIRED_CSV_HEADERS.filter((name) => !normalized.includes(name))
   if (missing.length > 0) {
     return {
-      error: `次の列が見つかりません: ${missing.join('、')}。1行目に上記の列名を追加してください。`,
+      error: `次の必須列が見つかりません: ${missing.join('、')}。1行目に上記の列名を追加してください。`,
     }
   }
 
   const map = Object.fromEntries(
-    POST_CSV_HEADERS.map((name) => [name, normalized.indexOf(name)]),
+    POST_REQUIRED_CSV_HEADERS.map((name) => [name, normalized.indexOf(name)]),
   ) as CsvColumnMap
 
-  return { map }
+  const optionalMap = Object.fromEntries(
+    POST_OPTIONAL_CSV_HEADERS.filter((name) => normalized.includes(name)).map((name) => [
+      name,
+      normalized.indexOf(name),
+    ]),
+  ) as CsvOptionalColumnMap
+
+  /** 旧列名（学校Instagram 等）→ 新列名（学校SNS 等）の互換 */
+  const SNS_LEGACY_COLUMNS: Partial<Record<PostOptionalCsvColumnName, string>> = {
+    学校SNS: '学校Instagram',
+    部活SNS: '部活Instagram',
+    企業SNS: '企業Instagram',
+  }
+  for (const [newName, legacyName] of Object.entries(SNS_LEGACY_COLUMNS)) {
+    const key = newName as PostOptionalCsvColumnName
+    if (optionalMap[key] == null && normalized.includes(legacyName)) {
+      optionalMap[key] = normalized.indexOf(legacyName)
+    }
+  }
+
+  return { map, optionalMap }
 }
 
 function isEmptyRow(row: string[]): boolean {
@@ -65,9 +95,13 @@ export function parsePostsCsv(text: string): { posts: Post[] } | { error: string
     return { error: columnResult.error }
   }
 
-  const rows = result.data.slice(1).filter((row) => !isEmptyRow(row))
+  const titleCol = columnResult.map['投稿タイトル']
+  const rows = result.data.slice(1).filter((row) => {
+    if (isEmptyRow(row)) return false
+    return Boolean(row[titleCol]?.trim())
+  })
   const posts = rows.map((row, index) =>
-    rowToPostByHeader(row, columnResult.map, String(index + 1)),
+    rowToPostByHeader(row, columnResult.map, columnResult.optionalMap, String(index + 1)),
   )
 
   return { posts }
@@ -92,4 +126,4 @@ export function normalizeSheetCsvUrl(url: string): string {
   return trimmed
 }
 
-export { POST_CSV_HEADERS }
+export { POST_REQUIRED_CSV_HEADERS, POST_OPTIONAL_CSV_HEADERS }

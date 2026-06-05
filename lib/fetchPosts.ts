@@ -2,6 +2,7 @@ import { cache } from 'react'
 import { DUMMY_POSTS } from '@/lib/data'
 import { normalizeSheetCsvUrl, parsePostsCsv } from '@/lib/csv'
 import { enrichPostsImages } from '@/lib/enrich-images'
+import { filterPublishedPosts } from '@/lib/publish-status'
 import type { FetchPostsResult } from '@/types/fetch-result'
 import type { Post } from '@/types/post'
 
@@ -11,13 +12,40 @@ export type { FetchPostsResult, DataSource } from '@/types/fetch-result'
 const FETCH_ERROR_MESSAGE =
   'スプレッドシートのデータを取得できませんでした。URL・公開設定・列名を確認してください。'
 
+const SCREENSHOT_SAMPLE_LINKS = {
+  schoolOfficialSite: 'https://www.hokudai.ac.jp',
+  schoolSns: 'https://www.instagram.com/hokkaido_university',
+  clubSns: 'https://www.instagram.com/example_club',
+  recruitmentInfoUrl: 'https://example.com/recruit',
+} as const
+
+/** スクリーンショット確認用（SCREENSHOT_SAMPLE_LINKS=1 のときのみ） */
+function applyScreenshotSampleLinks(posts: Post[]): Post[] {
+  if (process.env.SCREENSHOT_SAMPLE_LINKS !== '1') return posts
+
+  const targetIndex = posts.findIndex((post) => post.genre === '部活' || post.clubName.trim())
+  if (targetIndex === -1) return posts
+
+  return posts.map((post, index) =>
+    index === targetIndex
+      ? {
+          ...post,
+          ...SCREENSHOT_SAMPLE_LINKS,
+          recruitmentInfo: post.recruitmentInfo.trim() || '新入部員募集中',
+        }
+      : post,
+  )
+}
+
 /** リクエストごとに1回だけCSVを取得（React cache） */
 export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
   const rawUrl = process.env.NEXT_PUBLIC_SHEET_CSV_URL?.trim()
 
   if (!rawUrl) {
     return {
-      posts: await enrichPostsImages(DUMMY_POSTS),
+      posts: applyScreenshotSampleLinks(
+        await enrichPostsImages(filterPublishedPosts(DUMMY_POSTS)),
+      ),
       source: 'dummy',
     }
   }
@@ -62,7 +90,9 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
     }
 
     return {
-      posts: await enrichPostsImages(parsed.posts),
+      posts: applyScreenshotSampleLinks(
+        await enrichPostsImages(filterPublishedPosts(parsed.posts)),
+      ),
       source: 'sheet',
     }
   } catch (error) {

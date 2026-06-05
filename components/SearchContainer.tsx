@@ -1,10 +1,13 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, useMemo, type ReactNode } from 'react'
 import { POST_SEARCH_FIELDS } from '@/types/post'
 import type { Post } from '@/types/post'
 import type { DataSource } from '@/types/fetch-result'
+import { getEnabledContactMenuItems } from '@/lib/contact/forms'
 import { parsePostDate } from '@/lib/dates'
+import { getPopularPosts } from '@/lib/popular-posts'
 import {
   CATEGORY_FILTERS,
   INSTAGRAM_HANDLE,
@@ -13,6 +16,7 @@ import {
   SITE_NAME,
   SITE_TAGLINE,
 } from '@/lib/site'
+import { urls } from '@/lib/urls'
 import DataFetchAlert from './DataFetchAlert'
 import PostCard from './PostCard'
 
@@ -78,12 +82,15 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
     [posts],
   )
 
+  const popularPosts = useMemo(() => getPopularPosts(posts), [posts])
+  const contactMenuItems = useMemo(() => getEnabledContactMenuItems(), [])
+
   const filtered = useMemo(() => {
     return posts
       .filter((post) => {
         const matchesKeyword =
           keyword === '' ||
-          POST_SEARCH_FIELDS.some((field) => post[field].includes(keyword))
+          POST_SEARCH_FIELDS.some((field) => String(post[field]).includes(keyword))
         const matchesGenre = !selectedGenre || post.genre === selectedGenre
         const matchesVideo =
           !selectedVideoCategory || post.videoCategory === selectedVideoCategory
@@ -167,11 +174,46 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
               📣 募集情報あり <span className="font-bold">{recruitmentCount}件</span>
             </p>
           )}
+
+          {contactMenuItems.length > 0 && (
+            <nav aria-label="メニュー" className="mt-4 flex flex-wrap justify-center gap-2">
+              {contactMenuItems.map((item) => (
+                <Link
+                  key={item.type}
+                  href={urls.contact(item.type)}
+                  className="text-[11px] font-bold bg-white/15 hover:bg-white/25 px-4 py-2 rounded-full border border-white/20 transition-colors"
+                >
+                  {item.menuLabel}
+                </Link>
+              ))}
+            </nav>
+          )}
         </div>
       </header>
 
       <main className="flex-1 max-w-lg mx-auto w-full px-4 py-6 space-y-7">
         <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
+
+        {/* 一覧から探す */}
+        <section aria-label="一覧から探す">
+          <SectionTitle icon="🧭" label="一覧から探す" accent="bg-hokkaido-lavender" />
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { href: urls.schools(), emoji: '🏫', label: '学校' },
+              { href: urls.clubs(), emoji: '⚽', label: '部活' },
+              { href: urls.sports(), emoji: '🏅', label: '競技' },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex flex-col items-center justify-center gap-1.5 min-h-[4.5rem] rounded-2xl border-2 border-white bg-white shadow-md text-sm font-bold text-gray-700 hover:border-hokkaido-sky transition-all active:scale-95"
+              >
+                <span className="text-2xl" aria-hidden>{item.emoji}</span>
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* カテゴリボタン */}
         <section aria-label="カテゴリ">
@@ -197,6 +239,18 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
             })}
           </div>
         </section>
+
+        {/* 人気コンテンツ（人気表示=1 かつ人気順入力済み・最大10件） */}
+        {popularPosts.length > 0 && (
+          <section aria-label="人気コンテンツ">
+            <SectionTitle icon="🔥" label="人気コンテンツ" accent="bg-orange-400" />
+            <div className="grid grid-cols-2 gap-3">
+              {popularPosts.map((post) => (
+                <PostCard key={`popular-${post.id}`} post={post} />
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 人気エリア */}
         <section aria-label="人気エリア">
@@ -322,7 +376,14 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
         </section>
       </main>
 
-      <footer className="py-6 text-center text-xs text-gray-400 border-t border-hokkaido-ice bg-white/60">
+      <footer className="py-6 text-center text-xs text-gray-400 border-t border-hokkaido-ice bg-white/60 space-y-2">
+        {contactMenuItems.map((item) => (
+          <p key={item.type}>
+            <Link href={urls.contact(item.type)} className="text-hokkaido-sky font-bold hover:underline">
+              {item.menuLabel}
+            </Link>
+          </p>
+        ))}
         <p>© 2026 {INSTAGRAM_HANDLE}</p>
         <p className="mt-0.5">{SITE_NAME}</p>
       </footer>

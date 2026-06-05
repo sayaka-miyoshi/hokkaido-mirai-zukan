@@ -11,9 +11,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const envPath = resolve(__dirname, '../.env.local')
 
 const REQUIRED_COLUMNS = [
-  '投稿タイトル', 'ジャンル', 'エリア', '学校名', '部活名', '企業名',
-  '動画カテゴリ', '進路カテゴリ', '募集情報', 'InstagramURL', '画像URL',
-  '説明文', '投稿日', 'slug',
+  '投稿タイトル',
+  'ジャンル',
+  'エリア',
+  '説明文',
+  '投稿日',
+  'slug',
 ]
 
 function loadUrl() {
@@ -30,7 +33,7 @@ function buildColumnMap(headers) {
   const normalized = headers.map((h) => h.trim().replace(/^\uFEFF/, ''))
   const missing = REQUIRED_COLUMNS.filter((name) => !normalized.includes(name))
   if (missing.length > 0) {
-    return { error: `不足している列: ${missing.join('、')}` }
+    return { error: `不足している必須列: ${missing.join('、')}` }
   }
   const map = Object.fromEntries(
     REQUIRED_COLUMNS.map((name) => [name, normalized.indexOf(name)]),
@@ -73,7 +76,11 @@ if (columnResult.error) {
   process.exit(1)
 }
 
-console.log('列数:', columnResult.normalized.length, `(必須${REQUIRED_COLUMNS.length}列 + 追加列${columnResult.normalized.length - REQUIRED_COLUMNS.length}列)`)
+console.log(
+  '列数:',
+  columnResult.normalized.length,
+  `(必須${REQUIRED_COLUMNS.length}列 + その他${columnResult.normalized.length - REQUIRED_COLUMNS.length}列)`,
+)
 console.log('ヘッダー:', columnResult.normalized.join(' | '))
 
 const rows = result.data.slice(1).filter((r) => r.some((c) => c?.trim()))
@@ -85,7 +92,6 @@ if (posts[0]) {
   console.log('1件目:', posts[0]['投稿タイトル'])
 }
 
-// 列順入れ替えのシミュレーション（ヘッダーとデータを同じ順で並べ替え）
 const reversedIndices = columnResult.normalized.map((_, i) => columnResult.normalized.length - 1 - i)
 const reorderedHeaders = reversedIndices.map((i) => columnResult.normalized[i])
 const reorderedRow = reversedIndices.map((i) => rows[0][i])

@@ -1,7 +1,28 @@
 import { fetchPosts, fetchPostsResult } from '@/lib/fetchPosts'
 import { findAreaNameBySlug, getAreaName, getAreaSlug, isKnownAreaSlug } from '@/lib/slugs'
+import { getSportNameFromSlug, getSportSlug } from '@/lib/sport-slugs'
 import type { FetchPostsResult } from '@/types/fetch-result'
 import type { Post } from '@/types/post'
+
+export type SchoolIndexItem = {
+  name: string
+  slug: string
+  postCount: number
+  areas: string[]
+}
+
+export type ClubIndexItem = {
+  name: string
+  slug: string
+  schoolName: string
+  postCount: number
+}
+
+export type SportIndexItem = {
+  name: string
+  slug: string
+  postCount: number
+}
 
 /** 複数 slug の共通プレフィックスから学校スラッグを推定 */
 function longestCommonSlugPrefix(slugs: string[]): string | undefined {
@@ -78,7 +99,8 @@ function resolveCompanySlug(posts: Post[], companyName: string): string | undefi
   const companyPost = posts.find(
     (p) => p.companyName === companyName && p.genre === '企業訪問' && p.slug,
   )
-  return companyPost?.slug
+  if (companyPost?.slug) return companyPost.slug
+  return posts.find((p) => p.companyName === companyName && p.slug)?.slug
 }
 
 export async function getFetchResult(): Promise<FetchPostsResult> {
@@ -175,6 +197,76 @@ export async function getAllCompanySlugs(): Promise<string[]> {
   return names
     .map((name) => resolveCompanySlug(posts, name))
     .filter((slug): slug is string => Boolean(slug))
+}
+
+export async function getSchoolIndex(): Promise<SchoolIndexItem[]> {
+  const posts = await getAllPosts()
+  const names = [...new Set(posts.map((p) => p.schoolName).filter(Boolean))]
+  return names
+    .map((name) => {
+      const slug = resolveSchoolSlug(posts, name)
+      if (!slug) return null
+      const related = posts.filter((p) => p.schoolName === name)
+      return {
+        name,
+        slug,
+        postCount: related.length,
+        areas: [...new Set(related.map((p) => p.area).filter(Boolean))],
+      }
+    })
+    .filter((item): item is SchoolIndexItem => item !== null)
+    .sort((a, b) => a.name.localeCompare(b.name, 'ja'))
+}
+
+export async function getClubIndex(): Promise<ClubIndexItem[]> {
+  const posts = await getAllPosts()
+  const pairs = new Map<string, { club: string; school: string }>()
+  for (const p of posts) {
+    if (!p.clubName.trim()) continue
+    const key = `${p.clubName}|${p.schoolName}`
+    pairs.set(key, { club: p.clubName, school: p.schoolName })
+  }
+
+  return [...pairs.values()]
+    .map(({ club, school }) => {
+      const slug = resolveClubSlug(posts, club)
+      if (!slug) return null
+      return {
+        name: club,
+        slug,
+        schoolName: school,
+        postCount: posts.filter((p) => p.clubName === club && p.schoolName === school).length,
+      }
+    })
+    .filter((item): item is ClubIndexItem => item !== null)
+    .sort((a, b) => a.name.localeCompare(b.name, 'ja'))
+}
+
+export async function getSportIndex(): Promise<SportIndexItem[]> {
+  const posts = await getAllPosts()
+  const names = [...new Set(posts.map((p) => p.sportCategory.trim()).filter(Boolean))]
+  return names
+    .map((name) => ({
+      name,
+      slug: getSportSlug(name),
+      postCount: posts.filter((p) => p.sportCategory.trim() === name).length,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, 'ja'))
+}
+
+export async function getPostsBySportSlug(
+  slug: string,
+): Promise<{ name: string; posts: Post[] } | undefined> {
+  const posts = await getAllPosts()
+  const name = getSportNameFromSlug(slug)
+  const filtered = posts.filter((p) => p.sportCategory.trim() === name)
+  if (filtered.length === 0) return undefined
+  return { name, posts: filtered }
+}
+
+export async function getAllSportSlugs(): Promise<string[]> {
+  const items = await getSportIndex()
+  return items.map((item) => item.slug)
 }
 
 export async function getSchoolSlugForPost(post: Post, posts?: Post[]): Promise<string | undefined> {

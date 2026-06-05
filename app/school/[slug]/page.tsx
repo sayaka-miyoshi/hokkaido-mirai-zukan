@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
+import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
 import { createPageMetadata } from '@/lib/metadata'
+import { getSchoolExternalLinks } from '@/lib/external-links'
 import { getFetchResult, getPostsBySchoolSlug } from '@/lib/queries'
 import { urls } from '@/lib/urls'
 
@@ -43,6 +45,8 @@ export default async function SchoolPage({ params }: PageProps) {
       dataSource={fetchResult.source}
       dataError={fetchResult.error}
     >
+      <ExternalLinks links={getSchoolExternalLinks(result.posts)} />
+
       {result.clubs.length > 0 && (
         <section className="mb-8">
           <h2 className="text-lg font-bold mb-3">関連部活</h2>

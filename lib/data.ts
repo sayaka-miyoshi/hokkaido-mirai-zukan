@@ -1,35 +1,117 @@
 import type { Post } from '@/types/post'
-import { POST_CSV_FIELD_MAP, POST_CSV_HEADERS } from '@/types/post'
-import type { CsvColumnMap } from '@/lib/csv'
+import {
+  POST_ALL_CSV_HEADERS,
+  POST_OPTIONAL_FIELD_MAP,
+  POST_REQUIRED_CSV_HEADERS,
+  POST_REQUIRED_FIELD_MAP,
+} from '@/types/post'
+import type { CsvColumnMap, CsvOptionalColumnMap } from '@/lib/csv'
+import { parsePopularFlag, parsePopularOrder } from '@/lib/popular-posts'
+import { formatPublishStatus, parsePublishStatus } from '@/lib/publish-status'
 
-export { POST_CSV_HEADERS }
+export { POST_REQUIRED_CSV_HEADERS, POST_OPTIONAL_CSV_HEADERS } from '@/types/post'
 
-function cell(row: string[], index: number): string {
+function cell(row: string[], index: number | undefined): string {
+  if (index == null) return ''
   return row[index]?.trim() ?? ''
 }
 
-/** CSV行を Post に変換（列名マップで取得・列順不同OK） */
-export function rowToPostByHeader(row: string[], map: CsvColumnMap, id = ''): Post {
-  const fields = { id } as Pick<Post, 'id'> & Omit<Post, 'id'>
+function createEmptyOptionalFields(): Pick<
+  Post,
+  | 'schoolName'
+  | 'clubName'
+  | 'companyName'
+  | 'videoCategory'
+  | 'careerCategory'
+  | 'recruitmentInfo'
+  | 'recruitmentInfoUrl'
+  | 'instagramUrl'
+  | 'imageUrl'
+  | 'schoolOfficialSite'
+  | 'schoolSns'
+  | 'clubSns'
+  | 'sportCategory'
+  | 'companyOfficialSite'
+  | 'companySns'
+> {
+  return {
+    schoolName: '',
+    clubName: '',
+    companyName: '',
+    videoCategory: '',
+    careerCategory: '',
+    recruitmentInfo: '',
+    recruitmentInfoUrl: '',
+    instagramUrl: '',
+    imageUrl: '',
+    schoolOfficialSite: '',
+    schoolSns: '',
+    clubSns: '',
+    sportCategory: '',
+    companyOfficialSite: '',
+    companySns: '',
+  }
+}
 
-  for (const columnName of POST_CSV_HEADERS) {
-    const field = POST_CSV_FIELD_MAP[columnName]
-    fields[field] = cell(row, map[columnName])
+/** CSV行を Post に変換（列名マップで取得・列順不同OK） */
+export function rowToPostByHeader(
+  row: string[],
+  map: CsvColumnMap,
+  optionalMap: CsvOptionalColumnMap = {},
+  id = '',
+): Post {
+  const post = {
+    id,
+    ...createEmptyOptionalFields(),
+    isPopular: false,
+    popularOrder: null,
+    isPublished: true,
+  } as Post
+
+  for (const columnName of POST_REQUIRED_CSV_HEADERS) {
+    const field = POST_REQUIRED_FIELD_MAP[columnName]
+    post[field] = cell(row, map[columnName])
   }
 
-  return fields as Post
+  for (const [columnName, field] of Object.entries(POST_OPTIONAL_FIELD_MAP)) {
+    const col = optionalMap[columnName as keyof typeof POST_OPTIONAL_FIELD_MAP]
+    post[field as keyof ReturnType<typeof createEmptyOptionalFields>] = cell(row, col)
+  }
+
+  const popularCol = optionalMap['人気表示']
+  const orderCol = optionalMap['人気順']
+
+  post.isPopular = popularCol != null ? parsePopularFlag(cell(row, popularCol)) : false
+  post.popularOrder = orderCol != null ? parsePopularOrder(cell(row, orderCol)) : null
+
+  const publishCol = optionalMap['公開']
+  post.isPublished = publishCol != null ? parsePublishStatus(cell(row, publishCol)) : true
+
+  return post
 }
 
 /** PostオブジェクトをCSV行に変換（スプレッドシート書き出し用・列名順） */
 export function postToRow(post: Post): string[] {
-  return POST_CSV_HEADERS.map((columnName) => {
-    const field = POST_CSV_FIELD_MAP[columnName]
-    return post[field]
+  return POST_ALL_CSV_HEADERS.map((columnName) => {
+    if (columnName === '公開') {
+      return formatPublishStatus(post.isPublished)
+    }
+    if (columnName === '人気表示') {
+      return post.isPopular ? 'true' : ''
+    }
+    if (columnName === '人気順') {
+      return post.popularOrder != null ? String(post.popularOrder) : ''
+    }
+    const field =
+      columnName in POST_REQUIRED_FIELD_MAP
+        ? POST_REQUIRED_FIELD_MAP[columnName as keyof typeof POST_REQUIRED_FIELD_MAP]
+        : POST_OPTIONAL_FIELD_MAP[columnName as keyof typeof POST_OPTIONAL_FIELD_MAP]
+    return post[field as keyof Post] as string
   })
 }
 
 /** 開発・CSV未設定時のダミーデータ（20件） */
-export const DUMMY_POSTS: Post[] = [
+const DUMMY_POSTS_RAW = [
   {
     id: '1',
     title: '札幌南高校 吹奏楽部の日常',
@@ -371,3 +453,19 @@ export const DUMMY_POSTS: Post[] = [
     slug: 'chorus',
   },
 ]
+
+export const DUMMY_POSTS: Post[] = DUMMY_POSTS_RAW.map((post, index) => ({
+  ...createEmptyOptionalFields(),
+  ...post,
+  isPopular: index < 3,
+  popularOrder: index < 3 ? index + 1 : null,
+  isPublished: true,
+  ...(post.id === '1'
+    ? {
+        schoolOfficialSite: 'https://www.hokudai.ac.jp',
+        schoolSns: 'https://www.instagram.com/hokkaido_university',
+        clubSns: 'https://www.instagram.com/example_club',
+        recruitmentInfoUrl: 'https://example.com/recruit',
+      }
+    : {}),
+}))

@@ -1,4 +1,4 @@
-import { POST_CSV_HEADERS } from '@/types/post'
+import { POST_OPTIONAL_CSV_HEADERS, POST_REQUIRED_CSV_HEADERS } from '@/types/post'
 
 type DataFetchAlertProps = {
   source: 'sheet' | 'dummy' | 'error'
@@ -53,9 +53,18 @@ export default function DataFetchAlert({ source, totalCount = 0, error }: DataFe
           </li>
           <li>スプレッドシートが「ウェブに公開」されているか（列追加後は再公開が必要な場合があります）</li>
           <li>
-            1行目に次の列名がすべて含まれているか（順序は自由・追加列も可）:
+            1行目に次の<strong>必須列</strong>がすべて含まれているか（順序は自由）:
             <br />
-            <span className="text-[11px] leading-relaxed">{POST_CSV_HEADERS.join(' / ')}</span>
+            <span className="text-[11px] leading-relaxed">
+              {POST_REQUIRED_CSV_HEADERS.join(' / ')}
+            </span>
+          </li>
+          <li>
+            任意列（学校名・募集情報・外部リンクなど）は列がなくても・空欄でも可:
+            <br />
+            <span className="text-[11px] leading-relaxed">
+              {POST_OPTIONAL_CSV_HEADERS.join(' / ')}
+            </span>
           </li>
           <li>設定変更後は開発サーバーを再起動したか（<code className="bg-red-100 px-1 rounded">npm run dev</code>）</li>
         </ul>

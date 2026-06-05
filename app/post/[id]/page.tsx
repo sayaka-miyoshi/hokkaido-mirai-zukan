@@ -3,10 +3,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Breadcrumb from '@/components/Breadcrumb'
 import DataFetchAlert from '@/components/DataFetchAlert'
+import ExternalLinks from '@/components/ExternalLinks'
 import PostImage from '@/components/PostImage'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
 import SiteHeader from '@/components/SiteHeader'
 import { createPageMetadata } from '@/lib/metadata'
+import { getPostExternalLinks } from '@/lib/external-links'
 import {
   getClubSlugForPost,
   getCompanySlugForPost,
@@ -156,6 +158,8 @@ export default async function PostPage({ params }: PageProps) {
               </div>
             )}
           </dl>
+
+          <ExternalLinks links={getPostExternalLinks(post)} />
 
           {post.instagramUrl && (
             <a

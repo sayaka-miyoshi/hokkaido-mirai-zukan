@@ -10,10 +10,17 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const envPath = resolve(__dirname, '../.env.local')
 
-const HEADERS = [
-  '投稿タイトル', 'ジャンル', 'エリア', '学校名', '部活名', '企業名',
-  '動画カテゴリ', '進路カテゴリ', '募集情報', 'InstagramURL', '画像URL',
-  '投稿日', '説明文', 'slug',
+const REQUIRED_HEADERS = [
+  '投稿タイトル', 'ジャンル', 'エリア', '説明文', '投稿日', 'slug',
+]
+
+const OPTIONAL_HEADERS = [
+  '公開',
+  '画像URL',
+  '学校名', '部活名', '企業名', '動画カテゴリ', '進路カテゴリ',
+  '募集情報', '募集情報URL', 'InstagramURL',
+  '学校公式サイト', '学校SNS', '部活SNS', '企業公式サイト', '企業SNS',
+  '人気表示', '人気順',
 ]
 
 const AREA_SLUG_MAP = {
@@ -26,13 +33,47 @@ function getAreaSlug(area) {
   return AREA_SLUG_MAP[area] ?? area
 }
 
+function parsePopularFlag(value) {
+  const normalized = (value ?? '').trim().toLowerCase()
+  return ['true', '1', 'yes', 'y', 'はい', '○', '◯', '✓', 'on'].includes(normalized)
+}
+
+function parsePopularOrder(value) {
+  const trimmed = (value ?? '').trim()
+  if (!trimmed) return null
+  const num = Number(trimmed)
+  return Number.isFinite(num) ? num : null
+}
+
+function parsePostDate(dateStr) {
+  if (!dateStr) return 0
+  const time = Date.parse(dateStr.replace(/\//g, '-').trim())
+  return Number.isNaN(time) ? 0 : time
+}
+
+function getPopularPosts(posts) {
+  return posts
+    .filter((p) => p.isPopular && p.popularOrder != null)
+    .sort((a, b) => a.popularOrder - b.popularOrder)
+    .slice(0, 10)
+}
+
 function parsePosts(text) {
   const result = Papa.parse(text, { skipEmptyLines: true })
   const headers = result.data[0].map((h) => h.trim())
-  const map = Object.fromEntries(HEADERS.map((h) => [h, headers.indexOf(h)]))
-  const get = (r, h) => (r[map[h]] ?? '').trim()
+  const missingRequired = REQUIRED_HEADERS.filter((h) => !headers.includes(h))
+  if (missingRequired.length > 0) {
+    throw new Error(`必須列が不足: ${missingRequired.join('、')}`)
+  }
+  const map = Object.fromEntries(
+    [...REQUIRED_HEADERS, ...OPTIONAL_HEADERS]
+      .filter((h) => headers.includes(h))
+      .map((h) => [h, headers.indexOf(h)]),
+  )
+  const get = (r, h) => (map[h] == null ? '' : (r[map[h]] ?? '').trim())
   return result.data.slice(1)
     .filter((r) => r.some((c) => c?.trim()))
+    .filter((r) => get(r, '投稿タイトル'))
     .map((r, i) => ({
       id: String(i + 1),
       title: get(r, '投稿タイトル'),
@@ -44,6 +85,13 @@ function parsePosts(text) {
       videoCategory: get(r, '動画カテゴリ'),
       careerCategory: get(r, '進路カテゴリ'),
       slug: get(r, 'slug'),
+      date: get(r, '投稿日'),
+      isPopular: map['人気表示'] != null ? parsePopularFlag(r[map['人気表示']]) : false,
+      popularOrder: map['人気順'] != null ? parsePopularOrder(r[map['人気順']]) : null,
+      isPublished:
+        map['公開'] != null
+          ? (r[map['公開']] ?? '').trim() !== '非公開'
+          : true,
     }))
 }
 
@@ -78,7 +126,10 @@ function resolveClubSlug(posts, clubName) {
 }
 
 function resolveCompanySlug(posts, name) {
-  return posts.find((p) => p.companyName === name && p.genre === '企業訪問' && p.slug)?.slug
+  return (
+    posts.find((p) => p.companyName === name && p.genre === '企業訪問' && p.slug)?.slug
+    ?? posts.find((p) => p.companyName === name && p.slug)?.slug
+  )
 }
 
 function filterPosts(posts, { keyword, genre, area, videoCategory, careerCategory }) {
@@ -108,9 +159,11 @@ const posts = parsePosts(await res.text())
 let failed = 0
 
 console.log('=== ① データ読み込み ===')
-console.log(`取得件数: ${posts.length} 件`)
-if (posts.length !== 22) {
-  console.log(`⚠️  22件想定ですが ${posts.length} 件です（空行・未公開行を確認してください）`)
+console.log(`取得件数: ${posts.length} 件（投稿タイトルありのみ）`)
+const slugCount = posts.filter((p) => p.slug).length
+console.log(`slug 確定: ${slugCount} 件 / 未確定: ${posts.length - slugCount} 件`)
+if (posts.length - slugCount > 0) {
+  console.log('ℹ slug 未確定行は Y列候補を確認し N列に値のみ貼り付け')
 }
 
 console.log('\n=== ② 一覧表示 ===')
@@ -174,6 +227,18 @@ for (const area of areas) {
   const slug = getAreaSlug(area)
   const count = posts.filter((p) => p.area === area).length
   console.log(`✅ /area/${slug} → ${area} (${count}件)`)
+}
+
+console.log('\n=== ⑥ 人気コンテンツ ===')
+const popularPosts = getPopularPosts(posts)
+if (popularPosts.length === 0) {
+  console.log('✅ 人気表示=true の記事 0件（セクション非表示）')
+} else {
+  console.log(`✅ 人気コンテンツ ${popularPosts.length} 件`)
+  popularPosts.forEach((p, i) => {
+    const orderLabel = `人気順${p.popularOrder}`
+    console.log(`   ${i + 1}. ${p.title.slice(0, 30)} (${orderLabel})`)
+  })
 }
 
 console.log('\n=== 結果 ===')

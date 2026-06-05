@@ -1,0 +1,226 @@
+{
+  "capturedAt": "2026-06-05T02:37:21.130Z",
+  "count": 44,
+  "slugs": [
+    {
+      "row": 2,
+      "title": "札幌消防学校",
+      "slug": "sapporo-fire-school"
+    },
+    {
+      "row": 3,
+      "title": "人形浄瑠璃",
+      "slug": "ningyo-joruri"
+    },
+    {
+      "row": 4,
+      "title": "北海道科学大学 YOSAKOI",
+      "slug": "yosakoi-sagara"
+    },
+    {
+      "row": 5,
+      "title": "北海学園大学女子ラクロス部",
+      "slug": "hokkai-gakuen-womens-lacrosse"
+    },
+    {
+      "row": 6,
+      "title": "北海学園大学女子ラクロス部",
+      "slug": "hokkai-gakuen-womens-lacrosse"
+    },
+    {
+      "row": 7,
+      "title": "北海道大学ボディビルディングクラブ",
+      "slug": "hokkaido-university-bodybuilding"
+    },
+    {
+      "row": 8,
+      "title": "札幌大学",
+      "slug": "sapporo-university"
+    },
+    {
+      "row": 9,
+      "title": "北海学園大学男子ラクロス部",
+      "slug": "hokkai-gakuen-mens-lacrosse"
+    },
+    {
+      "row": 10,
+      "title": "北海学園大学男子ラクロス部",
+      "slug": "hokkai-gakuen-mens-lacrosse"
+    },
+    {
+      "row": 11,
+      "title": "北海道大学バトミントン部",
+      "slug": "hokkaido-university-badminton"
+    },
+    {
+      "row": 12,
+      "title": "北海道大学心理学部",
+      "slug": "hokkaido-university-shinri"
+    },
+    {
+      "row": 13,
+      "title": "札幌大学",
+      "slug": "sapporo-university"
+    },
+    {
+      "row": 14,
+      "title": "日本最北の煉瓦工場",
+      "slug": "yonezawarenga"
+    },
+    {
+      "row": 15,
+      "title": "北海道大学バトミントン部",
+      "slug": "hokkaido-university-badminton"
+    },
+    {
+      "row": 16,
+      "title": "北海道大学心理学部",
+      "slug": "hokkaido-university-shinri"
+    },
+    {
+      "row": 17,
+      "title": "北海道大学フォーミュラ部",
+      "slug": "hokkaido-university-fomyura"
+    },
+    {
+      "row": 18,
+      "title": "北海道大学アルティメット部",
+      "slug": "hokkaido-university-ultimate"
+    },
+    {
+      "row": 19,
+      "title": "北海学園大学アメフト部",
+      "slug": "hokkai-gakuen-mens-americanfootball"
+    },
+    {
+      "row": 20,
+      "title": "札幌大学バスケットボール部",
+      "slug": "sapporo-university-basketball"
+    },
+    {
+      "row": 21,
+      "title": "車麩の製造工程",
+      "slug": "koyamaseifusyo"
+    },
+    {
+      "row": 22,
+      "title": "北海道大学アルティメット部",
+      "slug": "hokkaido-university-ultimate"
+    },
+    {
+      "row": 23,
+      "title": "札幌大学バスケットボール部",
+      "slug": "sapporo-university-basketball"
+    },
+    {
+      "row": 24,
+      "title": "YOSAKOI 北海道大学",
+      "slug": "hokkaido-university-yosakoi-en"
+    },
+    {
+      "row": 25,
+      "title": "第66回北海道銃剣道選手権大会",
+      "slug": "jukendo"
+    },
+    {
+      "row": 26,
+      "title": "札幌大学卓球部",
+      "slug": "sapporo-university-Tabletennis"
+    },
+    {
+      "row": 27,
+      "title": "札幌大学卓球部",
+      "slug": "sapporo-university-Tabletennis"
+    },
+    {
+      "row": 28,
+      "title": "函館カール・レイモン",
+      "slug": "carlreymon"
+    },
+    {
+      "row": 29,
+      "title": "札幌大学卓球部",
+      "slug": "sapporo-university-Tabletennis"
+    },
+    {
+      "row": 30,
+      "title": "株式会社YOSHIMI",
+      "slug": "yoshimi"
+    },
+    {
+      "row": 31,
+      "title": "北海道ジェイ・アール運輸サポート",
+      "slug": "steamlocomotive"
+    },
+    {
+      "row": 32,
+      "title": "北海道ジェイ・アール運輸サポート",
+      "slug": "steamlocomotive"
+    },
+    {
+      "row": 33,
+      "title": "株式会社小山製麩所",
+      "slug": "koyamaseifusyo"
+    },
+    {
+      "row": 34,
+      "title": "札幌学院大学アメフト部",
+      "slug": "sapporo-gakuin-university-americanfootball"
+    },
+    {
+      "row": 35,
+      "title": "札幌学院大学アメフト部",
+      "slug": "sapporo-gakuin-university-americanfootball"
+    },
+    {
+      "row": 36,
+      "title": "北海学園大学アイスホッケー部",
+      "slug": "hokkai-gakuen-university-ice-hockey"
+    },
+    {
+      "row": 37,
+      "title": "北海学園大学アイスホッケー部",
+      "slug": "hokkai-gakuen-university-ice-hockey"
+    },
+    {
+      "row": 38,
+      "title": "北海学園大学アイスホッケー部",
+      "slug": "hokkai-gakuen-university-ice-hockey"
+    },
+    {
+      "row": 39,
+      "title": "デジタル暴力とは？",
+      "slug": "ohanairo-aya"
+    },
+    {
+      "row": 40,
+      "title": "札幌国際情報高校吹奏楽部",
+      "slug": "sapporo-kokusai-joho-high-school-SITBand"
+    },
+    {
+      "row": 41,
+      "title": "北海学園大学アメフト部",
+      "slug": "hokkai-gakuen-mens-americanfootball"
+    },
+    {
+      "row": 42,
+      "title": "北海学園大学アメフト部",
+      "slug": "hokkai-gakuen-mens-americanfootball"
+    },
+    {
+      "row": 43,
+      "title": "札幌国際情報高校吹奏楽部",
+      "slug": "sapporo-kokusai-joho-high-school-SITBand"
+    },
+    {
+      "row": 44,
+      "title": "札幌大学",
+      "slug": "sapporo-university-mens-handball"
+    },
+    {
+      "row": 45,
+      "title": "日本の性教育を考えよう",
+      "slug": "ohanairo-aya"
+    }
+  ]
+}

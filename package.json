@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "test:csv": "node scripts/test-csv.mjs",
-    "verify": "node scripts/verify-app.mjs"
+    "verify": "node scripts/verify-app.mjs",
+    "school-master:audit": "node scripts/audit-school-master.mjs",
+    "club-master:audit": "node scripts/audit-club-master.mjs",
+    "verify:slugs": "node scripts/verify-slug-snapshot.mjs",
+    "verify:autofill": "node scripts/verify-autofill.mjs",
+    "verify:urls": "node scripts/verify-urls.mjs"
   },
   "dependencies": {
     "next": "^16.2.6",

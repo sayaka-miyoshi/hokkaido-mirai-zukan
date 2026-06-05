@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
+import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
 import { createPageMetadata } from '@/lib/metadata'
+import { getClubExternalLinks } from '@/lib/external-links'
 import { getFetchResult, getPostsByClubSlug } from '@/lib/queries'
 import { urls } from '@/lib/urls'
 
@@ -42,6 +44,7 @@ export default async function ClubPage({ params }: PageProps) {
       dataSource={fetchResult.source}
       dataError={fetchResult.error}
     >
+      <ExternalLinks links={getClubExternalLinks(result.posts)} />
       <PostGrid posts={result.posts} />
     </EntityPageLayout>
   )
