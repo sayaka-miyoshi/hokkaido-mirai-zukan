@@ -1,6 +1,7 @@
 import { cache } from 'react'
 import { DUMMY_POSTS } from '@/lib/data'
 import { normalizeSheetCsvUrl, parsePostsCsv } from '@/lib/csv'
+import { enrichPostsVideoCategories } from '@/lib/enrich-video-categories'
 import { enrichPostsImages } from '@/lib/enrich-images'
 import { filterPublishedPosts } from '@/lib/publish-status'
 import type { FetchPostsResult } from '@/types/fetch-result'
@@ -44,7 +45,9 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
   if (!rawUrl) {
     return {
       posts: applyScreenshotSampleLinks(
-        await enrichPostsImages(filterPublishedPosts(DUMMY_POSTS)),
+        await enrichPostsImages(
+          await enrichPostsVideoCategories(filterPublishedPosts(DUMMY_POSTS)),
+        ),
       ),
       source: 'dummy',
     }
@@ -91,7 +94,9 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
 
     return {
       posts: applyScreenshotSampleLinks(
-        await enrichPostsImages(filterPublishedPosts(parsed.posts)),
+        await enrichPostsImages(
+          await enrichPostsVideoCategories(filterPublishedPosts(parsed.posts)),
+        ),
       ),
       source: 'sheet',
     }

@@ -139,10 +139,10 @@ export default async function PostPage({ params }: PageProps) {
                 </dd>
               </div>
             )}
-            {post.videoCategory && (
+            {post.videoCategoryLabel && (
               <div className="flex gap-2">
                 <dt className="text-gray-400 w-24 shrink-0">動画カテゴリ</dt>
-                <dd>{post.videoCategory}</dd>
+                <dd>{post.videoCategoryLabel}</dd>
               </div>
             )}
             {post.careerCategory && (

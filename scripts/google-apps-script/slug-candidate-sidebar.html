@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <style>
+      body {
+        font-family: 'Segoe UI', 'Hiragino Sans', sans-serif;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 12px;
+        color: #202124;
+      }
+      h2 {
+        font-size: 15px;
+        margin: 0 0 8px;
+      }
+      ul {
+        margin: 0 0 12px;
+        padding-left: 18px;
+      }
+      button {
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 16px;
+        width: 100%;
+        margin-bottom: 8px;
+      }
+      button.primary {
+        background: #1a73e8;
+      }
+      button.secondary {
+        background: #5f6368;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      button:disabled {
+        background: #9aa0a6;
+        cursor: wait;
+      }
+      #status {
+        margin-top: 12px;
+        white-space: pre-wrap;
+        font-size: 12px;
+      }
+      .ok {
+        color: #137333;
+      }
+      .err {
+        color: #c5221f;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>slug候補 生成</h2>
+    <ul>
+      <li>識別子 slug（最大5単語・英作文禁止）</li>
+      <li>固有文化はローマ字（mikoshi / dekotora 等）</li>
+      <li><strong>A列</strong> 投稿タイトル優先 → <strong>Y列</strong> slug候補</li>
+      <li>N列・Y列に値がある行はスキップ</li>
+      <li>重複時は <code>-2</code> <code>-3</code> を付与</li>
+    </ul>
+    <button id="nextBtn" class="primary" type="button">次の20件を生成</button>
+    <button id="allBtn" class="secondary" type="button">全記事を一括生成</button>
+    <div id="status"></div>
+
+    <script>
+      function setRunning(running, message) {
+        document.getElementById('nextBtn').disabled = running
+        document.getElementById('allBtn').disabled = running
+        document.getElementById('status').textContent = message || ''
+        document.getElementById('status').className = ''
+      }
+
+      function runGeneration(methodName, waitMessage) {
+        setRunning(true, waitMessage)
+
+        google.script.run
+          .withSuccessHandler(function (message) {
+            document.getElementById('status').textContent = message
+            document.getElementById('status').className = 'ok'
+            setRunning(false)
+          })
+          .withFailureHandler(function (error) {
+            document.getElementById('status').textContent =
+              error.message || String(error)
+            document.getElementById('status').className = 'err'
+            setRunning(false)
+          })
+          [methodName]()
+      }
+
+      document.getElementById('nextBtn').addEventListener('click', function () {
+        runGeneration(
+          'generateNext20SlugCandidates',
+          '生成中…（最大20件・約20〜40秒）',
+        )
+      })
+
+      document.getElementById('allBtn').addEventListener('click', function () {
+        runGeneration(
+          'generateAllSlugCandidates',
+          '全件生成中…（件数多いとタイムアウトする場合あり）',
+        )
+      })
+    </script>
+  </body>
+</html>

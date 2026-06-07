@@ -67,10 +67,19 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
   const [selectedCareerCategory, setSelectedCareerCategory] = useState<string | null>(null)
   const [selectedArea, setSelectedArea] = useState<string | null>(null)
 
-  const videoCategories = useMemo(
-    () => [...new Set(posts.map((p) => p.videoCategory).filter(Boolean))].sort(),
-    [posts],
-  )
+  const videoCategories = useMemo(() => {
+    const options = new Map<string, string>()
+    for (const post of posts) {
+      if (!post.videoCategory) continue
+      options.set(
+        post.videoCategory,
+        post.videoCategoryLabel || post.videoCategory,
+      )
+    }
+    return [...options.entries()]
+      .map(([id, label]) => ({ id, label }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'ja'))
+  }, [posts])
 
   const careerCategories = useMemo(
     () => [...new Set(posts.map((p) => p.careerCategory).filter(Boolean))].sort(),
@@ -292,17 +301,17 @@ export default function SearchContainer({ posts, dataSource, dataError }: Search
                 <div>
                   <p className="text-[10px] font-bold text-gray-500 mb-2">動画カテゴリ</p>
                   <div className="flex gap-1.5 flex-wrap">
-                    {videoCategories.map((category) => (
+                    {videoCategories.map(({ id, label }) => (
                       <FilterChip
-                        key={category}
-                        active={selectedVideoCategory === category}
+                        key={id}
+                        active={selectedVideoCategory === id}
                         onClick={() =>
                           setSelectedVideoCategory(
-                            selectedVideoCategory === category ? null : category,
+                            selectedVideoCategory === id ? null : id,
                           )
                         }
                       >
-                        {category}
+                        {label}
                       </FilterChip>
                     ))}
                   </div>

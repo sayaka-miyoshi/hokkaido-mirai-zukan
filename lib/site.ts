@@ -10,15 +10,7 @@ export const CATEGORY_FILTERS = [
   { emoji: '🏢', label: '企業', genre: '企業訪問' },
 ] as const
 
-/** 動画カテゴリ（動画カテゴリ列と対応） */
-export const VIDEO_CATEGORIES = [
-  '工場見学',
-  '部活紹介',
-  '学生インタビュー',
-  '社員インタビュー',
-  '学食',
-  'オープンキャンパス',
-] as const
+/** @deprecated 動画カテゴリは `data/動画カテゴリマスター.csv`（ID + 表示名）で管理 */
 
 /** 人気エリア */
 export const POPULAR_AREAS = ['札幌', '函館', '旭川', '帯広'] as const

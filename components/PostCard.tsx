@@ -33,9 +33,9 @@ export default function PostCard({ post }: { post: Post }) {
             className="absolute top-2 right-2 text-[9px] px-2 py-1 rounded-full max-w-[calc(100%-4.5rem)]"
           />
         )}
-        {post.videoCategory && (
+        {post.videoCategoryLabel && (
           <span className="absolute bottom-2 left-2 right-2 text-[10px] font-medium px-2 py-0.5 rounded-md bg-black/50 text-white truncate">
-            {post.videoCategory}
+            {post.videoCategoryLabel}
           </span>
         )}
       </div>

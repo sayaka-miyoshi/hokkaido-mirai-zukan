@@ -32,7 +32,6 @@ export default async function ClubsIndexPage() {
           title: club.name,
           subtitle: club.schoolName ? `🏫 ${club.schoolName}` : undefined,
           count: club.postCount,
-          emoji: '⚽',
         }))}
         emptyMessage="部活データがまだありません。"
       />

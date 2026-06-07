@@ -132,12 +132,59 @@ function resolveCompanySlug(posts, name) {
   )
 }
 
-function filterPosts(posts, { keyword, genre, area, videoCategory, careerCategory }) {
+function loadVideoCategoryMaps() {
+  const path = resolve(__dirname, '../data/動画カテゴリマスター.csv')
+  const result = Papa.parse(readFileSync(path, 'utf8'), {
+    header: true,
+    skipEmptyLines: true,
+  })
+  const idToLabel = new Map()
+  const labelToId = new Map()
+  for (const row of result.data) {
+    const id = row.ID?.trim()
+    const label = row['表示名']?.trim()
+    if (!id || !label) continue
+    idToLabel.set(id, label)
+    labelToId.set(label, id)
+  }
+  return { idToLabel, labelToId }
+}
+
+function normalizeVideoCategoryId(raw, maps) {
+  const value = (raw ?? '').trim()
+  if (!value) return ''
+  if (maps.idToLabel.has(value)) return value
+  return maps.labelToId.get(value) ?? value
+}
+
+function resolveVideoCategoryLabel(raw, maps) {
+  const value = (raw ?? '').trim()
+  if (!value) return ''
+  if (maps.idToLabel.has(value)) return maps.idToLabel.get(value)
+  if (maps.labelToId.has(value)) return value
+  return value
+}
+
+function enrichPostsVideoCategories(posts, maps) {
+  return posts.map((post) => {
+    const raw = post.videoCategory
+    return {
+      ...post,
+      videoCategory: normalizeVideoCategoryId(raw, maps),
+      videoCategoryLabel: resolveVideoCategoryLabel(raw, maps),
+    }
+  })
+}
+
+function filterPosts(posts, { keyword, genre, area, videoCategory, careerCategory }, maps) {
+  const normalizedVideoCategory = videoCategory
+    ? normalizeVideoCategoryId(videoCategory, maps)
+    : ''
   return posts.filter((p) => {
     const kw = !keyword || [p.schoolName, p.clubName, p.companyName].some((f) => f.includes(keyword))
     const g = !genre || p.genre === genre
     const a = !area || p.area === area
-    const v = !videoCategory || p.videoCategory === videoCategory
+    const v = !normalizedVideoCategory || p.videoCategory === normalizedVideoCategory
     const c = !careerCategory || p.careerCategory === careerCategory
     return kw && g && a && v && c
   })
@@ -155,7 +202,11 @@ if (!res.ok) {
   process.exit(1)
 }
 
-const posts = parsePosts(await res.text())
+const videoCategoryMaps = loadVideoCategoryMaps()
+const posts = enrichPostsVideoCategories(
+  parsePosts(await res.text()),
+  videoCategoryMaps,
+)
 let failed = 0
 
 console.log('=== ① データ読み込み ===')
@@ -172,11 +223,11 @@ if (posts.length === 0) failed++
 
 console.log('\n=== ③ 検索機能 ===')
 const tests = [
-  { name: 'キーワード「北海」', fn: () => filterPosts(posts, { keyword: '北海' }).length > 0 },
-  { name: 'ジャンル「部活」', fn: () => filterPosts(posts, { genre: '部活' }).length > 0 },
-  { name: 'エリア「札幌」', fn: () => filterPosts(posts, { area: '札幌' }).length > 0 },
-  { name: '動画カテゴリ「部活紹介」', fn: () => filterPosts(posts, { videoCategory: '部活紹介' }).length > 0 },
-  { name: '進路カテゴリ「公務員」', fn: () => filterPosts(posts, { careerCategory: '公務員' }).length > 0 },
+  { name: 'キーワード「北海」', fn: () => filterPosts(posts, { keyword: '北海' }, videoCategoryMaps).length > 0 },
+  { name: 'ジャンル「部活」', fn: () => filterPosts(posts, { genre: '部活' }, videoCategoryMaps).length > 0 },
+  { name: 'エリア「札幌」', fn: () => filterPosts(posts, { area: '札幌' }, videoCategoryMaps).length > 0 },
+  { name: '動画カテゴリ「部活紹介」', fn: () => filterPosts(posts, { videoCategory: '部活紹介' }, videoCategoryMaps).length > 0 },
+  { name: '進路カテゴリ「公務員」', fn: () => filterPosts(posts, { careerCategory: '公務員' }, videoCategoryMaps).length > 0 },
 ]
 for (const t of tests) {
   const ok = t.fn()

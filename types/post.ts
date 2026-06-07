@@ -14,8 +14,10 @@ export interface Post {
   clubName: string
   /** 企業名 */
   companyName: string
-  /** 動画カテゴリ */
+  /** 動画カテゴリID（CSV「動画カテゴリ」列） */
   videoCategory: string
+  /** 動画カテゴリ表示名（マスターから解決） */
+  videoCategoryLabel: string
   /** 進路カテゴリ */
   careerCategory: string
   /** 募集情報 */
