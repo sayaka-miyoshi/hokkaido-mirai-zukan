@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-06-09T13:35:59.657Z",
+  "image": {
+    "emptyUrl": 1,
+    "fetchFailed": 0,
+    "noThumbnail": [
+      {
+        "id": "289",
+        "title": "日本最大級の食品展示場FOOMAJAPANに潜入",
+        "postUrl": "/post/289",
+        "imageUrl": "",
+        "reason": "画像URL空欄"
+      }
+    ]
+  },
+  "publish": {
+    "total": 290,
+    "published": 289,
+    "unpublished": 1
+  },
+  "popular": {
+    "candidates": 7,
+    "displayed": 7,
+    "list": [
+      {
+        "id": "1",
+        "title": "札幌消防学校",
+        "order": 1
+      },
+      {
+        "id": "2",
+        "title": "人形浄瑠璃",
+        "order": 2
+      },
+      {
+        "id": "111",
+        "title": "北海学園アメフト部マネージャーに密着",
+        "order": 3
+      },
+      {
+        "id": "112",
+        "title": "北海学園大学アメフト部の練習風景",
+        "order": 4
+      },
+      {
+        "id": "184",
+        "title": "798万再生！図書館のお仕事",
+        "order": 4
+      },
+      {
+        "id": "189",
+        "title": "5000万再生の食品サンプル体験",
+        "order": 5
+      },
+      {
+        "id": "204",
+        "title": "5000万再生の子供の遊び場！",
+        "order": 6
+      }
+    ]
+  }
+}

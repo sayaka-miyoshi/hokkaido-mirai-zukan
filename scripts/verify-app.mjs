@@ -45,6 +45,14 @@ function parsePopularOrder(value) {
   return Number.isFinite(num) ? num : null
 }
 
+function parsePublishStatus(value) {
+  const normalized = String(value ?? '').trim().toLowerCase()
+  if (!normalized) return false
+  if (['0', '非公開', 'false', 'no', 'off', '×', '✗'].includes(normalized)) return false
+  if (['1', '公開', 'true', 'yes', 'on', '○', '◯', '✓'].includes(normalized)) return true
+  return false
+}
+
 function parsePostDate(dateStr) {
   if (!dateStr) return 0
   const time = Date.parse(dateStr.replace(/\//g, '-').trim())
@@ -90,8 +98,8 @@ function parsePosts(text) {
       popularOrder: map['人気順'] != null ? parsePopularOrder(r[map['人気順']]) : null,
       isPublished:
         map['公開'] != null
-          ? (r[map['公開']] ?? '').trim() !== '非公開'
-          : true,
+          ? parsePublishStatus(get(r, '公開'))
+          : false,
     }))
 }
 
@@ -181,7 +189,7 @@ function filterPosts(posts, { keyword, genre, area, videoCategory, careerCategor
     ? normalizeVideoCategoryId(videoCategory, maps)
     : ''
   return posts.filter((p) => {
-    const kw = !keyword || [p.schoolName, p.clubName, p.companyName].some((f) => f.includes(keyword))
+    const kw = !keyword || [p.title, p.schoolName, p.clubName, p.companyName].some((f) => f.includes(keyword))
     const g = !genre || p.genre === genre
     const a = !area || p.area === area
     const v = !normalizedVideoCategory || p.videoCategory === normalizedVideoCategory

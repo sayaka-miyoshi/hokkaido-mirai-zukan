@@ -187,6 +187,7 @@ export const POST_LINK_FIELD_MAP: Record<
 
 /** キーワード検索対象フィールド */
 export const POST_SEARCH_FIELDS: (keyof Post)[] = [
+  'title',
   'schoolName',
   'clubName',
   'companyName',

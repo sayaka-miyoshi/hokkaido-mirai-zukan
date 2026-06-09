@@ -1,12 +1,16 @@
 import type { Post } from '@/types/post'
 
-/** CSVの「公開」列を boolean に変換（未入力は公開） */
+/** CSVの「公開」列を boolean に変換（1 / 公開のみ表示、0 / 非公開は非表示） */
 export function parsePublishStatus(value: string): boolean {
-  const normalized = value.trim()
-  if (!normalized) return true
-  if (normalized === '非公開') return false
-  if (normalized === '公開') return true
-  return true
+  const normalized = value.trim().toLowerCase()
+  if (!normalized) return false
+  if (['0', '非公開', 'false', 'no', 'off', '×', '✗'].includes(normalized)) {
+    return false
+  }
+  if (['1', '公開', 'true', 'yes', 'on', '○', '◯', '✓'].includes(normalized)) {
+    return true
+  }
+  return false
 }
 
 /** サイト表示対象の投稿のみ（非公開を除外） */
