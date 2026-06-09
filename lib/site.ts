@@ -4,6 +4,9 @@ export const SITE_TAGLINE =
 
 /** デフォルト OGP 画像（app/opengraph-image.tsx が生成） */
 export const DEFAULT_OG_IMAGE_PATH = '/opengraph-image'
+
+/** Google Search Console 所有権確認（HTMLタグ） */
+export const GOOGLE_SITE_VERIFICATION = 'TFO6fYVgO-x-aP0bXUe7s0BLAd6YwaupafjeT6rRs7M'
 export const INSTAGRAM_HANDLE = '@insta.sayakans'
 export const INSTAGRAM_URL = 'https://www.instagram.com/insta.sayakans/'
 

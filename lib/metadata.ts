@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { DEFAULT_POST_IMAGE } from '@/lib/og-image'
-import { DEFAULT_OG_IMAGE_PATH, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { DEFAULT_OG_IMAGE_PATH, GOOGLE_SITE_VERIFICATION, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
 
 type PageMetadataParams = {
@@ -22,7 +22,7 @@ function resolveMetadataImage(image?: string): string {
 }
 
 function buildGoogleVerification(): Metadata['verification'] | undefined {
-  const token = process.env.GOOGLE_SITE_VERIFICATION?.trim()
+  const token = process.env.GOOGLE_SITE_VERIFICATION?.trim() || GOOGLE_SITE_VERIFICATION
   if (!token) return undefined
   return { google: token }
 }
