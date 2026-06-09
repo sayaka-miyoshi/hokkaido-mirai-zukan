@@ -4,10 +4,14 @@ import { notFound } from 'next/navigation'
 import Breadcrumb from '@/components/Breadcrumb'
 import DataFetchAlert from '@/components/DataFetchAlert'
 import ExternalLinks from '@/components/ExternalLinks'
+import JsonLd from '@/components/JsonLd'
 import PostImage from '@/components/PostImage'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
 import SiteHeader from '@/components/SiteHeader'
 import { createPageMetadata } from '@/lib/metadata'
+import { resolvePostImageUrl } from '@/lib/og-image'
+import { createArticleJsonLd, createBreadcrumbJsonLd } from '@/lib/json-ld'
+import { absoluteUrl } from '@/lib/site-url'
 import { getPostExternalLinks } from '@/lib/external-links'
 import {
   getClubSlugForPost,
@@ -32,10 +36,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostById(id)
   if (!post) return {}
 
+  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl)
+
   return createPageMetadata({
     title: post.title,
     description: post.description,
     path: urls.post(id),
+    image: imageUrl,
+    type: 'article',
   })
 }
 
@@ -54,9 +62,21 @@ export default async function PostPage({ params }: PageProps) {
   ])
 
   const areaSlug = getAreaSlug(post.area)
+  const pagePath = urls.post(id)
+  const pageUrl = absoluteUrl(pagePath)
+  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl)
 
   return (
     <div className="min-h-screen">
+      <JsonLd
+        data={[
+          createArticleJsonLd({ post, imageUrl, pageUrl }),
+          createBreadcrumbJsonLd([
+            { name: 'ホーム', href: urls.home() },
+            { name: post.title },
+          ]),
+        ]}
+      />
       <SiteHeader />
       <main className="max-w-3xl mx-auto px-4 py-6">
         <Breadcrumb

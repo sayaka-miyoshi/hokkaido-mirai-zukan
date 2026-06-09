@@ -1,5 +1,9 @@
-export const SITE_NAME = '北海道 学校・部活・企業ナビ'
-export const SITE_TAGLINE = '北海道の学校・部活・企業情報を検索できるサイト'
+export const SITE_NAME = '北海道未来図鑑'
+export const SITE_TAGLINE =
+  '北海道の学校・部活・企業を動画と記事で紹介。エリア・ジャンルから探せる進路情報サイト'
+
+/** デフォルト OGP 画像（app/opengraph-image.tsx が生成） */
+export const DEFAULT_OG_IMAGE_PATH = '/opengraph-image'
 export const INSTAGRAM_HANDLE = '@insta.sayakans'
 export const INSTAGRAM_URL = 'https://www.instagram.com/insta.sayakans/'
 

@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${config.successTitle} | ${config.pageTitle}`,
     description: config.successMessage.replace('\n', ' '),
     path: urls.contactComplete(type),
+    noIndex: true,
   })
 }
 

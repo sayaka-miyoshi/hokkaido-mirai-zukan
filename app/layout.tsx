@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { createRootMetadata } from '@/lib/metadata'
 import './globals.css'
 
-export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_TAGLINE,
-}
+export const metadata: Metadata = createRootMetadata()
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
