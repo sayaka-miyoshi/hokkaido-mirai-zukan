@@ -7,8 +7,8 @@ export const DEFAULT_OG_IMAGE_PATH = '/opengraph-image'
 
 /** Google Search Console 所有権確認（HTMLタグ） */
 export const GOOGLE_SITE_VERIFICATION = 'TFO6fYVgO-x-aP0bXUe7s0BLAd6YwaupafjeT6rRs7M'
-export const INSTAGRAM_HANDLE = '@insta.sayakans'
-export const INSTAGRAM_URL = 'https://www.instagram.com/insta.sayakans/'
+export const INSTAGRAM_HANDLE = '@insta.sayaka'
+export const INSTAGRAM_URL = 'https://www.instagram.com/insta.sayaka/'
 
 /** カテゴリボタン（ジャンル列と対応） */
 export const CATEGORY_FILTERS = [
