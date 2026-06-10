@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="wSn¨oî;Ï	">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#9ecae8"/>
+      <stop offset="45%" stop-color="#c8e0f0"/>
+      <stop offset="100%" stop-color="#1a4d7c"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a9e6f"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  <ellipse cx="620" cy="180" rx="90" ry="90" fill="#fff8e7" opacity="0.95"/>
+  <path d="M0 620 L200 420 L380 560 L520 380 L680 500 L800 440 L800 1000 L0 1000 Z" fill="url(#hill)" opacity="0.85"/>
+  <path d="M0 720 L160 580 L340 680 L500 520 L660 640 L800 580 L800 1000 L0 1000 Z" fill="#1b4332" opacity="0.9"/>
+  <text x="400" y="880" text-anchor="middle" fill="#ffffff" opacity="0.35" font-family="sans-serif" font-size="28" letter-spacing="8">PLACEHOLDER</text>
+</svg>

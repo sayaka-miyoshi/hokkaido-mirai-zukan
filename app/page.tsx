@@ -18,6 +18,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default async function Home() {
   const { posts, source, error } = await fetchPostsResult()
+
   return (
     <>
       <JsonLd data={createWebSiteJsonLd()} />

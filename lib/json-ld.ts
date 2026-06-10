@@ -1,4 +1,4 @@
-import { INSTAGRAM_URL, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { OPERATOR_SOCIAL_URLS, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
 import type { Post } from '@/types/post'
 
@@ -36,7 +36,7 @@ export function createOrganizationJsonLd() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: getSiteUrl(),
-    sameAs: [INSTAGRAM_URL],
+    sameAs: [...OPERATOR_SOCIAL_URLS],
   }
 }
 
