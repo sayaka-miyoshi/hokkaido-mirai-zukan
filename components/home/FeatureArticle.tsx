@@ -5,8 +5,7 @@ import { urls } from '@/lib/urls'
 
 type FeatureArticleProps = {
   post: Post
-  /** タイトル → 写真 → 紹介文 */
-  layout?: 'default' | 'title-first' | 'feature'
+  layout?: 'default' | 'title-first' | 'feature' | 'story'
   priority?: boolean
   showMeta?: boolean
   showReadLink?: boolean
@@ -27,34 +26,60 @@ export default function FeatureArticle({
   showReadLink = true,
 }: FeatureArticleProps) {
   const subtitle = post.description.trim()
+  const editorialImageClass =
+    'object-cover object-[center_32%] transition-transform duration-700 group-hover:scale-[1.015]'
 
-  if (layout === 'feature') {
+  if (layout === 'feature' || layout === 'story') {
+    const isCompact = layout === 'story'
+
     return (
-      <article className="py-16 first:pt-0 border-t border-hokkaido-ice/50 first:border-t-0">
+      <article
+        className={`border-t border-hokkaido-ice/50 first:border-t-0 ${
+          isCompact ? 'py-12 first:pt-0' : 'py-16 first:pt-0'
+        }`}
+      >
         <Link href={urls.post(post.id)} className="group block">
-          <div className="relative w-full aspect-[4/5] overflow-hidden bg-hokkaido-ice">
+          <div
+            className={`relative overflow-hidden bg-hokkaido-ice ${
+              isCompact
+                ? 'mx-0 aspect-[4/5]'
+                : '-mx-6 aspect-[4/5] min-h-[min(72vw,520px)] sm:min-h-[480px]'
+            }`}
+          >
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               priority={priority}
               sizes="100vw"
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.015]"
+              className={editorialImageClass}
             />
           </div>
 
-          <div className="mt-7">
-            <p className="text-[11px] tracking-[0.2em] text-gray-400">
-              {genreLabel(post.genre)}
-              <span className="mx-2" aria-hidden="true">
-                ·
-              </span>
-              {post.area}
-            </p>
-            <h3 className="mt-3 text-2xl font-bold leading-snug text-hokkaido-deep group-hover:text-hokkaido-sky transition-colors">
+          <div className={isCompact ? 'mt-6' : 'mt-8'}>
+            {showMeta && (
+              <p className="text-[11px] tracking-[0.2em] text-gray-400">
+                {genreLabel(post.genre)}
+                <span className="mx-2" aria-hidden="true">
+                  ·
+                </span>
+                {post.area}
+              </p>
+            )}
+            <h3
+              className={`font-bold leading-snug text-hokkaido-deep group-hover:text-hokkaido-sky transition-colors ${
+                isCompact ? 'mt-2 text-xl' : 'mt-3 text-2xl'
+              }`}
+            >
               {post.title}
             </h3>
             {subtitle && (
-              <p className="mt-5 text-base text-gray-600 leading-[1.9] line-clamp-4">{subtitle}</p>
+              <p
+                className={`text-gray-600 leading-[1.9] line-clamp-4 ${
+                  isCompact ? 'mt-4 text-[15px]' : 'mt-5 text-base'
+                }`}
+              >
+                {subtitle}
+              </p>
             )}
           </div>
         </Link>
@@ -66,22 +91,20 @@ export default function FeatureArticle({
     return (
       <article className="py-10 first:pt-0 border-t border-hokkaido-ice/60 first:border-t-0">
         <Link href={urls.post(post.id)} className="group block">
-          <h3 className="text-xl font-bold leading-snug text-hokkaido-deep group-hover:text-hokkaido-sky transition-colors">
-            {post.title}
-          </h3>
-
-          <div className="relative mt-5 w-full aspect-[4/5] overflow-hidden bg-hokkaido-ice">
+          <div className="relative aspect-[4/5] overflow-hidden bg-hokkaido-ice">
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               priority={priority}
               sizes="100vw"
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              className={editorialImageClass}
             />
           </div>
-
+          <h3 className="mt-5 text-xl font-bold leading-snug text-hokkaido-deep group-hover:text-hokkaido-sky transition-colors">
+            {post.title}
+          </h3>
           {subtitle && (
-            <p className="mt-5 text-[15px] text-gray-600 leading-[1.85] line-clamp-4">{subtitle}</p>
+            <p className="mt-4 text-[15px] text-gray-600 leading-[1.85] line-clamp-3">{subtitle}</p>
           )}
         </Link>
       </article>
@@ -97,7 +120,7 @@ export default function FeatureArticle({
             alt={post.title}
             priority={priority}
             sizes="100vw"
-            className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+            className={editorialImageClass}
           />
         </div>
 
@@ -109,10 +132,6 @@ export default function FeatureArticle({
                 ·
               </span>
               {post.area}
-              <span className="mx-2" aria-hidden="true">
-                ·
-              </span>
-              {post.date}
             </p>
           )}
           <h3 className="mt-3 text-lg font-bold leading-snug text-hokkaido-deep group-hover:text-hokkaido-sky transition-colors">
@@ -123,7 +142,7 @@ export default function FeatureArticle({
           )}
           {showReadLink && (
             <p className="mt-4 text-sm font-medium text-hokkaido-deep/70 group-hover:text-hokkaido-sky transition-colors">
-              記事を読む →
+              続きを読む →
             </p>
           )}
         </div>

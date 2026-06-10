@@ -8,7 +8,7 @@ export default function AboutSection() {
       <h2 className="text-2xl font-bold text-hokkaido-deep leading-snug">{SITE_NAME}とは</h2>
       <p className="mt-6 text-[15px] leading-[1.9] text-gray-700">{SITE_TAGLINE}</p>
       <p className="mt-4 text-sm leading-relaxed text-gray-600">
-        学校・部活・企業の魅力を、動画と記事で丁寧に伝える地域メディアです。進路や募集情報も、ストーリーとして見つけられます。
+        学校・部活・企業・行政の現場を取材し、知られていない挑戦を記事と動画で届けるWebマガジンです。
       </p>
     </section>
   )

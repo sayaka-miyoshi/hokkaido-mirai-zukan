@@ -107,8 +107,12 @@ export default function SearchContainer({
             aria-label="編集部おすすめ"
             className="scroll-mt-4 px-6 py-16"
           >
-            <h2 className="text-2xl font-bold text-hokkaido-deep leading-snug">編集部おすすめ</h2>
-            <div className="mt-12">
+            <p className="text-[11px] tracking-[0.22em] text-hokkaido-sky font-semibold">FEATURE</p>
+            <h2 className="mt-2 text-2xl font-bold text-hokkaido-deep leading-snug">編集部おすすめ</h2>
+            <p className="mt-3 text-sm text-gray-500 leading-relaxed">
+              北海道で今、伝えたいストーリーを厳選しました。
+            </p>
+            <div className="mt-10">
               {editorPicks.map((post, index) => (
                 <FeatureArticle
                   key={`editor-${post.id}`}
@@ -146,20 +150,20 @@ export default function SearchContainer({
 
         <section
           id="posts"
-          aria-label="新着記事"
+          aria-label="最新ストーリー"
           className="scroll-mt-4 px-6 py-16 border-t border-hokkaido-ice/60"
         >
-          <h2 className="text-2xl font-bold text-hokkaido-deep leading-snug">新着記事</h2>
+          <p className="text-[11px] tracking-[0.22em] text-hokkaido-sky font-semibold">LATEST</p>
+          <h2 className="mt-2 text-2xl font-bold text-hokkaido-deep leading-snug">最新ストーリー</h2>
 
           {latestPosts.length > 0 ? (
-            <div className="mt-12">
+            <div className="mt-10">
               {latestPosts.map((post) => (
                 <FeatureArticle
                   key={post.id}
                   post={post}
-                  layout="title-first"
+                  layout="story"
                   showMeta={false}
-                  showReadLink={false}
                 />
               ))}
             </div>
@@ -181,7 +185,9 @@ export default function SearchContainer({
         </section>
 
         <div className="px-6 py-16 border-t border-hokkaido-ice/60 space-y-16">
-          <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
+          {dataSource !== 'sheet' && (
+            <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
+          )}
           <OperatorSection />
           <AboutSection />
         </div>

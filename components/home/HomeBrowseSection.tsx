@@ -72,8 +72,8 @@ export default function HomeBrowseSection({
       className="scroll-mt-4 px-6 py-16 border-t border-hokkaido-ice/60"
     >
       <details className="group">
-        <summary className="cursor-pointer list-none text-sm text-gray-400 hover:text-hokkaido-deep transition-colors">
-          記事を探す
+        <summary className="cursor-pointer list-none text-xs text-gray-400 hover:text-hokkaido-deep transition-colors">
+          キーワードで探す
           {hasActiveFilter && (
             <span className="ml-2 text-hokkaido-sky">
               （{filteredCount}件）
@@ -91,7 +91,7 @@ export default function HomeBrowseSection({
               type="search"
               value={keyword}
               onChange={(e) => onKeywordChange(e.target.value)}
-              placeholder="学校名・部活名・企業名..."
+              placeholder="タイトル・学校名・企業名..."
               className="w-full border-0 border-b border-hokkaido-ice bg-transparent px-0 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-hokkaido-sky"
             />
           </div>

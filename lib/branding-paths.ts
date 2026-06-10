@@ -1,12 +1,18 @@
-/** public/ に配置するとヒーロー背景として表示（本番写真は hero-bg.jpg に差し替え可） */
-export const HERO_BG_IMAGE_PATH = '/hero-bg.svg'
+/** 採用済み：北大フォーミュラ部（/post/16） */
+export const HERO_BG_IMAGE_PATH = '/hero-bg.jpg'
 
 /**
- * ヒーロー写真の被写体位置（将来差し替え用）
- * 北大フォーミュラ / 吹奏楽 / 消防学校 / 企業取材 など
- * 人物・活動が中央やや上に来る想定
+ * ヒーロー写真の被写体位置（スマホで人物・マシンが切れにくいよう中央やや上）
+ * 採用元: lib/editor-picks.ts ADOPTED_HERO
  */
-export const HERO_IMAGE_OBJECT_POSITION = 'center 38%'
+export const HERO_IMAGE_OBJECT_POSITION_MOBILE = 'center 28%'
+export const HERO_IMAGE_OBJECT_POSITION_DESKTOP = 'center 36%'
 
-/** public/ に配置すると運営者プロフィール（丸型）として表示（本番写真は profile.jpg に差し替え可） */
+/** @deprecated HERO_IMAGE_OBJECT_POSITION_MOBILE を使用 */
+export const HERO_IMAGE_OBJECT_POSITION = HERO_IMAGE_OBJECT_POSITION_MOBILE
+
+/** public/ に配置すると運営者プロフィール（丸型）として表示 */
 export const PROFILE_IMAGE_PATH = '/profile.svg'
+
+/** 編集部おすすめ・記事一覧の縦型サムネ用（人物・被写体が切れにくい） */
+export const EDITORIAL_IMAGE_OBJECT_POSITION = 'center 32%'

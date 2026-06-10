@@ -2,31 +2,26 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { HERO_BG_IMAGE_PATH, HERO_IMAGE_OBJECT_POSITION } from '@/lib/branding-paths'
+import { HERO_BG_IMAGE_PATH } from '@/lib/branding-paths'
 import { HERO_STORY_LINES, SITE_CATCH_COPY, SITE_NAME } from '@/lib/site'
 
 type MagazineHeroProps = {
   exploreHref?: string
 }
 
-/**
- * 雑誌・特集風トップヒーロー
- * 将来の写真（北大フォーミュラ / 吹奏楽 / 消防学校 / 企業取材）を
- * 中央やや上に収める object-position を前提にレイアウト
- */
-export default function MagazineHero({ exploreHref = '#browse' }: MagazineHeroProps) {
+/** 雑誌・特集風トップヒーロー（採用画像: 北大フォーミュラ部 /post/16） */
+export default function MagazineHero({ exploreHref = '#editor-picks' }: MagazineHeroProps) {
   const [bgError, setBgError] = useState(false)
 
   return (
     <header className="flex h-[100svh] min-h-[640px] max-h-[900px] flex-col overflow-hidden bg-black">
-      <div className="relative h-[46svh] min-h-[220px] max-h-[420px] shrink-0 overflow-hidden">
+      <div className="relative h-[50svh] min-h-[240px] max-h-[440px] shrink-0 overflow-hidden">
         {!bgError ? (
           <img
             src={HERO_BG_IMAGE_PATH}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: HERO_IMAGE_OBJECT_POSITION }}
+            className="hero-bg-image absolute inset-0 h-full w-full object-cover"
             onError={() => setBgError(true)}
           />
         ) : (
@@ -34,7 +29,7 @@ export default function MagazineHero({ exploreHref = '#browse' }: MagazineHeroPr
         )}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black"
+          className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black"
         />
       </div>
 

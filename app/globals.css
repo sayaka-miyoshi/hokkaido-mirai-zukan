@@ -28,4 +28,14 @@
       radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 80px 80px, 120px 120px, 60px 60px;
   }
+
+  .hero-bg-image {
+    object-position: center 28%;
+  }
+
+  @media (min-width: 640px) {
+    .hero-bg-image {
+      object-position: center 36%;
+    }
+  }
 }

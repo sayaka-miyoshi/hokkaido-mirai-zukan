@@ -1,5 +1,5 @@
 export const SITE_NAME = '北海道未来図鑑'
-export const SITE_TAGLINE = '北海道の学校・部活・企業を、進路から探せる図鑑'
+export const SITE_TAGLINE = '北海道の挑戦を、取材して伝えるWebマガジン'
 
 /** ヒーロー用（メディア訴求・検索サイト感を出さない） */
 export const HERO_MEDIA_DECK = '北海道の学校・部活・企業の挑戦を、取材して伝えるメディア'
