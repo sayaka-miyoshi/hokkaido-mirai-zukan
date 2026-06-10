@@ -1,6 +1,9 @@
 export const SITE_NAME = '北海道未来図鑑'
 export const SITE_TAGLINE = '北海道の学校・部活・企業を、進路から探せる図鑑'
 
+/** ヒーロー用（メディア訴求・検索サイト感を出さない） */
+export const HERO_MEDIA_DECK = '北海道の学校・部活・企業の挑戦を、取材して伝えるメディア'
+
 /** トップの大きなキャッチコピー */
 export const SITE_CATCH_COPY = '知られていない挑戦に、\n出会える場所。'
 
@@ -44,8 +47,17 @@ export const GOOGLE_SITE_VERIFICATION = 'TFO6fYVgO-x-aP0bXUe7s0BLAd6YwaupafjeT6r
 /** カテゴリボタン（ジャンル列と対応） */
 export const CATEGORY_FILTERS = [
   { emoji: '🏫', label: '学校', genre: '学校' },
-  { emoji: '⚽', label: '部活', genre: '部活' },
+  { emoji: '⚽', label: '部活・サークル', genre: '部活' },
   { emoji: '🏢', label: '企業', genre: '企業訪問' },
+  { emoji: '🏛️', label: '行政・団体', genre: '行政・自治体' },
+] as const
+
+/** トップのカテゴリ導線 */
+export const HOME_CATEGORIES = [
+  { label: '学校', genre: '学校', href: '/schools', type: 'link' as const },
+  { label: '部活・サークル', genre: '部活', href: '/clubs', type: 'link' as const },
+  { label: '企業', genre: '企業訪問', href: '#posts', type: 'filter' as const },
+  { label: '行政・団体', genre: '行政・自治体', href: '#posts', type: 'filter' as const },
 ] as const
 
 /** @deprecated 動画カテゴリは `data/動画カテゴリマスター.csv`（ID + 表示名）で管理 */
