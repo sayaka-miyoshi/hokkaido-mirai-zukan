@@ -1,4 +1,5 @@
 import type { Post } from '@/types/post'
+import { parsePostDate } from '@/lib/dates'
 import { parsePopularFlag, parsePopularOrder } from '@/lib/popular-posts'
 
 /** Googleスプレッドシートの列名 */
@@ -40,14 +41,23 @@ function compareCompanyRecommendedOrder(a: Post, b: Post): number {
  * - 企業おすすめ = true
  * - 公開 = true
  * - おすすめ順 昇順（空欄は最後尾・同順位はシート行順）
- * - 最大10件
+ * - 最大14件
+ * - 「企業おすすめ」列が未設定・0件のときは公開済み「企業訪問」を投稿日降順で表示
  */
 export function getCompanyRecommendedPosts(
   posts: Post[],
   max: number = COMPANY_RECOMMENDED_MAX,
 ): Post[] {
-  return posts
+  const flagged = posts
     .filter((post) => post.isCompanyRecommended && post.isPublished)
     .sort(compareCompanyRecommendedOrder)
+
+  if (flagged.length > 0) {
+    return flagged.slice(0, max)
+  }
+
+  return posts
+    .filter((post) => post.genre === '企業訪問' && post.isPublished)
+    .sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
     .slice(0, max)
 }
