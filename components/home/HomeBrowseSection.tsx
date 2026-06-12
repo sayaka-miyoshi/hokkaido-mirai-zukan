@@ -2,11 +2,15 @@
 
 import Link from 'next/link'
 import { type ReactNode } from 'react'
+import SearchSuggestInput from '@/components/home/SearchSuggestInput'
+import type { SearchSuggestion } from '@/lib/search-suggestions'
 import { urls } from '@/lib/urls'
 
 type HomeBrowseSectionProps = {
   keyword: string
   onKeywordChange: (value: string) => void
+  onSelectSuggestion: (value: string) => void
+  suggestionIndex: SearchSuggestion[]
   selectedGenre: string | null
   onGenreChange: (genre: string | null) => void
   selectedArea: string | null
@@ -52,6 +56,8 @@ function FilterChip({
 export default function HomeBrowseSection({
   keyword,
   onKeywordChange,
+  onSelectSuggestion,
+  suggestionIndex,
   selectedGenre,
   onGenreChange,
   selectedArea,
@@ -79,17 +85,12 @@ export default function HomeBrowseSection({
           <label htmlFor="home-search" className="sr-only">
             キーワード検索
           </label>
-          <input
-            id="home-search"
-            type="search"
-            enterKeyHint="search"
-            value={keyword}
-            onChange={(e) => onKeywordChange(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') onShowResults()
-            }}
-            placeholder="学校名・部活名・企業名で検索"
-            className="w-full rounded-2xl border border-magazine-border bg-white px-4 py-3.5 text-sm text-magazine-text placeholder:text-magazine-muted focus:border-hokkaido-sky focus:outline-none focus:ring-2 focus:ring-hokkaido-sky/20"
+          <SearchSuggestInput
+            keyword={keyword}
+            onKeywordChange={onKeywordChange}
+            onSelectSuggestion={onSelectSuggestion}
+            onShowResults={onShowResults}
+            suggestionIndex={suggestionIndex}
           />
         </div>
 

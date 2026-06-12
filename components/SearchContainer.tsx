@@ -20,6 +20,7 @@ import { COMPANY_CONTENT_MAX } from '@/lib/home-layout'
 import { getCompanyRecommendedPosts } from '@/lib/company-recommended-posts'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { resolvePopularContent } from '@/lib/popular-posts'
+import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
 import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
@@ -64,6 +65,8 @@ export default function SearchContainer({
 
   const contactMenuItems = useMemo(() => getEnabledContactMenuItems(), [])
   const publicationContact = contactMenuItems.find((item) => item.type === 'publication')
+
+  const suggestionIndex = useMemo(() => buildSearchSuggestionIndex(posts), [posts])
 
   const filtered = useMemo(() => {
     return posts
@@ -113,6 +116,10 @@ export default function SearchContainer({
   const browseSectionProps = {
     keyword,
     onKeywordChange: setKeyword,
+    onSelectSuggestion: () => {
+      scrollToResults()
+    },
+    suggestionIndex,
     selectedGenre,
     onGenreChange: (genre: string | null) => {
       setSelectedGenre(genre)
