@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import CompanyContentSection from '@/components/home/CompanyContentSection'
 import HomeBrowseSection from '@/components/home/HomeBrowseSection'
 import HomeSearchResultsSection from '@/components/home/HomeSearchResultsSection'
@@ -18,6 +18,7 @@ import { getEnabledContactMenuItems } from '@/lib/contact/forms'
 import { parsePostDate } from '@/lib/dates'
 import { COMPANY_CONTENT_MAX } from '@/lib/home-layout'
 import { getCompanyRecommendedPosts } from '@/lib/company-recommended-posts'
+import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { resolvePopularContent } from '@/lib/popular-posts'
 import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
@@ -46,6 +47,7 @@ export default function SearchContainer({
   const [selectedVideoCategory, setSelectedVideoCategory] = useState<string | null>(null)
   const [selectedCareerCategory, setSelectedCareerCategory] = useState<string | null>(null)
   const [selectedArea, setSelectedArea] = useState<string | null>(null)
+  const [scrollRequestId, setScrollRequestId] = useState(0)
 
   const videoCategories = useMemo(() => {
     const options = new Map<string, string>()
@@ -100,9 +102,53 @@ export default function SearchContainer({
     setSelectedArea(null)
   }
 
-  const scrollToResults = () => {
-    document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const scrollToResults = useCallback(() => {
+    setScrollRequestId((id) => id + 1)
+  }, [])
+
+  useEffect(() => {
+    if (scrollRequestId === 0 || !hasActiveFilter) return
+
+    const timer = window.setTimeout(() => {
+      document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+
+    return () => window.clearTimeout(timer)
+  }, [
+    scrollRequestId,
+    hasActiveFilter,
+    filtered.length,
+    selectedGenre,
+    selectedCareerCategory,
+    selectedArea,
+    selectedVideoCategory,
+    keyword,
+  ])
+
+  const filterResultHeading = useMemo(
+    () =>
+      resolveFilterResultHeading(
+        {
+          keyword,
+          selectedGenre,
+          selectedCareerCategory,
+          selectedArea,
+          selectedVideoCategory,
+          videoCategoryLabel: videoCategories.find((item) => item.id === selectedVideoCategory)
+            ?.label,
+        },
+        filtered.length,
+      ),
+    [
+      filtered.length,
+      keyword,
+      selectedArea,
+      selectedCareerCategory,
+      selectedGenre,
+      selectedVideoCategory,
+      videoCategories,
+    ],
+  )
 
   const popularEntries = useMemo(() => resolvePopularContent(posts), [posts])
 
@@ -167,10 +213,16 @@ export default function SearchContainer({
 
         {hasActiveFilter && (
           <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
-            <HomeSearchResultsSection posts={filtered} onClearFilters={clearFilters} />
+            <HomeSearchResultsSection
+              posts={filtered}
+              title={filterResultHeading.title}
+              description={filterResultHeading.description}
+              onClearFilters={clearFilters}
+            />
           </div>
         )}
 
+        {!hasActiveFilter && (
         <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
           <PopularContentSection entries={popularEntries} />
 
@@ -180,6 +232,7 @@ export default function SearchContainer({
 
           <SpecialFeaturesSection />
         </div>
+        )}
 
         <div className="mx-auto w-full max-w-lg">
           <StoryImageBlock id="story-04" src={STORY_IMAGES.story04} alt={STORY_ALT.story04} />
