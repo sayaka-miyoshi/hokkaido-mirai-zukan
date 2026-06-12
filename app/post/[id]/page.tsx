@@ -7,6 +7,8 @@ import ExternalLinks from '@/components/ExternalLinks'
 import JsonLd from '@/components/JsonLd'
 import PostImage from '@/components/PostImage'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
+import RelatedPostsSection from '@/components/RelatedPostsSection'
+import ContactTeaser from '@/components/home/ContactTeaser'
 import SiteHeader from '@/components/SiteHeader'
 import { createPageMetadata } from '@/lib/metadata'
 import { resolvePostImageUrl } from '@/lib/og-image'
@@ -23,6 +25,7 @@ import {
 import { getAreaSlug } from '@/lib/slugs'
 import { getGenreBadgeClass } from '@/lib/genres'
 import { POST_DETAIL_MAIN_IMAGE } from '@/lib/home-layout'
+import { getRelatedPostSections } from '@/lib/related-posts'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
@@ -66,6 +69,7 @@ export default async function PostPage({ params }: PageProps) {
   const pagePath = urls.post(id)
   const pageUrl = absoluteUrl(pagePath)
   const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl, post.genre)
+  const relatedSections = getRelatedPostSections(post, fetchResult.posts)
 
   return (
     <div className="min-h-screen">
@@ -198,6 +202,10 @@ export default async function PostPage({ params }: PageProps) {
           )}
         </article>
       </main>
+
+      <RelatedPostsSection sections={relatedSections} />
+      <ContactTeaser />
+
       <footer className="text-center py-8 text-xs text-gray-400">
         <p>© 2026 {INSTAGRAM_HANDLE} | {SITE_NAME}</p>
       </footer>
