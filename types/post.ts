@@ -201,7 +201,7 @@ export const POST_LINK_FIELD_MAP: Record<
   '募集情報URL': 'recruitmentInfoUrl',
 }
 
-/** キーワード検索対象フィールド */
+/** キーワード検索対象フィールド（投稿タイトル・学校名・部活名・企業名・競技カテゴリ） */
 export const POST_SEARCH_FIELDS: (keyof Post)[] = [
   'title',
   'schoolName',

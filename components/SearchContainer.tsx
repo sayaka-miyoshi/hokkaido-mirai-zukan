@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import CompanyContentSection from '@/components/home/CompanyContentSection'
 import HomeBrowseSection from '@/components/home/HomeBrowseSection'
+import HomeSearchResultsSection from '@/components/home/HomeSearchResultsSection'
 import LatestContentSection from '@/components/home/LatestContentSection'
 import OperatorSection from '@/components/home/OperatorSection'
 import PopularContentSection from '@/components/home/PopularContentSection'
@@ -97,7 +98,7 @@ export default function SearchContainer({
   }
 
   const scrollToResults = () => {
-    document.getElementById('popular')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const popularEntries = useMemo(() => resolvePopularContent(posts), [posts])
@@ -156,6 +157,12 @@ export default function SearchContainer({
         <div className="mx-auto max-w-lg">
           <HomeBrowseSection {...browseSectionProps} />
         </div>
+
+        {hasActiveFilter && (
+          <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
+            <HomeSearchResultsSection posts={filtered} onClearFilters={clearFilters} />
+          </div>
+        )}
 
         <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
           <PopularContentSection entries={popularEntries} />

@@ -85,6 +85,9 @@ export default function HomeBrowseSection({
             enterKeyHint="search"
             value={keyword}
             onChange={(e) => onKeywordChange(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') onShowResults()
+            }}
             placeholder="学校名・部活名・企業名で検索"
             className="w-full rounded-2xl border border-magazine-border bg-white px-4 py-3.5 text-sm text-magazine-text placeholder:text-magazine-muted focus:border-hokkaido-sky focus:outline-none focus:ring-2 focus:ring-hokkaido-sky/20"
           />
