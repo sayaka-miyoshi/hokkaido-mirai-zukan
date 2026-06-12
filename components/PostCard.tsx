@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import type { Post } from '@/types/post'
 import { getGenreBadgeClass } from '@/lib/genres'
+import { POST_CARD_THUMBNAIL } from '@/lib/home-layout'
 import { urls } from '@/lib/urls'
 import PostImage from './PostImage'
 import RecruitmentBadge from './RecruitmentBadge'
@@ -17,12 +18,15 @@ export default function PostCard({ post }: { post: Post }) {
       href={urls.post(post.id)}
       className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col border border-hokkaido-ice active:scale-[0.98]"
     >
-      <div className="relative w-full aspect-[4/5] min-h-[120px] shrink-0 bg-hokkaido-ice overflow-hidden">
+      <div
+        className={`relative w-full ${POST_CARD_THUMBNAIL.aspect} min-h-[120px] shrink-0 bg-hokkaido-ice overflow-hidden`}
+      >
         <PostImage
           src={post.imageUrl}
           alt={post.title}
           genre={post.genre}
           sizes="(max-width: 640px) 50vw, 200px"
+          className={POST_CARD_THUMBNAIL.imageClass}
         />
         {!isCompanyCard && (
           <>

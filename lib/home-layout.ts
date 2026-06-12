@@ -17,11 +17,18 @@ export const HOME_CONTENT_GRIDS = {
   nine: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-3 md:gap-x-4 md:gap-y-8',
 } as const
 
-/** TOPグリッドカード共通（Instagramフィード風・5:4固定） */
-export const HOME_GRID_CARD = {
-  imageAspect: 'aspect-[5/4]',
+/** Instagramフィード風 4:5（1080×1350）— 記事カードサムネ共通 */
+export const POST_CARD_THUMBNAIL = {
+  aspect: 'aspect-[4/5]',
+  /** 顔・上部テキストが切れにくいよう、やや上寄せでトリミング */
   imageClass:
-    'object-cover object-center transition-transform duration-[1.2s] ease-out group-hover:scale-[1.02]',
+    'object-cover object-[center_32%] transition-transform duration-[1.2s] ease-out group-hover:scale-[1.02]',
+} as const
+
+/** TOPグリッドカード共通（Instagramフィード風・4:5固定） */
+export const HOME_GRID_CARD = {
+  imageAspect: POST_CARD_THUMBNAIL.aspect,
+  imageClass: POST_CARD_THUMBNAIL.imageClass,
   /** タイトルは最大2行・高さ固定 */
   title:
     'text-xs leading-snug line-clamp-2 min-h-[2.5rem] md:text-[13px] md:leading-snug md:min-h-[2.75rem]',
