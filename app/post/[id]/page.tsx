@@ -22,6 +22,7 @@ import {
 } from '@/lib/queries'
 import { getAreaSlug } from '@/lib/slugs'
 import { getGenreBadgeClass } from '@/lib/genres'
+import { POST_DETAIL_MAIN_IMAGE } from '@/lib/home-layout'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
@@ -109,13 +110,16 @@ export default async function PostPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-2">{post.date}</p>
           </header>
 
-          <div className="relative w-full aspect-video min-h-[180px] bg-hokkaido-ice rounded-2xl overflow-hidden mb-6">
+          <div
+            className={`relative w-full ${POST_DETAIL_MAIN_IMAGE.aspect} min-h-[180px] bg-hokkaido-ice rounded-2xl overflow-hidden mb-6`}
+          >
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               genre={post.genre}
               priority
               sizes="(max-width: 768px) 100vw, 672px"
+              className={POST_DETAIL_MAIN_IMAGE.imageClass}
             />
           </div>
 

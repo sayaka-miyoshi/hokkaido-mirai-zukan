@@ -25,6 +25,12 @@ export const POST_CARD_THUMBNAIL = {
     'object-cover object-[center_32%] transition-transform duration-[1.2s] ease-out group-hover:scale-[1.02]',
 } as const
 
+/** 記事詳細ページのメイン画像（一覧と同じ4:5・object-cover・上寄せ） */
+export const POST_DETAIL_MAIN_IMAGE = {
+  aspect: POST_CARD_THUMBNAIL.aspect,
+  imageClass: 'object-cover object-[center_30%]',
+} as const
+
 /** TOPグリッドカード共通（Instagramフィード風・4:5固定） */
 export const HOME_GRID_CARD = {
   imageAspect: POST_CARD_THUMBNAIL.aspect,
