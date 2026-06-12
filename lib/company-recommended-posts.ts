@@ -1,5 +1,6 @@
 import type { Post } from '@/types/post'
 import { parsePostDate } from '@/lib/dates'
+import { isHokkaidoArea } from '@/lib/hokkaido-area'
 import { parsePopularFlag, parsePopularOrder } from '@/lib/popular-posts'
 
 /** Googleスプレッドシートの列名 */
@@ -36,28 +37,60 @@ function compareCompanyRecommendedOrder(a: Post, b: Post): number {
   return 0
 }
 
+/** TOP「北海道の企業を知ろう」共通の表示条件 */
+export function isEligibleHokkaidoCompanyPost(post: Post): boolean {
+  return (
+    post.isPublished &&
+    post.companyName.trim() !== '' &&
+    isHokkaidoArea(post.area)
+  )
+}
+
 /**
- * スプレッドシート管理の企業おすすめ記事
- * - 企業おすすめ = true
+ * TOP「北海道の企業を知ろう」
+ *
+ * 表示条件（共通）:
  * - 公開 = true
- * - おすすめ順 昇順（空欄は最後尾・同順位はシート行順）
- * - 最大14件
- * - 「企業おすすめ」列が未設定・0件のときは公開済み「企業訪問」を投稿日降順で表示
+ * - 企業名あり
+ * - エリア = 北海道内（東京都などは除外）
+ *
+ * 優先順:
+ * 1. 企業おすすめ = true → おすすめ順 昇順
+ * 2. 不足分 → ジャンル=企業訪問・投稿日降順で北海道内企業を補完
+ * 3. 最大14件（不足時は取得できる件数のみ）
  */
 export function getCompanyRecommendedPosts(
   posts: Post[],
   max: number = COMPANY_RECOMMENDED_MAX,
 ): Post[] {
-  const flagged = posts
-    .filter((post) => post.isCompanyRecommended && post.isPublished)
+  const result: Post[] = []
+  const usedIds = new Set<string>()
+
+  const recommended = posts
+    .filter((post) => post.isCompanyRecommended && isEligibleHokkaidoCompanyPost(post))
     .sort(compareCompanyRecommendedOrder)
 
-  if (flagged.length > 0) {
-    return flagged.slice(0, max)
+  for (const post of recommended) {
+    if (result.length >= max) break
+    result.push(post)
+    usedIds.add(post.id)
   }
 
-  return posts
-    .filter((post) => post.genre === '企業訪問' && post.isPublished)
-    .sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
-    .slice(0, max)
+  if (result.length < max) {
+    const fallback = posts
+      .filter(
+        (post) =>
+          !usedIds.has(post.id) &&
+          post.genre === '企業訪問' &&
+          isEligibleHokkaidoCompanyPost(post),
+      )
+      .sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
+
+    for (const post of fallback) {
+      if (result.length >= max) break
+      result.push(post)
+    }
+  }
+
+  return result
 }
