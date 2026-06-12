@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import CompanyContentSection from '@/components/home/CompanyContentSection'
 import HomeBrowseSection from '@/components/home/HomeBrowseSection'
+import HomePublishStatsSection from '@/components/home/HomePublishStatsSection'
 import HomeSearchResultsSection from '@/components/home/HomeSearchResultsSection'
 import LatestContentSection from '@/components/home/LatestContentSection'
 import OperatorSection from '@/components/home/OperatorSection'
@@ -20,6 +21,7 @@ import { COMPANY_CONTENT_MAX } from '@/lib/home-layout'
 import { getCompanyRecommendedPosts } from '@/lib/company-recommended-posts'
 import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
+import { getPublishStats } from '@/lib/publish-stats'
 import { resolvePopularContent } from '@/lib/popular-posts'
 import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
 import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
@@ -70,6 +72,8 @@ export default function SearchContainer({
 
   const suggestionIndex = useMemo(() => buildSearchSuggestionIndex(posts), [posts])
 
+  const publishStats = useMemo(() => getPublishStats(posts), [posts])
+
   const filtered = useMemo(() => {
     return posts
       .filter((post) => {
@@ -110,8 +114,10 @@ export default function SearchContainer({
     if (scrollRequestId === 0 || !hasActiveFilter) return
 
     const timer = window.setTimeout(() => {
-      document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 100)
+      const target = document.getElementById('search-results')
+      target?.classList.add('fade-up-visible')
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 150)
 
     return () => window.clearTimeout(timer)
   }, [
@@ -209,6 +215,7 @@ export default function SearchContainer({
       <main className="mx-auto w-full flex-1">
         <div className="mx-auto max-w-lg">
           <HomeBrowseSection {...browseSectionProps} />
+          {!hasActiveFilter && <HomePublishStatsSection stats={publishStats} />}
         </div>
 
         {hasActiveFilter && (

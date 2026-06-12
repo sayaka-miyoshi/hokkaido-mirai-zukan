@@ -48,6 +48,7 @@ export default function HomeSearchResultsSection({
       posts={posts}
       gridClassName={HOME_CONTENT_GRIDS.nine}
       priorityCount={3}
+      animate={false}
     />
   )
 }

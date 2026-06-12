@@ -11,6 +11,8 @@ type HomePostGridSectionProps = {
   gridClassName: string
   sectionClassName?: string
   priorityCount?: number
+  /** false = 絞り込み結果など、即時表示が必要なセクション */
+  animate?: boolean
 }
 
 /** TOP — 記事グリッド共通（最新・企業など） */
@@ -23,11 +25,12 @@ export default function HomePostGridSection({
   gridClassName,
   sectionClassName = 'scroll-mt-4 border-t border-magazine-border bg-white px-6 py-16',
   priorityCount = 0,
+  animate = true,
 }: HomePostGridSectionProps) {
   if (posts.length === 0) return null
 
-  return (
-    <FadeInSection id={id} aria-label={ariaLabel} className={sectionClassName}>
+  const content = (
+    <>
       <h2 className="font-magazine-rounded text-xl font-bold text-magazine-title">{title}</h2>
       <p className="mt-3 text-sm leading-[1.85] text-magazine-muted">{description}</p>
       <div className={`mt-10 ${gridClassName}`}>
@@ -41,6 +44,20 @@ export default function HomePostGridSection({
           />
         ))}
       </div>
+    </>
+  )
+
+  if (!animate) {
+    return (
+      <section id={id} aria-label={ariaLabel} className={sectionClassName}>
+        {content}
+      </section>
+    )
+  }
+
+  return (
+    <FadeInSection id={id} aria-label={ariaLabel} className={sectionClassName}>
+      {content}
     </FadeInSection>
   )
 }
