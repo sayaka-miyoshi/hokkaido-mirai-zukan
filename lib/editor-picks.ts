@@ -18,7 +18,7 @@ export const ADOPTED_HERO: FeaturedPostSpec = {
   postId: '16',
 }
 
-/** 採用済み：編集部おすすめ（表示順） */
+/** 編集部おすすめ（表示順: 部活 → 学校 → 企業） */
 export const ADOPTED_EDITOR_PICKS: readonly FeaturedPostSpec[] = [
   { title: '北海道大学フォーミュラ部', category: '部活', postId: '16' },
   { title: '札幌消防学校', category: '学校', postId: '1' },
@@ -31,8 +31,8 @@ export const ADOPTED_EDITOR_PICKS: readonly FeaturedPostSpec[] = [
  */
 export const OPTIONAL_FOURTH_EDITOR_PICK: FeaturedPostSpec | null = null
 
-/** 編集部おすすめの表示枠数（4本目追加時は 4 に変更） */
-export const EDITOR_PICKS_DISPLAY_COUNT = 3
+/** トップ注目記事の表示枠数 */
+export const EDITOR_PICKS_DISPLAY_COUNT = 6
 
 /**
  * 将来の差し替え候補（ジャンルバランス用メモ）

@@ -1,7 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { type ReactNode } from 'react'
-import { CATEGORY_FILTERS, POPULAR_AREAS } from '@/lib/site'
+import { urls } from '@/lib/urls'
 
 type HomeBrowseSectionProps = {
   keyword: string
@@ -20,6 +21,7 @@ type HomeBrowseSectionProps = {
   filteredCount: number
   totalCount: number
   onClearFilters: () => void
+  onShowResults: () => void
 }
 
 function FilterChip({
@@ -35,10 +37,10 @@ function FilterChip({
     <button
       type="button"
       onClick={onClick}
-      className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium border transition-all
+      className={`min-h-[40px] shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-all active:scale-[0.98]
         ${active
-          ? 'bg-hokkaido-deep text-white border-hokkaido-deep'
-          : 'bg-transparent text-gray-500 border-gray-200 hover:border-hokkaido-sky hover:text-hokkaido-deep'
+          ? 'border-magazine-title bg-magazine-title text-white shadow-magazine-sm'
+          : 'border-magazine-border bg-white text-magazine-text hover:border-hokkaido-sky/50 hover:bg-magazine-sky'
         }`}
     >
       {children}
@@ -46,7 +48,7 @@ function FilterChip({
   )
 }
 
-/** 編集部おすすめの後に置く、控えめな検索・絞り込み */
+/** ② 検索エリア（SEO H2付き） */
 export default function HomeBrowseSection({
   keyword,
   onKeywordChange,
@@ -64,52 +66,111 @@ export default function HomeBrowseSection({
   filteredCount,
   totalCount,
   onClearFilters,
+  onShowResults,
 }: HomeBrowseSectionProps) {
   return (
     <section
       id="browse"
       aria-label="記事を探す"
-      className="scroll-mt-4 px-6 py-16 border-t border-hokkaido-ice/60"
+      className="scroll-mt-4 bg-white px-6 py-16"
     >
-      <details className="group">
-        <summary className="cursor-pointer list-none text-xs text-gray-400 hover:text-hokkaido-deep transition-colors">
-          キーワードで探す
-          {hasActiveFilter && (
-            <span className="ml-2 text-hokkaido-sky">
-              （{filteredCount}件）
-            </span>
+      <div className="space-y-10 rounded-3xl border border-magazine-border bg-magazine-cream/50 p-6">
+        <div>
+          <label htmlFor="home-search" className="sr-only">
+            キーワード検索
+          </label>
+          <input
+            id="home-search"
+            type="search"
+            enterKeyHint="search"
+            value={keyword}
+            onChange={(e) => onKeywordChange(e.target.value)}
+            placeholder="学校名・部活名・企業名で検索"
+            className="w-full rounded-2xl border border-magazine-border bg-white px-4 py-3.5 text-sm text-magazine-text placeholder:text-magazine-muted focus:border-hokkaido-sky focus:outline-none focus:ring-2 focus:ring-hokkaido-sky/20"
+          />
+        </div>
+
+        <div>
+          <h2 className="font-magazine-rounded text-lg font-bold text-magazine-title">学校を探す</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <FilterChip
+              active={selectedGenre === '学校'}
+              onClick={() => onGenreChange(selectedGenre === '学校' ? null : '学校')}
+            >
+              学校の記事
+            </FilterChip>
+            <Link
+              href={urls.schools()}
+              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+            >
+              学校一覧へ →
+            </Link>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-magazine-rounded text-lg font-bold text-magazine-title">部活を探す</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <FilterChip
+              active={selectedGenre === '部活'}
+              onClick={() => onGenreChange(selectedGenre === '部活' ? null : '部活')}
+            >
+              部活の記事
+            </FilterChip>
+            <Link
+              href={urls.clubs()}
+              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+            >
+              部活一覧へ →
+            </Link>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-magazine-rounded text-lg font-bold text-magazine-title">企業を探す</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <FilterChip
+              active={selectedGenre === '企業訪問'}
+              onClick={() => onGenreChange(selectedGenre === '企業訪問' ? null : '企業訪問')}
+            >
+              企業の記事
+            </FilterChip>
+            <FilterChip
+              active={selectedGenre === '行政・自治体'}
+              onClick={() =>
+                onGenreChange(selectedGenre === '行政・自治体' ? null : '行政・自治体')
+              }
+            >
+              行政・自治体
+            </FilterChip>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-magazine-rounded text-lg font-bold text-magazine-title">進路から探す</h2>
+          {careerCategories.length > 0 ? (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {careerCategories.slice(0, 12).map((category) => (
+                <FilterChip
+                  key={category}
+                  active={selectedCareerCategory === category}
+                  onClick={() =>
+                    onCareerCategoryChange(selectedCareerCategory === category ? null : category)
+                  }
+                >
+                  {category}
+                </FilterChip>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-4 text-sm text-magazine-muted">進路カテゴリの記事を準備中です</p>
           )}
-        </summary>
+        </div>
 
-        <div className="mt-8 space-y-6">
-          <div>
-            <label htmlFor="home-search" className="sr-only">
-              キーワード検索
-            </label>
-            <input
-              id="home-search"
-              type="search"
-              value={keyword}
-              onChange={(e) => onKeywordChange(e.target.value)}
-              placeholder="タイトル・学校名・企業名..."
-              className="w-full border-0 border-b border-hokkaido-ice bg-transparent px-0 py-3 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-hokkaido-sky"
-            />
-          </div>
-
+        <div>
+          <p className="mb-3 text-[11px] font-bold text-magazine-muted">エリア</p>
           <div className="flex flex-wrap gap-2">
-            {CATEGORY_FILTERS.map(({ label, genre }) => (
-              <FilterChip
-                key={genre}
-                active={selectedGenre === genre}
-                onClick={() => onGenreChange(selectedGenre === genre ? null : genre)}
-              >
-                {label}
-              </FilterChip>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {POPULAR_AREAS.map((area) => (
+            {['札幌', '函館', '旭川', '帯広'].map((area) => (
               <FilterChip
                 key={area}
                 active={selectedArea === area}
@@ -119,65 +180,47 @@ export default function HomeBrowseSection({
               </FilterChip>
             ))}
           </div>
+        </div>
 
-          {(videoCategories.length > 0 || careerCategories.length > 0) && (
-            <details className="text-sm">
-              <summary className="cursor-pointer text-gray-400 hover:text-hokkaido-deep list-none">
-                さらに絞り込む
-              </summary>
-              <div className="mt-4 space-y-4">
-                {videoCategories.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {videoCategories.map(({ id, label }) => (
-                      <FilterChip
-                        key={id}
-                        active={selectedVideoCategory === id}
-                        onClick={() =>
-                          onVideoCategoryChange(selectedVideoCategory === id ? null : id)
-                        }
-                      >
-                        {label}
-                      </FilterChip>
-                    ))}
-                  </div>
-                )}
-                {careerCategories.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {careerCategories.map((category) => (
-                      <FilterChip
-                        key={category}
-                        active={selectedCareerCategory === category}
-                        onClick={() =>
-                          onCareerCategoryChange(
-                            selectedCareerCategory === category ? null : category,
-                          )
-                        }
-                      >
-                        {category}
-                      </FilterChip>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </details>
-          )}
+        {videoCategories.length > 0 && (
+          <details className="text-xs">
+            <summary className="cursor-pointer list-none font-medium text-magazine-muted hover:text-magazine-text">
+              詳細条件
+            </summary>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {videoCategories.map(({ id, label }) => (
+                <FilterChip
+                  key={id}
+                  active={selectedVideoCategory === id}
+                  onClick={() => onVideoCategoryChange(selectedVideoCategory === id ? null : id)}
+                >
+                  {label}
+                </FilterChip>
+              ))}
+            </div>
+          </details>
+        )}
 
-          {hasActiveFilter && (
-            <div className="flex items-center justify-between text-xs text-gray-400">
+        {hasActiveFilter && (
+          <div className="space-y-3 border-t border-magazine-border pt-5">
+            <div className="flex items-center justify-between text-xs text-magazine-text">
               <span>
-                全{totalCount}件中 {filteredCount}件
+                {filteredCount}件 / 全{totalCount}件
               </span>
-              <button
-                type="button"
-                onClick={onClearFilters}
-                className="text-hokkaido-sky hover:underline"
-              >
-                条件をクリア
+              <button type="button" onClick={onClearFilters} className="font-bold text-hokkaido-sky">
+                リセット
               </button>
             </div>
-          )}
-        </div>
-      </details>
+            <button
+              type="button"
+              onClick={onShowResults}
+              className="flex min-h-[48px] w-full items-center justify-center rounded-full bg-magazine-title text-sm font-bold text-white shadow-magazine-sm"
+            >
+              記事を見る（{filteredCount}件）↓
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   )
 }

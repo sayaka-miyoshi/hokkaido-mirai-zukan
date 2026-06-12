@@ -21,6 +21,7 @@ const OPTIONAL_HEADERS = [
   '募集情報', '募集情報URL', 'InstagramURL',
   '学校公式サイト', '学校SNS', '部活SNS', '企業公式サイト', '企業SNS',
   '人気表示', '人気順',
+  '掲載元', 'コンテンツ種別',
 ]
 
 const AREA_SLUG_MAP = {
@@ -63,7 +64,7 @@ function getPopularPosts(posts) {
   return posts
     .filter((p) => p.isPopular && p.popularOrder != null)
     .sort((a, b) => a.popularOrder - b.popularOrder)
-    .slice(0, 10)
+    .slice(0, 6)
 }
 
 function parsePosts(text) {

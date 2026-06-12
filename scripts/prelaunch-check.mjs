@@ -169,11 +169,11 @@ console.log('━━━━━━━━━━━━━━━━━━━━━━�
 const popularCandidates = published.filter((p) => p.isPopular && p.popularOrder != null)
 const popularDisplay = [...popularCandidates]
   .sort((a, b) => a.popularOrder - b.popularOrder)
-  .slice(0, 10)
+  .slice(0, 6)
 console.log(`人気表示=1 かつ 人気順あり: ${popularCandidates.length} 件`)
-console.log(`表示件数（最大10）: ${popularDisplay.length} 件`)
-if (popularCandidates.length > 10) {
-  console.log(`⚠ 11件以上 → 人気順1〜10のみ表示（${popularCandidates.length - 10} 件は除外）`)
+console.log(`表示件数（最大6）: ${popularDisplay.length} 件`)
+if (popularCandidates.length > 6) {
+  console.log(`⚠ 7件以上 → 人気順1〜6のみ表示（${popularCandidates.length - 6} 件は除外）`)
 }
 popularDisplay.forEach((p, i) => {
   console.log(`  ${i + 1}. [順${p.popularOrder}] ${p.title}`)

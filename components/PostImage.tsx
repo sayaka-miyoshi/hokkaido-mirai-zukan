@@ -2,34 +2,36 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
-import {
-  DEFAULT_POST_IMAGE,
-} from '@/lib/og-image'
+import { isDefaultPostImage, resolveDefaultPostImage } from '@/lib/default-images'
 import { getImageUrlCandidates, normalizeImageUrl } from '@/lib/image-url'
 
 type PostImageProps = {
   src: string
-  alt: string
+  alt?: string
+  genre?: string
   fill?: boolean
   priority?: boolean
   className?: string
   sizes?: string
 }
 
-function resolveInitialSrc(src: string): string {
-  if (!src?.trim() || src.trim() === DEFAULT_POST_IMAGE) return DEFAULT_POST_IMAGE
-  return normalizeImageUrl(src) ?? getImageUrlCandidates(src)[0] ?? DEFAULT_POST_IMAGE
+function resolveInitialSrc(src: string, genre?: string): string {
+  const fallback = resolveDefaultPostImage(genre)
+  if (!src?.trim() || isDefaultPostImage(src.trim())) return fallback
+  return normalizeImageUrl(src) ?? getImageUrlCandidates(src)[0] ?? fallback
 }
 
-/** 投稿サムネイル（空欄・取得失敗時はデフォルト画像） */
+/** 投稿サムネイル（空欄・取得失敗時はジャンル別デフォルト画像） */
 export default function PostImage({
   src,
-  alt,
+  alt = '',
+  genre,
   fill = true,
   priority = false,
   className = '',
   sizes = '(max-width: 640px) 50vw, 200px',
 }: PostImageProps) {
+  const fallbackSrc = resolveDefaultPostImage(genre)
   const candidates = useMemo(
     () => (src?.trim() ? getImageUrlCandidates(src) : []),
     [src],
@@ -38,17 +40,15 @@ export default function PostImage({
   const [useDefault, setUseDefault] = useState(() => !src?.trim())
 
   const displaySrc = useDefault
-    ? DEFAULT_POST_IMAGE
+    ? fallbackSrc
     : candidates.length > 0
-      ? candidates[candidateIndex] ?? DEFAULT_POST_IMAGE
-      : resolveInitialSrc(src)
-
-  const isDefault = displaySrc === DEFAULT_POST_IMAGE
+      ? candidates[candidateIndex] ?? fallbackSrc
+      : resolveInitialSrc(src, genre)
 
   useEffect(() => {
     setCandidateIndex(0)
     setUseDefault(!src?.trim())
-  }, [src])
+  }, [src, genre])
 
   const handleError = () => {
     if (useDefault) return
@@ -61,9 +61,7 @@ export default function PostImage({
     setUseDefault(true)
   }
 
-  const imageClassName = isDefault
-    ? 'object-contain p-4 bg-hokkaido-ice'
-    : `${className || 'object-cover'}`.trim()
+  const imageClassName = `${className || 'object-cover'}`.trim()
 
   return (
     <Image

@@ -2,69 +2,82 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { HERO_BG_IMAGE_PATH } from '@/lib/branding-paths'
-import { HERO_STORY_LINES, SITE_CATCH_COPY, SITE_NAME } from '@/lib/site'
+import LogoStampA from '@/components/brand/LogoStampA'
+import { HERO_INTERVIEW_IMAGE_PATH, HERO_IMAGE_OBJECT_POSITION_MOBILE } from '@/lib/branding-paths'
+import {
+  HERO_CTA_DISCOVER,
+  HERO_CTA_FEATURED,
+  HERO_STORY_LINES,
+  SITE_CATCH_COPY,
+} from '@/lib/site'
 
-type MagazineHeroProps = {
-  exploreHref?: string
-}
-
-/** 雑誌・特集風トップヒーロー（採用画像: 北大フォーミュラ部 /post/16） */
-export default function MagazineHero({ exploreHref = '#editor-picks' }: MagazineHeroProps) {
-  const [bgError, setBgError] = useState(false)
+/** 特集扉型ヒーロー（白背景・A-3・スマホ最優先） */
+export default function MagazineHero() {
+  const [imgError, setImgError] = useState(false)
 
   return (
-    <header className="flex h-[100svh] min-h-[640px] max-h-[900px] flex-col overflow-hidden bg-black">
-      <div className="relative h-[50svh] min-h-[240px] max-h-[440px] shrink-0 overflow-hidden">
-        {!bgError ? (
-          <img
-            src={HERO_BG_IMAGE_PATH}
-            alt=""
-            aria-hidden="true"
-            className="hero-bg-image absolute inset-0 h-full w-full object-cover"
-            onError={() => setBgError(true)}
-          />
-        ) : (
-          <div className="absolute inset-0 bg-hokkaido-hero hokkaido-snow-pattern" aria-hidden="true" />
-        )}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black"
-        />
+    <header className="bg-white px-6 pb-12 pt-8">
+      <div className="flex items-start justify-between gap-4">
+        <LogoStampA size="compact" />
+        <div className="pt-1 text-right">
+          <p className="font-magazine-rounded text-[10px] tracking-[0.22em] text-magazine-muted">
+            VOL.01
+          </p>
+          <p className="mt-1 text-[10px] tracking-[0.12em] text-magazine-muted">WEB MAGAZINE</p>
+        </div>
       </div>
 
-      <div className="relative flex min-h-0 flex-1 flex-col bg-gradient-to-b from-black via-black to-black/95 px-6 pb-8 pt-5">
-        <p className="shrink-0 text-[11px] tracking-[0.26em] text-white/60 font-semibold">
-          {SITE_NAME}
-        </p>
-
-        <h1 className="mt-4 shrink-0 text-[clamp(1.75rem,8.2vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] text-white whitespace-pre-line">
-          {SITE_CATCH_COPY}
-        </h1>
-
-        <div className="mt-5 min-h-0 flex-1 space-y-2 overflow-y-auto overscroll-contain">
-          {HERO_STORY_LINES.map((line, index) => (
-            <p
-              key={line}
-              className={`text-[13px] leading-[1.85] sm:text-[14px] ${
-                index === HERO_STORY_LINES.length - 1
-                  ? 'font-semibold text-white'
-                  : 'text-white/78'
-              }`}
-            >
-              {line}
-            </p>
-          ))}
+      <div className="relative mx-auto mt-8 w-full overflow-hidden rounded-3xl bg-magazine-sky shadow-sm">
+        {!imgError ? (
+          <img
+            src={HERO_INTERVIEW_IMAGE_PATH}
+            alt="企業・工場での取材風景"
+            className="aspect-[4/5] w-full object-cover"
+            style={{ objectPosition: HERO_IMAGE_OBJECT_POSITION_MOBILE }}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="flex aspect-[4/5] w-full items-center justify-center bg-magazine-sky text-sm text-magazine-muted">
+            取材写真
+          </div>
+        )}
+        <div className="absolute inset-x-0 bottom-0 bg-white/95 px-5 py-5 backdrop-blur-[2px]">
+          <h1 className="font-magazine-rounded text-[1.55rem] font-bold leading-[1.28] tracking-[-0.02em] text-magazine-title whitespace-pre-line">
+            {SITE_CATCH_COPY}
+          </h1>
         </div>
+      </div>
 
-        <div className="mt-5 shrink-0 pt-2">
-          <Link
-            href={exploreHref}
-            className="inline-flex items-center justify-center rounded-full border border-white/70 px-7 py-3 text-sm font-bold text-white hover:bg-white hover:text-hokkaido-deep transition-colors"
+      <div className="mx-auto mt-8 space-y-3">
+        {HERO_STORY_LINES.map((line, index) => (
+          <p
+            key={line}
+            className={`text-[14px] leading-[2.05] ${
+              index === HERO_STORY_LINES.length - 1
+                ? 'font-medium text-magazine-title'
+                : 'text-magazine-text'
+            }`}
           >
-            記事を探す
-          </Link>
-        </div>
+            {line}
+          </p>
+        ))}
+      </div>
+
+      <div className="mx-auto mt-10 flex flex-col gap-3">
+        <Link
+          href="#featured-stories"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-magazine-title px-6 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          {HERO_CTA_FEATURED}
+          <span aria-hidden="true">↓</span>
+        </Link>
+        <Link
+          href="#themes"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-magazine-border bg-white text-sm font-medium text-magazine-title transition-colors hover:bg-magazine-cream"
+        >
+          {HERO_CTA_DISCOVER}
+          <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </header>
   )

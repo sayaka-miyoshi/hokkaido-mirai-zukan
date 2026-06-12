@@ -1,4 +1,6 @@
 import { OPERATOR_SOCIAL_URLS, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { PROFILE_IMAGE_PATH } from '@/lib/branding-paths'
+import { OPERATOR_PAGE } from '@/lib/operator-page'
 import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
 import type { Post } from '@/types/post'
 
@@ -83,5 +85,20 @@ export function createBreadcrumbJsonLd(items: BreadcrumbItem[]) {
       name: item.name,
       ...(item.href ? { item: absoluteUrl(item.href) } : {}),
     })),
+  }
+}
+
+/** 運営者ページ用 Person スキーマ */
+export function createPersonJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: '三好清佳',
+    alternateName: 'Sayaka Miyoshi',
+    jobTitle: [...OPERATOR_PAGE.titles],
+    image: absoluteUrl(PROFILE_IMAGE_PATH),
+    description: OPERATOR_PAGE.schemaDescription,
+    url: absoluteUrl(OPERATOR_PAGE.path),
+    sameAs: [...OPERATOR_PAGE.sameAs],
   }
 }

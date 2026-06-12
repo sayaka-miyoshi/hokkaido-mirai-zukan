@@ -1,11 +1,15 @@
 export const SITE_NAME = '北海道未来図鑑'
-export const SITE_TAGLINE = '北海道の挑戦を、取材して伝えるWebマガジン'
+export const SITE_TAGLINE = '北海道の学校・部活・企業を、楽しく見つけられるWebマガジン'
 
-/** ヒーロー用（メディア訴求・検索サイト感を出さない） */
-export const HERO_MEDIA_DECK = '北海道の学校・部活・企業の挑戦を、取材して伝えるメディア'
+/** ヒーロー上部の補足（ブランド訴求） */
+export const HERO_MEDIA_DECK = '学校・部活・企業の挑戦を、取材して届けるメディア'
 
 /** トップの大きなキャッチコピー */
-export const SITE_CATCH_COPY = '知られていない挑戦に、\n出会える場所。'
+export const SITE_CATCH_COPY = '北海道の未来をつくる\n学校・部活・企業に出会う'
+
+/** ヒーローCTA */
+export const HERO_CTA_FEATURED = '注目のストーリーを読む'
+export const HERO_CTA_DISCOVER = 'テーマから発見する'
 
 /** ファーストビューのストーリー見出し */
 export const HERO_STORY_LINES = [
@@ -19,7 +23,10 @@ export const HERO_STORY_LINES = [
 export const OPERATOR = {
   name: '三好 清佳',
   titles: ['北海道観光大使', '札幌観光大使'] as const,
-  bio: '北海道の学校・部活・企業を取材し、\n頑張る人たちの魅力を発信しています。',
+  titleLine: '北海道観光大使・札幌観光大使',
+  bio: '北海道の学校・部活・企業・地域で頑張る人たちの魅力を発信しています。',
+  siteNote:
+    '北海道未来図鑑は、進路選択や企業研究、地域の魅力発見に役立つ情報サイトとして運営しています。',
   totalFollowersLabel: '総フォロワー55万人超',
 }
 
@@ -31,9 +38,27 @@ export const YOUTUBE_URL = 'https://youtube.com/@SayakaMiyoshi'
 export type SocialPlatform = 'instagram' | 'tiktok' | 'youtube'
 
 export const OPERATOR_SOCIAL_LINKS = [
-  { platform: 'instagram' as const, label: 'Instagram', stat: '約50万人', url: INSTAGRAM_URL },
-  { platform: 'tiktok' as const, label: 'TikTok', stat: '約3万人', url: TIKTOK_URL },
-  { platform: 'youtube' as const, label: 'YouTube', stat: '約2万人', url: YOUTUBE_URL },
+  {
+    platform: 'instagram' as const,
+    label: 'Instagram',
+    handle: '@insta.sayaka',
+    stat: '約50万人',
+    url: INSTAGRAM_URL,
+  },
+  {
+    platform: 'tiktok' as const,
+    label: 'TikTok',
+    handle: '@tiktok.sayaka',
+    stat: '約3万人',
+    url: TIKTOK_URL,
+  },
+  {
+    platform: 'youtube' as const,
+    label: 'YouTube',
+    handle: '@SayakaMiyoshi',
+    stat: '約2万人',
+    url: YOUTUBE_URL,
+  },
 ] as const
 
 export const OPERATOR_SOCIAL_URLS = OPERATOR_SOCIAL_LINKS.map((item) => item.url)
@@ -44,15 +69,15 @@ export const DEFAULT_OG_IMAGE_PATH = '/opengraph-image'
 /** Google Search Console 所有権確認（HTMLタグ） */
 export const GOOGLE_SITE_VERIFICATION = 'TFO6fYVgO-x-aP0bXUe7s0BLAd6YwaupafjeT6rRs7M'
 
-/** カテゴリボタン（ジャンル列と対応） */
+/** 検索パネル内のテーマ絞り込み（「カテゴリ」ではなく「テーマ」表記） */
 export const CATEGORY_FILTERS = [
   { emoji: '🏫', label: '学校', genre: '学校' },
-  { emoji: '⚽', label: '部活・サークル', genre: '部活' },
+  { emoji: '⚽', label: '部活', genre: '部活' },
   { emoji: '🏢', label: '企業', genre: '企業訪問' },
-  { emoji: '🏛️', label: '行政・団体', genre: '行政・自治体' },
+  { emoji: '🏛️', label: '行政', genre: '行政・自治体' },
 ] as const
 
-/** トップのカテゴリ導線 */
+/** @deprecated MAGAZINE_THEMES（lib/magazine-themes.ts）を使用 */
 export const HOME_CATEGORIES = [
   { label: '学校', genre: '学校', href: '/schools', type: 'link' as const },
   { label: '部活・サークル', genre: '部活', href: '/clubs', type: 'link' as const },

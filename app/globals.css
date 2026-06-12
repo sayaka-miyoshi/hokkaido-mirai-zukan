@@ -33,9 +33,14 @@
     object-position: center 28%;
   }
 
-  @media (min-width: 640px) {
-    .hero-bg-image {
-      object-position: center 36%;
-    }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-up-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

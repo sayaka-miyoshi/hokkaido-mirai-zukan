@@ -1,0 +1,5386 @@
+{
+  "summary": {
+    "total": 136,
+    "normal": 0,
+    "problems": 136
+  },
+  "problems": [
+    {
+      "id": "1",
+      "title": "札幌消防学校",
+      "imageUrl": "https://drive.google.com/file/d/1w8wHjpKeBAKFBKnMMdPyAobksxeN6tLt/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLYRaIQTH2d/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/1",
+      "ok": false,
+      "issues": [
+        "一覧: サムネイルなし（No Image 表示）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "K列URLの形式・Googleドライブ共有設定（リンクを知っている全員）を確認",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "http://localhost:3000/images/default-post.svg",
+        "complete": true,
+        "naturalWidth": 120,
+        "naturalHeight": 150,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "contain",
+        "isDefault": true
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1w8wHjpKeBAKFBKnMMdPyAobksxeN6tLt&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "2",
+      "title": "人形浄瑠璃",
+      "imageUrl": "https://drive.google.com/file/d/1sP4Xv85dPGrXAOsw9ohWYEh2IF3CNuzs/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DN9NK4OEriZ/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/2",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1sP4Xv85dPGrXAOsw9ohWYEh2IF3CNuzs&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1sP4Xv85dPGrXAOsw9ohWYEh2IF3CNuzs&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "3",
+      "title": "北海道科学大学 YOSAKOI",
+      "imageUrl": "https://drive.google.com/file/d/1QGzfns7pr19ZltT_cKDE9YHUvIOFoCXq/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DY0aD5hSyZo/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/3",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1QGzfns7pr19ZltT_cKDE9YHUvIOFoCXq&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1QGzfns7pr19ZltT_cKDE9YHUvIOFoCXq&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "4",
+      "title": "北海学園大学女子ラクロス部",
+      "imageUrl": "https://drive.google.com/file/d/1dz7SFXd8CcS8yRTiVSSlDFWWPw4M7xOi/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYyVN8Jyae7/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/4",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1dz7SFXd8CcS8yRTiVSSlDFWWPw4M7xOi&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1dz7SFXd8CcS8yRTiVSSlDFWWPw4M7xOi&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "5",
+      "title": "北海学園大学女子ラクロス部",
+      "imageUrl": "https://drive.google.com/file/d/1mP9cogJ7pJQ7k_WpYeuxXJHyAyn2WxOH/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYfxKOoyOAK/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/5",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1mP9cogJ7pJQ7k_WpYeuxXJHyAyn2WxOH&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1mP9cogJ7pJQ7k_WpYeuxXJHyAyn2WxOH&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "6",
+      "title": "北海道大学ボディビルディングクラブ",
+      "imageUrl": "https://drive.google.com/file/d/1zYDU2_bTbOWo2jFB1CsMoXtVWBPMNykY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYdLfY6Sykf/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/6",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1zYDU2_bTbOWo2jFB1CsMoXtVWBPMNykY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1zYDU2_bTbOWo2jFB1CsMoXtVWBPMNykY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "7",
+      "title": "札幌大学",
+      "imageUrl": "https://drive.google.com/file/d/1TlZtV8DL1Lg3jKR_C0Dzi9663BAIIBLX/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYYC9f0S5KG/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/7",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1TlZtV8DL1Lg3jKR_C0Dzi9663BAIIBLX&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1TlZtV8DL1Lg3jKR_C0Dzi9663BAIIBLX&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "8",
+      "title": "北海学園大学男子ラクロス部",
+      "imageUrl": "https://drive.google.com/file/d/1CorObFaNjZFgYEdjqiO_WJq_7xbVHJ8M/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYUKAVHyfiE/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/8",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1CorObFaNjZFgYEdjqiO_WJq_7xbVHJ8M&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1CorObFaNjZFgYEdjqiO_WJq_7xbVHJ8M&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "9",
+      "title": "北海学園大学男子ラクロス部",
+      "imageUrl": "https://drive.google.com/file/d/1VL93yG7apDEII_F11M9Xm4qPeGOL3aXH/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYMPWMIynFv/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/9",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1VL93yG7apDEII_F11M9Xm4qPeGOL3aXH&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1VL93yG7apDEII_F11M9Xm4qPeGOL3aXH&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "10",
+      "title": "北海道大学バトミントン部",
+      "imageUrl": "https://drive.google.com/file/d/18iWoGscI14mHDRRYKXKkV-d6ZEaCJT6K/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DYDb-qeS3hr/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/10",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18iWoGscI14mHDRRYKXKkV-d6ZEaCJT6K&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18iWoGscI14mHDRRYKXKkV-d6ZEaCJT6K&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "11",
+      "title": "北海道大学心理学部",
+      "imageUrl": "https://drive.google.com/file/d/1AtCTFXJJzJqLGW_VA3bQmyQ5d-Gn_KMT/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DX2onQ3yNzs/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/11",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AtCTFXJJzJqLGW_VA3bQmyQ5d-Gn_KMT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AtCTFXJJzJqLGW_VA3bQmyQ5d-Gn_KMT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "12",
+      "title": "札幌大学",
+      "imageUrl": "https://drive.google.com/file/d/1oJjBrXh-C6dnfAJW1ybVWoTGxa6Nol3R/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXu3WUAylYk/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/12",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1oJjBrXh-C6dnfAJW1ybVWoTGxa6Nol3R&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1oJjBrXh-C6dnfAJW1ybVWoTGxa6Nol3R&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "13",
+      "title": "日本最北の煉瓦工場",
+      "imageUrl": "https://drive.google.com/file/d/13q64O02fsw-0u7GjU11Thba3L-9Ut8aG/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXoYw6QEtYM/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/13",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=13q64O02fsw-0u7GjU11Thba3L-9Ut8aG&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=13q64O02fsw-0u7GjU11Thba3L-9Ut8aG&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "14",
+      "title": "北海道大学バトミントン部",
+      "imageUrl": "https://drive.google.com/file/d/1AEpAm157b31FDIpazaMVzazsyNqJjY9t/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXl3dkqEpDA/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/14",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AEpAm157b31FDIpazaMVzazsyNqJjY9t&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AEpAm157b31FDIpazaMVzazsyNqJjY9t&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "15",
+      "title": "北海道大学心理学部",
+      "imageUrl": "https://drive.google.com/file/d/1g3aO2vzjwVki8ubIueNT1wpE33FX2GDL/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXeJavTEnth/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/15",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1g3aO2vzjwVki8ubIueNT1wpE33FX2GDL&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1g3aO2vzjwVki8ubIueNT1wpE33FX2GDL&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "16",
+      "title": "北海道大学フォーミュラ部",
+      "imageUrl": "https://drive.google.com/file/d/1JeNn-e6Ytd0DOxWGl7EdjETYQEkgSz4s/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXXur9Zkno4/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/16",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1JeNn-e6Ytd0DOxWGl7EdjETYQEkgSz4s&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1JeNn-e6Ytd0DOxWGl7EdjETYQEkgSz4s&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "17",
+      "title": "北海道大学アルティメット部",
+      "imageUrl": "https://drive.google.com/file/d/113QhG49ucyu4tLytQqvPv7jpT7EaBH1o/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXQLw5ykvY7/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/17",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=113QhG49ucyu4tLytQqvPv7jpT7EaBH1o&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=113QhG49ucyu4tLytQqvPv7jpT7EaBH1o&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "18",
+      "title": "北海学園大学アメフト部",
+      "imageUrl": "https://drive.google.com/file/d/10nW9LxU0JsweIZkUdhBV1D_E7Vb1mxvI/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXNc9QukhWX/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/18",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=10nW9LxU0JsweIZkUdhBV1D_E7Vb1mxvI&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=10nW9LxU0JsweIZkUdhBV1D_E7Vb1mxvI&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "19",
+      "title": "札幌大学バスケットボール部",
+      "imageUrl": "https://drive.google.com/file/d/1k9IXChKbJyi6RPHfFKlicw499RrbmXGa/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXKzOhdEpXo/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/19",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1k9IXChKbJyi6RPHfFKlicw499RrbmXGa&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1k9IXChKbJyi6RPHfFKlicw499RrbmXGa&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "20",
+      "title": "車麩の製造工程",
+      "imageUrl": "https://drive.google.com/file/d/1lyaAjBwitUbMNRBafjpnk-V6xjTcACvD/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXIQHkiEjSM/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/20",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lyaAjBwitUbMNRBafjpnk-V6xjTcACvD&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lyaAjBwitUbMNRBafjpnk-V6xjTcACvD&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "21",
+      "title": "北海道大学アルティメット部",
+      "imageUrl": "https://drive.google.com/file/d/1Sx2CjG_UESofBxg8m7-lH0amdTZ-my5P/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DXGAWawEhjZ/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/21",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Sx2CjG_UESofBxg8m7-lH0amdTZ-my5P&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Sx2CjG_UESofBxg8m7-lH0amdTZ-my5P&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "22",
+      "title": "札幌大学バスケットボール部",
+      "imageUrl": "https://drive.google.com/file/d/14nQYA-vmnxGQep8s6_i5aPno4F3_J_36/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWplQk-Ek1W/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/22",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=14nQYA-vmnxGQep8s6_i5aPno4F3_J_36&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=14nQYA-vmnxGQep8s6_i5aPno4F3_J_36&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "23",
+      "title": "YOSAKOI 北海道大学",
+      "imageUrl": "https://drive.google.com/file/d/1F8Lcf2lBCrncKsI-nmsivUBQ9cmidtX4/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWhscFQEqQF/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/23",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1F8Lcf2lBCrncKsI-nmsivUBQ9cmidtX4&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1F8Lcf2lBCrncKsI-nmsivUBQ9cmidtX4&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "24",
+      "title": "第66回北海道銃剣道選手権大会",
+      "imageUrl": "https://drive.google.com/file/d/1wToSpwooAjFDQXLKDwHSsl7bIm6iwECh/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWe9yp0k9wM/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/24",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wToSpwooAjFDQXLKDwHSsl7bIm6iwECh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wToSpwooAjFDQXLKDwHSsl7bIm6iwECh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "25",
+      "title": "札幌大学卓球部",
+      "imageUrl": "https://drive.google.com/file/d/1dkjl1G7IUdKZwTN8-7PeR5Ktn8SHOaBK/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWZ9QeVkmim/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/25",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1dkjl1G7IUdKZwTN8-7PeR5Ktn8SHOaBK&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1dkjl1G7IUdKZwTN8-7PeR5Ktn8SHOaBK&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "26",
+      "title": "札幌大学卓球部",
+      "imageUrl": "https://drive.google.com/file/d/1uK4tPGsXZpr6ZmtAWXfPneMZN6HvuQXp/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWOAsJEkqw4/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/26",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uK4tPGsXZpr6ZmtAWXfPneMZN6HvuQXp&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uK4tPGsXZpr6ZmtAWXfPneMZN6HvuQXp&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "27",
+      "title": "函館カール・レイモン",
+      "imageUrl": "https://drive.google.com/file/d/1ry6SmoJMaRj80dqL7YHNmyyd7HlBo-3U/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWFTb_cEtbH/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/27",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ry6SmoJMaRj80dqL7YHNmyyd7HlBo-3U&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ry6SmoJMaRj80dqL7YHNmyyd7HlBo-3U&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "28",
+      "title": "札幌大学卓球部",
+      "imageUrl": "https://drive.google.com/file/d/1u3v-I06JSLfUQnwSDW_Hc_LY3Off9dP2/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWCzIJzkjPK/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/28",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1u3v-I06JSLfUQnwSDW_Hc_LY3Off9dP2&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1u3v-I06JSLfUQnwSDW_Hc_LY3Off9dP2&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "29",
+      "title": "株式会社YOSHIMI",
+      "imageUrl": "https://drive.google.com/file/d/1sql3EJOFMDi4MViJJi1oQfZfdw-goixC/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DWAV0oFkmU-/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/29",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1sql3EJOFMDi4MViJJi1oQfZfdw-goixC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1sql3EJOFMDi4MViJJi1oQfZfdw-goixC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "30",
+      "title": "北海道ジェイ・アール運輸サポート",
+      "imageUrl": "https://drive.google.com/file/d/1B0P0xQHh_LSvQOB4pu6fTGOtjATdfx5V/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DV47EdJknOq/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/30",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1B0P0xQHh_LSvQOB4pu6fTGOtjATdfx5V&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1B0P0xQHh_LSvQOB4pu6fTGOtjATdfx5V&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "31",
+      "title": "北海道ジェイ・アール運輸サポート",
+      "imageUrl": "https://drive.google.com/file/d/14TVUYAb3jzyU33rI-9MXc_CJM4pj0c6b/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVws2yxkuWy/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/31",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=14TVUYAb3jzyU33rI-9MXc_CJM4pj0c6b&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=14TVUYAb3jzyU33rI-9MXc_CJM4pj0c6b&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "32",
+      "title": "株式会社小山製麩所",
+      "imageUrl": "https://drive.google.com/file/d/1jw4eWAslyhFeYT163CF4on1m8HEG82hY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVeqdSAEp-f/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/32",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1jw4eWAslyhFeYT163CF4on1m8HEG82hY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1jw4eWAslyhFeYT163CF4on1m8HEG82hY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 1000,
+        "naturalHeight": 1778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "33",
+      "title": "札幌学院大学アメフト部",
+      "imageUrl": "https://drive.google.com/file/d/1Ky2oZMJz6VuzkzLZBRg9mai6we-OJ94V/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVmVjZdEgKO/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/33",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Ky2oZMJz6VuzkzLZBRg9mai6we-OJ94V&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Ky2oZMJz6VuzkzLZBRg9mai6we-OJ94V&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "34",
+      "title": "札幌学院大学アメフト部",
+      "imageUrl": "https://drive.google.com/file/d/1NUeLcrj6BvAkGtjE561qyBOQiBHv82vu/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVZ-kVVkqXi/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/34",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約29%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NUeLcrj6BvAkGtjE561qyBOQiBHv82vu&sz=w1000",
+        "complete": true,
+        "naturalWidth": 439,
+        "naturalHeight": 778,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NUeLcrj6BvAkGtjE561qyBOQiBHv82vu&sz=w1000",
+        "complete": true,
+        "naturalWidth": 439,
+        "naturalHeight": 778,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "35",
+      "title": "北海学園大学アイスホッケー部",
+      "imageUrl": "https://drive.google.com/file/d/1gbQjPL9v4iCaBZD3_Va5ZVYWK2ugtMMC/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVN7yUBEuuJ/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/35",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1gbQjPL9v4iCaBZD3_Va5ZVYWK2ugtMMC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 432,
+        "naturalHeight": 771,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1gbQjPL9v4iCaBZD3_Va5ZVYWK2ugtMMC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 432,
+        "naturalHeight": 771,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "36",
+      "title": "北海学園大学アイスホッケー部",
+      "imageUrl": "https://drive.google.com/file/d/18a2b6PGZct4ETMf5gnWleniBlbfHFVXP/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVFBJemEqFz/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/36",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18a2b6PGZct4ETMf5gnWleniBlbfHFVXP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18a2b6PGZct4ETMf5gnWleniBlbfHFVXP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "37",
+      "title": "北海学園大学アイスホッケー部",
+      "imageUrl": "https://drive.google.com/file/d/1kJzDtHefP_f85of0q3ozww-Bisz1OGdF/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DVDB9nfEmeh/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/37",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1kJzDtHefP_f85of0q3ozww-Bisz1OGdF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1kJzDtHefP_f85of0q3ozww-Bisz1OGdF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "38",
+      "title": "デジタル暴力とは？",
+      "imageUrl": "https://drive.google.com/file/d/19dEAgVtu0A4gBLAx2YdaqFm1IVqir7tN/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUrMvgokohF/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/38",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19dEAgVtu0A4gBLAx2YdaqFm1IVqir7tN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19dEAgVtu0A4gBLAx2YdaqFm1IVqir7tN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "39",
+      "title": "札幌国際情報高校吹奏楽部",
+      "imageUrl": "https://drive.google.com/file/d/1lOOFf1Q7E-eT-iIxIMYyU3KBgxltHk8k/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUomb9qkwXe/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/39",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lOOFf1Q7E-eT-iIxIMYyU3KBgxltHk8k&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lOOFf1Q7E-eT-iIxIMYyU3KBgxltHk8k&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "40",
+      "title": "北海学園大学アメフト部",
+      "imageUrl": "https://drive.google.com/file/d/1OtEB1oACT_HAxlTp1a8y1XzoYPT4rexM/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUg2igvE5L5/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/40",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約29%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1OtEB1oACT_HAxlTp1a8y1XzoYPT4rexM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 440,
+        "naturalHeight": 774,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1OtEB1oACT_HAxlTp1a8y1XzoYPT4rexM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 440,
+        "naturalHeight": 774,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "41",
+      "title": "北海学園大学アメフト部",
+      "imageUrl": "https://drive.google.com/file/d/1syG8Rl3M3oHISCzwEySxV0wOyFK6cJMT/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUbu9W9kx95/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/41",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約69%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1syG8Rl3M3oHISCzwEySxV0wOyFK6cJMT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 434,
+        "naturalHeight": 777,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1syG8Rl3M3oHISCzwEySxV0wOyFK6cJMT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 434,
+        "naturalHeight": 777,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "42",
+      "title": "札幌国際情報高校吹奏楽部",
+      "imageUrl": "https://drive.google.com/file/d/1DrK0TPWB6KIp-SBdc6EP004Bpj9rvu1w/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUWmb1jEpJc/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/42",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1DrK0TPWB6KIp-SBdc6EP004Bpj9rvu1w&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1DrK0TPWB6KIp-SBdc6EP004Bpj9rvu1w&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "43",
+      "title": "札幌大学",
+      "imageUrl": "https://drive.google.com/file/d/15rYRxAqLwKAEkpp3HGsq5xAjeCw_SrhA/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DUFBA_dkkvy/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/43",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=15rYRxAqLwKAEkpp3HGsq5xAjeCw_SrhA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=15rYRxAqLwKAEkpp3HGsq5xAjeCw_SrhA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "44",
+      "title": "日本の性教育を考えよう",
+      "imageUrl": "https://drive.google.com/drive/folders/19urfuXIRQu9MXXmyS5nigPSrWZerNF78",
+      "instagramUrl": "https://www.instagram.com/p/DTv3rMOk6XC/?hl=ja",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/44",
+      "ok": false,
+      "issues": [
+        "Google DriveフォルダURL（ファイルURLではない）",
+        "Google Drive URL形式が不正",
+        "Google Drive画像の取得エラー（HTMLが返却）",
+        "Google Drive画像のHTTP取得失敗"
+      ],
+      "recs": [
+        "フォルダではなく画像ファイルの共有URLをK列に設定",
+        "https://drive.google.com/file/d/ファイルID/view 形式に統一",
+        "共有設定を「リンクを知っている全員が閲覧可」に変更",
+        "ファイルIDと共有設定を確認"
+      ]
+    },
+    {
+      "id": "45",
+      "title": "北海道スポーツ専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1s4pIFHqLQyd6c8atHgKTKUnvf_EJkise/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DT9CL-Hki2u/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/45",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1s4pIFHqLQyd6c8atHgKTKUnvf_EJkise&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1s4pIFHqLQyd6c8atHgKTKUnvf_EJkise&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "46",
+      "title": "北海道スポーツ専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1YPz3ak3DApehBRYNfISpBlnlJKtjrura/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DTyfhwCk-F5/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/46",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約59%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1YPz3ak3DApehBRYNfISpBlnlJKtjrura&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1YPz3ak3DApehBRYNfISpBlnlJKtjrura&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "47",
+      "title": "札幌デジタル&どうぶつ・医療・観光専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1SNwtT6r08lXtBMFactRxfOCGSCkO_Oz1/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DToJrnnE-LH/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/47",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SNwtT6r08lXtBMFactRxfOCGSCkO_Oz1&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SNwtT6r08lXtBMFactRxfOCGSCkO_Oz1&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "48",
+      "title": "人形浄瑠璃",
+      "imageUrl": "https://drive.google.com/file/d/182F4OkPj4BA0LoURBR-2Y1VQNVTS-hSk/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DTeCWTYEudH/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/48",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約55%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=182F4OkPj4BA0LoURBR-2Y1VQNVTS-hSk&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 580,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=182F4OkPj4BA0LoURBR-2Y1VQNVTS-hSk&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 580,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "49",
+      "title": "札幌デジタル&どうぶつ・医療・観光専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1Fapi0Zh4eu2UveqtSxFQoddHiEePWz21/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DTcMggVkiEH/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/49",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Fapi0Zh4eu2UveqtSxFQoddHiEePWz21&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Fapi0Zh4eu2UveqtSxFQoddHiEePWz21&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "50",
+      "title": "札幌デジタル&どうぶつ・医療・観光専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1X3w-cdN-1KP4SNJnjN4LQa-z-w1ryngA/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DTHteCjEsyj/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/50",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1X3w-cdN-1KP4SNJnjN4LQa-z-w1ryngA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1X3w-cdN-1KP4SNJnjN4LQa-z-w1ryngA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "51",
+      "title": "手作りバット職人稲原さん",
+      "imageUrl": "https://drive.google.com/file/d/1zDBep6EM-y1_VQ8dKDGZnqVloTX56YEo/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DS_F7FLktfm/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/51",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1zDBep6EM-y1_VQ8dKDGZnqVloTX56YEo&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1zDBep6EM-y1_VQ8dKDGZnqVloTX56YEo&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "52",
+      "title": "北海道スポーツ専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1gMXdrl3p007h0u_dwbCKCrKcfviJTRTv/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DSqeTJEEqIX/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/52",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約59%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1gMXdrl3p007h0u_dwbCKCrKcfviJTRTv&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1gMXdrl3p007h0u_dwbCKCrKcfviJTRTv&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "53",
+      "title": "北海学園大学",
+      "imageUrl": "https://drive.google.com/file/d/1SlCrpWdrAZ8ZOzJ2AYtI0a9ucacYVOaV/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DStGl0JEq3m/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/53",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SlCrpWdrAZ8ZOzJ2AYtI0a9ucacYVOaV&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SlCrpWdrAZ8ZOzJ2AYtI0a9ucacYVOaV&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "54",
+      "title": "ここはプライベートパーツ",
+      "imageUrl": "https://drive.google.com/file/d/1aIN9RxCgEmMQrsqwkA-fOvnNL4XoS5aO/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DSQr89SEqmg/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/54",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1aIN9RxCgEmMQrsqwkA-fOvnNL4XoS5aO&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1aIN9RxCgEmMQrsqwkA-fOvnNL4XoS5aO&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "55",
+      "title": "補修のプロ リペアの仕事",
+      "imageUrl": "https://drive.google.com/file/d/1NbgVJLpxpzGVhvMko47INhqKjq5YHT70/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DSYcXWWEv9o/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/55",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約56%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NbgVJLpxpzGVhvMko47INhqKjq5YHT70&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 601,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NbgVJLpxpzGVhvMko47INhqKjq5YHT70&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 601,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "56",
+      "title": "ルスツリゾートの調理師さん",
+      "imageUrl": "https://drive.google.com/file/d/1ubw--s7TadtPFcRYwi4x_N_sMtJ3wXFV/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DSV2DI0koYU/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/56",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ubw--s7TadtPFcRYwi4x_N_sMtJ3wXFV&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ubw--s7TadtPFcRYwi4x_N_sMtJ3wXFV&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "57",
+      "title": "札幌デジタル＆どうぶつ・医療・観光専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1igRdJaOrLyQBuaQQnUhsIkzz7vUbeFXE/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DSGcg6ikmL6/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/57",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1igRdJaOrLyQBuaQQnUhsIkzz7vUbeFXE&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1igRdJaOrLyQBuaQQnUhsIkzz7vUbeFXE&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "58",
+      "title": "ルスツリゾートのお仕事",
+      "imageUrl": "https://drive.google.com/file/d/1o1mUtLaFcI-VZrYybiBP2m7Q53EQ-B6l/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DReYxezkk8I/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/58",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1o1mUtLaFcI-VZrYybiBP2m7Q53EQ-B6l&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1o1mUtLaFcI-VZrYybiBP2m7Q53EQ-B6l&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "59",
+      "title": "花王のシャンプー東京工場",
+      "imageUrl": "https://drive.google.com/file/d/1xd01lWOLc2TMCuBPH9dka4Bq6z1Vwmu6/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRf9SjukgED/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/59",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1xd01lWOLc2TMCuBPH9dka4Bq6z1Vwmu6&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1xd01lWOLc2TMCuBPH9dka4Bq6z1Vwmu6&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "60",
+      "title": "札幌市消防局初！",
+      "imageUrl": "https://drive.google.com/file/d/19e8GAoC2ix44nhGKgSTYzeOCJcfOwEg5/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRawnlJksnw/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/60",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19e8GAoC2ix44nhGKgSTYzeOCJcfOwEg5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19e8GAoC2ix44nhGKgSTYzeOCJcfOwEg5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "61",
+      "title": "吉田学園スポーツフェスティバル",
+      "imageUrl": "https://drive.google.com/file/d/1Vm0nsSFXecsZz3R7TQTSA6Tb2Thr3UTZ/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRVh9TSkhRG/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/61",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Vm0nsSFXecsZz3R7TQTSA6Tb2Thr3UTZ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Vm0nsSFXecsZz3R7TQTSA6Tb2Thr3UTZ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "62",
+      "title": "吉田学園コスプレ大会",
+      "imageUrl": "https://drive.google.com/file/d/12TM1Qe5T-2gCwQFgawNI5Siz5NWWF2_E/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRS2VD2kqJa/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/62",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=12TM1Qe5T-2gCwQFgawNI5Siz5NWWF2_E&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 627,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=12TM1Qe5T-2gCwQFgawNI5Siz5NWWF2_E&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 627,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "63",
+      "title": "吉田学園スポーツフェスティバル",
+      "imageUrl": "https://drive.google.com/file/d/1LwRMFGYys1LL69BsiB9RFXqxo9nWyLxl/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRQSA8Gkmqb/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/63",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LwRMFGYys1LL69BsiB9RFXqxo9nWyLxl&sz=w1000",
+        "complete": true,
+        "naturalWidth": 471,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LwRMFGYys1LL69BsiB9RFXqxo9nWyLxl&sz=w1000",
+        "complete": true,
+        "naturalWidth": 471,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "64",
+      "title": "救助隊員養成課程とは？",
+      "imageUrl": "https://drive.google.com/file/d/1eCkk8Qyf3IlzeIqu71LyX6sN9dI5i7m-/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DRIlLQhEqOe/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/64",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1eCkk8Qyf3IlzeIqu71LyX6sN9dI5i7m-&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1eCkk8Qyf3IlzeIqu71LyX6sN9dI5i7m-&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "65",
+      "title": "北海道の凄い人！ミューラルペイント",
+      "imageUrl": "https://drive.google.com/file/d/1lkinIMxP58jy9cZgvteI34n2m6MIJRlc/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DQyQTNvEsch/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/65",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lkinIMxP58jy9cZgvteI34n2m6MIJRlc&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 627,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lkinIMxP58jy9cZgvteI34n2m6MIJRlc&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 627,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "66",
+      "title": "植物学の学芸員さんに聞く！",
+      "imageUrl": "https://drive.google.com/file/d/1_cRlMMyVhIAGsSmpKMX-P9BOYOPRXvF5/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DQiCYrIEs1y/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/66",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1_cRlMMyVhIAGsSmpKMX-P9BOYOPRXvF5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1_cRlMMyVhIAGsSmpKMX-P9BOYOPRXvF5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "67",
+      "title": "北海道美容専門学校ヘアーショー",
+      "imageUrl": "https://drive.google.com/file/d/1Omcw-7JuEEKxwBAOgnj4E_EYyPd5Om7v/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DQXmcOik31Y/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/67",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Omcw-7JuEEKxwBAOgnj4E_EYyPd5Om7v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Omcw-7JuEEKxwBAOgnj4E_EYyPd5Om7v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "68",
+      "title": "北海道美容専門学校ヘアーショー",
+      "imageUrl": "https://drive.google.com/file/d/1HuifRveO2BTlK-yCkXAZ0VZ-vL-gwq_5/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DQI9vktkvLw/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/68",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1HuifRveO2BTlK-yCkXAZ0VZ-vL-gwq_5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1HuifRveO2BTlK-yCkXAZ0VZ-vL-gwq_5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "69",
+      "title": "人形浄瑠璃 人形の動かし方",
+      "imageUrl": "https://drive.google.com/file/d/1E_Z6GO4ecJT_dWvIKpudjB9y7fh25EoM/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DP7gArLEiJT/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/69",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1E_Z6GO4ecJT_dWvIKpudjB9y7fh25EoM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1E_Z6GO4ecJT_dWvIKpudjB9y7fh25EoM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "70",
+      "title": "北海道武蔵女子短期大学 コンサフリーク",
+      "imageUrl": "https://drive.google.com/file/d/1H8TLE0rAksTD5eaQ8pZJDaS09CSvQ-6c/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DP-McaMkixG/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/70",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1H8TLE0rAksTD5eaQ8pZJDaS09CSvQ-6c&sz=w1000",
+        "complete": true,
+        "naturalWidth": 471,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1H8TLE0rAksTD5eaQ8pZJDaS09CSvQ-6c&sz=w1000",
+        "complete": true,
+        "naturalWidth": 471,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "71",
+      "title": "ルスツリゾートのお仕事",
+      "imageUrl": "https://drive.google.com/file/d/1hPoGmXmIBKwPXLyUc1X-Yg4rfZIgAxiG/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DP4n0gTE521/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/71",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1hPoGmXmIBKwPXLyUc1X-Yg4rfZIgAxiG&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1hPoGmXmIBKwPXLyUc1X-Yg4rfZIgAxiG&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "72",
+      "title": "北海道武蔵女子短期大学の学祭に潜入",
+      "imageUrl": "https://drive.google.com/file/d/1WTXgG3Vi-Wxfzz91T0FGZlAUTf3y-5_S/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DP2OB8_klga/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/72",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1WTXgG3Vi-Wxfzz91T0FGZlAUTf3y-5_S&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 627,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1WTXgG3Vi-Wxfzz91T0FGZlAUTf3y-5_S&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 627,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "73",
+      "title": "人形浄瑠璃女子にインタビュー",
+      "imageUrl": "https://drive.google.com/file/d/1wILkdZTRmhOUGza00ri9aDrH3F1vq_h0/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DPxCupvkvDX/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/73",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wILkdZTRmhOUGza00ri9aDrH3F1vq_h0&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wILkdZTRmhOUGza00ri9aDrH3F1vq_h0&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "74",
+      "title": "札幌消防学校 卒業式",
+      "imageUrl": "https://drive.google.com/file/d/17FKso6ckaTYvm6FJU0Sj5_o9YRs7mOhg/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DPZ7-rZk1ra/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/74",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=17FKso6ckaTYvm6FJU0Sj5_o9YRs7mOhg&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=17FKso6ckaTYvm6FJU0Sj5_o9YRs7mOhg&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "75",
+      "title": "札幌消防学校 卒業式",
+      "imageUrl": "https://drive.google.com/file/d/1-6wwwzA6yZ0Xr_rGE7JeHHWq9KU1mZLP/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DPXdHILgbJj/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/75",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1-6wwwzA6yZ0Xr_rGE7JeHHWq9KU1mZLP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1-6wwwzA6yZ0Xr_rGE7JeHHWq9KU1mZLP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "76",
+      "title": "札幌消防学校 卒業式",
+      "imageUrl": "https://drive.google.com/file/d/1NptHsqXiOsdf2WRvoa70Hpk1xhemOmeM/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DPSRnyOAL_p/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/76",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NptHsqXiOsdf2WRvoa70Hpk1xhemOmeM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NptHsqXiOsdf2WRvoa70Hpk1xhemOmeM&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "77",
+      "title": "女性消防士にインタビュー",
+      "imageUrl": "https://drive.google.com/file/d/1q3XpyQxoRjOkbiB9RZqxNjyXBNTZe6pe/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DO9whXYkpM1/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/77",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1q3XpyQxoRjOkbiB9RZqxNjyXBNTZe6pe&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1q3XpyQxoRjOkbiB9RZqxNjyXBNTZe6pe&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "78",
+      "title": "吉村颯太選手にインタビュー",
+      "imageUrl": "https://drive.google.com/file/d/1Vu3nWyBGUpE3lFl-dCbyjDD89NtTrMm_/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOzU_t8EvR4/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/78",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Vu3nWyBGUpE3lFl-dCbyjDD89NtTrMm_&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Vu3nWyBGUpE3lFl-dCbyjDD89NtTrMm_&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "79",
+      "title": "ルスツリゾート 寮の家賃いくら？",
+      "imageUrl": "https://drive.google.com/file/d/1H36P6lTbGADL4hMS0L4IYtKPKF0cRcCt/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOsA7xNkpk2/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/79",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1H36P6lTbGADL4hMS0L4IYtKPKF0cRcCt&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 618,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1H36P6lTbGADL4hMS0L4IYtKPKF0cRcCt&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 618,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "80",
+      "title": "ローライダーのイベントpart.5",
+      "imageUrl": "https://drive.google.com/file/d/1LV6OCvx_DvcrbjrMuRfemGKFJre3WhHz/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DO4hi6Zkos8/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/80",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LV6OCvx_DvcrbjrMuRfemGKFJre3WhHz&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LV6OCvx_DvcrbjrMuRfemGKFJre3WhHz&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "81",
+      "title": "ローライダーのイベントpart.4",
+      "imageUrl": "https://drive.google.com/file/d/1GdWFDWvoNyHFftyQvxGr6FUdoFOlNVCw/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOpBiMJEp8F/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/81",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GdWFDWvoNyHFftyQvxGr6FUdoFOlNVCw&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 615,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GdWFDWvoNyHFftyQvxGr6FUdoFOlNVCw&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 615,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "82",
+      "title": "札幌消防学校 卒業式1か月前に密着",
+      "imageUrl": "https://drive.google.com/file/d/10URqsioHzUELDAPKOtym9sUSzt3mLqst/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOj3jLIks6t/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/82",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=10URqsioHzUELDAPKOtym9sUSzt3mLqst&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=10URqsioHzUELDAPKOtym9sUSzt3mLqst&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "83",
+      "title": "ローライダーのイベントpart.3",
+      "imageUrl": "https://drive.google.com/file/d/1VwIUjvnVqd-cfeoqfrDfiBjCKJLf59mh/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOZnAY1kpKM/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/83",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1VwIUjvnVqd-cfeoqfrDfiBjCKJLf59mh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1VwIUjvnVqd-cfeoqfrDfiBjCKJLf59mh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "84",
+      "title": "北海道美容専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1fGoRmPX6p4kwUkofrLYyPyD9jWe5Xfcn/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOW5p6bEhnz/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/84",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1fGoRmPX6p4kwUkofrLYyPyD9jWe5Xfcn&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1fGoRmPX6p4kwUkofrLYyPyD9jWe5Xfcn&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "85",
+      "title": "北海道美容専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1Hax5_obxZdaggj-8nMct1rSs4x2ENZj3/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOR3yNIEsDC/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/85",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Hax5_obxZdaggj-8nMct1rSs4x2ENZj3&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Hax5_obxZdaggj-8nMct1rSs4x2ENZj3&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "86",
+      "title": "札幌新陽高校 女子野球部",
+      "imageUrl": "https://drive.google.com/file/d/1GH1-DMkGdkFRsZkVJXeE7EvDJK0S4TIQ/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DOHcnx2ElS0/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/86",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GH1-DMkGdkFRsZkVJXeE7EvDJK0S4TIQ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GH1-DMkGdkFRsZkVJXeE7EvDJK0S4TIQ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "87",
+      "title": "ローライダーのイベントpart.2",
+      "imageUrl": "https://drive.google.com/file/d/1OKJgqefAV9yOYm-p7NgFu3LgEie4IbnL/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNupmcy5DaJ/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/87",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1OKJgqefAV9yOYm-p7NgFu3LgEie4IbnL&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1OKJgqefAV9yOYm-p7NgFu3LgEie4IbnL&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "88",
+      "title": "アメリカンバーバースタイル",
+      "imageUrl": "https://drive.google.com/file/d/1RI3GMrk8PHUh6decJp6DR7xZLFSkEHDF/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNzFGmUZOWT/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/88",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1RI3GMrk8PHUh6decJp6DR7xZLFSkEHDF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1RI3GMrk8PHUh6decJp6DR7xZLFSkEHDF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "89",
+      "title": "全国消防救助技術訓練指導会",
+      "imageUrl": "https://drive.google.com/file/d/1waKzU6q4uH6_qF0mDEjYkCsHM_2gTfMS/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNrd2mYZKZr/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/89",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1waKzU6q4uH6_qF0mDEjYkCsHM_2gTfMS&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1waKzU6q4uH6_qF0mDEjYkCsHM_2gTfMS&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "90",
+      "title": "全国消防救助技術訓練指導会",
+      "imageUrl": "https://drive.google.com/file/d/11OMncSsKCTSYpWz8O1ikbMNoq8mHqq1a/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNjfnkITMB8/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/90",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=11OMncSsKCTSYpWz8O1ikbMNoq8mHqq1a&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=11OMncSsKCTSYpWz8O1ikbMNoq8mHqq1a&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "91",
+      "title": "すすきの祭り 神輿を担ぐ",
+      "imageUrl": "https://drive.google.com/file/d/1qPNxat_bkzVOymirNzIfcU7--jvf7uH-/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNMPTyczZNB/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/91",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1qPNxat_bkzVOymirNzIfcU7--jvf7uH-&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1qPNxat_bkzVOymirNzIfcU7--jvf7uH-&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "92",
+      "title": "すすきの祭り最終日お神輿をレポ！",
+      "imageUrl": "https://drive.google.com/file/d/1jzR5PUjhIRFJc-EiC_eSjYMaJIMT_naY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNJr-FlT5ff/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/92",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1jzR5PUjhIRFJc-EiC_eSjYMaJIMT_naY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1jzR5PUjhIRFJc-EiC_eSjYMaJIMT_naY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "93",
+      "title": "中央卸売市場で働く人に密着 part.3",
+      "imageUrl": "https://drive.google.com/file/d/1lc4W_3G1-e8lQh9aFkFuo6ciRZvK-r9v/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DM_cX2ghZuE/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/93",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lc4W_3G1-e8lQh9aFkFuo6ciRZvK-r9v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1lc4W_3G1-e8lQh9aFkFuo6ciRZvK-r9v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "94",
+      "title": "観光ブライダル・製菓専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1M-0TgphGcaW-MaXsKkorhQAKl0-rg_eW/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DM1OgxghMAX/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/94",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1M-0TgphGcaW-MaXsKkorhQAKl0-rg_eW&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1M-0TgphGcaW-MaXsKkorhQAKl0-rg_eW&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "95",
+      "title": "Pacific Music Festival 2025",
+      "imageUrl": "https://drive.google.com/file/d/1uDOItyTeOj6uAiWUMsPynV6w18Pa2CcY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMyl-9YBf2V/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/95",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uDOItyTeOj6uAiWUMsPynV6w18Pa2CcY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uDOItyTeOj6uAiWUMsPynV6w18Pa2CcY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "96",
+      "title": "札幌医科大学医学部 整形外科学講座",
+      "imageUrl": "https://drive.google.com/file/d/1doBBSgEkV6xF1yLK7GVQ73qB1ENmp9Eh/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMv7Z48hGnm/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/96",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1doBBSgEkV6xF1yLK7GVQ73qB1ENmp9Eh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1doBBSgEkV6xF1yLK7GVQ73qB1ENmp9Eh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "97",
+      "title": "札幌新陽高等学校の学祭に潜入！",
+      "imageUrl": "https://drive.google.com/file/d/1ADsR1-14fEvbZAli3wCVtq3gLKk0yOcY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMdyE_2TnRv/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/97",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ADsR1-14fEvbZAli3wCVtq3gLKk0yOcY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ADsR1-14fEvbZAli3wCVtq3gLKk0yOcY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "98",
+      "title": "札幌観光ブライダル・製菓専門学校",
+      "imageUrl": "https://drive.google.com/file/d/1G60q3_GcYJ44OPFrQRNJV4-09kKqRczg/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMbMIvoTNIk/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/98",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1G60q3_GcYJ44OPFrQRNJV4-09kKqRczg&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1G60q3_GcYJ44OPFrQRNJV4-09kKqRczg&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "99",
+      "title": "1台3000万円のデコトラ",
+      "imageUrl": "https://drive.google.com/file/d/1BorirH9gE3az1ZFsSXC7bf5fVwhCU31a/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMUvJtIJkta/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/99",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1BorirH9gE3az1ZFsSXC7bf5fVwhCU31a&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1BorirH9gE3az1ZFsSXC7bf5fVwhCU31a&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "100",
+      "title": "中央卸売市場編part.2",
+      "imageUrl": "https://drive.google.com/file/d/1NiPSP3H2E8uUyqRf_-BMG5D_LVlc2gIP/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMRJDdMB87z/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/100",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NiPSP3H2E8uUyqRf_-BMG5D_LVlc2gIP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NiPSP3H2E8uUyqRf_-BMG5D_LVlc2gIP&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "101",
+      "title": "まぐろの競り人に密着！",
+      "imageUrl": "https://drive.google.com/file/d/1rpm7vf1_vYT2-A5xwJE-u43V0ytD4B6B/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMMXaA2pIc4/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/101",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1rpm7vf1_vYT2-A5xwJE-u43V0ytD4B6B&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1rpm7vf1_vYT2-A5xwJE-u43V0ytD4B6B&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "102",
+      "title": "大学で流行らせい、俺のスイーツ",
+      "imageUrl": "https://drive.google.com/file/d/1t-yVPYUjdCjafr2e9KNt3cSSEEjRS-rT/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMJUhswBH1b/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/102",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1t-yVPYUjdCjafr2e9KNt3cSSEEjRS-rT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1t-yVPYUjdCjafr2e9KNt3cSSEEjRS-rT&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "103",
+      "title": "北海学園大学の学食は？",
+      "imageUrl": "https://drive.google.com/file/d/168tX4jrkhUfDWDyEZbI4eHCkisIhPsMN/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMEyG7Eplwm/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/103",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=168tX4jrkhUfDWDyEZbI4eHCkisIhPsMN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=168tX4jrkhUfDWDyEZbI4eHCkisIhPsMN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "104",
+      "title": "北海学園大学チアリーディング部",
+      "imageUrl": "https://drive.google.com/file/d/1rCa76W3jN3mG7UVY8tkIM2ZmwaL8yyZa/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DL_-36EpDvd/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/104",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1rCa76W3jN3mG7UVY8tkIM2ZmwaL8yyZa&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1rCa76W3jN3mG7UVY8tkIM2ZmwaL8yyZa&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "105",
+      "title": "Pacific Music Festival 2025",
+      "imageUrl": "https://drive.google.com/file/d/18iT0dtFf7MVpA9w7ZhP9KFBlC54DO_Ki/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DL8oPhnhUpx/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/105",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18iT0dtFf7MVpA9w7ZhP9KFBlC54DO_Ki&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18iT0dtFf7MVpA9w7ZhP9KFBlC54DO_Ki&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "106",
+      "title": "新陽高等学校 部活何してる？",
+      "imageUrl": "https://drive.google.com/file/d/1xMhBevqQeYJhqdMIEayreyARqs5QfC2A/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DL3JUz-TKtH/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/106",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1xMhBevqQeYJhqdMIEayreyARqs5QfC2A&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1xMhBevqQeYJhqdMIEayreyARqs5QfC2A&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "107",
+      "title": "セントラルキッチン調理",
+      "imageUrl": "https://drive.google.com/file/d/1YRgIipmTdJXSc3qJfRu2Gnj2upyvMRxU/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLgDBeMzUxy/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/107",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約55%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1YRgIipmTdJXSc3qJfRu2Gnj2upyvMRxU&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 580,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1YRgIipmTdJXSc3qJfRu2Gnj2upyvMRxU&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 580,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "108",
+      "title": "北海学園アメフト部マネージャーに密着",
+      "imageUrl": "https://drive.google.com/file/d/1oHzUVg8rjMBnGmfaGDF3OCDjOhPkDrDs/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLqVqvNzJBk/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/108",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1oHzUVg8rjMBnGmfaGDF3OCDjOhPkDrDs&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1oHzUVg8rjMBnGmfaGDF3OCDjOhPkDrDs&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "109",
+      "title": "オリンピックスポーツドクター",
+      "imageUrl": "https://drive.google.com/file/d/1JUd0QgqLOSp2y0opnR2Dztwm39uTm-Ah/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLilYRPTlaM/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/109",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1JUd0QgqLOSp2y0opnR2Dztwm39uTm-Ah&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1JUd0QgqLOSp2y0opnR2Dztwm39uTm-Ah&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "110",
+      "title": "札幌消防学校の寮は？",
+      "imageUrl": "https://drive.google.com/file/d/1O-y2Zn4zWB0T8HIs9CJRsEIDNyHPV-CZ/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLddB6hTP84/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/110",
+      "ok": false,
+      "issues": [
+        "一覧: 縦長画像の上下トリミングが大きい（約30%）",
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約68%）"
+      ],
+      "recs": [
+        "4:5（1080×1350）に統一すると一覧では切れにくい",
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1O-y2Zn4zWB0T8HIs9CJRsEIDNyHPV-CZ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1O-y2Zn4zWB0T8HIs9CJRsEIDNyHPV-CZ&sz=w1000",
+        "complete": true,
+        "naturalWidth": 675,
+        "naturalHeight": 1200,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "111",
+      "title": "北海学園アメフト部マネージャーに密着",
+      "imageUrl": "https://drive.google.com/file/d/16R8FvTeF6pIflIc-7VOAFokoQRufi-BA/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLa-ODbTWPY/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/111",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=16R8FvTeF6pIflIc-7VOAFokoQRufi-BA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=16R8FvTeF6pIflIc-7VOAFokoQRufi-BA&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "112",
+      "title": "北海学園大学アメフト部の練習風景",
+      "imageUrl": "https://drive.google.com/file/d/1uhP2vwz0in2nkruH6-wjXUnNE-gT8tjN/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLQimDrTo8S/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/112",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uhP2vwz0in2nkruH6-wjXUnNE-gT8tjN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1uhP2vwz0in2nkruH6-wjXUnNE-gT8tjN&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "113",
+      "title": "北海学園大学応援団",
+      "imageUrl": "https://drive.google.com/file/d/19jWVG03vVzn6HDjOqrgihQ4P01a-ZkqU/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLI3gykT-Eu/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/113",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19jWVG03vVzn6HDjOqrgihQ4P01a-ZkqU&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=19jWVG03vVzn6HDjOqrgihQ4P01a-ZkqU&sz=w1000",
+        "complete": true,
+        "naturalWidth": 459,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "114",
+      "title": "北海学園アメフト部マネージャーバイト何？",
+      "imageUrl": "https://drive.google.com/file/d/1MOR3JRd4YR9THeeha4RnSItF5Vx80So5/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DLDnfcdTkJi/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/114",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1MOR3JRd4YR9THeeha4RnSItF5Vx80So5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1MOR3JRd4YR9THeeha4RnSItF5Vx80So5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "115",
+      "title": "北海学園アメフト部バイト何？",
+      "imageUrl": "https://drive.google.com/file/d/1l99GoVf-E1Yu7qE72qvaBgf5mgAaQRPS/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DK8lDVdJgFE/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/115",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1l99GoVf-E1Yu7qE72qvaBgf5mgAaQRPS&sz=w1000",
+        "complete": true,
+        "naturalWidth": 457,
+        "naturalHeight": 615,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1l99GoVf-E1Yu7qE72qvaBgf5mgAaQRPS&sz=w1000",
+        "complete": true,
+        "naturalWidth": 457,
+        "naturalHeight": 615,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "116",
+      "title": "SAPPORO BLAZE IRIS",
+      "imageUrl": "https://drive.google.com/file/d/1GT-QXd0bqQ-g_5MEGNdyo0MoDTIVKi5v/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DK3Ez4FhSWv/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/116",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GT-QXd0bqQ-g_5MEGNdyo0MoDTIVKi5v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1GT-QXd0bqQ-g_5MEGNdyo0MoDTIVKi5v&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "117",
+      "title": "SAPPORO BLAZE IRIS",
+      "imageUrl": "https://drive.google.com/file/d/1nT6MlAiTpc4kC4UqoYiudjJeh2rLBNgC/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKxuY_9Tnoi/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/117",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1nT6MlAiTpc4kC4UqoYiudjJeh2rLBNgC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1nT6MlAiTpc4kC4UqoYiudjJeh2rLBNgC&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "118",
+      "title": "今年入学した、消防女子3人に聞く！",
+      "imageUrl": "https://drive.google.com/file/d/1SxyJCJI4xbdz7lvssqbyvkbC8eA64qGD/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKiUMbUBJA-/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/118",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SxyJCJI4xbdz7lvssqbyvkbC8eA64qGD&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1SxyJCJI4xbdz7lvssqbyvkbC8eA64qGD&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "119",
+      "title": "別海パイロットスピリッツを取材",
+      "imageUrl": "https://drive.google.com/file/d/1Q0QRoiwThcjQqYq9purjXjSZ6MdhU3md/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKGDIeiB8R-/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/119",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Q0QRoiwThcjQqYq9purjXjSZ6MdhU3md&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1Q0QRoiwThcjQqYq9purjXjSZ6MdhU3md&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "120",
+      "title": "札幌消防学校イケメン三銃士",
+      "imageUrl": "https://drive.google.com/file/d/1-6ic_wiBP4w0Ed3vRUAWBG3pIlsvwiMe/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKfts5IzgP6/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/120",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1-6ic_wiBP4w0Ed3vRUAWBG3pIlsvwiMe&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1-6ic_wiBP4w0Ed3vRUAWBG3pIlsvwiMe&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "121",
+      "title": "最強の八百屋軍団",
+      "imageUrl": "https://drive.google.com/file/d/1PnoqEUkhvGIyZLMVBtg5DK0isIEaNSYj/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKdEg-LTtZQ/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/121",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1PnoqEUkhvGIyZLMVBtg5DK0isIEaNSYj&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1PnoqEUkhvGIyZLMVBtg5DK0isIEaNSYj&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "122",
+      "title": "武蔵女子短期大学 アルバイト何？",
+      "imageUrl": "https://drive.google.com/file/d/1qDqviBHwTTdyNW9FDVApKrwQsTx-d05R/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKVVH1Nze8Y/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/122",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1qDqviBHwTTdyNW9FDVApKrwQsTx-d05R&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 618,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1qDqviBHwTTdyNW9FDVApKrwQsTx-d05R&sz=w1000",
+        "complete": true,
+        "naturalWidth": 462,
+        "naturalHeight": 618,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "123",
+      "title": "北広島市にある福住造園",
+      "imageUrl": "https://drive.google.com/file/d/1wwG5kkwlVsp6GwOJ_syoOZXZgLIINFW8/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJqiHBephxi/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/123",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wwG5kkwlVsp6GwOJ_syoOZXZgLIINFW8&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1wwG5kkwlVsp6GwOJ_syoOZXZgLIINFW8&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "124",
+      "title": "武蔵女子大学・武蔵女子短期大学オープンキャンパス",
+      "imageUrl": "https://drive.google.com/file/d/1LFutdwucTXOFQb2m5XteoEck7mMDkDE5/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKQLpfKzWQY/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/124",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LFutdwucTXOFQb2m5XteoEck7mMDkDE5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 615,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1LFutdwucTXOFQb2m5XteoEck7mMDkDE5&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 615,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "125",
+      "title": "札幌医大医学部整形外科",
+      "imageUrl": "https://drive.google.com/file/d/17ty9OTCtmGVPsWSUHravvhXHSPPxab2A/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKLB3u1T70q/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/125",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=17ty9OTCtmGVPsWSUHravvhXHSPPxab2A&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=17ty9OTCtmGVPsWSUHravvhXHSPPxab2A&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "126",
+      "title": "札幌医大医学部整形外科",
+      "imageUrl": "https://drive.google.com/file/d/1iTdBunYH_sDiEnVpbWEZSGo8LuZItLWh/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DKIdU3nT0rU/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/126",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1iTdBunYH_sDiEnVpbWEZSGo8LuZItLWh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1iTdBunYH_sDiEnVpbWEZSGo8LuZItLWh&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "127",
+      "title": "建設業の墨出し女子インタビュー",
+      "imageUrl": "https://drive.google.com/file/d/1TVa1y4Ky-PDGaYy8ZB4H6FKMXPN_j57w/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJ5Gv00hE5J/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/127",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1TVa1y4Ky-PDGaYy8ZB4H6FKMXPN_j57w&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 619,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1TVa1y4Ky-PDGaYy8ZB4H6FKMXPN_j57w&sz=w1000",
+        "complete": true,
+        "naturalWidth": 469,
+        "naturalHeight": 619,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "128",
+      "title": "たった1人の野球部員 札幌大学女子野球部",
+      "imageUrl": "https://drive.google.com/file/d/18agwLwDsvb_UW6o5LcaQxyiTBimWB2Ve/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJ0sQFUJgmo/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/128",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約57%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18agwLwDsvb_UW6o5LcaQxyiTBimWB2Ve&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18agwLwDsvb_UW6o5LcaQxyiTBimWB2Ve&sz=w1000",
+        "complete": true,
+        "naturalWidth": 468,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "129",
+      "title": "札幌市消防学校へ潜入！もやい結び",
+      "imageUrl": "https://drive.google.com/file/d/1F-Y_-z9bSOoKvdEy325dRfRU8mm6fNy8/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJtR9SZJius/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/129",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1F-Y_-z9bSOoKvdEy325dRfRU8mm6fNy8&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1F-Y_-z9bSOoKvdEy325dRfRU8mm6fNy8&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "130",
+      "title": "札幌大学女子野球部",
+      "imageUrl": "https://drive.google.com/file/d/1S4N5S9bOl_DyWaRDt9p02C-3H7Mb95nB/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJdve3yJMPe/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/130",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約59%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1S4N5S9bOl_DyWaRDt9p02C-3H7Mb95nB&sz=w1000",
+        "complete": true,
+        "naturalWidth": 457,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1S4N5S9bOl_DyWaRDt9p02C-3H7Mb95nB&sz=w1000",
+        "complete": true,
+        "naturalWidth": 457,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "131",
+      "title": "別海パイロットスピリッツ選手の出身地は？",
+      "imageUrl": "https://drive.google.com/file/d/1P8w833nsiNLUi_LvKHqNZYpsJGg1ztbd/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DJPzOc-zezr/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/131",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1P8w833nsiNLUi_LvKHqNZYpsJGg1ztbd&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1P8w833nsiNLUi_LvKHqNZYpsJGg1ztbd&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 622,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "132",
+      "title": "北海学園吹奏楽団に潜入！",
+      "imageUrl": "https://drive.google.com/file/d/1ImjaULx1_mYI-LKxCFLd0vVWIYWLuCCw/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DIe74hQh0ZZ/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/132",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ImjaULx1_mYI-LKxCFLd0vVWIYWLuCCw&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 625,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1ImjaULx1_mYI-LKxCFLd0vVWIYWLuCCw&sz=w1000",
+        "complete": true,
+        "naturalWidth": 463,
+        "naturalHeight": 625,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "133",
+      "title": "北海学園吹奏楽団に聞く楽器の重さは？",
+      "imageUrl": "https://drive.google.com/file/d/1AGThCDu9TokwIWovH6eorO5ekWJii4qF/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DIUrsCHzRVD/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/133",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AGThCDu9TokwIWovH6eorO5ekWJii4qF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 616,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1AGThCDu9TokwIWovH6eorO5ekWJii4qF&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 616,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "134",
+      "title": "1952年創部、伝統と歴史ある剣道部",
+      "imageUrl": "https://drive.google.com/file/d/1vFmKYyIYCs_i9HGO_iutegEp80CvIqZY/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DIM8LCUTW8h/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/134",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約59%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1vFmKYyIYCs_i9HGO_iutegEp80CvIqZY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 624,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1vFmKYyIYCs_i9HGO_iutegEp80CvIqZY&sz=w1000",
+        "complete": true,
+        "naturalWidth": 460,
+        "naturalHeight": 624,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "283",
+      "title": "まるであのテレビ番組SASUKEみたい！",
+      "imageUrl": "https://drive.google.com/file/d/18lo0Ts9pS4bsmJ0ABnlS_fY7c80Ur-fq/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DNPAKybSeIN/",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/283",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18lo0Ts9pS4bsmJ0ABnlS_fY7c80Ur-fq&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 628,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=18lo0Ts9pS4bsmJ0ABnlS_fY7c80Ur-fq&sz=w1000",
+        "complete": true,
+        "naturalWidth": 465,
+        "naturalHeight": 628,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    },
+    {
+      "id": "284",
+      "title": "札幌新陽高校部活10選",
+      "imageUrl": "https://drive.google.com/file/d/1NEV_qsKrQ5gejmhn1760WWSn60gWNxZm/view?usp=sharing",
+      "instagramUrl": "https://www.instagram.com/p/DMghxKYBNi8/?img_index=1",
+      "isPublished": true,
+      "postUrl": "http://localhost:3000/post/284",
+      "ok": false,
+      "issues": [
+        "詳細: 上下トリミングが大きく文字・被写体が切れる可能性（約58%）"
+      ],
+      "recs": [
+        "詳細は16:9枠のため上下が切れる。重要テキストは中央〜やや上に配置"
+      ],
+      "listMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NEV_qsKrQ5gejmhn1760WWSn60gWNxZm&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 171,
+        "displayHeight": 213.75,
+        "containerWidth": 171,
+        "containerHeight": 213.75,
+        "objectFit": "cover",
+        "isDefault": false
+      },
+      "detailMetrics": {
+        "src": "https://drive.google.com/thumbnail?id=1NEV_qsKrQ5gejmhn1760WWSn60gWNxZm&sz=w1000",
+        "complete": true,
+        "naturalWidth": 466,
+        "naturalHeight": 621,
+        "displayWidth": 358,
+        "displayHeight": 201.375,
+        "containerWidth": 358,
+        "containerHeight": 201.375,
+        "objectFit": "cover",
+        "isDefault": false
+      }
+    }
+  ],
+  "normal": []
+}

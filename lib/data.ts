@@ -7,6 +7,7 @@ import {
 } from '@/types/post'
 import type { CsvColumnMap, CsvOptionalColumnMap } from '@/lib/csv'
 import { parsePopularFlag, parsePopularOrder } from '@/lib/popular-posts'
+import { parseCompanyRecommendedFlag, parseCompanyRecommendedOrder } from '@/lib/company-recommended-posts'
 import { formatPublishStatus, parsePublishStatus } from '@/lib/publish-status'
 
 export { POST_REQUIRED_CSV_HEADERS, POST_OPTIONAL_CSV_HEADERS } from '@/types/post'
@@ -34,6 +35,8 @@ function createEmptyOptionalFields(): Pick<
   | 'sportCategory'
   | 'companyOfficialSite'
   | 'companySns'
+  | 'source'
+  | 'contentType'
 > {
   return {
     schoolName: '',
@@ -52,6 +55,8 @@ function createEmptyOptionalFields(): Pick<
     sportCategory: '',
     companyOfficialSite: '',
     companySns: '',
+    source: '',
+    contentType: '',
   }
 }
 
@@ -67,6 +72,8 @@ export function rowToPostByHeader(
     ...createEmptyOptionalFields(),
     isPopular: false,
     popularOrder: null,
+    isCompanyRecommended: false,
+    companyRecommendedOrder: null,
     isPublished: true,
   } as Post
 
@@ -86,6 +93,16 @@ export function rowToPostByHeader(
   post.isPopular = popularCol != null ? parsePopularFlag(cell(row, popularCol)) : false
   post.popularOrder = orderCol != null ? parsePopularOrder(cell(row, orderCol)) : null
 
+  const companyRecommendedCol = optionalMap['企業おすすめ']
+  post.isCompanyRecommended =
+    companyRecommendedCol != null
+      ? parseCompanyRecommendedFlag(cell(row, companyRecommendedCol))
+      : false
+
+  const companyOrderCol = optionalMap['おすすめ順']
+  post.companyRecommendedOrder =
+    companyOrderCol != null ? parseCompanyRecommendedOrder(cell(row, companyOrderCol)) : null
+
   const publishCol = optionalMap['公開']
   post.isPublished = publishCol != null ? parsePublishStatus(cell(row, publishCol)) : true
 
@@ -103,6 +120,12 @@ export function postToRow(post: Post): string[] {
     }
     if (columnName === '人気順') {
       return post.popularOrder != null ? String(post.popularOrder) : ''
+    }
+    if (columnName === '企業おすすめ') {
+      return post.isCompanyRecommended ? 'true' : ''
+    }
+    if (columnName === 'おすすめ順') {
+      return post.companyRecommendedOrder != null ? String(post.companyRecommendedOrder) : ''
     }
     const field =
       columnName in POST_REQUIRED_FIELD_MAP
@@ -456,11 +479,15 @@ const DUMMY_POSTS_RAW = [
   },
 ]
 
+let companyRecommendedRank = 0
 export const DUMMY_POSTS: Post[] = DUMMY_POSTS_RAW.map((post, index) => ({
   ...createEmptyOptionalFields(),
   ...post,
   isPopular: index < 3,
   popularOrder: index < 3 ? index + 1 : null,
+  isCompanyRecommended: post.genre === '企業訪問',
+  companyRecommendedOrder:
+    post.genre === '企業訪問' ? ++companyRecommendedRank : null,
   isPublished: true,
   ...(post.id === '1'
     ? {

@@ -12,4 +12,5 @@ export const urls = {
   post: (id: string) => `/post/${id}`,
   contact: (type: string) => `/contact/${type}`,
   contactComplete: (type: string) => `/contact/${type}/complete`,
+  operator: () => '/operator',
 } as const

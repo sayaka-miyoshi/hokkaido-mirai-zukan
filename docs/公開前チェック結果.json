@@ -1,26 +1,18 @@
 {
-  "generatedAt": "2026-06-09T13:35:59.657Z",
+  "generatedAt": "2026-06-11T15:15:17.614Z",
   "image": {
-    "emptyUrl": 1,
+    "emptyUrl": 0,
     "fetchFailed": 0,
-    "noThumbnail": [
-      {
-        "id": "289",
-        "title": "日本最大級の食品展示場FOOMAJAPANに潜入",
-        "postUrl": "/post/289",
-        "imageUrl": "",
-        "reason": "画像URL空欄"
-      }
-    ]
+    "noThumbnail": []
   },
   "publish": {
     "total": 290,
-    "published": 289,
-    "unpublished": 1
+    "published": 290,
+    "unpublished": 0
   },
   "popular": {
     "candidates": 7,
-    "displayed": 7,
+    "displayed": 6,
     "list": [
       {
         "id": "1",
@@ -51,11 +43,6 @@
         "id": "189",
         "title": "5000万再生の食品サンプル体験",
         "order": 5
-      },
-      {
-        "id": "204",
-        "title": "5000万再生の子供の遊び場！",
-        "order": 6
       }
     ]
   }

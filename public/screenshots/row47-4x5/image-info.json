@@ -1,0 +1,24 @@
+{
+  "list": {
+    "naturalWidth": 675,
+    "naturalHeight": 1200,
+    "displayWidth": 171,
+    "displayHeight": 213.75,
+    "containerWidth": 171,
+    "containerHeight": 213.75,
+    "containerAspect": 0.8,
+    "imageAspect": 0.5625,
+    "objectFit": "cover",
+    "src": "https://drive.google.com/thumbnail?id=1s4pIFHqLQyd6c8atHgKTKUnvf_EJkise&sz=w1000"
+  },
+  "detail": {
+    "naturalWidth": 675,
+    "naturalHeight": 1200,
+    "displayWidth": 358,
+    "displayHeight": 201.375,
+    "containerWidth": 358,
+    "containerHeight": 201.375,
+    "objectFit": "cover",
+    "src": "https://drive.google.com/thumbnail?id=1s4pIFHqLQyd6c8atHgKTKUnvf_EJkise&sz=w1000"
+  }
+}

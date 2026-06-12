@@ -2,8 +2,8 @@ import { cache } from 'react'
 import type { Post } from '@/types/post'
 import { resolvePostImageUrl } from '@/lib/og-image'
 
-const resolveCached = cache(async (imageUrl: string, instagramUrl: string) =>
-  resolvePostImageUrl(imageUrl, instagramUrl),
+const resolveCached = cache(async (imageUrl: string, instagramUrl: string, genre: string) =>
+  resolvePostImageUrl(imageUrl, instagramUrl, genre),
 )
 
 const CONCURRENCY = 5
@@ -33,7 +33,7 @@ export async function enrichPostsImages(posts: Post[]): Promise<Post[]> {
     posts,
     async (post) => ({
       ...post,
-      imageUrl: await resolveCached(post.imageUrl, post.instagramUrl),
+      imageUrl: await resolveCached(post.imageUrl, post.instagramUrl, post.genre),
     }),
     CONCURRENCY,
   )

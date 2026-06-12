@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostById(id)
   if (!post) return {}
 
-  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl)
+  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl, post.genre)
 
   return createPageMetadata({
     title: post.title,
@@ -64,7 +64,7 @@ export default async function PostPage({ params }: PageProps) {
   const areaSlug = getAreaSlug(post.area)
   const pagePath = urls.post(id)
   const pageUrl = absoluteUrl(pagePath)
-  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl)
+  const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl, post.genre)
 
   return (
     <div className="min-h-screen">
@@ -113,6 +113,7 @@ export default async function PostPage({ params }: PageProps) {
             <PostImage
               src={post.imageUrl}
               alt={post.title}
+              genre={post.genre}
               priority
               sizes="(max-width: 768px) 100vw, 672px"
             />

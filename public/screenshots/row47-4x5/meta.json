@@ -1,0 +1,12 @@
+{
+  "sheetRow": 47,
+  "postId": "45",
+  "title": "北海道スポーツ専門学校",
+  "slug": "hokkaido-sports-college-powerlifting",
+  "imageUrl": "https://drive.google.com/file/d/1YPz3ak3DApehBRYNfISpBlnlJKtjrura/view?usp=sharing",
+  "imageCol": "K",
+  "imageColIndex": 10,
+  "genre": "部活",
+  "area": "札幌",
+  "postUrl": "http://localhost:3000/post/45"
+}

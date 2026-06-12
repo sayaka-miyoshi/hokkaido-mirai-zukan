@@ -34,8 +34,12 @@ export interface Post {
   slug: string
   /** 人気コンテンツに表示（CSV「人気表示」= true） */
   isPopular: boolean
-  /** 人気順（人気コンテンツ用・昇順で最大10件・未入力は対象外） */
+  /** 人気順（人気コンテンツ用・昇順で最大6件・未入力は対象外） */
   popularOrder: number | null
+  /** TOP「北海道の企業を知ろう」に表示（CSV「企業おすすめ」= true） */
+  isCompanyRecommended: boolean
+  /** おすすめ順（昇順・空欄は最後尾） */
+  companyRecommendedOrder: number | null
   /** 学校公式サイト（任意列） */
   schoolOfficialSite: string
   /** 学校SNS（任意列・Instagram / Facebook / YouTube 等） */
@@ -52,6 +56,10 @@ export interface Post {
   recruitmentInfoUrl: string
   /** サイト公開（CSV「公開」列・未入力時は true） */
   isPublished: boolean
+  /** 掲載元（任意列・例: Instagram / TikTok / 取材） */
+  source: string
+  /** コンテンツ種別（任意列・例: 動画 / 記事 / リール） */
+  contentType: string
 }
 
 /** 必須列（1行目にすべて必要・列順は自由） */
@@ -84,6 +92,10 @@ export const POST_OPTIONAL_CSV_HEADERS = [
   '企業SNS',
   '人気表示',
   '人気順',
+  '企業おすすめ',
+  'おすすめ順',
+  '掲載元',
+  'コンテンツ種別',
 ] as const
 
 /** 外部リンク列（POST_OPTIONAL_CSV_HEADERS の一部・互換用） */
@@ -125,7 +137,7 @@ export const POST_REQUIRED_FIELD_MAP: Record<
 }
 
 export const POST_OPTIONAL_FIELD_MAP: Record<
-  Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開'>,
+  Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順'>,
   | 'schoolName'
   | 'clubName'
   | 'companyName'
@@ -141,6 +153,8 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   | 'sportCategory'
   | 'companyOfficialSite'
   | 'companySns'
+  | 'source'
+  | 'contentType'
 > = {
   '学校名': 'schoolName',
   '部活名': 'clubName',
@@ -157,12 +171,14 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   '競技カテゴリ': 'sportCategory',
   '企業公式サイト': 'companyOfficialSite',
   '企業SNS': 'companySns',
+  '掲載元': 'source',
+  'コンテンツ種別': 'contentType',
 }
 
 /** @deprecated POST_REQUIRED_FIELD_MAP / POST_OPTIONAL_FIELD_MAP を使用 */
 export const POST_CSV_FIELD_MAP: Record<
-  PostRequiredCsvColumnName | Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開'>,
-  keyof Omit<Post, 'id' | 'isPopular' | 'popularOrder'>
+  PostRequiredCsvColumnName | Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順'>,
+  keyof Omit<Post, 'id' | 'isPopular' | 'popularOrder' | 'isCompanyRecommended' | 'companyRecommendedOrder'>
 > = {
   ...POST_REQUIRED_FIELD_MAP,
   ...POST_OPTIONAL_FIELD_MAP,

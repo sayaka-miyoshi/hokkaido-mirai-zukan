@@ -1,3 +1,4 @@
+import { isDefaultPostImage, resolveDefaultPostImage } from '@/lib/default-images'
 import {
   getImageUrlCandidates,
   isInstagramPageUrl,
@@ -5,8 +6,7 @@ import {
   normalizeImageUrl,
 } from '@/lib/image-url'
 
-/** 画像URL未取得時のデフォルト画像 */
-export const DEFAULT_POST_IMAGE = '/images/default-post.svg'
+export { DEFAULT_POST_IMAGE, resolveDefaultPostImage } from '@/lib/default-images'
 
 const FETCH_TIMEOUT_MS = 8000
 const VERIFY_TIMEOUT_MS = 5000
@@ -82,7 +82,7 @@ export async function fetchOgImageUrl(pageUrl: string): Promise<string | null> {
 
 /** 画像URLが取得可能か簡易チェック */
 export async function verifyImageUrl(url: string): Promise<boolean> {
-  if (url === DEFAULT_POST_IMAGE || url.startsWith('/')) return true
+  if (isDefaultPostImage(url) || url.startsWith('/')) return true
 
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), VERIFY_TIMEOUT_MS)
@@ -145,6 +145,7 @@ async function resolveDirectImageUrl(rawUrl: string): Promise<string | null> {
 export async function resolvePostImageUrl(
   imageUrl: string,
   instagramUrl: string,
+  genre?: string,
 ): Promise<string> {
   if (imageUrl.trim()) {
     const resolved = await resolveDirectImageUrl(imageUrl)
@@ -156,5 +157,5 @@ export async function resolvePostImageUrl(
     if (ogImage) return ogImage
   }
 
-  return DEFAULT_POST_IMAGE
+  return resolveDefaultPostImage(genre)
 }

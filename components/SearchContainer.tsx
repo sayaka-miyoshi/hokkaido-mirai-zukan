@@ -2,18 +2,24 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import AboutSection from '@/components/home/AboutSection'
-import CategoryEditorialSection from '@/components/home/CategoryEditorialSection'
-import FeatureArticle from '@/components/home/FeatureArticle'
+import CompanyContentSection from '@/components/home/CompanyContentSection'
 import HomeBrowseSection from '@/components/home/HomeBrowseSection'
-import MagazineHero from '@/components/home/MagazineHero'
+import LatestContentSection from '@/components/home/LatestContentSection'
 import OperatorSection from '@/components/home/OperatorSection'
+import PopularContentSection from '@/components/home/PopularContentSection'
+import SpecialFeaturesSection from '@/components/home/SpecialFeaturesSection'
+import StoryImageBlock from '@/components/home/StoryImageBlock'
+import TopHero from '@/components/home/TopHero'
 import { POST_SEARCH_FIELDS } from '@/types/post'
 import type { Post } from '@/types/post'
 import type { DataSource } from '@/types/fetch-result'
 import { getEnabledContactMenuItems } from '@/lib/contact/forms'
 import { parsePostDate } from '@/lib/dates'
-import { getEditorPickPosts } from '@/lib/editor-picks'
+import { COMPANY_CONTENT_MAX } from '@/lib/home-layout'
+import { getCompanyRecommendedPosts } from '@/lib/company-recommended-posts'
+import { getLatestContentPosts } from '@/lib/latest-content'
+import { resolvePopularContent } from '@/lib/popular-posts'
+import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
 import DataFetchAlert from './DataFetchAlert'
@@ -24,6 +30,10 @@ type SearchContainerProps = {
   dataError?: string
 }
 
+/**
+ * TOPページ構成
+ * ① Hero ② ストーリー02 ③ 検索 ④ 人気 ⑤ 最新 ⑥ 企業 ⑦ 特集 ⑧ ストーリー04 ⑨ 運営者 ⑩ フッター
+ */
 export default function SearchContainer({
   posts,
   dataSource,
@@ -51,8 +61,6 @@ export default function SearchContainer({
     [posts],
   )
 
-  const editorPicks = useMemo(() => getEditorPickPosts(posts), [posts])
-  const editorPickIds = useMemo(() => new Set(editorPicks.map((post) => post.id)), [editorPicks])
   const contactMenuItems = useMemo(() => getEnabledContactMenuItems(), [])
   const publicationContact = contactMenuItems.find((item) => item.type === 'publication')
 
@@ -88,115 +96,98 @@ export default function SearchContainer({
     setSelectedArea(null)
   }
 
-  const filterByGenre = (genre: string) => {
-    setSelectedGenre(genre)
-    document.getElementById('browse')?.scrollIntoView({ behavior: 'smooth' })
-    document.getElementById('posts')?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToResults = () => {
+    document.getElementById('popular')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const latestPosts = filtered.filter((post) => !editorPickIds.has(post.id)).slice(0, 12)
+  const popularEntries = useMemo(() => resolvePopularContent(posts), [posts])
+
+  const latestPosts = useMemo(() => getLatestContentPosts(posts), [posts])
+
+  const companyPosts = useMemo(
+    () => getCompanyRecommendedPosts(posts, COMPANY_CONTENT_MAX),
+    [posts],
+  )
+
+  const browseSectionProps = {
+    keyword,
+    onKeywordChange: setKeyword,
+    selectedGenre,
+    onGenreChange: (genre: string | null) => {
+      setSelectedGenre(genre)
+      scrollToResults()
+    },
+    selectedArea,
+    onAreaChange: (area: string | null) => {
+      setSelectedArea(area)
+      scrollToResults()
+    },
+    selectedVideoCategory,
+    onVideoCategoryChange: (id: string | null) => {
+      setSelectedVideoCategory(id)
+      scrollToResults()
+    },
+    selectedCareerCategory,
+    onCareerCategoryChange: (category: string | null) => {
+      setSelectedCareerCategory(category)
+      scrollToResults()
+    },
+    videoCategories,
+    careerCategories,
+    hasActiveFilter: Boolean(hasActiveFilter),
+    filteredCount: filtered.length,
+    totalCount: posts.length,
+    onClearFilters: clearFilters,
+    onShowResults: scrollToResults,
+  }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAFCFE]">
-      <MagazineHero />
+    <div className="min-h-screen flex flex-col bg-white">
+      <TopHero />
 
-      <main className="flex-1 max-w-lg mx-auto w-full">
-        {editorPicks.length > 0 && (
-          <section
-            id="editor-picks"
-            aria-label="編集部おすすめ"
-            className="scroll-mt-4 px-6 py-16"
-          >
-            <p className="text-[11px] tracking-[0.22em] text-hokkaido-sky font-semibold">FEATURE</p>
-            <h2 className="mt-2 text-2xl font-bold text-hokkaido-deep leading-snug">編集部おすすめ</h2>
-            <p className="mt-3 text-sm text-gray-500 leading-relaxed">
-              北海道で今、伝えたいストーリーを厳選しました。
-            </p>
-            <div className="mt-10">
-              {editorPicks.map((post, index) => (
-                <FeatureArticle
-                  key={`editor-${post.id}`}
-                  post={post}
-                  layout="feature"
-                  priority={index === 0}
-                />
-              ))}
-            </div>
-          </section>
-        )}
+      <StoryImageBlock
+        id="story-02"
+        src={STORY_IMAGES.story02}
+        alt={STORY_ALT.story02}
+        animate={false}
+      />
 
-        <HomeBrowseSection
-          keyword={keyword}
-          onKeywordChange={setKeyword}
-          selectedGenre={selectedGenre}
-          onGenreChange={setSelectedGenre}
-          selectedArea={selectedArea}
-          onAreaChange={setSelectedArea}
-          selectedVideoCategory={selectedVideoCategory}
-          onVideoCategoryChange={setSelectedVideoCategory}
-          selectedCareerCategory={selectedCareerCategory}
-          onCareerCategoryChange={setSelectedCareerCategory}
-          videoCategories={videoCategories}
-          careerCategories={careerCategories}
-          hasActiveFilter={Boolean(hasActiveFilter)}
-          filteredCount={filtered.length}
-          totalCount={posts.length}
-          onClearFilters={clearFilters}
-        />
-
-        <div className="px-6 py-16 border-t border-hokkaido-ice/60">
-          <CategoryEditorialSection onFilterGenre={filterByGenre} />
+      <main className="mx-auto w-full flex-1">
+        <div className="mx-auto max-w-lg">
+          <HomeBrowseSection {...browseSectionProps} />
         </div>
 
-        <section
-          id="posts"
-          aria-label="最新ストーリー"
-          className="scroll-mt-4 px-6 py-16 border-t border-hokkaido-ice/60"
-        >
-          <p className="text-[11px] tracking-[0.22em] text-hokkaido-sky font-semibold">LATEST</p>
-          <h2 className="mt-2 text-2xl font-bold text-hokkaido-deep leading-snug">最新ストーリー</h2>
+        <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
+          <PopularContentSection entries={popularEntries} />
 
-          {latestPosts.length > 0 ? (
-            <div className="mt-10">
-              {latestPosts.map((post) => (
-                <FeatureArticle
-                  key={post.id}
-                  post={post}
-                  layout="story"
-                  showMeta={false}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="py-16 text-center">
-              <p className="font-medium text-gray-600">該当する記事が見つかりませんでした</p>
-              <p className="mt-2 text-sm text-gray-400">キーワードや条件を変えてみてください</p>
-              {hasActiveFilter && (
-                <button
-                  type="button"
-                  onClick={clearFilters}
-                  className="mt-4 text-sm text-hokkaido-sky hover:underline"
-                >
-                  すべて表示する
-                </button>
-              )}
-            </div>
-          )}
-        </section>
+          <LatestContentSection posts={latestPosts} />
 
-        <div className="px-6 py-16 border-t border-hokkaido-ice/60 space-y-16">
-          {dataSource !== 'sheet' && (
-            <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
-          )}
+          <CompanyContentSection posts={companyPosts} />
+
+          <SpecialFeaturesSection />
+        </div>
+
+        <div className="mx-auto w-full max-w-lg">
+          <StoryImageBlock id="story-04" src={STORY_IMAGES.story04} alt={STORY_ALT.story04} />
+        </div>
+
+        <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
           <OperatorSection />
-          <AboutSection />
+        </div>
+
+        <div className="mx-auto w-full max-w-lg">
+        {dataSource !== 'sheet' && (
+          <div className="px-6 pb-8">
+            <DataFetchAlert source={dataSource} totalCount={posts.length} error={dataError} />
+          </div>
+        )}
         </div>
       </main>
 
-      <footer className="py-12 text-center text-xs text-gray-400 border-t border-hokkaido-ice bg-white space-y-2">
+      <footer className="border-t border-magazine-border bg-magazine-sky py-12 text-center text-xs text-magazine-muted">
         {publicationContact && (
-          <p>
-            <Link href={urls.contact('publication')} className="text-hokkaido-sky hover:underline">
+          <p className="mb-3">
+            <Link href={urls.contact('publication')} className="font-medium text-hokkaido-sky hover:underline">
               {publicationContact.menuLabel}
             </Link>
           </p>
