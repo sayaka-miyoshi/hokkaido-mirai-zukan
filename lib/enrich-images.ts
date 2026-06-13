@@ -1,5 +1,10 @@
 import { cache } from 'react'
 import type { Post } from '@/types/post'
+import { isDefaultPostImage } from '@/lib/default-images'
+import {
+  convertGoogleDriveThumbnailUrl,
+  sanitizePostImageUrl,
+} from '@/lib/image-url'
 import { resolvePostImageUrl } from '@/lib/og-image'
 
 const resolveCached = cache(async (imageUrl: string, instagramUrl: string, genre: string) =>
@@ -31,10 +36,24 @@ async function mapWithConcurrency<T, R>(
 export async function enrichPostsImages(posts: Post[]): Promise<Post[]> {
   return mapWithConcurrency(
     posts,
-    async (post) => ({
-      ...post,
-      imageUrl: await resolveCached(post.imageUrl, post.instagramUrl, post.genre),
-    }),
+    async (post) => {
+      const sanitizedImageUrl = sanitizePostImageUrl(post.imageUrl)
+      const resolved = await resolveCached(sanitizedImageUrl, post.instagramUrl, post.genre)
+
+      if (isDefaultPostImage(resolved)) {
+        const thumbnail = convertGoogleDriveThumbnailUrl(sanitizedImageUrl)
+        if (thumbnail) {
+          return { ...post, imageUrl: thumbnail }
+        }
+      }
+
+      return {
+        ...post,
+        imageUrl: isDefaultPostImage(resolved)
+          ? sanitizedImageUrl || post.imageUrl
+          : resolved,
+      }
+    },
     CONCURRENCY,
   )
 }

@@ -8,7 +8,8 @@ import {
 import type { CsvColumnMap, CsvOptionalColumnMap } from '@/lib/csv'
 import { parsePopularFlag, parsePopularOrder } from '@/lib/popular-posts'
 import { parseCompanyRecommendedFlag, parseCompanyRecommendedOrder } from '@/lib/company-recommended-posts'
-import { formatPublishStatus, parsePublishStatus } from '@/lib/publish-status'
+import { sanitizePostImageUrl } from '@/lib/image-url'
+import { parsePublishStatus, formatPublishStatus } from '@/lib/publish-status'
 
 export { POST_REQUIRED_CSV_HEADERS, POST_OPTIONAL_CSV_HEADERS } from '@/types/post'
 
@@ -105,6 +106,8 @@ export function rowToPostByHeader(
 
   const publishCol = optionalMap['公開']
   post.isPublished = publishCol != null ? parsePublishStatus(cell(row, publishCol)) : true
+
+  post.imageUrl = sanitizePostImageUrl(post.imageUrl)
 
   return post
 }
