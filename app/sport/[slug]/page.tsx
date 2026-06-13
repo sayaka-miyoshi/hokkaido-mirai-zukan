@@ -37,6 +37,7 @@ export default async function SportCategoryPage({ params }: PageProps) {
       title={result.name}
       description={`競技カテゴリ「${result.name}」の投稿一覧です。`}
       breadcrumbLabel={result.name}
+      seoPath={urls.sport(slug)}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

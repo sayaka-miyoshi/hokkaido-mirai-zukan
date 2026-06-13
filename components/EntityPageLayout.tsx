@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 import type { DataSource } from '@/types/fetch-result'
+import JsonLd from '@/components/JsonLd'
+import { createBreadcrumbJsonLd, createCollectionPageJsonLd } from '@/lib/json-ld'
 import SiteHeader from './SiteHeader'
 import Breadcrumb from './Breadcrumb'
 import DataFetchAlert from './DataFetchAlert'
@@ -14,6 +16,8 @@ type EntityPageLayoutProps = {
   dataSource?: DataSource
   dataError?: string
   totalFetchedCount?: number
+  /** 構造化データ・canonical 用のページパス */
+  seoPath?: string
   children: ReactNode
 }
 
@@ -25,10 +29,26 @@ export default function EntityPageLayout({
   dataSource,
   dataError,
   totalFetchedCount,
+  seoPath,
   children,
 }: EntityPageLayoutProps) {
   return (
     <div className="min-h-screen">
+      {seoPath && (
+        <JsonLd
+          data={[
+            createBreadcrumbJsonLd([
+              { name: 'ホーム', href: urls.home() },
+              { name: breadcrumbLabel, href: seoPath },
+            ]),
+            createCollectionPageJsonLd({
+              name: title,
+              description,
+              path: seoPath,
+            }),
+          ]}
+        />
+      )}
       <SiteHeader />
       <main className="max-w-5xl mx-auto px-4 py-6">
         <Breadcrumb

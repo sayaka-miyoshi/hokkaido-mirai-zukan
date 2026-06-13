@@ -21,6 +21,7 @@ export default async function SchoolsIndexPage() {
       title="学校から探す"
       description="学校名を選ぶと、関連する部活と投稿一覧が表示されます。"
       breadcrumbLabel="学校一覧"
+      seoPath={urls.schools()}
       count={schools.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

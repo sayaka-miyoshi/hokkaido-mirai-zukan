@@ -5,14 +5,17 @@ import MockPreviewBar from '@/components/mock/MockPreviewBar'
 import MockThemeIndexSection from '@/components/mock/MockThemeIndexSection'
 import { fetchPostsResult } from '@/lib/fetchPosts'
 import { getEditorPickPosts } from '@/lib/editor-picks'
+import { createPageMetadata } from '@/lib/metadata'
 import { MOCK_VARIANTS } from '@/lib/mock-design'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'モック A-3 特集扉型 | 北海道未来図鑑',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'モック A-3 特集扉型',
+  description: 'トップページ特集扉型デザインの確認用ページです。',
+  path: '/mock/feature',
+  noIndex: true,
+})
 
 export default async function MockFeaturePage() {
   const { posts } = await fetchPostsResult()

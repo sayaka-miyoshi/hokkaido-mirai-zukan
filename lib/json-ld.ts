@@ -1,8 +1,16 @@
-import { OPERATOR_SOCIAL_URLS, SITE_NAME, SITE_TAGLINE } from '@/lib/site'
+import { OPERATOR_SOCIAL_URLS, SITE_NAME, SITE_TAGLINE, DEFAULT_OG_IMAGE_PATH } from '@/lib/site'
 import { PROFILE_IMAGE_PATH } from '@/lib/branding-paths'
 import { OPERATOR_PAGE } from '@/lib/operator-page'
 import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
 import type { Post } from '@/types/post'
+
+function organizationId(): string {
+  return `${getSiteUrl()}/#organization`
+}
+
+function websiteId(): string {
+  return `${getSiteUrl()}/#website`
+}
 
 function toIsoDate(date: string): string | undefined {
   const trimmed = date.trim()
@@ -19,26 +27,37 @@ function toIsoDate(date: string): string | undefined {
   return new Date(parsed).toISOString().slice(0, 10)
 }
 
-/** トップページ用 WebSite スキーマ */
-export function createWebSiteJsonLd() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE_NAME,
-    description: SITE_TAGLINE,
-    url: getSiteUrl(),
-    inLanguage: 'ja',
-    publisher: createOrganizationJsonLd(),
-  }
-}
-
 /** サイト全体の Organization スキーマ */
 export function createOrganizationJsonLd() {
   return {
     '@type': 'Organization',
+    '@id': organizationId(),
     name: SITE_NAME,
     url: getSiteUrl(),
+    logo: {
+      '@type': 'ImageObject',
+      url: absoluteUrl(DEFAULT_OG_IMAGE_PATH),
+    },
     sameAs: [...OPERATOR_SOCIAL_URLS],
+  }
+}
+
+/** トップページ用 WebSite + Organization */
+export function createWebSiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      createOrganizationJsonLd(),
+      {
+        '@type': 'WebSite',
+        '@id': websiteId(),
+        name: SITE_NAME,
+        description: SITE_TAGLINE,
+        url: getSiteUrl(),
+        inLanguage: 'ja',
+        publisher: { '@id': organizationId() },
+      },
+    ],
   }
 }
 
@@ -59,9 +78,19 @@ export function createArticleJsonLd({ post, imageUrl, pageUrl }: ArticleJsonLdPa
     description: post.description,
     image: [absoluteUrl(imageUrl)],
     url: pageUrl,
-    datePublished,
-    author: createOrganizationJsonLd(),
-    publisher: createOrganizationJsonLd(),
+    inLanguage: 'ja',
+    ...(post.genre ? { articleSection: post.genre } : {}),
+    ...(datePublished ? { datePublished } : {}),
+    author: { '@id': organizationId() },
+    publisher: {
+      '@type': 'Organization',
+      '@id': organizationId(),
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl(DEFAULT_OG_IMAGE_PATH),
+      },
+    },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,
@@ -85,6 +114,26 @@ export function createBreadcrumbJsonLd(items: BreadcrumbItem[]) {
       name: item.name,
       ...(item.href ? { item: absoluteUrl(item.href) } : {}),
     })),
+  }
+}
+
+type CollectionPageJsonLdParams = {
+  name: string
+  description: string
+  path: string
+}
+
+/** 一覧・学校/部活/企業ページ用 CollectionPage */
+export function createCollectionPageJsonLd({ name, description, path }: CollectionPageJsonLdParams) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: absoluteUrl(path),
+    inLanguage: 'ja',
+    isPartOf: { '@id': websiteId() },
+    publisher: { '@id': organizationId() },
   }
 }
 

@@ -21,6 +21,7 @@ export default async function SportsIndexPage() {
       title="競技カテゴリから探す"
       description="YOSAKOI・球技など、競技カテゴリ別の投稿一覧です。"
       breadcrumbLabel="競技カテゴリ一覧"
+      seoPath={urls.sports()}
       count={sports.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

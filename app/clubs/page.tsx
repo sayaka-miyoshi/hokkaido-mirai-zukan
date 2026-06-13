@@ -21,6 +21,7 @@ export default async function ClubsIndexPage() {
       title="部活から探す"
       description="部活名を選ぶと、関連する投稿一覧が表示されます。"
       breadcrumbLabel="部活一覧"
+      seoPath={urls.clubs()}
       count={clubs.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

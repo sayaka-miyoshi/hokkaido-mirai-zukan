@@ -37,6 +37,7 @@ export default async function AreaPage({ params }: PageProps) {
       title={`${result.areaName}エリア`}
       description={`${result.areaName}エリアに関する学校・部活・企業訪問の投稿一覧です。`}
       breadcrumbLabel={`${result.areaName}エリア`}
+      seoPath={urls.area(slug)}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

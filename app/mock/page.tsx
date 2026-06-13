@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { createPageMetadata } from '@/lib/metadata'
 import { MOCK_VARIANTS } from '@/lib/mock-design'
 
-export const metadata: Metadata = {
-  title: 'デザインモック一覧 | 北海道未来図鑑',
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'デザインモック一覧',
+  description: 'トップページのデザイン確認用ページです。本番サイトとは別のプレビューです。',
+  path: '/mock',
+  noIndex: true,
+})
 
 export default function MockIndexPage() {
   return (

@@ -40,6 +40,7 @@ export default async function SchoolPage({ params }: PageProps) {
       title={result.name}
       description={`${result.name}の関連部活と投稿一覧です。`}
       breadcrumbLabel={result.name}
+      seoPath={urls.school(slug)}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

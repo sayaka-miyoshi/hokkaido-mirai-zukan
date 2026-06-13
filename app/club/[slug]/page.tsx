@@ -39,6 +39,7 @@ export default async function ClubPage({ params }: PageProps) {
       title={result.name}
       description={`${result.name}に関する投稿一覧です。練習風景や大会の様子などをご覧いただけます。`}
       breadcrumbLabel={result.name}
+      seoPath={urls.club(slug)}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

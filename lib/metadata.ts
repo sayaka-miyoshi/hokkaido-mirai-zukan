@@ -21,6 +21,12 @@ function resolveMetadataImage(image?: string): string {
   return image.trim()
 }
 
+function clampDescription(text: string, max = 120): string {
+  const normalized = text.replace(/\s+/g, ' ').trim()
+  if (normalized.length <= max) return normalized
+  return `${normalized.slice(0, max - 1)}…`
+}
+
 function buildGoogleVerification(): Metadata['verification'] | undefined {
   const token = process.env.GOOGLE_SITE_VERIFICATION?.trim() || GOOGLE_SITE_VERIFICATION
   if (!token) return undefined
@@ -89,10 +95,11 @@ export function createPageMetadata({
   type = 'website',
   noIndex = false,
 }: PageMetadataParams): Metadata {
-  const desc = description?.trim() || SITE_TAGLINE
+  const desc = clampDescription(description?.trim() || SITE_TAGLINE)
   const pageTitle = absoluteTitle ? { absolute: title } : title
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`
   const ogImage = resolveMetadataImage(image)
+  const ogImageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage)
 
   return {
     title: pageTitle,
@@ -106,7 +113,7 @@ export function createPageMetadata({
       url: path,
       images: [
         {
-          url: ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -117,7 +124,7 @@ export function createPageMetadata({
       card: 'summary_large_image',
       title: fullTitle,
       description: desc,
-      images: [ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage)],
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: path,

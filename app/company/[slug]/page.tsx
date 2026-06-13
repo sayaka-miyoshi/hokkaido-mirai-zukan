@@ -39,6 +39,7 @@ export default async function CompanyPage({ params }: PageProps) {
       title={result.name}
       description={`${result.name}に関する企業訪問・見学の投稿一覧です。`}
       breadcrumbLabel={result.name}
+      seoPath={urls.company(slug)}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}

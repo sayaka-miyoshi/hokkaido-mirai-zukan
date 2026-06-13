@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: completePaths.length > 0 ? completePaths : undefined,
+      disallow: [...completePaths, '/mock', '/api/'],
     },
     sitemap: `${getSiteUrl()}/sitemap.xml`,
     host: getSiteUrl(),
