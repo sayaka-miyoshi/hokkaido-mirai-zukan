@@ -1,3 +1,4 @@
+import { DESIGN_IMAGE_CLASS } from '@/lib/home-layout'
 import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
 import { SITE_NAME } from '@/lib/site'
 
@@ -9,7 +10,7 @@ export default function TopHero() {
       <img
         src={STORY_IMAGES.story01}
         alt={STORY_ALT.story01}
-        className="mx-auto w-full max-w-lg rounded-2xl"
+        className={DESIGN_IMAGE_CLASS}
         width={1080}
         height={1920}
         fetchPriority="high"

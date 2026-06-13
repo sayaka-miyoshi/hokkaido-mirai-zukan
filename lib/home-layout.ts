@@ -26,11 +26,19 @@ export const POST_CARD_THUMBNAIL = {
     'relative w-full aspect-[4/5] shrink-0 overflow-hidden bg-white border border-magazine-border/40',
 } as const
 
-/** 記事詳細ページのメイン画像（一覧とは別レイアウト） */
+/** 記事詳細ページのメイン画像（ユーザー登録サムネと同仕様） */
 export const POST_DETAIL_MAIN_IMAGE = {
   aspect: POST_CARD_THUMBNAIL.aspect,
-  imageClass: 'object-cover object-[center_30%]',
+  imageClass: POST_CARD_THUMBNAIL.imageClass,
+  imageFrame: POST_CARD_THUMBNAIL.imageFrame,
 } as const
+
+/** サイト内デザイン画像（Hero・ストーリー画像など）— 比率は各所のまま・角丸なし */
+export const DESIGN_IMAGE_CLASS = 'mx-auto w-full max-w-lg'
+
+/** 特集バナー枠 — 角丸なし・比率は各バナー定義のまま */
+export const DESIGN_BANNER_LINK_CLASS =
+  'group relative block overflow-hidden shadow-magazine-sm transition-transform duration-300 hover:scale-[1.01]'
 
 /** TOPグリッドカード共通（4:5固定・トリミングなし） */
 export const HOME_GRID_CARD = {

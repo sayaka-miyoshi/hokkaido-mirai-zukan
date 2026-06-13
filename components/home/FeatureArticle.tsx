@@ -33,8 +33,6 @@ export default function FeatureArticle({
   showReadLink = true,
 }: FeatureArticleProps) {
   const subtitle = post.description.trim()
-  const editorialImageClass =
-    'object-cover object-[center_32%] transition-transform duration-[1.2s] ease-out group-hover:scale-[1.02]'
 
   const categoryLabel =
     editorialCategory ??
@@ -50,14 +48,14 @@ export default function FeatureArticle({
             </p>
           )}
 
-          <div className="-mx-2 relative aspect-[4/5] min-h-[min(85vw,640px)] overflow-hidden rounded-3xl bg-magazine-sky shadow-magazine-sm">
+          <div className="-mx-2 relative aspect-[4/5] min-h-[min(85vw,640px)] overflow-hidden bg-white border border-magazine-border/40 shadow-magazine-sm">
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               genre={post.genre}
               priority={priority}
               sizes="100vw"
-              className={editorialImageClass}
+              className={HOME_GRID_CARD.imageClass}
             />
           </div>
 
@@ -124,14 +122,14 @@ export default function FeatureArticle({
     return (
       <article className="border-t border-magazine-border/60 py-10 first:border-t-0 first:pt-0">
         <Link href={urls.post(post.id)} className="group block">
-          <div className="relative aspect-[5/6] overflow-hidden rounded-2xl bg-magazine-sky shadow-magazine-sm">
+          <div className="relative aspect-[5/6] overflow-hidden bg-white border border-magazine-border/40 shadow-magazine-sm">
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               genre={post.genre}
               priority={priority}
               sizes="100vw"
-              className={editorialImageClass}
+              className={HOME_GRID_CARD.imageClass}
             />
           </div>
 
@@ -157,14 +155,14 @@ export default function FeatureArticle({
     return (
       <article className="border-t border-magazine-border py-10 first:border-t-0 first:pt-0">
         <Link href={urls.post(post.id)} className="group block">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-magazine-sky">
+          <div className={`${HOME_GRID_CARD.imageFrame}`}>
             <PostImage
               src={post.imageUrl}
               alt={post.title}
               genre={post.genre}
               priority={priority}
               sizes="100vw"
-              className={editorialImageClass}
+              className={HOME_GRID_CARD.imageClass}
             />
           </div>
           <h3 className="mt-5 font-magazine-rounded text-xl font-bold leading-snug text-magazine-title">
@@ -181,14 +179,14 @@ export default function FeatureArticle({
   return (
     <article className="mb-10">
       <Link href={urls.post(post.id)} className="group block">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-magazine-sky">
+        <div className="relative aspect-[16/10] overflow-hidden bg-white border border-magazine-border/40">
           <PostImage
             src={post.imageUrl}
             alt={post.title}
             genre={post.genre}
             priority={priority}
             sizes="100vw"
-            className={editorialImageClass}
+            className={HOME_GRID_CARD.imageClass}
           />
         </div>
 

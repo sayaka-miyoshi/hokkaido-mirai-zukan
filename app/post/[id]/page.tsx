@@ -114,9 +114,7 @@ export default async function PostPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-2">{post.date}</p>
           </header>
 
-          <div
-            className={`relative w-full ${POST_DETAIL_MAIN_IMAGE.aspect} min-h-[180px] bg-hokkaido-ice rounded-2xl overflow-hidden mb-6`}
-          >
+          <div className={`${POST_DETAIL_MAIN_IMAGE.imageFrame} mb-6`}>
             <PostImage
               src={post.imageUrl}
               alt={post.title}

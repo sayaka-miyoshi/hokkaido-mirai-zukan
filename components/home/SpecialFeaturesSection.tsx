@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import FadeInSection from '@/components/home/FadeInSection'
-import { HOME_SPECIAL_FEATURES } from '@/lib/home-layout'
+import { DESIGN_BANNER_LINK_CLASS, HOME_SPECIAL_FEATURES } from '@/lib/home-layout'
 
 /** 特集バナー（初期3件） */
 export default function SpecialFeaturesSection() {
@@ -16,7 +16,7 @@ export default function SpecialFeaturesSection() {
           <Link
             key={feature.id}
             href={feature.href}
-            className={`group relative block overflow-hidden rounded-2xl bg-gradient-to-r ${feature.gradient} shadow-magazine-sm transition-transform duration-300 hover:scale-[1.01]`}
+            className={`${DESIGN_BANNER_LINK_CLASS} bg-gradient-to-r ${feature.gradient}`}
           >
             <div className="relative aspect-[5/2] md:aspect-[5/2]">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_55%)]" />

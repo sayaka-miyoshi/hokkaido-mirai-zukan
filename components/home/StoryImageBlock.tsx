@@ -1,4 +1,5 @@
 import FadeInSection from '@/components/home/FadeInSection'
+import { DESIGN_IMAGE_CLASS } from '@/lib/home-layout'
 
 type StoryImageBlockProps = {
   id: string
@@ -19,7 +20,7 @@ export default function StoryImageBlock({
     <img
       src={src}
       alt={alt}
-      className="mx-auto w-full max-w-lg rounded-2xl"
+      className={DESIGN_IMAGE_CLASS}
       loading="lazy"
       decoding="async"
     />
