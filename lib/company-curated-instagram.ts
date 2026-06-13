@@ -5,7 +5,7 @@ export const COMPANY_CURATED_MAX = 22
 
 /**
  * 表示順固定の Instagram URL 一覧
- * 15〜22件目は COMPANY_CONTENT_MAX を増やすと表示可能
+ * 15〜22件目は COMPANY_CONTENT_MAX と同数（22件）で表示
  */
 export const COMPANY_CURATED_INSTAGRAM_URLS = [
   'https://www.instagram.com/p/DXoYw6QEtYM/?hl=ja',

@@ -45,7 +45,7 @@ export type CompanyCuratedResult = {
  * - 指定 Instagram URL の順番どおりに表示
  * - 公開 = true のみ
  * - 同一記事（重複 post ID / 重複 Instagram ID）は除外
- * - max 件まで表示（現状14件、将来22件まで対応）
+ * - max 件まで表示（22件）
  */
 export function resolveCompanyCuratedPosts(
   posts: Post[],

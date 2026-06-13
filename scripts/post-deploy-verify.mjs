@@ -79,8 +79,8 @@ results.mobileHome = mobileHome
 if (!mobileHome.latestSection || mobileHome.latestCards === 0) {
   issues.push('スマホ表示で最新コンテンツが表示されていません')
 }
-if (!mobileHome.companySection || mobileHome.companyCards !== 14) {
-  issues.push(`北海道の企業を知ろうが ${mobileHome.companyCards} 件（14件であるべき）`)
+if (!mobileHome.companySection || mobileHome.companyCards !== 22) {
+  issues.push(`北海道の企業を知ろうが ${mobileHome.companyCards} 件（22件であるべき）`)
 }
 
 // contact link from TOP

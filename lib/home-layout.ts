@@ -6,17 +6,14 @@ export const FEATURED_STORIES_MAX = 6
 /** 最新コンテンツの最大表示件数（TOP） */
 export const LATEST_CONTENT_MAX = 10
 
-/** 北海道の企業を知ろう — TOP現在の表示件数（手動キュレーション1〜14件目） */
-export const COMPANY_CONTENT_MAX = 14
-
-/** 手動キュレーション最大件数（15〜22件目は COMPANY_CONTENT_MAX 増加で表示可能） */
-export { COMPANY_CURATED_MAX } from '@/lib/company-curated-instagram'
+/** 北海道の企業を知ろう — TOP表示件数（手動キュレーション22件すべて） */
+export const COMPANY_CONTENT_MAX = 22
 
 /** TOPグリッド（Tailwind class） */
 export const HOME_CONTENT_GRIDS = {
   /** 人気：スマホ2列×3段 / PC 3列×2段 */
   popular: 'grid grid-cols-2 gap-x-2 gap-y-5 md:grid-cols-3 md:gap-x-4 md:gap-y-8',
-  /** 最新・企業：スマホ2列 / PC 3列×3段 */
+  /** 最新・企業：スマホ2列 / PC 3列（22件=7段+1） */
   nine: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-3 md:gap-x-4 md:gap-y-8',
 } as const
 
