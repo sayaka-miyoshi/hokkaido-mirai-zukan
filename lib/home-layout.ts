@@ -6,8 +6,11 @@ export const FEATURED_STORIES_MAX = 6
 /** 最新コンテンツの最大表示件数（TOP） */
 export const LATEST_CONTENT_MAX = 10
 
-/** 北海道の企業を知ろう — 最大表示件数（TOP・スプレッドシート「企業おすすめ」） */
+/** 北海道の企業を知ろう — TOP現在の表示件数（手動キュレーション1〜14件目） */
 export const COMPANY_CONTENT_MAX = 14
+
+/** 手動キュレーション最大件数（15〜22件目は COMPANY_CONTENT_MAX 増加で表示可能） */
+export { COMPANY_CURATED_MAX } from '@/lib/company-curated-instagram'
 
 /** TOPグリッド（Tailwind class） */
 export const HOME_CONTENT_GRIDS = {
