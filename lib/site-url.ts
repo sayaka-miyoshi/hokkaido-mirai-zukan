@@ -1,4 +1,4 @@
-const PRODUCTION_SITE_URL = 'https://hokkaido-mirai-zukan.vercel.app'
+const PRODUCTION_SITE_URL = 'https://hokkaido-miraizukan.jp'
 
 /** 本番サイトのベースURL（末尾スラッシュなし） */
 export function getSiteUrl(): string {
