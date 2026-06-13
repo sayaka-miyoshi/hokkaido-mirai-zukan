@@ -16,11 +16,9 @@ export default function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={urls.post(post.id)}
-      className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col border border-hokkaido-ice active:scale-[0.98]"
+      className="bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col border border-hokkaido-ice active:scale-[0.98]"
     >
-      <div
-        className={`relative w-full ${POST_CARD_THUMBNAIL.aspect} min-h-[120px] shrink-0 bg-hokkaido-ice overflow-hidden`}
-      >
+      <div className={POST_CARD_THUMBNAIL.imageFrame}>
         <PostImage
           src={post.imageUrl}
           alt={post.title}

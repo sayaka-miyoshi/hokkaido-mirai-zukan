@@ -37,7 +37,7 @@ type SearchContainerProps = {
 
 /**
  * TOPページ構成
- * ① Hero ② ストーリー02 ③ 検索 ④ 人気 ⑤ 最新 ⑥ 企業 ⑦ 特集 ⑧ ストーリー04 ⑨ 運営者 ⑩ フッター
+ * ① Hero ② 検索 ③ 人気 ④ 最新 ⑤ 企業 ⑥ 特集 ⑦ ストーリー04 ⑧ 運営者 ⑨ フッター
  */
 export default function SearchContainer({
   posts,
@@ -204,13 +204,6 @@ export default function SearchContainer({
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <TopHero />
-
-      <StoryImageBlock
-        id="story-02"
-        src={STORY_IMAGES.story02}
-        alt={STORY_ALT.story02}
-        animate={false}
-      />
 
       <main className="mx-auto w-full flex-1">
         <div className="mx-auto max-w-lg">

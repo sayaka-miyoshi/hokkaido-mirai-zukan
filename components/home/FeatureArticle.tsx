@@ -86,9 +86,7 @@ export default function FeatureArticle({
     return (
       <article>
         <Link href={urls.post(post.id)} className="group block">
-          <div
-            className={`relative ${HOME_GRID_CARD.imageAspect} overflow-hidden rounded-2xl bg-magazine-sky shadow-magazine-sm`}
-          >
+          <div className={HOME_GRID_CARD.imageFrame}>
             <PostImage
               src={post.imageUrl}
               alt={isCompanyCard ? '' : post.title}
