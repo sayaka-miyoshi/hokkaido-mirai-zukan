@@ -1,9 +1,16 @@
 const PRODUCTION_SITE_URL = 'https://www.hokkaido-miraizukan.jp'
+const LEGACY_SITE_URL = 'https://hokkaido-miraizukan.jp'
 
-/** 本番サイトのベースURL（末尾スラッシュなし） */
+function normalizeProductionSiteUrl(url: string): string {
+  const trimmed = url.replace(/\/$/, '')
+  if (trimmed === LEGACY_SITE_URL) return PRODUCTION_SITE_URL
+  return trimmed
+}
+
+/** 本番サイトのベースURL（末尾スラッシュなし・www 正規化） */
 export function getSiteUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim()
-  if (configured) return configured.replace(/\/$/, '')
+  if (configured) return normalizeProductionSiteUrl(configured)
 
   if (process.env.VERCEL_ENV === 'production') {
     return PRODUCTION_SITE_URL
