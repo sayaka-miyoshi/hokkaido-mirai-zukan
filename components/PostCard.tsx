@@ -3,9 +3,8 @@
 import Link from 'next/link'
 import type { Post } from '@/types/post'
 import { getGenreBadgeClass } from '@/lib/genres'
-import { POST_CARD_THUMBNAIL } from '@/lib/home-layout'
 import { urls } from '@/lib/urls'
-import PostImage from './PostImage'
+import PostThumbnail from './PostThumbnail'
 import RecruitmentBadge from './RecruitmentBadge'
 
 export default function PostCard({ post }: { post: Post }) {
@@ -18,14 +17,12 @@ export default function PostCard({ post }: { post: Post }) {
       href={urls.post(post.id)}
       className="bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col border border-hokkaido-ice active:scale-[0.98]"
     >
-      <div className={POST_CARD_THUMBNAIL.imageFrame}>
-        <PostImage
-          src={post.imageUrl}
-          alt={post.title}
-          genre={post.genre}
-          sizes="(max-width: 640px) 50vw, 200px"
-          className={POST_CARD_THUMBNAIL.imageClass}
-        />
+      <PostThumbnail
+        src={post.imageUrl}
+        alt={post.title}
+        genre={post.genre}
+        sizes="(max-width: 640px) 50vw, 200px"
+      >
         {!isCompanyCard && (
           <>
             <span
@@ -47,7 +44,7 @@ export default function PostCard({ post }: { post: Post }) {
             )}
           </>
         )}
-      </div>
+      </PostThumbnail>
 
       <div className="p-2.5 flex flex-col gap-1 flex-1">
         {isCompanyCard ? (

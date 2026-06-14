@@ -20,6 +20,7 @@ export const HOME_CONTENT_GRIDS = {
 /** Instagramフィード風 4:5（1080×1350）— ユーザー登録サムネ共通 */
 export const POST_CARD_THUMBNAIL = {
   aspect: 'aspect-[4/5]',
+  aspectRatio: '4 / 5' as const,
   /** 4:5枠内に画像全体を表示（トリミングなし・角丸なし） */
   imageClass: 'object-contain object-center bg-white',
   imageFrame:

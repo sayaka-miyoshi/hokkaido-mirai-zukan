@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { isDefaultPostImage, resolveDefaultPostImage } from '@/lib/default-images'
 import { getImageUrlCandidates, normalizeImageUrl } from '@/lib/image-url'
+import { POST_CARD_THUMBNAIL } from '@/lib/home-layout'
 
 type PostImageProps = {
   src: string
@@ -61,7 +62,7 @@ export default function PostImage({
     setUseDefault(true)
   }
 
-  const imageClassName = `${className || 'object-cover'}`.trim()
+  const imageClassName = `${className || POST_CARD_THUMBNAIL.imageClass}`.trim()
 
   return (
     <Image

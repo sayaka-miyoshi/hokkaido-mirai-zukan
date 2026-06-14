@@ -5,7 +5,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import DataFetchAlert from '@/components/DataFetchAlert'
 import ExternalLinks from '@/components/ExternalLinks'
 import JsonLd from '@/components/JsonLd'
-import PostImage from '@/components/PostImage'
+import PostThumbnail from '@/components/PostThumbnail'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
 import RelatedPostsSection from '@/components/RelatedPostsSection'
 import ContactTeaser from '@/components/home/ContactTeaser'
@@ -24,7 +24,6 @@ import {
 } from '@/lib/queries'
 import { getAreaSlug } from '@/lib/slugs'
 import { getGenreBadgeClass } from '@/lib/genres'
-import { POST_DETAIL_MAIN_IMAGE } from '@/lib/home-layout'
 import { getRelatedPostSections } from '@/lib/related-posts'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
@@ -114,16 +113,14 @@ export default async function PostPage({ params }: PageProps) {
             <p className="text-sm text-gray-500 mt-2">{post.date}</p>
           </header>
 
-          <div className={`${POST_DETAIL_MAIN_IMAGE.imageFrame} mb-6`}>
-            <PostImage
-              src={post.imageUrl}
-              alt={post.title}
-              genre={post.genre}
-              priority
-              sizes="(max-width: 768px) 100vw, 672px"
-              className={POST_DETAIL_MAIN_IMAGE.imageClass}
-            />
-          </div>
+          <PostThumbnail
+            src={post.imageUrl}
+            alt={post.title}
+            genre={post.genre}
+            priority
+            sizes="(max-width: 768px) 100vw, 672px"
+            frameClassName="mb-6"
+          />
 
           <p className="text-gray-700 leading-relaxed mb-6">{post.description}</p>
 

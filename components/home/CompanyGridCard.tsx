@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import PostImage from '@/components/PostImage'
+import PostThumbnail from '@/components/PostThumbnail'
 import { HOME_GRID_CARD } from '@/lib/home-layout'
 import type { Post } from '@/types/post'
 import { urls } from '@/lib/urls'
@@ -16,16 +16,13 @@ export default function CompanyGridCard({ post, priority = false }: CompanyGridC
   return (
     <article>
       <Link href={urls.post(post.id)} className="group block">
-        <div className={HOME_GRID_CARD.imageFrame}>
-          <PostImage
-            src={post.imageUrl}
-            alt=""
-            genre={post.genre}
-            priority={priority}
-            sizes="(max-width: 767px) 45vw, 280px"
-            className={HOME_GRID_CARD.imageClass}
-          />
-        </div>
+        <PostThumbnail
+          src={post.imageUrl}
+          alt=""
+          genre={post.genre}
+          priority={priority}
+          sizes="(max-width: 767px) 45vw, 280px"
+        />
         <div className={HOME_GRID_CARD.body}>
           <h3
             className={`font-normal text-magazine-title transition-colors group-hover:text-hokkaido-sky ${HOME_GRID_CARD.title}`}

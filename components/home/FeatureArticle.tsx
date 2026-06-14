@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Post } from '@/types/post'
-import PostImage from '@/components/PostImage'
+import PostThumbnail from '@/components/PostThumbnail'
 import { HOME_GRID_CARD } from '@/lib/home-layout'
 import { urls } from '@/lib/urls'
 
@@ -38,6 +38,23 @@ export default function FeatureArticle({
     editorialCategory ??
     (post.genre === '企業訪問' ? '企業' : post.genre === '行政・自治体' ? '行政' : post.genre)
 
+  const thumbnail = (
+    <PostThumbnail
+      src={post.imageUrl}
+      alt={post.genre === '企業訪問' ? '' : post.title}
+      genre={post.genre}
+      priority={priority}
+      sizes={
+        layout === 'grid'
+          ? '(max-width: 767px) 45vw, 280px'
+          : '(max-width: 768px) 100vw, 672px'
+      }
+      frameClassName={
+        layout === 'feature' ? '-mx-2 shadow-magazine-sm' : layout === 'story' ? 'shadow-magazine-sm' : ''
+      }
+    />
+  )
+
   if (layout === 'feature') {
     return (
       <article className="border-t border-magazine-border/60 py-16 first:border-t-0 first:pt-4">
@@ -48,16 +65,7 @@ export default function FeatureArticle({
             </p>
           )}
 
-          <div className="-mx-2 relative aspect-[4/5] min-h-[min(85vw,640px)] overflow-hidden bg-white border border-magazine-border/40 shadow-magazine-sm">
-            <PostImage
-              src={post.imageUrl}
-              alt={post.title}
-              genre={post.genre}
-              priority={priority}
-              sizes="100vw"
-              className={HOME_GRID_CARD.imageClass}
-            />
-          </div>
+          {thumbnail}
 
           <div className="mt-8 px-1">
             <h3 className="font-magazine-rounded text-[1.45rem] font-bold leading-[1.3] text-magazine-title transition-colors group-hover:text-hokkaido-sky">
@@ -84,16 +92,7 @@ export default function FeatureArticle({
     return (
       <article>
         <Link href={urls.post(post.id)} className="group block">
-          <div className={HOME_GRID_CARD.imageFrame}>
-            <PostImage
-              src={post.imageUrl}
-              alt={isCompanyCard ? '' : post.title}
-              genre={post.genre}
-              priority={priority}
-              sizes="(max-width: 767px) 45vw, 280px"
-              className={HOME_GRID_CARD.imageClass}
-            />
-          </div>
+          {thumbnail}
           <div className={HOME_GRID_CARD.body}>
             <h3
               className={`text-magazine-title transition-colors group-hover:text-hokkaido-sky ${HOME_GRID_CARD.title} ${
@@ -122,16 +121,7 @@ export default function FeatureArticle({
     return (
       <article className="border-t border-magazine-border/60 py-10 first:border-t-0 first:pt-0">
         <Link href={urls.post(post.id)} className="group block">
-          <div className="relative aspect-[5/6] overflow-hidden bg-white border border-magazine-border/40 shadow-magazine-sm">
-            <PostImage
-              src={post.imageUrl}
-              alt={post.title}
-              genre={post.genre}
-              priority={priority}
-              sizes="100vw"
-              className={HOME_GRID_CARD.imageClass}
-            />
-          </div>
+          {thumbnail}
 
           <div className="mt-5 px-1">
             <h3 className="font-magazine-rounded text-lg font-bold leading-[1.35] text-magazine-title transition-colors group-hover:text-hokkaido-sky">
@@ -155,16 +145,7 @@ export default function FeatureArticle({
     return (
       <article className="border-t border-magazine-border py-10 first:border-t-0 first:pt-0">
         <Link href={urls.post(post.id)} className="group block">
-          <div className={`${HOME_GRID_CARD.imageFrame}`}>
-            <PostImage
-              src={post.imageUrl}
-              alt={post.title}
-              genre={post.genre}
-              priority={priority}
-              sizes="100vw"
-              className={HOME_GRID_CARD.imageClass}
-            />
-          </div>
+          {thumbnail}
           <h3 className="mt-5 font-magazine-rounded text-xl font-bold leading-snug text-magazine-title">
             {post.title}
           </h3>
@@ -179,16 +160,7 @@ export default function FeatureArticle({
   return (
     <article className="mb-10">
       <Link href={urls.post(post.id)} className="group block">
-        <div className="relative aspect-[16/10] overflow-hidden bg-white border border-magazine-border/40">
-          <PostImage
-            src={post.imageUrl}
-            alt={post.title}
-            genre={post.genre}
-            priority={priority}
-            sizes="100vw"
-            className={HOME_GRID_CARD.imageClass}
-          />
-        </div>
+        {thumbnail}
 
         <div className="mt-4">
           <h3 className="font-magazine-rounded text-lg font-bold leading-snug text-magazine-title">
