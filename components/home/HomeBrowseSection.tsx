@@ -147,6 +147,12 @@ export default function HomeBrowseSection({
             >
               行政・自治体
             </FilterChip>
+            <Link
+              href={urls.companies()}
+              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+            >
+              企業一覧へ →
+            </Link>
           </div>
         </div>
 

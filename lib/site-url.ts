@@ -1,4 +1,4 @@
-const PRODUCTION_SITE_URL = 'https://hokkaido-miraizukan.jp'
+const PRODUCTION_SITE_URL = 'https://www.hokkaido-miraizukan.jp'
 
 /** 本番サイトのベースURL（末尾スラッシュなし） */
 export function getSiteUrl(): string {

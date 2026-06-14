@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      { source: '/school', destination: '/schools', statusCode: 301 },
+      { source: '/club', destination: '/clubs', statusCode: 301 },
+      { source: '/company', destination: '/companies', statusCode: 301 },
+    ]
+  },
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

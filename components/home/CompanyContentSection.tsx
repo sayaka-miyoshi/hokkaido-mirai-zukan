@@ -1,6 +1,6 @@
-import CompanyGridCard from '@/components/home/CompanyGridCard'
+import CompanyRecommendedGrid from '@/components/CompanyRecommendedGrid'
 import FadeInSection from '@/components/home/FadeInSection'
-import { COMPANY_SECTION, HOME_CONTENT_GRIDS } from '@/lib/home-layout'
+import { COMPANY_SECTION } from '@/lib/home-layout'
 import type { Post } from '@/types/post'
 
 type CompanyContentSectionProps = {
@@ -24,10 +24,8 @@ export default function CompanyContentSection({ posts }: CompanyContentSectionPr
       <p className="mt-3 whitespace-pre-line text-sm leading-[1.85] text-magazine-text">
         {COMPANY_SECTION.description}
       </p>
-      <div className={`mt-10 ${HOME_CONTENT_GRIDS.nine}`}>
-        {posts.map((post, index) => (
-          <CompanyGridCard key={post.id} post={post} priority={index < 3} />
-        ))}
+      <div className="mt-10">
+        <CompanyRecommendedGrid posts={posts} />
       </div>
     </FadeInSection>
   )

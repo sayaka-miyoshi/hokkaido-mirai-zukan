@@ -73,7 +73,7 @@ export const HOME_SPECIAL_FEATURES = [
     id: 'hokkaido-jobs',
     title: '北海道を支える仕事',
     deck: '企業訪問で、北海道の仕事の現場を知る',
-    href: '#companies',
+    href: '/companies',
     gradient: 'from-[#2B4A6B] via-[#3D6288] to-[#5BAFD6]',
   },
   {
@@ -136,7 +136,7 @@ export const SEARCH_SECTION = {
 export const QUICK_SEARCH_CATEGORIES = [
   { id: 'school', label: '学校', emoji: '🏫', href: '/schools' },
   { id: 'club', label: '部活', emoji: '⚽', href: '/clubs' },
-  { id: 'company', label: '企業', emoji: '🏢', genre: '企業訪問' },
+  { id: 'company', label: '企業', emoji: '🏢', href: '/companies' },
   { id: 'admin', label: '行政', emoji: '🏛️', genre: '行政・自治体' },
 ] as const
 

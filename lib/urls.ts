@@ -3,6 +3,7 @@ export const urls = {
   home: () => '/',
   schools: () => '/schools',
   clubs: () => '/clubs',
+  companies: () => '/companies',
   sports: () => '/sports',
   area: (slug: string) => `/area/${slug}`,
   school: (slug: string) => `/school/${slug}`,
