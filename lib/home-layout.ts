@@ -27,11 +27,14 @@ export const POST_CARD_THUMBNAIL = {
     'relative w-full aspect-[4/5] shrink-0 overflow-hidden bg-white border border-magazine-border/40',
 } as const
 
-/** 記事詳細ページのメイン画像 — 全体表示優先（contain） */
+/** 記事詳細ページのメイン画像 — 4:5固定・全体表示（contain・角丸なし） */
 export const POST_DETAIL_MAIN_IMAGE = {
-  aspect: POST_CARD_THUMBNAIL.aspect,
+  aspect: 'aspect-[4/5]',
+  aspectRatio: '4 / 5' as const,
   imageClass: 'object-contain object-center bg-white',
-  imageFrame: POST_CARD_THUMBNAIL.imageFrame,
+  /** 詳細ページ全体で同じ最大幅・同じ4:5枠サイズ */
+  imageFrame:
+    'relative mx-auto w-full max-w-lg aspect-[4/5] shrink-0 overflow-hidden bg-white border border-magazine-border/40',
 } as const
 
 /** サイト内デザイン画像（Hero・ストーリー画像など）— 比率は各所のまま・角丸なし */
