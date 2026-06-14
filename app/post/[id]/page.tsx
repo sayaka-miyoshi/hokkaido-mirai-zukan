@@ -118,6 +118,7 @@ export default async function PostPage({ params }: PageProps) {
             alt={post.title}
             genre={post.genre}
             priority
+            variant="detail"
             sizes="(max-width: 768px) 100vw, 672px"
             frameClassName="mb-6"
           />

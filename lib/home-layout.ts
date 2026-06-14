@@ -17,20 +17,20 @@ export const HOME_CONTENT_GRIDS = {
   nine: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-3 md:gap-x-4 md:gap-y-8',
 } as const
 
-/** Instagramフィード風 4:5（1080×1350）— ユーザー登録サムネ共通 */
+/** 一覧カード用 4:5 — 見た目統一優先（cover・角丸なし） */
 export const POST_CARD_THUMBNAIL = {
   aspect: 'aspect-[4/5]',
   aspectRatio: '4 / 5' as const,
-  /** 4:5枠内に画像全体を表示（トリミングなし・角丸なし） */
-  imageClass: 'object-contain object-center bg-white',
+  /** 4:5枠いっぱいに表示（一覧は多少トリミング可） */
+  imageClass: 'object-cover object-center bg-white',
   imageFrame:
     'relative w-full aspect-[4/5] shrink-0 overflow-hidden bg-white border border-magazine-border/40',
 } as const
 
-/** 記事詳細ページのメイン画像（ユーザー登録サムネと同仕様） */
+/** 記事詳細ページのメイン画像 — 全体表示優先（contain） */
 export const POST_DETAIL_MAIN_IMAGE = {
   aspect: POST_CARD_THUMBNAIL.aspect,
-  imageClass: POST_CARD_THUMBNAIL.imageClass,
+  imageClass: 'object-contain object-center bg-white',
   imageFrame: POST_CARD_THUMBNAIL.imageFrame,
 } as const
 

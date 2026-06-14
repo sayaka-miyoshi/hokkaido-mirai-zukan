@@ -67,12 +67,12 @@ console.log(
         story02Removed &&
         heroImg.borderRadius === '0px' &&
         banner.borderRadius === '0px' &&
-        popular.objectFit === 'contain' &&
-        companies.objectFit === 'contain' &&
+        popular.objectFit === 'cover' &&
+        companies.objectFit === 'cover' &&
         companies.frameRatio != null &&
         Math.abs(companies.frameRatio - 0.8) < 0.05 &&
         detail.objectFit === 'contain' &&
-        schoolList.objectFit === 'contain' &&
+        schoolList.objectFit === 'cover' &&
         popular.frameBorderRadius === '0px' &&
         companies.frameBorderRadius === '0px',
     },
