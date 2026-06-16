@@ -67,6 +67,12 @@ export const COMPANY_SECTION = {
     '北海道には魅力的な仕事がたくさんあります。\n企業訪問を通して、未来の仕事や働く人たちの姿を知ろう。',
 } as const
 
+/** オープンキャンパス特集 */
+export const OPEN_CAMPUS_SECTION = {
+  title: 'オープンキャンパス特集',
+  deck: '学校選びのヒントが見つかる',
+} as const
+
 /** トップ特集バナー（初期3件） */
 export const HOME_SPECIAL_FEATURES = [
   {
@@ -85,9 +91,9 @@ export const HOME_SPECIAL_FEATURES = [
   },
   {
     id: 'open-campus',
-    title: 'オープンキャンパス特集',
-    deck: '学校選びのヒントが見つかる',
-    href: '/schools',
+    title: OPEN_CAMPUS_SECTION.title,
+    deck: OPEN_CAMPUS_SECTION.deck,
+    href: '/open-campus',
     gradient: 'from-[#2B4A6B] via-[#6B5B95] to-[#B8A9E8]',
   },
 ] as const

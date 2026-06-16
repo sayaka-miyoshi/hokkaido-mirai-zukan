@@ -4,6 +4,7 @@ export const urls = {
   schools: () => '/schools',
   clubs: () => '/clubs',
   companies: () => '/companies',
+  openCampus: () => '/open-campus',
   sports: () => '/sports',
   area: (slug: string) => `/area/${slug}`,
   school: (slug: string) => `/school/${slug}`,
