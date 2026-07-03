@@ -1,12 +1,18 @@
 import type { ReactNode } from 'react'
 import type { DataSource } from '@/types/fetch-result'
 import JsonLd from '@/components/JsonLd'
+import EntitySiteNav from '@/components/EntitySiteNav'
 import { createBreadcrumbJsonLd, createCollectionPageJsonLd } from '@/lib/json-ld'
 import SiteHeader from './SiteHeader'
 import Breadcrumb from './Breadcrumb'
 import DataFetchAlert from './DataFetchAlert'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
+
+type BreadcrumbItem = {
+  label: string
+  href?: string
+}
 
 type EntityPageLayoutProps = {
   title: string
@@ -18,6 +24,8 @@ type EntityPageLayoutProps = {
   totalFetchedCount?: number
   /** 構造化データ・canonical 用のページパス */
   seoPath?: string
+  /** 一覧ページなど中間パンくず（例: 学校一覧） */
+  breadcrumbItems?: BreadcrumbItem[]
   /** CollectionPage 以外の追加 JSON-LD */
   extraJsonLd?: Record<string, unknown>[]
   children: ReactNode
@@ -32,18 +40,25 @@ export default function EntityPageLayout({
   dataError,
   totalFetchedCount,
   seoPath,
+  breadcrumbItems,
   extraJsonLd = [],
   children,
 }: EntityPageLayoutProps) {
+  const crumbs: BreadcrumbItem[] = breadcrumbItems ?? [
+    { label: 'ホーム', href: urls.home() },
+    { label: breadcrumbLabel },
+  ]
+
+  const jsonLdCrumbs = crumbs.map((item) =>
+    item.href ? { name: item.label, href: item.href } : { name: item.label },
+  )
+
   return (
     <div className="min-h-screen">
       {seoPath && (
         <JsonLd
           data={[
-            createBreadcrumbJsonLd([
-              { name: 'ホーム', href: urls.home() },
-              { name: breadcrumbLabel, href: seoPath },
-            ]),
+            createBreadcrumbJsonLd(jsonLdCrumbs),
             createCollectionPageJsonLd({
               name: title,
               description,
@@ -55,12 +70,7 @@ export default function EntityPageLayout({
       )}
       <SiteHeader />
       <main className="max-w-5xl mx-auto px-4 py-6">
-        <Breadcrumb
-          items={[
-            { label: 'ホーム', href: urls.home() },
-            { label: breadcrumbLabel },
-          ]}
-        />
+        <Breadcrumb items={crumbs} />
         {dataSource && (
           <DataFetchAlert
             source={dataSource}
@@ -74,6 +84,7 @@ export default function EntityPageLayout({
           <p className="text-sm text-gray-500 mt-3">{count}件の記事</p>
         </header>
         {children}
+        <EntitySiteNav />
       </main>
       <footer className="text-center py-8 text-xs text-gray-400 border-t border-hokkaido-ice">
         <p>© 2026 {INSTAGRAM_HANDLE} | {SITE_NAME}</p>

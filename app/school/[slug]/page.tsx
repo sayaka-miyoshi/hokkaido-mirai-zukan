@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
+import EntityLinkChips from '@/components/EntityLinkChips'
 import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
+import { getSchoolCrossLinks } from '@/lib/entity-cross-links'
 import { buildSchoolSummary } from '@/lib/entity-summary'
 import { createEducationalOrganizationJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
@@ -42,12 +44,18 @@ export default async function SchoolPage({ params }: PageProps) {
   const seoPath = urls.school(slug)
   const description = buildSchoolSummary(result.name, result.posts)
   const areas = [...new Set(result.posts.map((post) => post.area.trim()).filter(Boolean))]
+  const crossLinks = getSchoolCrossLinks(fetchResult.posts, result.name, result.clubs)
 
   return (
     <EntityPageLayout
       title={result.name}
       description={description}
       breadcrumbLabel={result.name}
+      breadcrumbItems={[
+        { label: 'ホーム', href: urls.home() },
+        { label: '学校一覧', href: urls.schools() },
+        { label: result.name },
+      ]}
       seoPath={seoPath}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
@@ -63,6 +71,8 @@ export default async function SchoolPage({ params }: PageProps) {
       ]}
     >
       <ExternalLinks links={getSchoolExternalLinks(result.posts)} />
+
+      <EntityLinkChips title="関連ページ" links={crossLinks} />
 
       {result.clubs.length > 0 && (
         <section className="mb-8">

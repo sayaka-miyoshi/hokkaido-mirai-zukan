@@ -1,5 +1,6 @@
 import type { Post } from '@/types/post'
 import { filterPostsBySearch, postMatchesKeyword, type PostSearchFilters } from '@/lib/post-search'
+import { getSportSlug } from '@/lib/sport-slugs'
 import { urls } from '@/lib/urls'
 
 /** カテゴリ絞り込み条件（スプレッドシート列＋キーワードを組み合わせ） */
@@ -163,13 +164,13 @@ export const BROWSE_MAIN_CATEGORIES: BrowseMainCategory[] = [
     label: '部活動',
     emoji: '⚽',
     subcategories: [
-      { id: 'baseball', label: '野球', filter: { sportCategory: '野球' } },
+      { id: 'baseball', label: '野球', filter: { sportCategory: '野球' }, href: urls.sport(getSportSlug('野球')) },
       { id: 'soccer', label: 'サッカー', filter: { keyword: 'サッカー', genre: '部活' } },
-      { id: 'lacrosse', label: 'ラクロス', filter: { sportCategory: 'ラクロス' } },
-      { id: 'badminton', label: 'バドミントン', filter: { sportCategory: 'バドミントン' } },
-      { id: 'table-tennis', label: '卓球', filter: { sportCategory: '卓球' } },
-      { id: 'brass-band', label: '吹奏楽', filter: { sportCategory: '吹奏楽' } },
-      { id: 'yosakoi', label: 'YOSAKOI', filter: { sportCategory: 'YOSAKOI' } },
+      { id: 'lacrosse', label: 'ラクロス', filter: { sportCategory: 'ラクロス' }, href: urls.sport(getSportSlug('ラクロス')) },
+      { id: 'badminton', label: 'バドミントン', filter: { sportCategory: 'バドミントン' }, href: urls.sport(getSportSlug('バドミントン')) },
+      { id: 'table-tennis', label: '卓球', filter: { sportCategory: '卓球' }, href: urls.sport(getSportSlug('卓球')) },
+      { id: 'brass-band', label: '吹奏楽', filter: { sportCategory: '吹奏楽' }, href: urls.sport(getSportSlug('吹奏楽')) },
+      { id: 'yosakoi', label: 'YOSAKOI', filter: { sportCategory: 'YOSAKOI' }, href: urls.sport(getSportSlug('YOSAKOI')) },
       { id: 'all-clubs', label: '部活一覧へ', href: urls.clubs() },
       { id: 'all-sports', label: '競技一覧へ', href: urls.sports() },
     ],

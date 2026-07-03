@@ -11,6 +11,7 @@ import RecruitmentBadge from '@/components/RecruitmentBadge'
 import RelatedPostsSection from '@/components/RelatedPostsSection'
 import ContactTeaser from '@/components/home/ContactTeaser'
 import SiteHeader from '@/components/SiteHeader'
+import { getPostEntityLinks } from '@/lib/entity-cross-links'
 import { resolvePostLeadSummary } from '@/lib/entity-summary'
 import { resolvePostFaq } from '@/lib/faq-generator'
 import { createPageMetadata } from '@/lib/metadata'
@@ -81,6 +82,13 @@ export default async function PostPage({ params }: PageProps) {
   const leadSummary = resolvePostLeadSummary(post)
   const faqItems = resolvePostFaq(post)
   const relatedSections = getRelatedPostSections(post, fetchResult.posts)
+  const entityLinks = getPostEntityLinks(post, fetchResult.posts, {
+    schoolSlug,
+    clubSlug,
+    companySlug,
+    sportSlug: sportSlug || undefined,
+    areaSlug,
+  })
   const faqJsonLd = createFaqPageJsonLd(faqItems, pageUrl)
 
   return (
@@ -239,7 +247,7 @@ export default async function PostPage({ params }: PageProps) {
         </article>
       </main>
 
-      <RelatedPostsSection sections={relatedSections} />
+      <RelatedPostsSection sections={relatedSections} entityLinks={entityLinks} />
       <ContactTeaser />
 
       <footer className="text-center py-8 text-xs text-gray-400">

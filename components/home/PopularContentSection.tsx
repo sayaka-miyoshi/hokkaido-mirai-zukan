@@ -5,10 +5,11 @@ import type { PopularContentEntry } from '@/lib/popular-posts'
 
 type PopularContentSectionProps = {
   entries: PopularContentEntry[]
+  entityLinkMap?: Record<string, { label: string; href: string }>
 }
 
 /** ③ 人気コンテンツ（スプレッドシート「人気表示」「人気順」） */
-export default function PopularContentSection({ entries }: PopularContentSectionProps) {
+export default function PopularContentSection({ entries, entityLinkMap = {} }: PopularContentSectionProps) {
   if (entries.length === 0) return null
 
   const source = entries[0]?.source ?? 'spreadsheet'
@@ -39,6 +40,7 @@ export default function PopularContentSection({ entries }: PopularContentSection
               layout="grid"
               priority={index < 2}
               showMeta
+              entityLink={entityLinkMap[post.id]}
             />
           </div>
         ))}

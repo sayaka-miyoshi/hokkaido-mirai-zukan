@@ -34,6 +34,7 @@ type SearchContainerProps = {
   posts: Post[]
   dataSource: DataSource
   dataError?: string
+  entityLinkMap?: Record<string, { label: string; href: string }>
 }
 
 /**
@@ -44,6 +45,7 @@ export default function SearchContainer({
   posts,
   dataSource,
   dataError,
+  entityLinkMap = {},
 }: SearchContainerProps) {
   const [keyword, setKeyword] = useState('')
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
@@ -246,7 +248,7 @@ export default function SearchContainer({
 
         {!hasActiveFilter && (
         <div className="mx-auto w-full max-w-lg md:max-w-4xl lg:max-w-5xl">
-          <PopularContentSection entries={popularEntries} />
+          <PopularContentSection entries={popularEntries} entityLinkMap={entityLinkMap} />
 
           <LatestContentSection posts={latestPosts} />
 

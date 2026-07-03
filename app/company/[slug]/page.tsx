@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
+import EntityLinkChips from '@/components/EntityLinkChips'
 import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
+import { getCompanyCrossLinks } from '@/lib/entity-cross-links'
 import { buildCompanySummary } from '@/lib/entity-summary'
 import { createBusinessOrganizationJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = buildCompanySummary(result.name, result.posts)
 
   return createPageMetadata({
-    title: `${result.name}の投稿一覧`,
+    title: `${result.name}の企業訪問・仕事紹介`,
     description,
     path: urls.company(slug),
   })
@@ -41,12 +43,18 @@ export default async function CompanyPage({ params }: PageProps) {
   const seoPath = urls.company(slug)
   const description = buildCompanySummary(result.name, result.posts)
   const areas = [...new Set(result.posts.map((post) => post.area.trim()).filter(Boolean))]
+  const crossLinks = getCompanyCrossLinks(fetchResult.posts, result.name)
 
   return (
     <EntityPageLayout
       title={result.name}
       description={description}
       breadcrumbLabel={result.name}
+      breadcrumbItems={[
+        { label: 'ホーム', href: urls.home() },
+        { label: '企業一覧', href: urls.companies() },
+        { label: result.name },
+      ]}
       seoPath={seoPath}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
@@ -62,6 +70,8 @@ export default async function CompanyPage({ params }: PageProps) {
       ]}
     >
       <ExternalLinks links={getCompanyExternalLinks(result.posts)} />
+
+      <EntityLinkChips title="関連ページ" links={crossLinks} />
 
       <section>
         <h2 className="mb-3 text-lg font-bold">企業の記事</h2>

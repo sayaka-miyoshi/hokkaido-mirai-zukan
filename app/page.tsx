@@ -4,6 +4,7 @@ import JsonLd from '@/components/JsonLd'
 import SearchContainer from '@/components/SearchContainer'
 import { createWebSiteJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
+import { buildPrimaryEntityLinkMap } from '@/lib/post-primary-entity-link'
 import { SITE_NAME, SITE_TAGLINE } from '@/lib/site'
 import { urls } from '@/lib/urls'
 
@@ -18,11 +19,17 @@ export const metadata: Metadata = createPageMetadata({
 
 export default async function Home() {
   const { posts, source, error } = await fetchPostsResult()
+  const entityLinkMap = Object.fromEntries(buildPrimaryEntityLinkMap(posts))
 
   return (
     <>
       <JsonLd data={createWebSiteJsonLd()} />
-      <SearchContainer posts={posts} dataSource={source} dataError={error} />
+      <SearchContainer
+        posts={posts}
+        dataSource={source}
+        dataError={error}
+        entityLinkMap={entityLinkMap}
+      />
     </>
   )
 }

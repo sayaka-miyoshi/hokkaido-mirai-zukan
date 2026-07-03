@@ -18,6 +18,9 @@ export async function loadSheetPosts() {
       clubName: cell(row, sheet.headerIndex, '部活名'),
       companyName: cell(row, sheet.headerIndex, '企業名'),
       sportCategory: cell(row, sheet.headerIndex, '競技カテゴリ'),
+      area: cell(row, sheet.headerIndex, 'エリア'),
+      description: cell(row, sheet.headerIndex, '説明文'),
+      aiSummary: cell(row, sheet.headerIndex, 'ai_summary'),
       slug: cell(row, sheet.headerIndex, 'slug'),
     })
   }

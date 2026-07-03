@@ -12,6 +12,8 @@ type FeatureArticleProps = {
   priority?: boolean
   showMeta?: boolean
   showReadLink?: boolean
+  /** 学校・部活・企業・競技ページへの内部リンク */
+  entityLink?: { label: string; href: string }
 }
 
 function CategoryPill({ label }: { label: string }) {
@@ -31,6 +33,7 @@ export default function FeatureArticle({
   priority = false,
   showMeta = true,
   showReadLink = true,
+  entityLink,
 }: FeatureArticleProps) {
   const subtitle = post.description.trim()
 
@@ -113,6 +116,14 @@ export default function FeatureArticle({
               ))}
           </div>
         </Link>
+        {entityLink && (
+          <Link
+            href={entityLink.href}
+            className="mt-1.5 block text-[10px] font-medium text-pink-500 hover:underline"
+          >
+            {entityLink.label}のページ →
+          </Link>
+        )}
       </article>
     )
   }
