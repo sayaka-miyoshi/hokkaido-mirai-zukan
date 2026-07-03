@@ -1,3 +1,13 @@
+import {
+  collectCompanyNames,
+  collectClubNames,
+  collectSchoolNames,
+  collectSportNames,
+  filterSchoolPagePosts,
+  filterSportPagePosts,
+  partitionClubPagePosts,
+  partitionCompanyPagePosts,
+} from '@/lib/entity-page-posts'
 import { fetchPosts, fetchPostsResult } from '@/lib/fetchPosts'
 import { findAreaNameBySlug, getAreaName, getAreaSlug, isKnownAreaSlug } from '@/lib/slugs'
 import { getSportNameFromSlug, getSportSlug } from '@/lib/sport-slugs'
@@ -80,6 +90,7 @@ function getRelatedClubsForSchool(
 
 export type SchoolPageResult = {
   name: string
+  /** schoolName 一致（企業訪問は除外） */
   posts: Post[]
   clubs: { name: string; slug: string }[]
 }
@@ -134,39 +145,69 @@ export async function getPostsBySchoolSlug(
   slug: string,
 ): Promise<SchoolPageResult | undefined> {
   const posts = await getAllPosts()
-  const schoolNames = [...new Set(posts.map((p) => p.schoolName).filter(Boolean))]
+  const schoolNames = collectSchoolNames(posts)
   const schoolName = schoolNames.find((name) => resolveSchoolSlug(posts, name) === slug)
   if (!schoolName) return undefined
+
+  const schoolPosts = filterSchoolPagePosts(posts, schoolName)
+  if (schoolPosts.length === 0) return undefined
+
   return {
     name: schoolName,
-    posts: posts.filter((post) => post.schoolName === schoolName),
+    posts: schoolPosts,
     clubs: getRelatedClubsForSchool(posts, schoolName),
   }
 }
 
+export type ClubPageResult = {
+  name: string
+  /** clubName 一致（企業訪問・学校は除外） */
+  posts: Post[]
+  /** 同一 sportCategory の他部活記事 */
+  relatedPosts: Post[]
+}
+
 export async function getPostsByClubSlug(
   slug: string,
-): Promise<{ name: string; posts: Post[] } | undefined> {
+): Promise<ClubPageResult | undefined> {
   const posts = await getAllPosts()
-  const clubNames = [...new Set(posts.map((p) => p.clubName).filter(Boolean))]
+  const clubNames = collectClubNames(posts)
   const clubName = clubNames.find((name) => resolveClubSlug(posts, name) === slug)
   if (!clubName) return undefined
+
+  const { clubPosts, relatedPosts } = partitionClubPagePosts(posts, clubName)
+  if (clubPosts.length === 0) return undefined
+
   return {
     name: clubName,
-    posts: posts.filter((post) => post.clubName === clubName),
+    posts: clubPosts,
+    relatedPosts,
   }
+}
+
+export type CompanyPageResult = {
+  name: string
+  /** ジャンル「企業訪問」かつ companyName 一致 */
+  posts: Post[]
+  /** 企業名は一致するが企業訪問以外（学校・部活は除外） */
+  relatedPosts: Post[]
 }
 
 export async function getPostsByCompanySlug(
   slug: string,
-): Promise<{ name: string; posts: Post[] } | undefined> {
+): Promise<CompanyPageResult | undefined> {
   const posts = await getAllPosts()
-  const companyNames = [...new Set(posts.map((p) => p.companyName).filter(Boolean))]
+  const companyNames = collectCompanyNames(posts)
   const companyName = companyNames.find((name) => resolveCompanySlug(posts, name) === slug)
   if (!companyName) return undefined
+
+  const { companyPosts, relatedPosts } = partitionCompanyPagePosts(posts, companyName)
+  if (companyPosts.length === 0) return undefined
+
   return {
     name: companyName,
-    posts: posts.filter((post) => post.companyName === companyName),
+    posts: companyPosts,
+    relatedPosts,
   }
 }
 
@@ -193,8 +234,7 @@ export async function getAllClubSlugs(): Promise<string[]> {
 
 export async function getAllCompanySlugs(): Promise<string[]> {
   const posts = await getAllPosts()
-  const names = [...new Set(posts.map((p) => p.companyName).filter(Boolean))]
-  return names
+  return collectCompanyNames(posts)
     .map((name) => resolveCompanySlug(posts, name))
     .filter((slug): slug is string => Boolean(slug))
 }
@@ -259,7 +299,7 @@ export async function getPostsBySportSlug(
 ): Promise<{ name: string; posts: Post[] } | undefined> {
   const posts = await getAllPosts()
   const name = getSportNameFromSlug(slug)
-  const filtered = posts.filter((p) => p.sportCategory.trim() === name)
+  const filtered = filterSportPagePosts(posts, name)
   if (filtered.length === 0) return undefined
   return { name, posts: filtered }
 }

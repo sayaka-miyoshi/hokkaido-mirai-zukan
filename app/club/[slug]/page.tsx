@@ -65,7 +65,18 @@ export default async function ClubPage({ params }: PageProps) {
       }
     >
       <ExternalLinks links={getClubExternalLinks(result.posts)} />
-      <PostGrid posts={result.posts} />
+
+      <section>
+        <h2 className="mb-3 text-lg font-bold">部活の記事</h2>
+        <PostGrid posts={result.posts} />
+      </section>
+
+      {result.relatedPosts.length > 0 && (
+        <section className="mt-8">
+          <h2 className="mb-3 text-lg font-bold">同じ競技の記事</h2>
+          <PostGrid posts={result.relatedPosts} />
+        </section>
+      )}
     </EntityPageLayout>
   )
 }

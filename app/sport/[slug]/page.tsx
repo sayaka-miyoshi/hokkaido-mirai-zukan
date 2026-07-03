@@ -57,7 +57,10 @@ export default async function SportCategoryPage({ params }: PageProps) {
         }),
       ]}
     >
-      <PostGrid posts={result.posts} />
+      <section>
+        <h2 className="mb-3 text-lg font-bold">競技の記事</h2>
+        <PostGrid posts={result.posts} />
+      </section>
     </EntityPageLayout>
   )
 }

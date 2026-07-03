@@ -84,7 +84,7 @@ export default async function SchoolPage({ params }: PageProps) {
       )}
 
       <section>
-        <h2 className="text-lg font-bold mb-3">関連投稿一覧</h2>
+        <h2 className="mb-3 text-lg font-bold">学校の記事</h2>
         <PostGrid posts={result.posts} />
       </section>
     </EntityPageLayout>

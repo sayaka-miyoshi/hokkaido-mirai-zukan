@@ -20,6 +20,8 @@
     "istep:sync": "node scripts/istep-sync.mjs",
     "test:phase-2a": "node scripts/test-phase-2a.mjs",
     "test:faq-related": "node scripts/test-faq-related.mjs",
+    "test:entity-pages": "node --experimental-strip-types scripts/test-entity-page-filters.mjs",
+    "test:company-page": "npm run test:entity-pages",
     "istep:export-dm": "node scripts/export-istep-dm.mjs",
     "istep:export-priority-20": "node scripts/export-istep-priority-20.mjs",
     "generate:dm-suggestions": "node scripts/generate-dm-suggestions.mjs"

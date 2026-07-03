@@ -62,7 +62,18 @@ export default async function CompanyPage({ params }: PageProps) {
       ]}
     >
       <ExternalLinks links={getCompanyExternalLinks(result.posts)} />
-      <PostGrid posts={result.posts} />
+
+      <section>
+        <h2 className="mb-3 text-lg font-bold">企業の記事</h2>
+        <PostGrid posts={result.posts} />
+      </section>
+
+      {result.relatedPosts.length > 0 && (
+        <section className="mt-8">
+          <h2 className="mb-3 text-lg font-bold">企業関連記事</h2>
+          <PostGrid posts={result.relatedPosts} />
+        </section>
+      )}
     </EntityPageLayout>
   )
 }
