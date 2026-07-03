@@ -7,7 +7,6 @@ import HomeBrowseSection from '@/components/home/HomeBrowseSection'
 import HomePublishStatsSection from '@/components/home/HomePublishStatsSection'
 import HomeSearchResultsSection from '@/components/home/HomeSearchResultsSection'
 import LatestContentSection from '@/components/home/LatestContentSection'
-import ArticleTypeSections from '@/components/home/ArticleTypeSections'
 import OperatorSection from '@/components/home/OperatorSection'
 import PopularContentSection from '@/components/home/PopularContentSection'
 import SpecialFeaturesSection from '@/components/home/SpecialFeaturesSection'
@@ -230,8 +229,6 @@ export default function SearchContainer({
           <PopularContentSection entries={popularEntries} />
 
           <LatestContentSection posts={latestPosts} />
-
-          <ArticleTypeSections posts={posts} />
 
           <CompanyContentSection posts={companyPosts} />
 

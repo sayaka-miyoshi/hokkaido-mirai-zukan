@@ -10,6 +10,7 @@ const keywords = [
   '札幌大学',
   'バドミントン',
   'バトミントン',
+  'ラクロス',
   '部活',
   'YOSAKOI',
   'zzzznotfound',
