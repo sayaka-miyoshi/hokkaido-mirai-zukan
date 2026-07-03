@@ -60,6 +60,10 @@ export interface Post {
   source: string
   /** コンテンツ種別（任意列・例: 動画 / 記事 / リール） */
   contentType: string
+  /** AI検索用要約（任意列 ai_summary） */
+  aiSummary: string
+  /** FAQ上書き JSON（任意列 faq_json） */
+  faqJson: string
 }
 
 /** 必須列（1行目にすべて必要・列順は自由） */
@@ -96,6 +100,8 @@ export const POST_OPTIONAL_CSV_HEADERS = [
   'おすすめ順',
   '掲載元',
   'コンテンツ種別',
+  'ai_summary',
+  'faq_json',
 ] as const
 
 /** 外部リンク列（POST_OPTIONAL_CSV_HEADERS の一部・互換用） */
@@ -155,6 +161,8 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   | 'companySns'
   | 'source'
   | 'contentType'
+  | 'aiSummary'
+  | 'faqJson'
 > = {
   '学校名': 'schoolName',
   '部活名': 'clubName',
@@ -173,6 +181,8 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   '企業SNS': 'companySns',
   '掲載元': 'source',
   'コンテンツ種別': 'contentType',
+  'ai_summary': 'aiSummary',
+  'faq_json': 'faqJson',
 }
 
 /** @deprecated POST_REQUIRED_FIELD_MAP / POST_OPTIONAL_FIELD_MAP を使用 */

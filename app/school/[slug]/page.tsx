@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
 import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
+import { buildSchoolSummary } from '@/lib/entity-summary'
+import { createEducationalOrganizationJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
 import { getSchoolExternalLinks } from '@/lib/external-links'
 import { getFetchResult, getPostsBySchoolSlug } from '@/lib/queries'
@@ -20,9 +22,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = await getPostsBySchoolSlug(slug)
   if (!result) return {}
 
+  const description = buildSchoolSummary(result.name, result.posts)
+
   return createPageMetadata({
     title: `${result.name} | 学校紹介・部活一覧`,
-    description: `${result.name}の関連部活と投稿一覧。部活動や学校イベントの記録をご覧いただけます。`,
+    description,
     path: urls.school(slug),
   })
 }
@@ -35,16 +39,28 @@ export default async function SchoolPage({ params }: PageProps) {
   ])
   if (!result) notFound()
 
+  const seoPath = urls.school(slug)
+  const description = buildSchoolSummary(result.name, result.posts)
+  const areas = [...new Set(result.posts.map((post) => post.area.trim()).filter(Boolean))]
+
   return (
     <EntityPageLayout
       title={result.name}
-      description={`${result.name}の関連部活と投稿一覧です。`}
+      description={description}
       breadcrumbLabel={result.name}
-      seoPath={urls.school(slug)}
+      seoPath={seoPath}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}
       dataError={fetchResult.error}
+      extraJsonLd={[
+        createEducationalOrganizationJsonLd({
+          name: result.name,
+          description,
+          path: seoPath,
+          areas,
+        }),
+      ]}
     >
       <ExternalLinks links={getSchoolExternalLinks(result.posts)} />
 

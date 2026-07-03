@@ -18,6 +18,8 @@ type EntityPageLayoutProps = {
   totalFetchedCount?: number
   /** 構造化データ・canonical 用のページパス */
   seoPath?: string
+  /** CollectionPage 以外の追加 JSON-LD */
+  extraJsonLd?: Record<string, unknown>[]
   children: ReactNode
 }
 
@@ -30,6 +32,7 @@ export default function EntityPageLayout({
   dataError,
   totalFetchedCount,
   seoPath,
+  extraJsonLd = [],
   children,
 }: EntityPageLayoutProps) {
   return (
@@ -46,6 +49,7 @@ export default function EntityPageLayout({
               description,
               path: seoPath,
             }),
+            ...extraJsonLd,
           ]}
         />
       )}
@@ -66,8 +70,8 @@ export default function EntityPageLayout({
         )}
         <header className="mb-6">
           <h1 className="text-2xl font-bold">{title}</h1>
-          <p className="text-gray-500 text-sm mt-2">{description}</p>
-          <p className="text-sm text-gray-500 mt-3">{count}件の投稿</p>
+          <p className="mt-3 text-base leading-relaxed text-gray-600">{description}</p>
+          <p className="text-sm text-gray-500 mt-3">{count}件の記事</p>
         </header>
         {children}
       </main>

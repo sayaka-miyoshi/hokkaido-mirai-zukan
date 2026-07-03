@@ -38,6 +38,8 @@ function createEmptyOptionalFields(): Pick<
   | 'companySns'
   | 'source'
   | 'contentType'
+  | 'aiSummary'
+  | 'faqJson'
 > {
   return {
     schoolName: '',
@@ -58,6 +60,8 @@ function createEmptyOptionalFields(): Pick<
     companySns: '',
     source: '',
     contentType: '',
+    aiSummary: '',
+    faqJson: '',
   }
 }
 

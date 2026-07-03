@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
 import PostGrid from '@/components/PostGrid'
+import { buildSportSummary } from '@/lib/entity-summary'
+import { createSportsOrganizationJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
 import { getFetchResult, getPostsBySportSlug } from '@/lib/queries'
 import { urls } from '@/lib/urls'
@@ -17,9 +19,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = await getPostsBySportSlug(slug)
   if (!result) return {}
 
+  const description = buildSportSummary(result.name, result.posts)
+
   return createPageMetadata({
     title: `${result.name}の投稿一覧`,
-    description: `競技カテゴリ「${result.name}」に関する部活動の投稿を掲載しています。`,
+    description,
     path: urls.sport(slug),
   })
 }
@@ -32,16 +36,26 @@ export default async function SportCategoryPage({ params }: PageProps) {
   ])
   if (!result) notFound()
 
+  const seoPath = urls.sport(slug)
+  const description = buildSportSummary(result.name, result.posts)
+
   return (
     <EntityPageLayout
       title={result.name}
-      description={`競技カテゴリ「${result.name}」の投稿一覧です。`}
+      description={description}
       breadcrumbLabel={result.name}
-      seoPath={urls.sport(slug)}
+      seoPath={seoPath}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}
       dataError={fetchResult.error}
+      extraJsonLd={[
+        createSportsOrganizationJsonLd({
+          name: result.name,
+          description,
+          path: seoPath,
+        }),
+      ]}
     >
       <PostGrid posts={result.posts} />
     </EntityPageLayout>

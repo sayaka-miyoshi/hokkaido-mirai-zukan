@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import EntityPageLayout from '@/components/EntityPageLayout'
 import ExternalLinks from '@/components/ExternalLinks'
 import PostGrid from '@/components/PostGrid'
+import { buildClubSummary } from '@/lib/entity-summary'
+import { createSportsOrganizationJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
 import { getClubExternalLinks } from '@/lib/external-links'
 import { getFetchResult, getPostsByClubSlug } from '@/lib/queries'
@@ -19,9 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = await getPostsByClubSlug(slug)
   if (!result) return {}
 
+  const description = buildClubSummary(result.name, result.posts)
+
   return createPageMetadata({
     title: `${result.name}の投稿一覧`,
-    description: `${result.name}に関する部活動の投稿を掲載しています。`,
+    description,
     path: urls.club(slug),
   })
 }
@@ -34,16 +38,31 @@ export default async function ClubPage({ params }: PageProps) {
   ])
   if (!result) notFound()
 
+  const seoPath = urls.club(slug)
+  const description = buildClubSummary(result.name, result.posts)
+  const sportName = result.posts.find((post) => post.sportCategory.trim())?.sportCategory.trim()
+
   return (
     <EntityPageLayout
       title={result.name}
-      description={`${result.name}に関する投稿一覧です。練習風景や大会の様子などをご覧いただけます。`}
+      description={description}
       breadcrumbLabel={result.name}
-      seoPath={urls.club(slug)}
+      seoPath={seoPath}
       count={result.posts.length}
       totalFetchedCount={fetchResult.posts.length}
       dataSource={fetchResult.source}
       dataError={fetchResult.error}
+      extraJsonLd={
+        sportName
+          ? [
+              createSportsOrganizationJsonLd({
+                name: sportName,
+                description,
+                path: seoPath,
+              }),
+            ]
+          : []
+      }
     >
       <ExternalLinks links={getClubExternalLinks(result.posts)} />
       <PostGrid posts={result.posts} />

@@ -30,13 +30,42 @@ function pickPosts(
 
 /**
  * 記事詳細の関連記事セクション
- * ① 同じ部活 → ② 同じ学校 → ③ 同じ進路カテゴリ（各最大6件）
- * いずれも0件のときのみ最新記事6件（見出し「関連記事」）
+ * ① 同じ競技（sportCategory・他校含む）→ ② 同じ学校 → ③ 同じ部活
+ * → ④ 関連する企業（進路カテゴリ）→ ⑤ フォールバック
  */
 export function getRelatedPostSections(current: Post, allPosts: Post[]): RelatedPostsSection[] {
   const pool = filterPublishedPosts(allPosts).filter((post) => post.id !== current.id)
   const usedIds = new Set<string>()
   const sections: RelatedPostsSection[] = []
+
+  const sportCategory = current.sportCategory.trim()
+  if (sportCategory) {
+    const posts = pickPosts(
+      pool.filter(
+        (post) =>
+          post.sportCategory.trim() === sportCategory &&
+          (post.schoolName.trim() !== current.schoolName.trim() ||
+            post.clubName.trim() !== current.clubName.trim()),
+      ),
+      usedIds,
+      RELATED_POSTS_MAX,
+    )
+    if (posts.length > 0) {
+      sections.push({ title: `同じ競技の記事（${sportCategory}）`, posts })
+    }
+  }
+
+  const schoolName = current.schoolName.trim()
+  if (schoolName) {
+    const posts = pickPosts(
+      pool.filter((post) => post.schoolName.trim() === schoolName),
+      usedIds,
+      RELATED_POSTS_MAX,
+    )
+    if (posts.length > 0) {
+      sections.push({ title: '関連する学校の記事', posts })
+    }
+  }
 
   const clubName = current.clubName.trim()
   if (clubName) {
@@ -50,22 +79,28 @@ export function getRelatedPostSections(current: Post, allPosts: Post[]): Related
     }
   }
 
-  const schoolName = current.schoolName.trim()
-  if (schoolName) {
+  const careerCategory = current.careerCategory.trim()
+  if (careerCategory && (current.genre === '企業訪問' || current.companyName.trim())) {
     const posts = pickPosts(
-      pool.filter((post) => post.schoolName.trim() === schoolName),
+      pool.filter(
+        (post) =>
+          post.careerCategory.trim() === careerCategory &&
+          post.companyName.trim() &&
+          post.companyName.trim() !== current.companyName.trim(),
+      ),
       usedIds,
       RELATED_POSTS_MAX,
     )
     if (posts.length > 0) {
-      sections.push({ title: '同じ学校の記事', posts })
+      sections.push({ title: '関連する企業', posts })
     }
-  }
-
-  const careerCategory = current.careerCategory.trim()
-  if (careerCategory) {
+  } else if (careerCategory && sections.length < 3) {
     const posts = pickPosts(
-      pool.filter((post) => post.careerCategory.trim() === careerCategory),
+      pool.filter(
+        (post) =>
+          post.careerCategory.trim() === careerCategory &&
+          post.id !== current.id,
+      ),
       usedIds,
       RELATED_POSTS_MAX,
     )
