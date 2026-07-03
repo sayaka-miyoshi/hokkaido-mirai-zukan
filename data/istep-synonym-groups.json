@@ -1,0 +1,21 @@
+{
+  "$schema": "手動で上書きするキーワードグループ設定。npm run istep:sync で記事データとマージされます。",
+  "groupOverrides": {
+    "entry:schools": { "priority": "A" },
+    "entry:clubs": { "priority": "A" },
+    "entry:companies": { "priority": "A" },
+    "entry:tourism": { "priority": "A" },
+    "entry:home": { "aliases": ["北海道未来図鑑"], "priority": "A" },
+    "sport:ラクロス": { "priority": "A" },
+    "sport:バドミントン": { "aliases": ["バトミントン"], "priority": "A" },
+    "sport:YOSAKOI": { "aliases": ["よさこい", "Yosakoi"], "priority": "A" },
+    "sport:アメフト": { "priority": "A" },
+    "school:sapporo-fire-school": { "priority": "A" },
+    "school:hokkaido-university": { "aliases": ["北大", "北海道大"], "priority": "A" },
+    "school:sapporo-university": { "aliases": ["札大"], "priority": "B" },
+    "school:hokkai-gakuen": { "aliases": ["北海学園"], "priority": "B" },
+    "topic:factory": { "aliases": ["工場見学", "見学"], "priority": "A" },
+    "post:13": { "aliases": ["米澤煉瓦"], "priority": "B" }
+  },
+  "keywordBlacklist": ["部活動", "学校紹介"]
+}

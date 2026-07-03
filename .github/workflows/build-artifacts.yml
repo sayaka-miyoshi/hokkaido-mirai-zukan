@@ -36,11 +36,14 @@ jobs:
           fi
 
       - name: Revalidate production cache
-        if: ${{ secrets.REVALIDATE_URL != '' && secrets.REVALIDATE_SECRET != '' }}
         env:
           REVALIDATE_URL: ${{ secrets.REVALIDATE_URL }}
           REVALIDATE_SECRET: ${{ secrets.REVALIDATE_SECRET }}
         run: |
+          if [ -z "$REVALIDATE_SECRET" ] || [ -z "$REVALIDATE_URL" ]; then
+            echo "REVALIDATE secrets not configured — skip"
+            exit 0
+          fi
           curl -sS -X POST "$REVALIDATE_URL" \
             -H "Authorization: Bearer $REVALIDATE_SECRET" \
             -H "Content-Type: application/json" \
