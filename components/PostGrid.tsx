@@ -13,8 +13,10 @@ export default function PostGrid({ posts }: { posts: Post[] }) {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+      {posts.map((post, index) => (
+        <div key={post.id} data-post-index={index + 1}>
+          <PostCard post={post} />
+        </div>
       ))}
     </div>
   )

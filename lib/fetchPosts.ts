@@ -17,6 +17,7 @@ const SCREENSHOT_SAMPLE_LINKS = {
   schoolOfficialSite: 'https://www.hokudai.ac.jp',
   schoolSns: 'https://www.instagram.com/hokkaido_university',
   clubSns: 'https://www.instagram.com/example_club',
+  clubHomepage: 'https://example.com/club-official',
   recruitmentInfoUrl: 'https://example.com/recruit',
 } as const
 
@@ -57,7 +58,7 @@ export const fetchPostsResult = cache(async (): Promise<FetchPostsResult> => {
 
   try {
     const res = await fetch(url, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 300, tags: ['posts'] },
       headers: { 'Accept': 'text/csv,text/plain,*/*' },
     })
 

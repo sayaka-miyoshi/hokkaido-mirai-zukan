@@ -9,6 +9,7 @@ import JsonLd from '@/components/JsonLd'
 import PostThumbnail from '@/components/PostThumbnail'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
 import RelatedPostsSection from '@/components/RelatedPostsSection'
+import PageViewTracker from '@/components/PageViewTracker'
 import ContactTeaser from '@/components/home/ContactTeaser'
 import SiteHeader from '@/components/SiteHeader'
 import { getPostEntityLinks } from '@/lib/entity-cross-links'
@@ -93,6 +94,7 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen">
+      <PageViewTracker pageType="post" postId={id} />
       <JsonLd
         data={[
           createArticleJsonLd({ post, imageUrl, pageUrl, faqItems, leadSummary }),
@@ -247,7 +249,11 @@ export default async function PostPage({ params }: PageProps) {
         </article>
       </main>
 
-      <RelatedPostsSection sections={relatedSections} entityLinks={entityLinks} />
+      <RelatedPostsSection
+        sections={relatedSections}
+        entityLinks={entityLinks}
+        fromPostId={post.id}
+      />
       <ContactTeaser />
 
       <footer className="text-center py-8 text-xs text-gray-400">

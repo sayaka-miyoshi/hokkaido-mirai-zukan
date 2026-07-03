@@ -24,6 +24,11 @@
     "test:company-page": "npm run test:entity-pages",
     "audit:internal-links": "node --experimental-strip-types scripts/audit-internal-links.mjs",
     "audit:metadata": "node --experimental-strip-types scripts/audit-metadata-duplicates.mjs",
+    "build:search-index": "node scripts/build-search-index.mjs",
+    "build:entity-graph": "node scripts/build-entity-graph.mjs",
+    "build:artifacts": "node scripts/build-artifacts.mjs",
+    "aggregate:analytics": "node scripts/aggregate-analytics.mjs",
+    "test:phase-2b": "node --experimental-strip-types scripts/test-phase-2b.mjs",
     "istep:export-dm": "node scripts/export-istep-dm.mjs",
     "istep:export-priority-20": "node scripts/export-istep-priority-20.mjs",
     "generate:dm-suggestions": "node scripts/generate-dm-suggestions.mjs"

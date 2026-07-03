@@ -1,15 +1,24 @@
+'use client'
+
 import PostGrid from '@/components/PostGrid'
+import PostClickTracker from '@/components/PostClickTracker'
 import EntityLinkChips from '@/components/EntityLinkChips'
+import { trackAnalyticsEvent } from '@/lib/analytics/track-client'
 import type { EntityLinkChip } from '@/lib/entity-cross-links'
 import type { RelatedPostsSection as RelatedPostsSectionData } from '@/lib/related-posts'
 
 type RelatedPostsSectionProps = {
   sections: RelatedPostsSectionData[]
   entityLinks?: EntityLinkChip[]
+  fromPostId?: string
 }
 
 /** 記事詳細 — 関連記事（PostCard・4:5グリッド） */
-export default function RelatedPostsSection({ sections, entityLinks = [] }: RelatedPostsSectionProps) {
+export default function RelatedPostsSection({
+  sections,
+  entityLinks = [],
+  fromPostId,
+}: RelatedPostsSectionProps) {
   if (sections.length === 0 && entityLinks.length === 0) return null
 
   return (
@@ -24,7 +33,19 @@ export default function RelatedPostsSection({ sections, entityLinks = [] }: Rela
         {sections.map((section) => (
           <section key={section.title} className="mb-10 last:mb-0">
             <h2 className="mb-4 text-lg font-bold text-gray-900">{section.title}</h2>
-            <PostGrid posts={section.posts} />
+            <PostClickTracker
+              onPostClick={(toPostId) => {
+                if (!fromPostId) return
+                trackAnalyticsEvent('related_click', {
+                  from_post_id: fromPostId,
+                  to_post_id: toPostId,
+                  section: section.title,
+                  referrer_source: 'direct',
+                })
+              }}
+            >
+              <PostGrid posts={section.posts} />
+            </PostClickTracker>
           </section>
         ))}
       </div>

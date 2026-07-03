@@ -1,5 +1,9 @@
+'use client'
+
 import HomePostGridSection from '@/components/home/HomePostGridSection'
+import PostClickTracker from '@/components/PostClickTracker'
 import { HOME_CONTENT_GRIDS } from '@/lib/home-layout'
+import { trackAnalyticsEvent } from '@/lib/analytics/track-client'
 import type { Post } from '@/types/post'
 
 type HomeSearchResultsSectionProps = {
@@ -7,6 +11,7 @@ type HomeSearchResultsSectionProps = {
   title: string
   description: string
   onClearFilters: () => void
+  searchQuery?: string
 }
 
 /** 検索・絞り込み結果（#search-results） */
@@ -15,6 +20,7 @@ export default function HomeSearchResultsSection({
   title,
   description,
   onClearFilters,
+  searchQuery = '',
 }: HomeSearchResultsSectionProps) {
   if (posts.length === 0) {
     return (
@@ -40,15 +46,28 @@ export default function HomeSearchResultsSection({
   }
 
   return (
-    <HomePostGridSection
-      id="search-results"
-      ariaLabel={title}
-      title={title}
-      description={description}
-      posts={posts}
-      gridClassName={HOME_CONTENT_GRIDS.nine}
-      priorityCount={3}
-      animate={false}
-    />
+    <PostClickTracker
+      onPostClick={(postId, position) => {
+        if (!searchQuery.trim()) return
+        trackAnalyticsEvent('search_result_click', {
+          query: searchQuery.trim(),
+          post_id: postId,
+          position,
+          referrer_source: 'direct',
+        })
+      }}
+    >
+      <HomePostGridSection
+        id="search-results"
+        ariaLabel={title}
+        title={title}
+        description={description}
+        posts={posts}
+        gridClassName={HOME_CONTENT_GRIDS.nine}
+        priorityCount={3}
+        animate={false}
+        postIndexAttribute
+      />
+    </PostClickTracker>
   )
 }

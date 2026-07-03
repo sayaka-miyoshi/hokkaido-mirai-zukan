@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-03T00:00:00.000Z",
+  "period": {
+    "start": "",
+    "end": "",
+    "label": "未集計（週次バッチ実行後に更新）"
+  },
+  "weights": {
+    "pageViews": 0.4,
+    "searchClicks": 0.3,
+    "instagramLandings": 0.3
+  },
+  "posts": [],
+  "schools": [],
+  "clubs": [],
+  "sports": [],
+  "companies": []
+}

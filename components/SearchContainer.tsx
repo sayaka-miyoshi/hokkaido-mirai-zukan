@@ -22,6 +22,7 @@ import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { getPublishStats } from '@/lib/publish-stats'
 import { resolvePopularContent } from '@/lib/popular-posts'
+import { trackAnalyticsEvent } from '@/lib/analytics/track-client'
 import { filterPostsBySearch } from '@/lib/post-search'
 import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
 import { postMatchesBrowseFilter, type BrowseFilter } from '@/lib/browse-categories'
@@ -155,6 +156,38 @@ export default function SearchContainer({
     keyword,
   ])
 
+  useEffect(() => {
+    if (!hasActiveFilter) return
+
+    const query =
+      keyword.trim() ||
+      activeBrowseFilter?.sportCategory ||
+      activeBrowseFilter?.genre ||
+      activeBrowseFilter?.area ||
+      activeBrowseFilter?.careerCategory ||
+      activeBrowseFilter?.keyword ||
+      [selectedGenre, selectedArea, selectedCareerCategory, selectedVideoCategory]
+        .filter(Boolean)
+        .join(' ')
+
+    if (!query) return
+
+    trackAnalyticsEvent('search_query', {
+      query,
+      result_count: filtered.length,
+      referrer_source: 'direct',
+    })
+  }, [
+    hasActiveFilter,
+    keyword,
+    activeBrowseFilter,
+    selectedGenre,
+    selectedArea,
+    selectedCareerCategory,
+    selectedVideoCategory,
+    filtered.length,
+  ])
+
   const filterResultHeading = useMemo(
     () =>
       resolveFilterResultHeading(
@@ -242,6 +275,13 @@ export default function SearchContainer({
               title={filterResultHeading.title}
               description={filterResultHeading.description}
               onClearFilters={clearFilters}
+              searchQuery={
+                keyword.trim() ||
+                activeBrowseFilter?.sportCategory ||
+                activeBrowseFilter?.genre ||
+                activeBrowseFilter?.area ||
+                filterResultHeading.title
+              }
             />
           </div>
         )}

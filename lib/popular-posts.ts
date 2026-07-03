@@ -1,4 +1,5 @@
 import type { Post } from '@/types/post'
+import { loadRankingSnapshot, rankingEntryToPopularRank, resolvePostsFromRanking } from '@/lib/ranking/load-ranking'
 
 /** TOP人気コンテンツの表示件数 */
 export const POPULAR_POSTS_MAX = 6
@@ -64,8 +65,34 @@ export function getPopularPostsFromSpreadsheet(
 
 /**
  * 人気コンテンツ取得（統一エントリポイント）
- * 将来 analytics 分岐をここに追加
+ * analytics 時は ranking-snapshot.json を参照（空ならスプレッドシートへフォールバック）
  */
+export async function resolvePopularContentAsync(
+  posts: Post[],
+  options?: { source?: PopularContentSource; max?: number },
+): Promise<PopularContentEntry[]> {
+  const source = options?.source ?? getPopularContentSource()
+  const max = options?.max ?? POPULAR_POSTS_MAX
+
+  if (source === 'analytics') {
+    const snapshot = await loadRankingSnapshot()
+    const rankedPosts = resolvePostsFromRanking(snapshot, posts, max)
+    const entrySource: PopularContentSource =
+      snapshot.posts.length > 0 ? 'analytics' : 'spreadsheet'
+    return rankedPosts.map((post, index) => {
+      const entry = snapshot.posts.find((e) => e.id === `post:${post.id}` || e.id === post.id)
+      return {
+        post,
+        rank: entry ? rankingEntryToPopularRank(entry, index) : post.popularOrder ?? index + 1,
+        source: entrySource,
+        trackingId: `popular:${entrySource}:${post.id}`,
+      }
+    })
+  }
+
+  return toPopularEntries(getPopularPostsFromSpreadsheet(posts, max), 'spreadsheet')
+}
+
 export function resolvePopularContent(
   posts: Post[],
   options?: { source?: PopularContentSource; max?: number },
@@ -74,7 +101,7 @@ export function resolvePopularContent(
   const max = options?.max ?? POPULAR_POSTS_MAX
 
   if (source === 'analytics') {
-    // TODO: Google Analytics API / ランキングデータ連携
+    // 同期コンテキストではスプレッドシートへフォールバック（サーバー側は resolvePopularContentAsync を使用）
     return toPopularEntries(getPopularPostsFromSpreadsheet(posts, max), 'spreadsheet')
   }
 
