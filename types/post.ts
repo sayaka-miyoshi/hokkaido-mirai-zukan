@@ -46,8 +46,6 @@ export interface Post {
   schoolSns: string
   /** 部活SNS（任意列） */
   clubSns: string
-  /** 部活ホームページ（任意列・部活公式サイトURL） */
-  clubHomepage: string
   /** 競技カテゴリ（任意列・部活マスター連携） */
   sportCategory: string
   /** 企業公式サイト（任意列） */
@@ -62,36 +60,6 @@ export interface Post {
   source: string
   /** コンテンツ種別（任意列・例: 動画 / 記事 / リール） */
   contentType: string
-  /** 英語タイトル（任意列 title_en） */
-  titleEn: string
-  /** 英語説明文（任意列 description_en） */
-  descriptionEn: string
-  /** 英語カテゴリ（任意列 category_en） */
-  categoryEn: string
-  /** 英語エリア（任意列 area_en） */
-  areaEn: string
-  /** 英語学校名（任意列 school_en） */
-  schoolEn: string
-  /** 英語部活名（任意列 club_en） */
-  clubEn: string
-  /** 英語企業名（任意列 company_en） */
-  companyEn: string
-  /** 記事タイプ（任意列・未入力時は紹介記事） */
-  articleType: string
-  /** イベント日（任意列・学祭・試合等） */
-  eventDate: string
-  /** 団体名（任意列・部活名と別管理） */
-  organizationName: string
-  /** 参照URL（任意列・情報源の公式ページ） */
-  referenceUrl: string
-  /** 公開ステータス（任意列・承認制） */
-  publishStatus: string
-  /** 情報元（任意列・AI収集時の出典名） */
-  informationSource: string
-  /** 確認者（任意列） */
-  verifiedBy: string
-  /** 最終確認日（任意列） */
-  lastVerifiedAt: string
 }
 
 /** 必須列（1行目にすべて必要・列順は自由） */
@@ -119,7 +87,6 @@ export const POST_OPTIONAL_CSV_HEADERS = [
   '学校公式サイト',
   '学校SNS',
   '部活SNS',
-  '部活ホームページ',
   '競技カテゴリ',
   '企業公式サイト',
   '企業SNS',
@@ -129,23 +96,6 @@ export const POST_OPTIONAL_CSV_HEADERS = [
   'おすすめ順',
   '掲載元',
   'コンテンツ種別',
-  'title_en',
-  'description_en',
-  'category_en',
-  'area_en',
-  'school_en',
-  'club_en',
-  'company_en',
-  '記事タイプ',
-  'イベント日',
-  '団体名',
-  '参照URL',
-  '公開ステータス',
-  '情報元',
-  '確認者',
-  '最終確認日',
-  'タイトル',
-  '本文',
 ] as const
 
 /** 外部リンク列（POST_OPTIONAL_CSV_HEADERS の一部・互換用） */
@@ -153,7 +103,6 @@ export const POST_LINK_CSV_HEADERS = [
   '学校公式サイト',
   '学校SNS',
   '部活SNS',
-  '部活ホームページ',
   '企業公式サイト',
   '企業SNS',
   '募集情報URL',
@@ -188,10 +137,7 @@ export const POST_REQUIRED_FIELD_MAP: Record<
 }
 
 export const POST_OPTIONAL_FIELD_MAP: Record<
-  Exclude<
-    PostOptionalCsvColumnName,
-    '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順' | 'タイトル' | '本文'
-  >,
+  Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順'>,
   | 'schoolName'
   | 'clubName'
   | 'companyName'
@@ -204,27 +150,11 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   | 'schoolOfficialSite'
   | 'schoolSns'
   | 'clubSns'
-  | 'clubHomepage'
   | 'sportCategory'
   | 'companyOfficialSite'
   | 'companySns'
   | 'source'
   | 'contentType'
-  | 'titleEn'
-  | 'descriptionEn'
-  | 'categoryEn'
-  | 'areaEn'
-  | 'schoolEn'
-  | 'clubEn'
-  | 'companyEn'
-  | 'articleType'
-  | 'eventDate'
-  | 'organizationName'
-  | 'referenceUrl'
-  | 'publishStatus'
-  | 'informationSource'
-  | 'verifiedBy'
-  | 'lastVerifiedAt'
 > = {
   '学校名': 'schoolName',
   '部活名': 'clubName',
@@ -238,32 +168,16 @@ export const POST_OPTIONAL_FIELD_MAP: Record<
   '学校公式サイト': 'schoolOfficialSite',
   '学校SNS': 'schoolSns',
   '部活SNS': 'clubSns',
-  '部活ホームページ': 'clubHomepage',
   '競技カテゴリ': 'sportCategory',
   '企業公式サイト': 'companyOfficialSite',
   '企業SNS': 'companySns',
   '掲載元': 'source',
   'コンテンツ種別': 'contentType',
-  'title_en': 'titleEn',
-  'description_en': 'descriptionEn',
-  'category_en': 'categoryEn',
-  'area_en': 'areaEn',
-  'school_en': 'schoolEn',
-  'club_en': 'clubEn',
-  'company_en': 'companyEn',
-  '記事タイプ': 'articleType',
-  'イベント日': 'eventDate',
-  '団体名': 'organizationName',
-  '参照URL': 'referenceUrl',
-  '公開ステータス': 'publishStatus',
-  '情報元': 'informationSource',
-  '確認者': 'verifiedBy',
-  '最終確認日': 'lastVerifiedAt',
 }
 
 /** @deprecated POST_REQUIRED_FIELD_MAP / POST_OPTIONAL_FIELD_MAP を使用 */
 export const POST_CSV_FIELD_MAP: Record<
-  PostRequiredCsvColumnName | Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順' | 'タイトル' | '本文'>,
+  PostRequiredCsvColumnName | Exclude<PostOptionalCsvColumnName, '人気表示' | '人気順' | '公開' | '企業おすすめ' | 'おすすめ順'>,
   keyof Omit<Post, 'id' | 'isPopular' | 'popularOrder' | 'isCompanyRecommended' | 'companyRecommendedOrder'>
 > = {
   ...POST_REQUIRED_FIELD_MAP,
@@ -275,7 +189,6 @@ export const POST_LINK_FIELD_MAP: Record<
   | 'schoolOfficialSite'
   | 'schoolSns'
   | 'clubSns'
-  | 'clubHomepage'
   | 'companyOfficialSite'
   | 'companySns'
   | 'recruitmentInfoUrl'
@@ -283,7 +196,6 @@ export const POST_LINK_FIELD_MAP: Record<
   '学校公式サイト': 'schoolOfficialSite',
   '学校SNS': 'schoolSns',
   '部活SNS': 'clubSns',
-  '部活ホームページ': 'clubHomepage',
   '企業公式サイト': 'companyOfficialSite',
   '企業SNS': 'companySns',
   '募集情報URL': 'recruitmentInfoUrl',
