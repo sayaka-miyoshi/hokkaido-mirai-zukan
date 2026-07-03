@@ -219,7 +219,7 @@ export type ResolvedBrowseSubcategory = BrowseSubcategoryItem & {
   postCount: number | null
 }
 
-export type ResolvedBrowseCategory = BrowseMainCategory & {
+export type ResolvedBrowseCategory = Omit<BrowseMainCategory, 'subcategories'> & {
   subcategories: ResolvedBrowseSubcategory[]
   totalPostCount: number
 }
