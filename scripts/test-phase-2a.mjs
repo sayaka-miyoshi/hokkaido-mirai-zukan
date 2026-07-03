@@ -19,18 +19,17 @@ function fail(msg) {
 const browser = await chromium.launch()
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
 
-// ラクロス記事を検索して1件開く
-await page.goto(`${base}/#browse`, { waitUntil: 'networkidle', timeout: 120000 })
-await page.fill('#home-search', 'ラクロス')
-await page.waitForTimeout(500)
-
-const firstPost = page.locator('#search-results a[href*="/post/"]').first()
-const postHref = await firstPost.getAttribute('href')
+await page.goto(`${base}/sport/${encodeURIComponent('ラクロス')}`, {
+  waitUntil: 'domcontentloaded',
+  timeout: 120000,
+})
+const sportPost = page.locator('a[href*="/post/"]').first()
+const postHref = await sportPost.getAttribute('href')
 if (!postHref) {
-  fail('ラクロス検索で記事が見つからない')
+  fail('ラクロス一覧から記事が見つからない')
 } else {
   pass(`ラクロス記事リンク: ${postHref}`)
-  await page.goto(`${base}${postHref}`, { waitUntil: 'networkidle', timeout: 120000 })
+  await page.goto(`${base}${postHref}`, { waitUntil: 'domcontentloaded', timeout: 120000 })
 
   const bodyText = await page.locator('main').innerText()
   if (bodyText.includes('よくある質問')) pass('FAQセクション表示')
@@ -70,10 +69,10 @@ if (!postHref) {
 
 // 競技一覧ページ要約
 await page.goto(`${base}/sport/${encodeURIComponent('ラクロス')}`, {
-  waitUntil: 'networkidle',
+  waitUntil: 'domcontentloaded',
   timeout: 120000,
 })
-const sportSummary = await page.locator('header p').first().innerText()
+const sportSummary = await page.locator('header p.text-gray-600').first().innerText()
 if (sportSummary.length >= 30) pass(`競技ページ要約 (${sportSummary.length}字)`)
 else fail('競技ページ要約が短すぎる')
 
