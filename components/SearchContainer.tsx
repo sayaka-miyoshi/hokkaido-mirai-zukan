@@ -22,8 +22,9 @@ import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { getPublishStats } from '@/lib/publish-stats'
 import { resolvePopularContent } from '@/lib/popular-posts'
-import { filterPostsBySearch, getPopularSportCategories } from '@/lib/post-search'
+import { filterPostsBySearch } from '@/lib/post-search'
 import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
+import { postMatchesBrowseFilter, type BrowseFilter } from '@/lib/browse-categories'
 import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
@@ -49,6 +50,7 @@ export default function SearchContainer({
   const [selectedVideoCategory, setSelectedVideoCategory] = useState<string | null>(null)
   const [selectedCareerCategory, setSelectedCareerCategory] = useState<string | null>(null)
   const [selectedArea, setSelectedArea] = useState<string | null>(null)
+  const [activeBrowseFilter, setActiveBrowseFilter] = useState<BrowseFilter | null>(null)
   const [scrollRequestId, setScrollRequestId] = useState(0)
 
   const videoCategories = useMemo(() => {
@@ -72,26 +74,37 @@ export default function SearchContainer({
 
   const suggestionIndex = useMemo(() => buildSearchSuggestionIndex(posts), [posts])
 
-  const sportQuickChips = useMemo(() => getPopularSportCategories(posts), [posts])
-
   const publishStats = useMemo(() => getPublishStats(posts), [posts])
 
   const filtered = useMemo(() => {
-    return filterPostsBySearch(posts, {
+    const base = activeBrowseFilter
+      ? posts.filter((post) => postMatchesBrowseFilter(post, activeBrowseFilter))
+      : posts
+
+    return filterPostsBySearch(base, {
       keyword,
       selectedGenre,
       selectedVideoCategory,
       selectedCareerCategory,
       selectedArea,
     }).sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
-  }, [posts, keyword, selectedGenre, selectedVideoCategory, selectedCareerCategory, selectedArea])
+  }, [
+    posts,
+    activeBrowseFilter,
+    keyword,
+    selectedGenre,
+    selectedVideoCategory,
+    selectedCareerCategory,
+    selectedArea,
+  ])
 
   const hasActiveFilter =
     keyword !== '' ||
     selectedGenre ||
     selectedVideoCategory ||
     selectedCareerCategory ||
-    selectedArea
+    selectedArea ||
+    activeBrowseFilter
 
   const clearFilters = () => {
     setKeyword('')
@@ -99,11 +112,25 @@ export default function SearchContainer({
     setSelectedVideoCategory(null)
     setSelectedCareerCategory(null)
     setSelectedArea(null)
+    setActiveBrowseFilter(null)
   }
 
   const scrollToResults = useCallback(() => {
     setScrollRequestId((id) => id + 1)
   }, [])
+
+  const applyBrowseFilter = useCallback(
+    (filter: BrowseFilter) => {
+      setActiveBrowseFilter(filter)
+      setKeyword('')
+      setSelectedGenre(null)
+      setSelectedArea(null)
+      setSelectedCareerCategory(null)
+      setSelectedVideoCategory(null)
+      scrollToResults()
+    },
+    [scrollToResults],
+  )
 
   useEffect(() => {
     if (scrollRequestId === 0 || !hasActiveFilter) return
@@ -161,44 +188,39 @@ export default function SearchContainer({
   )
 
   const browseSectionProps = {
+    posts,
     keyword,
-    onKeywordChange: setKeyword,
+    onKeywordChange: (value: string) => {
+      setKeyword(value)
+      if (value.trim()) setActiveBrowseFilter(null)
+    },
     onSelectSuggestion: () => {
       scrollToResults()
     },
     suggestionIndex,
     selectedGenre,
-    onGenreChange: (genre: string | null) => {
-      setSelectedGenre(genre)
-      scrollToResults()
-    },
     selectedArea,
-    onAreaChange: (area: string | null) => {
-      setSelectedArea(area)
-      scrollToResults()
-    },
     selectedVideoCategory,
     onVideoCategoryChange: (id: string | null) => {
       setSelectedVideoCategory(id)
+      setActiveBrowseFilter(null)
       scrollToResults()
     },
     selectedCareerCategory,
     onCareerCategoryChange: (category: string | null) => {
       setSelectedCareerCategory(category)
+      setActiveBrowseFilter(null)
       scrollToResults()
     },
     videoCategories,
     careerCategories,
+    onApplyBrowseSelection: applyBrowseFilter,
+    activeBrowseFilter,
     hasActiveFilter: Boolean(hasActiveFilter),
     filteredCount: filtered.length,
     totalCount: posts.length,
     onClearFilters: clearFilters,
     onShowResults: scrollToResults,
-    sportQuickChips,
-    onSportChipClick: (sportName: string) => {
-      setKeyword(sportName)
-      scrollToResults()
-    },
   }
 
   return (
