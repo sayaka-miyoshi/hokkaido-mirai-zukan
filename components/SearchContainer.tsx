@@ -12,7 +12,6 @@ import PopularContentSection from '@/components/home/PopularContentSection'
 import SpecialFeaturesSection from '@/components/home/SpecialFeaturesSection'
 import StoryImageBlock from '@/components/home/StoryImageBlock'
 import TopHero from '@/components/home/TopHero'
-import SiteHeader from '@/components/SiteHeader'
 import type { Post } from '@/types/post'
 import type { DataSource } from '@/types/fetch-result'
 import { getEnabledContactMenuItems } from '@/lib/contact/forms'
@@ -204,7 +203,6 @@ export default function SearchContainer({
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <SiteHeader locale="ja" />
       <TopHero />
 
       <main className="mx-auto w-full flex-1">
