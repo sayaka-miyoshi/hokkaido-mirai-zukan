@@ -5,7 +5,8 @@
 import { chromium } from 'playwright'
 
 const base = (process.argv[2] || 'https://www.hokkaido-miraizukan.jp').replace(/\/$/, '')
-const expectedGaId = process.env.EXPECTED_GA_ID || 'G-9Q0MGFPBZ6'
+const expectedGaId = process.env.EXPECTED_GA_ID || 'G-JEEYE86YNZ'
+const retiredGaId = process.env.RETIRED_GA_ID || 'G-9Q0MGFPBZ6'
 let failed = 0
 
 function pass(msg) {
@@ -53,13 +54,37 @@ if (!(await waitForGa(page))) {
   pass(`gtag.js + ${expectedGaId} を検出`)
 }
 
+const htmlAfter = await page.content()
+if (htmlAfter.includes(retiredGaId)) {
+  fail(`旧測定ID ${retiredGaId} がまだ HTML に含まれています`)
+} else {
+  pass(`旧測定ID ${retiredGaId} への送信なし`)
+}
+
 console.log('\n=== page_view イベント ===')
 await page.waitForTimeout(3000)
+const toNewProperty = gaHits.filter((u) => u.includes(expectedGaId) || u.includes(`tid=${expectedGaId}`) || u.includes(`/${expectedGaId}/`))
+const toOldProperty = gaHits.filter((u) => u.includes(retiredGaId))
 const pageViewHits = gaHits.filter((u) => u.includes('page_view') || u.includes('en=page_view'))
-if (pageViewHits.length > 0 || gaHits.length > 0) {
+
+if (gaHits.length > 0) {
   pass(`GA4 送信リクエスト: ${gaHits.length} 件`)
 } else {
   fail('GA4 送信リクエスト未検出（Realtime で確認してください）')
+}
+
+if (toOldProperty.length > 0) {
+  fail(`旧プロパティ ${retiredGaId} への送信が ${toOldProperty.length} 件あります`)
+} else {
+  pass(`旧プロパティ ${retiredGaId} への送信なし`)
+}
+
+if (toNewProperty.length > 0 || (gaHits.length > 0 && !toOldProperty.length)) {
+  pass(`新プロパティ ${expectedGaId} へ送信（page_view 関連: ${pageViewHits.length}）`)
+} else if (gaHits.length === 0) {
+  // already failed above
+} else {
+  fail(`新プロパティ ${expectedGaId} への送信を確認できませんでした`)
 }
 
 console.log('\n=== Vercel Analytics ===')
