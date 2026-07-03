@@ -11,6 +11,7 @@ import {
 } from 'react'
 import {
   filterSearchSuggestions,
+  getSuggestionKindLabel,
   type SearchSuggestion,
 } from '@/lib/search-suggestions'
 
@@ -22,7 +23,7 @@ type SearchSuggestInputProps = {
   suggestionIndex: SearchSuggestion[]
 }
 
-/** キーワード検索入力（学校名・部活名・企業名・競技カテゴリのサジェスト） */
+/** キーワード検索入力（学校名・部活名・競技名・企業名のサジェスト） */
 export default function SearchSuggestInput({
   keyword,
   onKeywordChange,
@@ -134,8 +135,8 @@ export default function SearchSuggestInput({
           setIsOpen(true)
         }}
         onKeyDown={handleKeyDown}
-        placeholder="学校名・部活名・企業名で検索"
-        className="w-full rounded-2xl border border-magazine-border bg-white px-4 py-3.5 text-base text-magazine-text placeholder:text-magazine-muted focus:border-hokkaido-sky focus:outline-none focus:ring-2 focus:ring-hokkaido-sky/20"
+        placeholder="学校名・部活名・競技名・企業名で検索"
+        className="w-full rounded-2xl border border-magazine-border bg-white px-4 py-4 text-base text-magazine-text placeholder:text-magazine-muted focus:border-hokkaido-sky focus:outline-none focus:ring-2 focus:ring-hokkaido-sky/20"
       />
 
       {showList && (
@@ -146,7 +147,7 @@ export default function SearchSuggestInput({
           className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-20 max-h-72 overflow-y-auto rounded-2xl border border-magazine-border bg-white py-1 shadow-magazine-sm"
         >
           {suggestions.map((item, index) => (
-            <li key={item.label} role="presentation">
+            <li key={`${item.kind}-${item.label}`} role="presentation">
               <button
                 id={`${listboxId}-option-${index}`}
                 type="button"
@@ -154,10 +155,13 @@ export default function SearchSuggestInput({
                 aria-selected={activeIndex === index}
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => selectSuggestion(item.label)}
-                className={`flex min-h-[48px] w-full items-center px-4 py-3 text-left text-sm text-magazine-text transition-colors
+                className={`flex min-h-[48px] w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm text-magazine-text transition-colors
                   ${activeIndex === index ? 'bg-magazine-sky' : 'hover:bg-magazine-sky/70 active:bg-magazine-sky'}`}
               >
-                {item.label}
+                <span className="min-w-0 truncate font-medium">{item.label}</span>
+                <span className="shrink-0 rounded-full bg-magazine-cream px-2 py-0.5 text-[10px] font-bold text-magazine-muted">
+                  {getSuggestionKindLabel(item.kind)}
+                </span>
               </button>
             </li>
           ))}

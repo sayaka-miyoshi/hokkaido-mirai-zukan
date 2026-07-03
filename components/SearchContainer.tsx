@@ -7,12 +7,13 @@ import HomeBrowseSection from '@/components/home/HomeBrowseSection'
 import HomePublishStatsSection from '@/components/home/HomePublishStatsSection'
 import HomeSearchResultsSection from '@/components/home/HomeSearchResultsSection'
 import LatestContentSection from '@/components/home/LatestContentSection'
+import ArticleTypeSections from '@/components/home/ArticleTypeSections'
 import OperatorSection from '@/components/home/OperatorSection'
 import PopularContentSection from '@/components/home/PopularContentSection'
 import SpecialFeaturesSection from '@/components/home/SpecialFeaturesSection'
 import StoryImageBlock from '@/components/home/StoryImageBlock'
 import TopHero from '@/components/home/TopHero'
-import { POST_SEARCH_FIELDS } from '@/types/post'
+import SiteHeader from '@/components/SiteHeader'
 import type { Post } from '@/types/post'
 import type { DataSource } from '@/types/fetch-result'
 import { getEnabledContactMenuItems } from '@/lib/contact/forms'
@@ -23,6 +24,7 @@ import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { getPublishStats } from '@/lib/publish-stats'
 import { resolvePopularContent } from '@/lib/popular-posts'
+import { filterPostsBySearch, getPopularSportCategories } from '@/lib/post-search'
 import { buildSearchSuggestionIndex } from '@/lib/search-suggestions'
 import { STORY_ALT, STORY_IMAGES } from '@/lib/story-assets'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
@@ -72,23 +74,18 @@ export default function SearchContainer({
 
   const suggestionIndex = useMemo(() => buildSearchSuggestionIndex(posts), [posts])
 
+  const sportQuickChips = useMemo(() => getPopularSportCategories(posts), [posts])
+
   const publishStats = useMemo(() => getPublishStats(posts), [posts])
 
   const filtered = useMemo(() => {
-    return posts
-      .filter((post) => {
-        const matchesKeyword =
-          keyword === '' ||
-          POST_SEARCH_FIELDS.some((field) => String(post[field]).includes(keyword))
-        const matchesGenre = !selectedGenre || post.genre === selectedGenre
-        const matchesVideo =
-          !selectedVideoCategory || post.videoCategory === selectedVideoCategory
-        const matchesCareer =
-          !selectedCareerCategory || post.careerCategory === selectedCareerCategory
-        const matchesArea = !selectedArea || post.area === selectedArea
-        return matchesKeyword && matchesGenre && matchesVideo && matchesCareer && matchesArea
-      })
-      .sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
+    return filterPostsBySearch(posts, {
+      keyword,
+      selectedGenre,
+      selectedVideoCategory,
+      selectedCareerCategory,
+      selectedArea,
+    }).sort((a, b) => parsePostDate(b.date) - parsePostDate(a.date))
   }, [posts, keyword, selectedGenre, selectedVideoCategory, selectedCareerCategory, selectedArea])
 
   const hasActiveFilter =
@@ -199,10 +196,16 @@ export default function SearchContainer({
     totalCount: posts.length,
     onClearFilters: clearFilters,
     onShowResults: scrollToResults,
+    sportQuickChips,
+    onSportChipClick: (sportName: string) => {
+      setKeyword(sportName)
+      scrollToResults()
+    },
   }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader locale="ja" />
       <TopHero />
 
       <main className="mx-auto w-full flex-1">
@@ -227,6 +230,8 @@ export default function SearchContainer({
           <PopularContentSection entries={popularEntries} />
 
           <LatestContentSection posts={latestPosts} />
+
+          <ArticleTypeSections posts={posts} />
 
           <CompanyContentSection posts={companyPosts} />
 

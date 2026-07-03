@@ -19,7 +19,7 @@ const OPTIONAL_HEADERS = [
   '画像URL',
   '学校名', '部活名', '企業名', '動画カテゴリ', '進路カテゴリ',
   '募集情報', '募集情報URL', 'InstagramURL',
-  '学校公式サイト', '学校SNS', '部活SNS', '企業公式サイト', '企業SNS',
+  '学校公式サイト', '学校SNS', '部活SNS', '部活ホームページ', '企業公式サイト', '企業SNS',
   '人気表示', '人気順',
   '掲載元', 'コンテンツ種別',
 ]
@@ -189,8 +189,22 @@ function filterPosts(posts, { keyword, genre, area, videoCategory, careerCategor
   const normalizedVideoCategory = videoCategory
     ? normalizeVideoCategoryId(videoCategory, maps)
     : ''
+  const SEARCH_FIELDS = ['title', 'genre', 'schoolName', 'clubName', 'companyName', 'sportCategory']
+  const normalizeQuery = (raw) => {
+    let q = raw.trim().normalize('NFKC').toLowerCase()
+    if (q.includes('バトミントン')) q = q.replaceAll('バトミントン', 'バドミントン')
+    return q
+  }
+  const normalizeField = (value) => {
+    let s = String(value ?? '').trim().normalize('NFKC').toLowerCase()
+    if (s.includes('バトミントン')) s = s.replaceAll('バトミントン', 'バドミントン')
+    return s
+  }
+  const normalizedKeyword = keyword ? normalizeQuery(keyword) : ''
   return posts.filter((p) => {
-    const kw = !keyword || [p.title, p.schoolName, p.clubName, p.companyName].some((f) => f.includes(keyword))
+    const kw =
+      !normalizedKeyword ||
+      SEARCH_FIELDS.some((field) => normalizeField(p[field]).includes(normalizedKeyword))
     const g = !genre || p.genre === genre
     const a = !area || p.area === area
     const v = !normalizedVideoCategory || p.videoCategory === normalizedVideoCategory
@@ -233,6 +247,9 @@ if (posts.length === 0) failed++
 console.log('\n=== ③ 検索機能 ===')
 const tests = [
   { name: 'キーワード「北海」', fn: () => filterPosts(posts, { keyword: '北海' }, videoCategoryMaps).length > 0 },
+  { name: 'キーワード「部活」（genre検索）', fn: () => filterPosts(posts, { keyword: '部活' }, videoCategoryMaps).length > 0 },
+  { name: 'キーワード「バドミントン」', fn: () => filterPosts(posts, { keyword: 'バドミントン' }, videoCategoryMaps).length > 0 },
+  { name: 'キーワード「バトミントン」（表記ゆれ）', fn: () => filterPosts(posts, { keyword: 'バトミントン' }, videoCategoryMaps).length > 0 },
   { name: 'ジャンル「部活」', fn: () => filterPosts(posts, { genre: '部活' }, videoCategoryMaps).length > 0 },
   { name: 'エリア「札幌」', fn: () => filterPosts(posts, { area: '札幌' }, videoCategoryMaps).length > 0 },
   { name: '動画カテゴリ「部活紹介」', fn: () => filterPosts(posts, { videoCategory: '部活紹介' }, videoCategoryMaps).length > 0 },

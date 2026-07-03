@@ -25,7 +25,7 @@ export default function HomeSearchResultsSection({
       >
         <h2 className="font-magazine-rounded text-xl font-bold text-magazine-title">{title}</h2>
         <div className="mt-10 py-12 text-center">
-          <p className="font-medium text-magazine-text">該当する記事が見つかりませんでした</p>
+          <p className="font-medium text-magazine-text">該当する記事がありません</p>
           <p className="mt-2 text-sm text-magazine-muted">キーワードや条件を変えてみてください</p>
           <button
             type="button"

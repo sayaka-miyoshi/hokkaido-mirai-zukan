@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { type ReactNode } from 'react'
 import SearchSuggestInput from '@/components/home/SearchSuggestInput'
 import type { SearchSuggestion } from '@/lib/search-suggestions'
+import type { SportQuickChip } from '@/lib/post-search'
 import { urls } from '@/lib/urls'
 
 type HomeBrowseSectionProps = {
@@ -21,6 +22,8 @@ type HomeBrowseSectionProps = {
   onCareerCategoryChange: (category: string | null) => void
   videoCategories: { id: string; label: string }[]
   careerCategories: string[]
+  sportQuickChips: SportQuickChip[]
+  onSportChipClick: (sportName: string) => void
   hasActiveFilter: boolean
   filteredCount: number
   totalCount: number
@@ -41,7 +44,7 @@ function FilterChip({
     <button
       type="button"
       onClick={onClick}
-      className={`min-h-[40px] shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-all active:scale-[0.98]
+      className={`min-h-[44px] shrink-0 rounded-full border px-4 py-2.5 text-xs font-medium transition-all active:scale-[0.98]
         ${active
           ? 'border-magazine-title bg-magazine-title text-white shadow-magazine-sm'
           : 'border-magazine-border bg-white text-magazine-text hover:border-hokkaido-sky/50 hover:bg-magazine-sky'
@@ -68,6 +71,8 @@ export default function HomeBrowseSection({
   onCareerCategoryChange,
   videoCategories,
   careerCategories,
+  sportQuickChips,
+  onSportChipClick,
   hasActiveFilter,
   filteredCount,
   totalCount,
@@ -78,9 +83,9 @@ export default function HomeBrowseSection({
     <section
       id="browse"
       aria-label="記事を探す"
-      className="scroll-mt-4 bg-white px-6 py-16"
+      className="scroll-mt-4 bg-white px-4 py-12 sm:px-6 sm:py-16"
     >
-      <div className="space-y-10 rounded-3xl border border-magazine-border bg-magazine-cream/50 p-6">
+      <div className="space-y-8 rounded-3xl border border-magazine-border bg-magazine-cream/50 p-4 sm:space-y-10 sm:p-6">
         <div>
           <label htmlFor="home-search" className="sr-only">
             キーワード検索
@@ -105,7 +110,7 @@ export default function HomeBrowseSection({
             </FilterChip>
             <Link
               href={urls.schools()}
-              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+              className="inline-flex min-h-[44px] items-center rounded-full border border-magazine-border bg-white px-4 py-2.5 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
             >
               学校一覧へ →
             </Link>
@@ -123,11 +128,36 @@ export default function HomeBrowseSection({
             </FilterChip>
             <Link
               href={urls.clubs()}
-              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+              className="inline-flex min-h-[44px] items-center rounded-full border border-magazine-border bg-white px-4 py-2.5 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
             >
               部活一覧へ →
             </Link>
           </div>
+
+          {sportQuickChips.length > 0 && (
+            <div className="mt-5">
+              <p className="mb-3 text-[11px] font-bold text-magazine-muted">競技から探す</p>
+              <div className="flex flex-wrap gap-2">
+                {sportQuickChips.map((sport) => (
+                  <FilterChip
+                    key={sport.name}
+                    active={keyword === sport.name}
+                    onClick={() => onSportChipClick(sport.name)}
+                  >
+                    {sport.name}
+                  </FilterChip>
+                ))}
+              </div>
+              <p className="mt-3">
+                <Link
+                  href={urls.sports()}
+                  className="text-xs font-medium text-hokkaido-sky hover:underline"
+                >
+                  競技カテゴリ一覧へ →
+                </Link>
+              </p>
+            </div>
+          )}
         </div>
 
         <div>
@@ -149,7 +179,7 @@ export default function HomeBrowseSection({
             </FilterChip>
             <Link
               href={urls.companies()}
-              className="inline-flex min-h-[40px] items-center rounded-full border border-magazine-border bg-white px-4 py-2 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
+              className="inline-flex min-h-[44px] items-center rounded-full border border-magazine-border bg-white px-4 py-2.5 text-xs font-medium text-magazine-text hover:bg-magazine-sky"
             >
               企業一覧へ →
             </Link>
@@ -212,19 +242,19 @@ export default function HomeBrowseSection({
         )}
 
         {hasActiveFilter && (
-          <div className="space-y-3 border-t border-magazine-border pt-5">
+          <div className="sticky bottom-3 z-10 space-y-3 rounded-2xl border border-magazine-border bg-white/95 p-4 shadow-magazine-sm backdrop-blur-sm sm:static sm:border-t sm:border-magazine-border sm:bg-transparent sm:p-0 sm:pt-5 sm:shadow-none sm:backdrop-blur-none">
             <div className="flex items-center justify-between text-xs text-magazine-text">
               <span>
                 {filteredCount}件 / 全{totalCount}件
               </span>
-              <button type="button" onClick={onClearFilters} className="font-bold text-hokkaido-sky">
+              <button type="button" onClick={onClearFilters} className="min-h-[44px] px-2 font-bold text-hokkaido-sky">
                 リセット
               </button>
             </div>
             <button
               type="button"
               onClick={onShowResults}
-              className="flex min-h-[48px] w-full items-center justify-center rounded-full bg-magazine-title text-sm font-bold text-white shadow-magazine-sm"
+              className="flex min-h-[48px] w-full items-center justify-center rounded-full bg-magazine-title text-sm font-bold text-white shadow-magazine-sm active:scale-[0.99]"
             >
               記事を見る（{filteredCount}件）↓
             </button>

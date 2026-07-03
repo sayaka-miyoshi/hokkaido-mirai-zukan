@@ -20,6 +20,17 @@ const SUGGESTION_SOURCES: { field: keyof Pick<Post, 'schoolName' | 'clubName' | 
 
 const KIND_ORDER: SearchSuggestionKind[] = ['school', 'club', 'company', 'sport']
 
+const KIND_LABELS: Record<SearchSuggestionKind, string> = {
+  school: '学校',
+  club: '部活',
+  company: '企業',
+  sport: '競技',
+}
+
+export function getSuggestionKindLabel(kind: SearchSuggestionKind): string {
+  return KIND_LABELS[kind]
+}
+
 function kindRank(kind: SearchSuggestionKind): number {
   return KIND_ORDER.indexOf(kind)
 }
