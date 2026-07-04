@@ -3,6 +3,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { M_PLUS_Rounded_1c, Noto_Sans_JP } from 'next/font/google'
 import AnalyticsProvider from '@/components/AnalyticsProvider'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import JsonLd from '@/components/JsonLd'
+import { createOrganizationJsonLd } from '@/lib/json-ld'
 import { createRootMetadata } from '@/lib/metadata'
 import './globals.css'
 
@@ -24,6 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={`${magazineRounded.variable} ${sans.variable}`}>
       <body className="min-h-screen bg-white font-sans text-magazine-text antialiased">
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            ...createOrganizationJsonLd(),
+          }}
+        />
         <GoogleAnalytics />
         <AnalyticsProvider>
           {children}

@@ -17,23 +17,35 @@ function clamp(text: string, max = 140): string {
   return `${normalized.slice(0, max - 1)}…`
 }
 
-/** 記事リード文（ai_summary 優先） */
+/** 記事リード文（ai_summary 優先・SEO用に最低限の文脈を付与） */
 export function resolvePostLeadSummary(post: Post): string {
   const manual = post.aiSummary.trim()
-  if (manual) return manual
+  if (manual) return ensureMinDescription(manual, post)
 
   const description = post.description.trim()
-  if (description) return clamp(description, 160)
+  if (description) return ensureMinDescription(clamp(description, 160), post)
 
-  const parts = [post.schoolName, post.clubName, post.companyName, post.sportCategory]
+  const parts = [post.schoolName, post.clubName, post.companyName, post.sportCategory, post.area]
     .map((p) => p.trim())
     .filter(Boolean)
 
   if (parts.length > 0) {
-    return clamp(`${parts.join('・')}に関する紹介記事です。`)
+    return clamp(`${parts.join('・')}に関する紹介記事です。北海道未来図鑑の取材記事。`, 160)
   }
 
-  return clamp(post.title, 160)
+  return clamp(`${post.title}｜北海道の学校・部活・企業を紹介する北海道未来図鑑の記事です。`, 160)
+}
+
+function ensureMinDescription(text: string, post: Post, min = 50): string {
+  if (text.length >= min) return text
+  const extras = [post.schoolName, post.clubName, post.companyName, post.sportCategory, post.area]
+    .map((p) => p.trim())
+    .filter(Boolean)
+  const suffix =
+    extras.length > 0
+      ? `（${extras.slice(0, 3).join('・')}／北海道未来図鑑）`
+      : '（北海道未来図鑑の取材記事）'
+  return clamp(`${text}${suffix}`, 160)
 }
 
 export function buildSchoolSummary(schoolName: string, posts: Post[]): string {

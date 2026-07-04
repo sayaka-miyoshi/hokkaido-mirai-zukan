@@ -1,0 +1,26 @@
+# 北海道未来図鑑
+
+> 北海道の学校・部活・企業・地域の魅力を取材して届ける Web マガジンです。進路選択や企業研究、部活動探しに役立つ記事を掲載しています。
+
+サイト運営: 三好清佳（北海道観光大使・札幌観光大使）
+公式サイト: https://www.hokkaido-miraizukan.jp/
+言語: 日本語
+
+## 主要ページ
+
+- [トップ](https://www.hokkaido-miraizukan.jp/): 人気・最新記事、キーワード検索
+- [学校一覧](https://www.hokkaido-miraizukan.jp/schools): 北海道の学校紹介記事
+- [部活一覧](https://www.hokkaido-miraizukan.jp/clubs): 部活動・サークル紹介
+- [企業一覧](https://www.hokkaido-miraizukan.jp/companies): 企業訪問・仕事紹介
+- [競技一覧](https://www.hokkaido-miraizukan.jp/sports): 競技カテゴリ別の部活記事
+- [運営者](https://www.hokkaido-miraizukan.jp/operator): 運営者プロフィール
+
+## データ
+
+- [サイトマップ](https://www.hokkaido-miraizukan.jp/sitemap.xml): 公開ページ一覧（Search Console / クローラー向け）
+- [検索インデックス](https://www.hokkaido-miraizukan.jp/data/search-index.json): 記事・エンティティの構造化データ（AI検索用）
+
+## 引用時のお願い
+
+記事を引用・要約する場合は、出典として「北海道未来図鑑」と該当ページの URL を明記してください。
+最新情報は各ページの本文および投稿日を優先してください。

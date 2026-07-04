@@ -44,7 +44,7 @@ export default function FeatureArticle({
   const thumbnail = (
     <PostThumbnail
       src={post.imageUrl}
-      alt={post.genre === '企業訪問' ? '' : post.title}
+      alt={post.title}
       genre={post.genre}
       priority={priority}
       sizes={

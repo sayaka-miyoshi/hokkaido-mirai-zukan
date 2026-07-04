@@ -19,9 +19,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const result = await getPostsByAreaSlug(slug)
   if (!result) return {}
 
+  const count = result.posts.length
   return createPageMetadata({
     title: `${result.areaName}エリアの投稿一覧`,
-    description: `${result.areaName}エリアの学校・部活・企業訪問に関する投稿を掲載しています。`,
+    description: `${result.areaName}エリアの学校・部活・企業訪問など${count}件の記事を掲載。北海道未来図鑑で地域の魅力を探せます。`,
     path: urls.area(result.slug),
   })
 }

@@ -1,4 +1,10 @@
-import { OPERATOR_SOCIAL_URLS, SITE_NAME, SITE_TAGLINE, DEFAULT_OG_IMAGE_PATH } from '@/lib/site'
+import {
+  OPERATOR,
+  OPERATOR_SOCIAL_URLS,
+  SITE_NAME,
+  SITE_TAGLINE,
+  DEFAULT_OG_IMAGE_PATH,
+} from '@/lib/site'
 import { PROFILE_IMAGE_PATH } from '@/lib/branding-paths'
 import { OPERATOR_PAGE } from '@/lib/operator-page'
 import { absoluteUrl, getSiteUrl } from '@/lib/site-url'
@@ -126,15 +132,22 @@ export function createArticleJsonLd({
     ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
     ...(datePublished ? { datePublished } : {}),
     about: postAboutEntities(post, pageUrl),
-    author: { '@id': organizationId() },
+    author: {
+      '@type': 'Person',
+      name: OPERATOR.name,
+      url: absoluteUrl('/operator'),
+      jobTitle: OPERATOR.titleLine,
+    },
     publisher: {
       '@type': 'Organization',
       '@id': organizationId(),
       name: SITE_NAME,
+      url: getSiteUrl(),
       logo: {
         '@type': 'ImageObject',
         url: absoluteUrl(DEFAULT_OG_IMAGE_PATH),
       },
+      sameAs: [...OPERATOR_SOCIAL_URLS],
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
