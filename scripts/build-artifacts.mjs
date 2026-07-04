@@ -13,6 +13,7 @@ const skipDeploy = process.argv.includes('--skip-deploy')
 const steps = [
   { name: 'build:search-index', cmd: 'node', args: ['scripts/build-search-index.mjs'] },
   { name: 'build:entity-graph', cmd: 'node', args: ['scripts/build-entity-graph.mjs'] },
+  { name: 'ranking:bootstrap', cmd: 'node', args: ['scripts/bootstrap-ranking-snapshot.mjs'] },
 ]
 
 if (!skipIstep) {

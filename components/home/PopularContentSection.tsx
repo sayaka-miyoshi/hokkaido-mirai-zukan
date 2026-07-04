@@ -27,6 +27,7 @@ export default function PopularContentSection({ entries, entityLinkMap = {} }: P
       <h2 className="font-magazine-rounded text-xl font-bold text-magazine-title">人気コンテンツ</h2>
       <p className="mt-3 text-sm leading-[1.85] text-magazine-muted">
         いま読まれている北海道のストーリー
+        {source === 'analytics' ? '（アクセスデータ反映）' : ''}
       </p>
       <PostClickTracker
         onPostClick={(postId) => {

@@ -10,11 +10,11 @@ export const POPULAR_POSTS_MAX = 6
  */
 export type PopularContentSource = 'spreadsheet' | 'analytics'
 
-/** 現在の取得元（環境変数で上書き可能・未設定時はスプレッドシート） */
+/** 現在の取得元（未設定時は analytics。空スナップショット時はスプレッドシートへフォールバック） */
 export function getPopularContentSource(): PopularContentSource {
   const env = process.env.NEXT_PUBLIC_POPULAR_CONTENT_SOURCE?.trim().toLowerCase()
-  if (env === 'analytics') return 'analytics'
-  return 'spreadsheet'
+  if (env === 'spreadsheet') return 'spreadsheet'
+  return 'analytics'
 }
 
 /** Googleスプレッドシートの列名 */

@@ -240,7 +240,12 @@ export async function loadPublishedPostsForBuild() {
       aiSummary: cell(row, sheet.headerIndex, 'ai_summary'),
       faqJson: cell(row, sheet.headerIndex, 'faq_json'),
       videoCategoryLabel: cell(row, sheet.headerIndex, '動画カテゴリ'),
+      instagramUrl: cell(row, sheet.headerIndex, 'InstagramURL'),
       isPopular: parsePopularFlag(cell(row, sheet.headerIndex, '人気表示')),
+      popularOrder: (() => {
+        const n = Number(cell(row, sheet.headerIndex, '人気順'))
+        return Number.isFinite(n) ? n : null
+      })(),
     })
   }
 

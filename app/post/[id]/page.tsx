@@ -34,6 +34,11 @@ import {
 import { getAreaSlug } from '@/lib/slugs'
 import { getSportSlug } from '@/lib/sport-slugs'
 import { getGenreBadgeClass } from '@/lib/genres'
+import {
+  buildPostScoreMap,
+  loadRankingSnapshot,
+  resolvePostsFromRanking,
+} from '@/lib/ranking/load-ranking'
 import { getRelatedPostSections } from '@/lib/related-posts'
 import { INSTAGRAM_HANDLE, SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
@@ -82,7 +87,13 @@ export default async function PostPage({ params }: PageProps) {
   const imageUrl = await resolvePostImageUrl(post.imageUrl, post.instagramUrl, post.genre)
   const leadSummary = resolvePostLeadSummary(post)
   const faqItems = resolvePostFaq(post)
-  const relatedSections = getRelatedPostSections(post, fetchResult.posts)
+  const rankingSnapshot = await loadRankingSnapshot()
+  const scoreMap = buildPostScoreMap(rankingSnapshot)
+  const popularPool = resolvePostsFromRanking(rankingSnapshot, fetchResult.posts, 24)
+  const relatedSections = getRelatedPostSections(post, fetchResult.posts, {
+    scoreMap,
+    popularPool,
+  })
   const entityLinks = getPostEntityLinks(post, fetchResult.posts, {
     schoolSlug,
     clubSlug,

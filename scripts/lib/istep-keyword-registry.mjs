@@ -120,12 +120,12 @@ function buildEntryGroups() {
       isPopular: false,
     },
     {
-      id: 'entry:home',
+      id: 'entry:start',
       type: 'entry',
       primaryKeyword: '未来図鑑',
-      keywords: ['未来図鑑'],
+      keywords: ['未来図鑑', 'カテゴリ', '探す'],
       category: '入口',
-      url: dmUrl(ENTRY_URLS.home, { dmGroup: 'entry:home', campaign: 'home' }),
+      url: dmUrl(ENTRY_URLS.start, { dmGroup: 'entry:start', campaign: 'start' }),
       urlType: 'entry',
       message: `コメントありがとうございます！
 
@@ -135,7 +135,7 @@ function buildEntryGroups() {
       postCount: 0,
       postIds: [],
       sheetRows: [],
-      notes: 'サイト名コメント用',
+      notes: 'カテゴリ選択ランディング /start',
       isPopular: false,
     },
     {

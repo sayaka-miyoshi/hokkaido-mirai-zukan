@@ -106,6 +106,12 @@ export default function OperatorPageContent() {
               {OPERATOR_SECTION.ctaLabel}
             </Link>
           </div>
+
+          <p className="mt-8 text-center text-sm md:text-left">
+            <Link href="/operator/seo" className="text-hokkaido-sky hover:underline">
+              SEO・分析レポート（運用向け）→
+            </Link>
+          </p>
         </article>
       </main>
 

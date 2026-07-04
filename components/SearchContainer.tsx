@@ -21,6 +21,7 @@ import { getCompanyRecommendedPosts } from '@/lib/company-recommended-posts'
 import { resolveFilterResultHeading } from '@/lib/home-filter-labels'
 import { getLatestContentPosts } from '@/lib/latest-content'
 import { getPublishStats } from '@/lib/publish-stats'
+import type { PopularContentEntry } from '@/lib/popular-posts'
 import { resolvePopularContent } from '@/lib/popular-posts'
 import { trackAnalyticsEvent } from '@/lib/analytics/track-client'
 import { filterPostsBySearch } from '@/lib/post-search'
@@ -36,6 +37,8 @@ type SearchContainerProps = {
   dataSource: DataSource
   dataError?: string
   entityLinkMap?: Record<string, { label: string; href: string }>
+  /** サーバー側で解決した人気記事（未指定時はクライアントでスプレッドシート判定） */
+  popularEntries?: PopularContentEntry[]
 }
 
 /**
@@ -47,6 +50,7 @@ export default function SearchContainer({
   dataSource,
   dataError,
   entityLinkMap = {},
+  popularEntries: popularEntriesProp,
 }: SearchContainerProps) {
   const [keyword, setKeyword] = useState('')
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
@@ -213,7 +217,10 @@ export default function SearchContainer({
     ],
   )
 
-  const popularEntries = useMemo(() => resolvePopularContent(posts), [posts])
+  const popularEntries = useMemo(
+    () => popularEntriesProp ?? resolvePopularContent(posts),
+    [popularEntriesProp, posts],
+  )
 
   const latestPosts = useMemo(() => getLatestContentPosts(posts), [posts])
 

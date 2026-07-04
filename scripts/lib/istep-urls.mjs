@@ -38,4 +38,6 @@ export const ENTRY_URLS = {
   tourism: '/tourism',
   sports: '/sports',
   home: '/',
+  /** カテゴリ選択ランディング（iSTEP 導線） */
+  start: '/start',
 }

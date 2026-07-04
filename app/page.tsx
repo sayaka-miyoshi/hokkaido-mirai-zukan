@@ -4,6 +4,7 @@ import JsonLd from '@/components/JsonLd'
 import SearchContainer from '@/components/SearchContainer'
 import { createWebSiteJsonLd } from '@/lib/json-ld'
 import { createPageMetadata } from '@/lib/metadata'
+import { resolvePopularContentAsync } from '@/lib/popular-posts'
 import { buildPrimaryEntityLinkMap } from '@/lib/post-primary-entity-link'
 import { SITE_NAME } from '@/lib/site'
 import { urls } from '@/lib/urls'
@@ -21,6 +22,7 @@ export const metadata: Metadata = createPageMetadata({
 export default async function Home() {
   const { posts, source, error } = await fetchPostsResult()
   const entityLinkMap = Object.fromEntries(buildPrimaryEntityLinkMap(posts))
+  const popularEntries = await resolvePopularContentAsync(posts)
 
   return (
     <>
@@ -30,6 +32,7 @@ export default async function Home() {
         dataSource={source}
         dataError={error}
         entityLinkMap={entityLinkMap}
+        popularEntries={popularEntries}
       />
     </>
   )
