@@ -1,0 +1,5 @@
+button_order,button_label,dm_url,utm_content,dm_group,notes
+1,🎓 学校を探す,https://www.hokkaido-miraizukan.jp/schools?utm_source=istep&utm_medium=dm&utm_campaign=launch_week1&utm_content=schools&dm_group=entry:schools,schools,entry:schools,パッケージボタン1
+2,⚽ 部活を探す,https://www.hokkaido-miraizukan.jp/clubs?utm_source=istep&utm_medium=dm&utm_campaign=launch_week1&utm_content=clubs&dm_group=entry:clubs,clubs,entry:clubs,パッケージボタン2
+3,🏢 企業を探す,https://www.hokkaido-miraizukan.jp/companies?utm_source=istep&utm_medium=dm&utm_campaign=launch_week1&utm_content=companies&dm_group=entry:companies,companies,entry:companies,パッケージボタン3
+4,🏛️ 札幌市・行政の情報を見る,https://www.hokkaido-miraizukan.jp/area/sapporo?utm_source=istep&utm_medium=dm&utm_campaign=launch_week1&utm_content=sapporo_gov&dm_group=entry:sapporo,sapporo_gov,entry:sapporo,パッケージボタン4。行政専用一覧が無いため札幌エリアを採用
