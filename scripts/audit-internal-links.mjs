@@ -285,6 +285,88 @@ if (deepPages.length > 0) {
   }
 }
 
-const failed = unreachable.length
-console.log(failed === 0 ? '\n✅ 孤立ページなし' : `\n❌ 孤立ページ ${failed} 件`)
+// --- エリアリンク監査（日本語 slug / 解決不能 / 本番 404） ---
+console.log('\n=== エリアリンク監査 ===')
+const areaLinkIssues = []
+const areaSlugByName = new Map()
+
+for (const area of areas) {
+  const slug = getAreaSlug(area)
+  areaSlugByName.set(area, slug)
+  const path = urls.area(slug)
+
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    areaLinkIssues.push({ area, path, reason: '日本語または非ASCII slug' })
+  }
+
+  const matchingPosts = posts.filter((p) => getAreaSlug(p.area) === slug)
+  if (matchingPosts.length === 0) {
+    areaLinkIssues.push({ area, path, reason: '記事0件（ページが404になる）' })
+  }
+}
+
+// 記事から生成されるエリアリンクがすべて解決できるか
+for (const post of posts) {
+  if (!post.area?.trim()) continue
+  const slug = getAreaSlug(post.area)
+  const path = urls.area(slug)
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    areaLinkIssues.push({
+      area: post.area,
+      path,
+      reason: `post/${post.id} のエリアリンクが非ASCII`,
+    })
+  }
+}
+
+const uniqueAreaIssues = [
+  ...new Map(areaLinkIssues.map((item) => [`${item.path}:${item.reason}`, item])).values(),
+]
+
+console.log(`エリア数: ${areas.length}`)
+console.log(`エリアページ: ${[...new Set(areas.map((a) => urls.area(getAreaSlug(a))))].length}`)
+
+if (uniqueAreaIssues.length > 0) {
+  console.log(`\n❌ エリアリンク問題: ${uniqueAreaIssues.length} 件`)
+  for (const issue of uniqueAreaIssues.slice(0, 30)) {
+    console.log(`  ${issue.path} (${issue.area}): ${issue.reason}`)
+  }
+} else {
+  console.log('✅ エリア slug はすべて ASCII、記事あり')
+}
+
+// 本番 HTTP チェック（--live または AUDIT_LIVE=1）
+const live =
+  process.argv.includes('--live') || process.env.AUDIT_LIVE === '1'
+const baseUrl = (process.env.AUDIT_BASE_URL || 'https://www.hokkaido-miraizukan.jp').replace(
+  /\/$/,
+  '',
+)
+let liveFailures = 0
+
+if (live) {
+  console.log(`\n=== 本番エリア 404 チェック (${baseUrl}) ===`)
+  const areaPaths = [...new Set(areas.map((a) => urls.area(getAreaSlug(a))))]
+  for (const path of areaPaths) {
+    try {
+      const res = await fetch(`${baseUrl}${path}`, { redirect: 'follow' })
+      if (res.status === 404) {
+        console.log(`❌ ${path} → HTTP ${res.status}`)
+        liveFailures++
+      } else if (res.status >= 400) {
+        console.log(`❌ ${path} → HTTP ${res.status}`)
+        liveFailures++
+      }
+    } catch (error) {
+      console.log(`❌ ${path} → ${error instanceof Error ? error.message : error}`)
+      liveFailures++
+    }
+  }
+  if (liveFailures === 0) console.log(`✅ 全 ${areaPaths.length} エリアページが 404 なし`)
+} else {
+  console.log('\nℹ️  本番 HTTP チェックは `npm run audit:links -- --live` で実行')
+}
+
+const failed = unreachable.length + uniqueAreaIssues.length + liveFailures
+console.log(failed === 0 ? '\n✅ 孤立ページなし / エリアリンク OK' : `\n❌ 問題 ${failed} 件`)
 process.exit(failed === 0 ? 0 : 1)

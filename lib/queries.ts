@@ -9,7 +9,13 @@ import {
   partitionCompanyPagePosts,
 } from '@/lib/entity-page-posts'
 import { fetchPosts, fetchPostsResult } from '@/lib/fetchPosts'
-import { findAreaNameBySlug, getAreaName, getAreaSlug, isKnownAreaSlug } from '@/lib/slugs'
+import {
+  findAreaNameBySlug,
+  getAreaName,
+  getAreaSlug,
+  isKnownAreaSlug,
+  normalizeAreaSlugParam,
+} from '@/lib/slugs'
 import { getSportNameFromSlug, getSportSlug } from '@/lib/sport-slugs'
 import type { FetchPostsResult } from '@/types/fetch-result'
 import type { Post } from '@/types/post'
@@ -129,16 +135,17 @@ export async function getPostById(id: string): Promise<Post | undefined> {
 
 export async function getPostsByAreaSlug(
   slug: string,
-): Promise<{ areaName: string; posts: Post[] } | undefined> {
+): Promise<{ areaName: string; posts: Post[]; slug: string } | undefined> {
   const posts = await getAllPosts()
+  const normalizedSlug = normalizeAreaSlugParam(slug)
   const areas = [...new Set(posts.map((p) => p.area).filter(Boolean))]
-  const areaName = getAreaName(slug) ?? findAreaNameBySlug(slug, areas)
+  const areaName = getAreaName(normalizedSlug) ?? findAreaNameBySlug(normalizedSlug, areas)
   if (!areaName) return undefined
 
-  const filtered = posts.filter((post) => getAreaSlug(post.area) === slug)
+  const filtered = posts.filter((post) => getAreaSlug(post.area) === normalizedSlug)
   if (filtered.length === 0) return undefined
 
-  return { areaName, posts: filtered }
+  return { areaName, posts: filtered, slug: normalizedSlug }
 }
 
 export async function getPostsBySchoolSlug(

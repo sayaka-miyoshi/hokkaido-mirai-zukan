@@ -23,6 +23,7 @@
     "test:entity-pages": "node --experimental-strip-types scripts/test-entity-page-filters.mjs",
     "test:company-page": "npm run test:entity-pages",
     "audit:internal-links": "node --experimental-strip-types scripts/audit-internal-links.mjs",
+    "audit:links": "node --experimental-strip-types scripts/audit-internal-links.mjs",
     "audit:metadata": "node --experimental-strip-types scripts/audit-metadata-duplicates.mjs",
     "build:search-index": "node scripts/build-search-index.mjs",
     "build:entity-graph": "node scripts/build-entity-graph.mjs",
