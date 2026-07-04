@@ -1,5 +1,6 @@
 'use client'
 
+import { sendGAEvent } from '@next/third-parties/google'
 import { track as vercelTrack } from '@vercel/analytics'
 import {
   readPersistedTrafficSource,
@@ -8,26 +9,10 @@ import {
   type TrafficSource,
 } from '@/lib/attribution'
 import {
-  getGaMeasurementId,
   isAnalyticsEnabled,
   type AnalyticsEventName,
   type AnalyticsEventPayload,
 } from '@/lib/analytics/events'
-
-type GtagFn = (...args: unknown[]) => void
-
-function getGtag(): GtagFn | undefined {
-  if (typeof window === 'undefined') return undefined
-  const w = window as Window & { gtag?: GtagFn; dataLayer?: unknown[] }
-  if (typeof w.gtag === 'function') return w.gtag
-
-  // gtag 未初期化時は dataLayer 経由でキューイング
-  w.dataLayer = w.dataLayer || []
-  w.gtag = function gtag(...args: unknown[]) {
-    w.dataLayer!.push(args)
-  }
-  return w.gtag
-}
 
 function flattenPayload(data: Record<string, string | number | boolean>): Record<string, string> {
   const out: Record<string, string> = {}
@@ -95,13 +80,12 @@ export function trackAnalyticsEvent<Name extends AnalyticsEventName>(
     // Vercel Analytics 未接続時
   }
 
-  const gtag = getGtag()
-  const gaId = getGaMeasurementId()
-  if (gtag && gaId) {
-    gtag('event', name, {
+  try {
+    sendGAEvent('event', name, {
       ...flat,
       traffic_source: referrer_source,
-      send_to: gaId,
     })
+  } catch {
+    // GA 未初期化時
   }
 }

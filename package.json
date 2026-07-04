@@ -37,6 +37,7 @@
     "generate:dm-suggestions": "node scripts/generate-dm-suggestions.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.10",
     "@vercel/analytics": "^2.0.1",
     "next": "^16.2.6",
     "papaparse": "^5.4.1",

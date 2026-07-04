@@ -2,14 +2,11 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim()
-
-type GtagFn = (...args: unknown[]) => void
+import { sendGAEvent } from '@next/third-parties/google'
 
 /**
  * App Router のクライアント遷移でも page_view を送る
- * （初回ロードは gtag config の send_page_view が担当）
+ * （初回ロードは @next/third-parties の gtag config が担当）
  */
 export default function GaRouteTracker() {
   const pathname = usePathname()
@@ -17,7 +14,6 @@ export default function GaRouteTracker() {
   const isFirst = useRef(true)
 
   useEffect(() => {
-    if (!GA_MEASUREMENT_ID) return
     if (isFirst.current) {
       isFirst.current = false
       return
@@ -25,15 +21,16 @@ export default function GaRouteTracker() {
 
     const query = searchParams?.toString()
     const pagePath = query ? `${pathname}?${query}` : pathname
-    const gtag = (window as Window & { gtag?: GtagFn }).gtag
-    if (!gtag) return
 
-    gtag('event', 'page_view', {
-      page_path: pagePath,
-      page_location: window.location.href,
-      page_title: document.title,
-      send_to: GA_MEASUREMENT_ID,
-    })
+    try {
+      sendGAEvent('event', 'page_view', {
+        page_path: pagePath,
+        page_location: typeof window !== 'undefined' ? window.location.href : pagePath,
+        page_title: typeof document !== 'undefined' ? document.title : '',
+      })
+    } catch {
+      // GA 未初期化時
+    }
   }, [pathname, searchParams])
 
   return null
