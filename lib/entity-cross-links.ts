@@ -71,12 +71,7 @@ function buildSlugMaps(posts: Post[]): SlugMaps {
     const companyPost = posts.find(
       (p) => p.companyName === name && p.genre === '企業訪問' && p.slug,
     )
-    if (companyPost?.slug) {
-      company.set(name, companyPost.slug)
-      continue
-    }
-    const fallback = posts.find((p) => p.companyName === name && p.slug)
-    if (fallback?.slug) company.set(name, fallback.slug)
+    if (companyPost?.slug) company.set(name, companyPost.slug)
   }
 
   return { school, club, company }

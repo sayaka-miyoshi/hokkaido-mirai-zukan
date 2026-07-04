@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-04T00:15:30.502Z",
+  "generatedAt": "2026-07-04T00:38:27.007Z",
   "documentCount": 330,
   "documents": [
     {
@@ -1102,14 +1102,12 @@
       "filters": {
         "genre": "部活",
         "companyName": "日本銃剣道連盟",
-        "companySlug": "jukendo",
         "area": "札幌",
         "areaSlug": "sapporo"
       },
       "searchText": "第66回北海道銃剣道選手権大会 銃剣道大会 自衛隊の皆さんが強い！ 第66回北海道銃剣道選手権大会 部活 日本銃剣道連盟 札幌 試合・大会 札幌の大学",
       "embeddingText": "第66回北海道銃剣道選手権大会\n銃剣道大会 自衛隊の皆さんが強い！\n第66回北海道銃剣道選手権大会 部活 日本銃剣道連盟 札幌 試合・大会\n\n札幌の大学",
       "relatedEntityIds": [
-        "company:jukendo",
         "area:sapporo"
       ],
       "publishedAt": "2026年3月30日",
@@ -12803,18 +12801,6 @@
         ],
         "keywords": [
           "株式会社小山製麩所"
-        ]
-      },
-      {
-        "id": "company:jukendo",
-        "name": "日本銃剣道連盟",
-        "slug": "jukendo",
-        "url": "/company/jukendo",
-        "postIds": [
-          "24"
-        ],
-        "keywords": [
-          "日本銃剣道連盟"
         ]
       },
       {

@@ -5,7 +5,7 @@
 import { chromium } from 'playwright'
 
 const base = 'https://www.hokkaido-miraizukan.jp'
-const expectedId = process.env.EXPECTED_GA_ID || 'G-JEEYE86YNZ'
+const expectedId = process.env.EXPECTED_GA_ID || 'G-9Q0MGFPBZ6'
 let failed = 0
 
 function pass(m) {

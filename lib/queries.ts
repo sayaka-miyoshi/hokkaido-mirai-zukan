@@ -111,13 +111,12 @@ function resolveClubSlug(posts: Post[], clubName: string): string | undefined {
   return fallback?.slug
 }
 
-/** 企業ページ用スラッグ（ジャンル「企業訪問」の行のみ） */
+/** 企業ページ用スラッグ（企業訪問記事がある場合のみ・404防止） */
 function resolveCompanySlug(posts: Post[], companyName: string): string | undefined {
   const companyPost = posts.find(
     (p) => p.companyName === companyName && p.genre === '企業訪問' && p.slug,
   )
-  if (companyPost?.slug) return companyPost.slug
-  return posts.find((p) => p.companyName === companyName && p.slug)?.slug
+  return companyPost?.slug
 }
 
 export async function getFetchResult(): Promise<FetchPostsResult> {

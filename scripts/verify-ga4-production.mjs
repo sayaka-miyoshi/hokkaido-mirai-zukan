@@ -5,8 +5,8 @@
 import { chromium } from 'playwright'
 
 const base = (process.argv[2] || 'https://www.hokkaido-miraizukan.jp').replace(/\/$/, '')
-const expectedGaId = process.env.EXPECTED_GA_ID || 'G-JEEYE86YNZ'
-const retiredGaId = process.env.RETIRED_GA_ID || 'G-9Q0MGFPBZ6'
+const expectedGaId = process.env.EXPECTED_GA_ID || 'G-9Q0MGFPBZ6'
+const retiredGaId = process.env.RETIRED_GA_ID || 'G-JEEYE86YNZ'
 let failed = 0
 
 function pass(msg) {

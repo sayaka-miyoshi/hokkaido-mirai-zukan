@@ -63,8 +63,7 @@ export function resolveCompanySlug(posts, companyName) {
   const companyPost = posts.find(
     (p) => p.companyName === companyName && p.genre === '企業訪問' && p.slug,
   )
-  if (companyPost?.slug) return companyPost.slug
-  return posts.find((p) => p.companyName === companyName && p.slug)?.slug
+  return companyPost?.slug
 }
 
 export function getSportSlug(name) {

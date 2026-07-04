@@ -23,7 +23,7 @@ await page.waitForTimeout(2000)
 
 const istepHit = gaHits.some((u) => u.includes('istep_landing') || u.includes('utm_source'))
 const html = await page.content()
-const okScript = html.includes('G-JEEYE86YNZ')
+const okScript = html.includes('G-9Q0MGFPBZ6')
 
 console.log(okScript ? '✅ GA4 スクリプト読み込み' : '❌ GA4 未検出')
 console.log(gaHits.length > 0 ? `✅ GA4 イベント送信: ${gaHits.length} 件` : '⚠️  GA4 送信未検出（Realtime で確認）')
