@@ -18,7 +18,15 @@ type GtagFn = (...args: unknown[]) => void
 
 function getGtag(): GtagFn | undefined {
   if (typeof window === 'undefined') return undefined
-  return (window as Window & { gtag?: GtagFn }).gtag
+  const w = window as Window & { gtag?: GtagFn; dataLayer?: unknown[] }
+  if (typeof w.gtag === 'function') return w.gtag
+
+  // gtag 未初期化時は dataLayer 経由でキューイング
+  w.dataLayer = w.dataLayer || []
+  w.gtag = function gtag(...args: unknown[]) {
+    w.dataLayer!.push(args)
+  }
+  return w.gtag
 }
 
 function flattenPayload(data: Record<string, string | number | boolean>): Record<string, string> {

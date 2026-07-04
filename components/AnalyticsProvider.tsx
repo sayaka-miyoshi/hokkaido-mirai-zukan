@@ -1,13 +1,21 @@
 'use client'
 
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
+import GaRouteTracker from '@/components/GaRouteTracker'
 import { initTrafficAttribution } from '@/lib/analytics/track-client'
 
-/** 初回着地の流入元判定 + iSTEP UTM 計測 */
+/** 初回着地の流入元判定 + ルート変更時の page_view */
 export default function AnalyticsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     initTrafficAttribution()
   }, [])
 
-  return children
+  return (
+    <>
+      <Suspense fallback={null}>
+        <GaRouteTracker />
+      </Suspense>
+      {children}
+    </>
+  )
 }

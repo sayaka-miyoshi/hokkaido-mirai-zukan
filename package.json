@@ -24,6 +24,8 @@
     "test:company-page": "npm run test:entity-pages",
     "audit:internal-links": "node --experimental-strip-types scripts/audit-internal-links.mjs",
     "audit:links": "node --experimental-strip-types scripts/audit-internal-links.mjs",
+    "audit:all-links": "node scripts/audit-all-links-production.mjs",
+    "verify:ga4": "node scripts/verify-ga4-collect.mjs",
     "audit:metadata": "node --experimental-strip-types scripts/audit-metadata-duplicates.mjs",
     "build:search-index": "node scripts/build-search-index.mjs",
     "build:entity-graph": "node scripts/build-entity-graph.mjs",
