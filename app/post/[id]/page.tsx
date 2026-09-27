@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import DataFetchAlert from '@/components/DataFetchAlert'
 import ExternalLinks from '@/components/ExternalLinks'
 import JsonLd from '@/components/JsonLd'
+import InstagramEmbed from '@/components/InstagramEmbed'
 import PostThumbnail from '@/components/PostThumbnail'
 import RecruitmentBadge from '@/components/RecruitmentBadge'
 import RelatedPostsSection from '@/components/RelatedPostsSection'
@@ -152,15 +153,24 @@ export default async function PostPage({ params }: PageProps) {
 
           <p className="mb-6 text-base font-medium leading-relaxed text-gray-800">{leadSummary}</p>
 
-          <PostThumbnail
-            src={post.imageUrl}
-            alt={post.title}
-            genre={post.genre}
-            priority
-            variant="detail"
-            sizes="(max-width: 768px) 100vw, 672px"
-            frameClassName="mb-6"
-          />
+          {post.instagramUrl ? (
+            <InstagramEmbed
+              instagramUrl={post.instagramUrl}
+              title={post.title}
+              imageUrl={post.imageUrl}
+              genre={post.genre}
+            />
+          ) : (
+            <PostThumbnail
+              src={post.imageUrl}
+              alt={post.title}
+              genre={post.genre}
+              priority
+              variant="detail"
+              sizes="(max-width: 768px) 100vw, 672px"
+              frameClassName="mb-6"
+            />
+          )}
 
           <section className="mb-8" aria-labelledby="article-about-heading">
             <h2 id="article-about-heading" className="mb-3 text-lg font-bold text-gray-900">
@@ -246,17 +256,6 @@ export default async function PostPage({ params }: PageProps) {
           <ArticleFaqSection items={faqItems} />
 
           <ExternalLinks links={getPostExternalLinks(post)} />
-
-          {post.instagramUrl && (
-            <a
-              href={post.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block instagram-gradient text-white font-bold px-6 py-3 rounded-full"
-            >
-              Instagramで見る →
-            </a>
-          )}
         </article>
       </main>
 
